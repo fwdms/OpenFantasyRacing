@@ -18,9 +18,11 @@ class CreateLeaguesTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('franchise_id');
             $table->unsignedBigInteger('league_owner_id');
+            $table->timestamps();
+
+            // Keys
             $table->foreign('franchise_id')->references('id')->on('franchises');
             $table->foreign('league_owner_id')->references('id')->on('users');
-            $table->timestamps();
         });
     }
 
