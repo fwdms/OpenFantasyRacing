@@ -16,7 +16,7 @@ class CreateFranchiseTable extends Migration
         Schema::create('franchises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('governingBody');
+            $table->string('governingBody')->nullable();
             $table->timestamps();
         });
     }
