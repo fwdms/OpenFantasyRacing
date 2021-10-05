@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FranchiseSeeder::class,
             ConstructorSeeder::class,
+            DriverSeeder::class,
         ]);
     }
 }
