@@ -22,7 +22,7 @@ class FantasyTeamFactory extends Factory
     public function definition()
     {
         return [
-            'teamName' => $this->faker->name,
+            'team_name' => $this->faker->name,
             'points' => $this->faker->randomNumber([0, 400]),
             'logo' => $this->faker->imageUrl()
         ];

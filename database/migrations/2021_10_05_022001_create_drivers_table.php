@@ -15,20 +15,20 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('lastName');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->integer('number');
             $table->date('birthday');
             $table->unsignedBigInteger('constructor_id');
             $table->string('country');
-            $table->integer('positionLastSeason')->nullable();
-            $table->integer('championshipPoints')->default(0);
-            $table->boolean('isRookie')->default(FALSE);
-            $table->boolean('newToConstructor')->default(FALSE);
-            $table->integer('GPsEntered')->default(0);
+            $table->integer('position_last_season')->nullable();
+            $table->integer('championship_points')->default(0);
+            $table->boolean('is_rookie')->default(FALSE);
+            $table->boolean('new_to_constructor')->default(FALSE);
+            $table->integer('GPs_entered')->default(0);
             $table->integer('podiums')->default(0);
-            $table->integer('allTimeWins')->default(0);
-            $table->bigInteger('numberOfTimesPicked')->default(0);
+            $table->integer('all_time_wins')->default(0);
+            $table->bigInteger('number_of_times_picked')->default(0);
             $table->string('profile_image')->nullable();
             $table->timestamps();
         });

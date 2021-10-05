@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFranchiseTable extends Migration
+class CreateResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateFranchiseTable extends Migration
      */
     public function up()
     {
-        Schema::create('franchises', function (Blueprint $table) {
+        Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('governing_body')->nullable();
+            $table->unsignedBigInteger('race_id');
+            $table->unsignedBigInteger('driver_id');
+            $table->integer('position');
+            $table->boolean('DNF')->default(FALSE);
+            $table->integer('points_for_race');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateFranchiseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('franchises');
+        Schema::dropIfExists('results');
     }
 }
