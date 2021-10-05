@@ -16,16 +16,16 @@ class CreateConstructorsTable extends Migration
         Schema::create('constructors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('positionLastSeason')->nullable();
-            $table->string('engineType');
-            $table->integer('constructorsPoints')->default(0);
-            $table->integer('numberOfTimesPicked')->default(0);
-            $table->unsignedBigInteger('franchiseId');
+            $table->integer('position_last_season')->nullable();
+            $table->string('engine_type');
+            $table->integer('constructors_points')->default(0);
+            $table->integer('number_of_times_picked')->default(0);
+            $table->unsignedBigInteger('franchise_id');
             $table->string('logo')->nullable();
             $table->timestamps();
 
             // keys
-            $table->foreign('franchiseId')->references('id')->on('franchises');
+            $table->foreign('franchise_id')->references('id')->on('franchises');
         });
     }
 

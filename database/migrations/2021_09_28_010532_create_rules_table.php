@@ -16,10 +16,10 @@ class CreateRulesTable extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('league_id');
-            $table->integer('maxNumberOfDriversPerTeam')->default(5);
-            $table->boolean('canChooseFromSameTeam');
-            $table->boolean('canChooseFromSameTopTeam');
-            $table->boolean('pointsOnlyAccruedIfDriverInSeat');
+            $table->integer('max_number_of_drivers_per_team')->default(5);
+            $table->boolean('can_choose_from_same_team');
+            $table->boolean('can_choose_from_same_top_team');
+            $table->boolean('points_only_accrued_if_driver_in_seat');
             $table->timestamps();
 
             // Keys

@@ -15,7 +15,7 @@ class CreateFantasyTeamsTable extends Migration
     {
         Schema::create('fantasy_teams', function (Blueprint $table) {
             $table->id();
-            $table->string('teamName');
+            $table->string('team_name');
             $table->integer('points')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('league_id');
