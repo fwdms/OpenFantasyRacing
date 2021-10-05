@@ -28,6 +28,8 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Getting Started
+Link to [Notion documents](https://lydian-emmental-e07.notion.site/F1-Fantasy-League-003e34c960324cd5bd7eee69d59e9130). This document has some of the info about the models, and some of the features as I am working on them.
+
 This application makes use of :
 1. [Laravel](https://laravel.com/docs/8.x)
    1. [Laravel Sail](https://laravel.com/docs/8.x/sail)
@@ -42,6 +44,7 @@ This application makes use of :
 If you would wish to contribute, feel free to create a PR! A couple of things we expect :
 1. If you wrote a new feature, please write a test for that feature. 
 2. Make sure your feature doesn't break any of the existing features by running `sail artisan test`.
+3. If your PR interacts with a model, make sure to update the Factories so the tests pass.
 
 ## Code of Conduct
 
