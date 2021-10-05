@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Franchise;
+use App\Models\League;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class FranchiseFactory extends Factory
+class LeagueFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Franchise::class;
+    protected $model = League::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class FranchiseFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'governingBody' => $this->faker->text(5),
+
         ];
     }
 }
