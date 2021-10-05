@@ -16,7 +16,7 @@ class CreateConstructorsTable extends Migration
         Schema::create('constructors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('postitionLastSeason')->nullable();
+            $table->integer('positionLastSeason')->nullable();
             $table->string('engineType');
             $table->integer('constructorsPoints')->default(0);
             $table->integer('numberOfTimesPicked')->default(0);
