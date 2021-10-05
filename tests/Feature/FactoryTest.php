@@ -2,12 +2,15 @@
 
 namespace Tests\Feature;
 
+use App\Models\Constructor;
+use App\Models\FantasyTeam;
 use App\Models\Franchise;
 use App\Models\League;
 use App\Models\User;
 use App\Models\Rule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class FactoryTest extends TestCase
@@ -59,5 +62,28 @@ class FactoryTest extends TestCase
         ]);
 
         $this->assertDatabaseCount('rules', 1);
+    }
+
+    /** @test */
+    public function a_fantasy_team_can_be_created()
+    {
+        Artisan::call('db:seed');
+
+        $user = User::factory()->create();
+        $franchise = Franchise::factory()->create();
+        $league = League::factory()->create([
+            'league_owner_id' => $user->id,
+            'franchise_id' => $franchise->id,
+        ]);
+
+        $constructor = Constructor::all()->random();
+
+        FantasyTeam::factory()->create([
+            'user_id' => $user->id,
+            'league_id' => $league->id,
+            'constructor_id' => $constructor->id
+        ]);
+
+        $this->assertDatabaseCount('fantasy_teams', 1);
     }
 }
