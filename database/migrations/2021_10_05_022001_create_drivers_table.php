@@ -17,19 +17,19 @@ class CreateDriversTable extends Migration
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
-            $table->date('birthday');
-            $table->integer('weight');
-            $table->integer('height');
             $table->integer('number');
+            $table->date('birthday');
             $table->unsignedBigInteger('constructor_id');
-            $table->string('nationality');
+            $table->string('country');
             $table->integer('positionLastSeason')->nullable();
             $table->integer('championshipPoints')->default(0);
             $table->boolean('isRookie')->default(FALSE);
             $table->boolean('newToConstructor')->default(FALSE);
+            $table->integer('GPsEntered')->default(0);
+            $table->integer('podiums')->default(0);
             $table->integer('allTimeWins')->default(0);
-            $table->string('status')->nullable();
             $table->bigInteger('numberOfTimesPicked')->default(0);
+            $table->string('profile_image')->nullable();
             $table->timestamps();
         });
     }
