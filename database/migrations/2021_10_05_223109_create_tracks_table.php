@@ -18,8 +18,6 @@ class CreateTracksTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->integer('number_of_turns');
-            $table->date('race_date')->nullable();
-            $table->string('weather')->nullable();
             $table->string('track_photo')->nullable();
             $table->timestamps();
         });

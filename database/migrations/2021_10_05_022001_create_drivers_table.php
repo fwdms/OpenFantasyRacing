@@ -31,6 +31,9 @@ class CreateDriversTable extends Migration
             $table->bigInteger('number_of_times_picked')->default(0);
             $table->string('profile_image')->nullable();
             $table->timestamps();
+
+            // keys
+            $table->foreign('constructor_id')->references('id')->on('constructors');
         });
     }
 
