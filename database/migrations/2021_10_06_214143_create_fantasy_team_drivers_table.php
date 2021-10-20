@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateFantasyTeamDriversTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('fantasy_team_drivers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('race_id');
+            $table->unsignedBigInteger('fantasy_team_id');
             $table->unsignedBigInteger('driver_id');
-            $table->integer('position');
-            $table->boolean('DNF')->default(FALSE);
-            $table->integer('points_for_race');
+            $table->boolean('driver_in_seat')->default(FALSE);
+            $table->integer('round_drafted')->nullable();
             $table->timestamps();
 
-            // keys 
-            $table->foreign('race_id')->references('id')->on('races');
+            // keys
+            $table->foreign('fantasy_team_id')->references('id')->on('fantasy_teams');
             $table->foreign('driver_id')->references('id')->on('drivers');
         });
     }
@@ -35,6 +34,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('fantasy_team_drivers');
     }
 }
