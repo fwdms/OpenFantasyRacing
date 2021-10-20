@@ -31,6 +31,9 @@ steps:
 - script: php artisan key:generate
   displayName: 'Generate key'
 
+- script: php artisan cache:clear
+  displayName: 'Clear Caches'
+
 - script: php artisan test
   displayName: 'Run PHPUnit Tests'
 
