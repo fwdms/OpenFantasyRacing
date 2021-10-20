@@ -31,7 +31,7 @@ steps:
 - script: php artisan key:generate
   displayName: 'Generate key'
 
-- script: ./vendor/bin/phpunit
+- script: php artisan test
   displayName: 'run phpunit tests'
 
 - task: NodeTool@0
