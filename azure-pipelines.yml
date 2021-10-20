@@ -27,6 +27,9 @@ steps:
   
 - script: cp .env.example .env
   displayName: 'create .env file'
+  
+- script: php artisan key:generate
+  displayName: 'Generate key'
 
 - script: ./vendor/bin/phpunit
   displayName: 'run phpunit tests'
