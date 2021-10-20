@@ -24,6 +24,9 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
+  
+- script: cp .env-example .env
+  displayName: 'create .env file'
 
 - script: ./vendor/bin/phpunit
   displayName: 'run phpunit tests'
