@@ -11,6 +11,7 @@ pool:
 
 variables:
   phpVersion: 8.0
+  nodeVersion: 16.x
 
 steps:
 - script: |
@@ -39,9 +40,9 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
+    versionSpec: $(nodeVersion)
     checkLatest: true
-  displayName: 'Setup Node'
+  displayName: 'Setup Node $(nodeVersion)'
 
 - script: npm install
   displayName: 'Install Node Dependencies'

@@ -50,3 +50,6 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 
 1. README only PRs will be declined.
 2. PRs without tests will also be declined.
+
+
+TESTING TEXT
