@@ -1,32 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
 ## Getting Started
 Link to [Notion documents](https://lydian-emmental-e07.notion.site/F1-Fantasy-League-003e34c960324cd5bd7eee69d59e9130). This document has some of the info about the models, and some of the features as I am working on them.
 
@@ -34,9 +5,6 @@ This application makes use of :
 1. [Laravel](https://laravel.com/docs/8.x)
    1. [Laravel Sail](https://laravel.com/docs/8.x/sail)
    2. [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum)
-2. [Vue.js](https://vuejs.org/v2/guide/)
-   1. [Vuex](https://vuex.vuejs.org/guide/)
-   2. [Vue-Router](https://router.vuejs.org/installation.html)
 3. [TailwindCSS](https://tailwindcss.com/docs)
 
 
@@ -54,14 +22,18 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 
 ## Resource Controller Actions
 
-| Verb 	     | URI 	                | Action   | Route Name      |
-|-------------|----------------------|----------|-----------------|
-| GET 	     | /photos              | index    | photos.index    |
-| GET 	     | /photos/create       | create   | photos.create   |
-| POST 	     | /photos 	          | store 	| photos.store    |
-| GET 	     | /photos/{photo}      | show     | photos.show     |
-| GET 	     | /photos/{photo}/edit | edit 	   | photos.edit     |
-| PUT / PATCH | /photos/{photo} 	    | update 	| photos.update   |
-| DELETE 	  | /photos/{photo} 	    | destroy  | photos.destroy  |
+| Verb 	     | URI 	                | Action   | Route Name      | Used For   |
+|-------------|----------------------|----------|-----------------|------------|
+| GET 	     | /photos              | index    | photos.index    | API / View |
+| GET 	     | /photos/create       | create   | photos.create   | API / View |
+| POST 	     | /photos 	          | store 	| photos.store    | API        |
+| GET 	     | /photos/{photo}      | show     | photos.show     | API / View |
+| GET 	     | /photos/{photo}/edit | edit 	   | photos.edit     | API / View |
+| PUT / PATCH | /photos/{photo} 	    | update 	| photos.update   | API        |
+| DELETE 	  | /photos/{photo} 	    | destroy  | photos.destroy  | API        |
 
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
