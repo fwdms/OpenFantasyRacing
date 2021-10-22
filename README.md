@@ -18,9 +18,10 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 
 1. README only PRs will be declined.
 2. PRs without tests will also be declined.
-3. Your controllers should match the view of resource controllers. Please, avoid custom controller actions in the controller.
+3. Your controllers should match the action of resource controllers (show below). Please, avoid custom controller actions in the controller.
 
 ## Resource Controller Actions
+[Laravel Controller Actions](https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller)
 
 | Verb 	     | URI 	                | Action   | Route Name      | Used For   |
 |-------------|----------------------|----------|-----------------|------------|
