@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body class="font-sans antialiased">
-
-    <header class='flex items-center justify-between px-8 py-4'> 
+<body class="font-sans bg-gray-900 antialiased">
+    <header class='flex items-center bg-white justify-between px-8 py-4'> 
         <a href="{{ route('dashboard') }}">{{ env('APP_NAME') }}</a>
         @if (Route::has('login') && Auth::check())
             <div class="top-right links">
@@ -31,10 +30,12 @@
         @endif
     </header>
 
-    <div class="min-h-screen bg-gray-900">
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+    <main class="min-h-screen pt-16 -mt-14 -mb-12">
+        {{ $slot }}
+    </main>
+
+    <footer class="text-white text-center pt-4">
+        <a class="" href="https://github.com/krlmrr/Fantasy-F1">Contribute to this project</a>
+    </footer>
 </body>
 </html>
