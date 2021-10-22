@@ -54,14 +54,14 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 
 ## Resource Controller Actions
 
-| Verb 	     | URI 	                | Action   | Route Name      |
-|-------------|----------------------|----------|-----------------|
-| GET 	     | /photos              | index    | photos.index    |
-| GET 	     | /photos/create       | create   | photos.create   |
-| POST 	     | /photos 	          | store 	| photos.store    |
-| GET 	     | /photos/{photo}      | show     | photos.show     |
-| GET 	     | /photos/{photo}/edit | edit 	   | photos.edit     |
-| PUT / PATCH | /photos/{photo} 	    | update 	| photos.update   |
-| DELETE 	  | /photos/{photo} 	    | destroy  | photos.destroy  |
+| Verb 	     | URI 	                | Action   | Route Name      | Used For   |
+|-------------|----------------------|----------|-----------------|------------|
+| GET 	     | /photos              | index    | photos.index    | API / View |
+| GET 	     | /photos/create       | create   | photos.create   | API / View |
+| POST 	     | /photos 	          | store 	| photos.store    | API        |
+| GET 	     | /photos/{photo}      | show     | photos.show     | API / View |
+| GET 	     | /photos/{photo}/edit | edit 	   | photos.edit     | API / View |
+| PUT / PATCH | /photos/{photo} 	    | update 	| photos.update   | API        |
+| DELETE 	  | /photos/{photo} 	    | destroy  | photos.destroy  | API        |
 
 
