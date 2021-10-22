@@ -1,9 +1,3 @@
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
 ## Getting Started
 Link to [Notion documents](https://lydian-emmental-e07.notion.site/F1-Fantasy-League-003e34c960324cd5bd7eee69d59e9130). This document has some of the info about the models, and some of the features as I am working on them.
 
@@ -38,4 +32,8 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 | PUT / PATCH | /photos/{photo} 	    | update 	| photos.update   | API        |
 | DELETE 	  | /photos/{photo} 	    | destroy  | photos.destroy  | API        |
 
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
