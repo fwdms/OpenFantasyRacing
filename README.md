@@ -50,6 +50,18 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 
 1. README only PRs will be declined.
 2. PRs without tests will also be declined.
+3. Your controllers should match the view of resource controllers. Please, avoid custom controller actions in the controller.
+
+## Resource Controller Actions
+
+| Verb 	   | URI 	              | Action   | Route Name     |
+|-----------|----------------------|----------|----------------|
+| GET 	   | /photos              | index    | photos.index   |
+| GET 	   | /photos/create       | create   | photos.create  |
+| POST 	   | /photos 	           | store 	 | photos.store   |
+| GET 	   | /photos/{photo}      | show     | photos.show    |
+| GET 	   | /photos/{photo}/edit | edit 	 | photos.edit    |
+| PUT/PATCH | /photos/{photo} 	  | update 	 | photos.update  |
+| DELETE 	| /photos/{photo} 	  | destroy  |	photos.destroy |
 
 
-TESTING TEXT
