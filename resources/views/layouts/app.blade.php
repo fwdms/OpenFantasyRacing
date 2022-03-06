@@ -35,7 +35,7 @@
     </main>
 
     <footer class="text-white text-center pt-4">
-        <a class="" href="https://github.com/krlmrr/Fantasy-F1">Contribute to this project</a>
+        <a class="" href="https://github.com/krlmrr/Fantasy-F1" target="_blank">Contribute to this project</a>
     </footer>
 </body>
 </html>

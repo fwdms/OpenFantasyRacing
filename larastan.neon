@@ -1,0 +1,27 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - routes
+        - resources/views
+        - tests
+
+    # phpVersion: 80199
+
+    # The level 9 is the highest level - Mini 5
+    level: 5
+
+    noModelMake: false
+    noUnnecessaryCollectionCall: false
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - '#Access to an undefined property#'
+
+    excludePaths:
+        - ./vendor
+
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
