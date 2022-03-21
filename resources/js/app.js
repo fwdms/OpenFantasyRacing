@@ -7,7 +7,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 import { createApp, h } from "vue";
 import { createInertiaApp, Head, Link } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
-import Layout from "./Layouts/Guest.vue";
+import Layout from "./Layouts/App.vue";
 
 const appName =
     window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
