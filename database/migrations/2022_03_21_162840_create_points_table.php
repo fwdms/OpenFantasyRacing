@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('title');
             $table->tinyInteger('points_amount');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

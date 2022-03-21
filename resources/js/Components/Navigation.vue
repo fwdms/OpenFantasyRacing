@@ -16,7 +16,7 @@
           <div class="flex-shrink-0 flex items-center">
             <Link href="/">
               <!-- The Logo -->
-              <p class="text-white">{{ appName }}</p>
+              <p class="text-orange-600 font-semibold text-lg">{{ appName }}</p>
               <!-- <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" /> -->
             </Link>
           </div>
@@ -79,16 +79,16 @@
               Register
           </Link>
         </div>
-
       </div>
     </div>
 
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current 
+        <Link v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current 
           ? 'bg-gray-900 text-white' 
           : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current 
-          ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+          ? 'page' : undefined">{{ item.name }}
+        </Link>
       </div>
     </DisclosurePanel>
   </Disclosure>
@@ -102,9 +102,9 @@ import { usePage } from '@inertiajs/inertia-vue3'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  // { name: 'Team', href: '#', current: false },
+  { name: 'Rules', href: '/rules', current: false },
+  // { name: 'Calendar', href: '#', current: false },
 ]
 
 export default {

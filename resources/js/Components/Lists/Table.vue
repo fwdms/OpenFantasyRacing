@@ -23,9 +23,13 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { usePage } from '@inertiajs/inertia-vue3'
+
 export default {
-    props: {
-        'technologies': Object
-    }
+  setup() {
+    const qualifyingPoints = computed(() => usePage().props.value.qualifyingPoints)
+    return { qualifyingPoints }
+  },
 }
 </script>

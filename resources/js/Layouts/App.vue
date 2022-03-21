@@ -1,7 +1,7 @@
 <template>
-    <div class="min-h-screen bg-gray-100 pt-6 sm:pt-0">
+    <div class="min-h-screen bg-gray-100 py-6 sm:pt-0">
         <Navigation />
-        <main>
+        <main class="">
             <slot />
         </main>
     </div>
