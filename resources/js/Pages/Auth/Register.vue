@@ -4,7 +4,7 @@ import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
     name: '',
@@ -22,9 +22,9 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
-        <Head title="Register" />
-
+    <Head title="Register" />
+    
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <BreezeValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
@@ -58,5 +58,5 @@ const submit = () => {
                 </BreezeButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </div>
 </template>

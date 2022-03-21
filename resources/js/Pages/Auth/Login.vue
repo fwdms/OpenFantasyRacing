@@ -1,34 +1,6 @@
-<script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeCheckbox from '@/Components/Checkbox.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
-
-defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
-
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false
-});
-
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
-</script>
-
 <template>
-    <BreezeGuestLayout>
-        <Head title="Log in" />
-
+    <Head title="Log in" />
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <BreezeValidationErrors class="mb-4" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -63,5 +35,31 @@ const submit = () => {
                 </BreezeButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </div>
 </template>
+
+<script setup>
+import BreezeButton from '@/Components/Button.vue';
+import BreezeCheckbox from '@/Components/Checkbox.vue';
+import BreezeInput from '@/Components/Input.vue';
+import BreezeLabel from '@/Components/Label.vue';
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
+import { useForm } from '@inertiajs/inertia-vue3';
+
+defineProps({
+    canResetPassword: Boolean,
+    status: String,
+});
+
+const form = useForm({
+    email: '',
+    password: '',
+    remember: false
+});
+
+const submit = () => {
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
+};
+</script>

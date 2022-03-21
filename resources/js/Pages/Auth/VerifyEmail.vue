@@ -1,24 +1,5 @@
-<script setup>
-import { computed } from 'vue';
-import BreezeButton from '@/Components/Button.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
-
-const props = defineProps({
-    status: String,
-});
-
-const form = useForm();
-
-const submit = () => {
-    form.post(route('verification.send'));
-};
-
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
-</script>
-
 <template>
-    <BreezeGuestLayout>
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <Head title="Email Verification" />
 
         <div class="mb-4 text-sm text-gray-600">
@@ -38,5 +19,24 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
                 <Link :href="route('logout')" method="post" as="button" class="underline text-sm text-gray-600 hover:text-gray-900">Log Out</Link>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </div>
 </template>
+
+<script setup>
+import { computed } from 'vue';
+import BreezeButton from '@/Components/Button.vue';
+import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import { useForm } from '@inertiajs/inertia-vue3';
+
+const props = defineProps({
+    status: String,
+});
+
+const form = useForm();
+
+const submit = () => {
+    form.post(route('verification.send'));
+};
+
+const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+</script>

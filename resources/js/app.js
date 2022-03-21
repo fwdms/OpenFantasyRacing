@@ -1,20 +1,36 @@
-require('./bootstrap');
+window._ = require("lodash");
 
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import { InertiaProgress } from '@inertiajs/progress';
+window.axios = require("axios");
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
+import { createApp, h } from "vue";
+import { createInertiaApp, Head, Link } from "@inertiajs/inertia-vue3";
+import { InertiaProgress } from "@inertiajs/progress";
+import Layout from "./Layouts/Guest.vue";
+
+const appName =
+    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
 
 createInertiaApp({
     title: (title) => `${title} : ${appName}`,
-    resolve: (name) => require(`./Pages/${name}.vue`),
+    resolve: (name) => {
+        let page = require(`./Pages/${name}`).default;
+
+        if (!page.layout) {
+            page.layout = Layout;
+        }
+
+        return page;
+    },
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .component("Link", Link)
+            .component("Head", Head)
             .mixin({ methods: { route } })
             .mount(el);
     },
 });
 
-InertiaProgress.init({ color: '#4B5563' });
+InertiaProgress.init({ color: "#4B5563" });
