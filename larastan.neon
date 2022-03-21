@@ -5,10 +5,8 @@ parameters:
     paths:
         - app
         - routes
-        - resources/views
-        - tests
-
-    # phpVersion: 80199
+        
+    phpVersion: 80199
 
     # The level 9 is the highest level - Mini 5
     level: 5
@@ -19,9 +17,10 @@ parameters:
     ignoreErrors:
         - '#Unsafe usage of new static#'
         - '#Access to an undefined property#'
+        - '#Undefined variable: \$this#'
 
-    excludePaths:
-        - ./vendor
+    # excludePaths:
+    #     - ./vendor
 
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
