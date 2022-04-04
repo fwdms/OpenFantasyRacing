@@ -16,17 +16,17 @@
           <div class="flex-shrink-0 flex items-center">
             <Link href="/">
               <!-- The Logo -->
-              <p class="text-orange-600 font-semibold text-lg">{{ appName }}</p>
+              <p class="text-orange-600 font-semibold text-2xl" style="font-family: 'Bangers', cursive;">{{ appName }}</p>
               <!-- <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" /> -->
             </Link>
           </div>
           <div v-if="$page.props.auth.user" class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" 
+              <Link v-for="item in navigation" :key="item.name" :href="item.href" 
                 :class="[item.current ? 'bg-gray-900 text-white' 
                 : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" 
                 :aria-current="item.current ? 'page' : undefined">{{ item.name }}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -36,10 +36,15 @@
             <div>
               <MenuButton class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <span class="sr-only">Open user menu</span>
-                <img class="h-8 w-8 rounded-full" 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-                  alt=""
-                />
+                  <span v-if="$page.props.auth.user.profile_image === null" class="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+                    <svg  class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </span>
+
+                  <span v-if="$page.props.auth.user.profile_image !== null" class="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+                    <img :src="$page.props.auth.user.profile_image" class="h-full w-full text-gray-300">
+                  </span>
               </MenuButton>
             </div>
             <transition enter-active-class="transition ease-out duration-100" 
@@ -57,7 +62,7 @@
                   <Link href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</Link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <Link :href="route('logout')" method="post" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</Link>
+                  <Link :href="route('logout')" method="post" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']" as="button">Sign out</Link>
                 </MenuItem>
               </MenuItems>
             </transition>
@@ -108,6 +113,7 @@ const navigation = [
 ]
 
 export default {
+
   components: {
     Disclosure,
     DisclosureButton,
@@ -120,12 +126,16 @@ export default {
     MenuIcon,
     XIcon,
   },
+
   setup() {
     const appName = computed(() => usePage().props.value.appName)
 
+    // const profilePhoto = usePage().props.auth.user.profile_image
+
     return {
       navigation,
-      appName
+      appName,
+      // profilePhoto
     }
   },
 }

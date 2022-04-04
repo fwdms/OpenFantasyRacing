@@ -5,9 +5,15 @@
         <BreezeValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
+
             <div>
-                <BreezeLabel for="name" value="Name" />
-                <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+                <BreezeLabel for="first_name" value="First Name" />
+                <BreezeInput id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" required autofocus autocomplete="first_name" />
+            </div>
+
+            <div class="mt-4">
+                <BreezeLabel for="last_name" value="Last Name" />
+                <BreezeInput id="last_name" type="text" class="mt-1 block w-full" v-model="form.last_name" required autofocus autocomplete="last_name" />
             </div>
 
             <div class="mt-4">
@@ -47,7 +53,8 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
     password_confirmation: '',

@@ -16,8 +16,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::controller(ProfileController::class)->group(function () {
-        Route::get('/profile', 'index');
-        Route::post('/profile', 'store');
+        Route::get('/profile', 'edit')->name('profile.edit');
+        Route::post('/profile', 'update')->name('profile.update');
     });
 });
 
