@@ -11,6 +11,6 @@
 
 <script setup>
     import Navbar from '@/Components/Navigation/Navbar.vue'
-    import Footer from '@/Components/Footer.vue'
-    import CommandPalette from '@/Components/CommandPalette'
+    import Footer from '@/Components/PageSections/Footer.vue'
+    import CommandPalette from '@/Components/Navigation/CommandPalette'
 </script>
