@@ -16,6 +16,7 @@
         "laravel/ui": "^3.3",
         "socialiteproviders/apple": "^5.0",
         "spatie/ignition": "^1.0",
+        "spatie/laravel-ignition": "^1.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
