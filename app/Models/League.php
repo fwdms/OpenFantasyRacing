@@ -9,6 +9,9 @@ class League extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
     protected $table = 'leagues';
+
+    protected $guarded = [];
+
+    protected $fillable = [];
 }
