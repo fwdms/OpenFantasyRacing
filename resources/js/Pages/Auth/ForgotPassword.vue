@@ -28,11 +28,12 @@
 </template>
 
 <script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import BreezeButton from '@/Components/Forms/Button'
+import BreezeInput from '@/Components/Forms/Input'
+import BreezeLabel from '@/Components/Forms/Label'
+import BreezeValidationErrors from '@/Components/Forms/ValidationErrors'
+
+import { useForm } from '@inertiajs/inertia-vue3'
 
 defineProps({
     status: String,

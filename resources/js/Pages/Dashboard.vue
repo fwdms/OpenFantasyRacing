@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Stats from "@/Components/Stats";
+  import Stats from "@/Components/DataDisplay/Stats";
 
   defineProps({
       title: String,

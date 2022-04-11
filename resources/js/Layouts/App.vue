@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-screen bg-gray-100">
-        <Navigation />
+        <Navbar />
         <!-- <command-palette /> -->
         <main class="">
             <slot />
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-    import Navigation from '@/Components/Navigation.vue'
+    import Navbar from '@/Components/Navigation/Navbar.vue'
     import Footer from '@/Components/Footer.vue'
     import CommandPalette from '@/Components/CommandPalette'
 </script>
