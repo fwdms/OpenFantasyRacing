@@ -5,8 +5,9 @@
         title = "Scoring / Rules"
         :tabs = tabs
     />
-    
+
     <div v-if="true == true">
+    
         <points-table 
             title="Qualifing Points" 
             description="How to get points for Qualifying"
@@ -87,6 +88,7 @@
                 *** Sprint is excluded from Streaks calculations.
             "
         />
+
     </div>
 </template>
 
