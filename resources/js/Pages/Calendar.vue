@@ -7,25 +7,42 @@
       </h1>
       <div class="flex items-center">
         <div class="flex items-center rounded-md shadow-sm md:items-stretch">
+
           <button type="button" class="flex items-center justify-center rounded-l-md border border-r-0 border-gray-300 bg-white py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50">
             <span class="sr-only">Previous month</span>
             <ChevronLeftIcon class="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" class="hidden border-t border-b border-gray-300 bg-white px-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:relative md:block">Today</button>
+
+          <button type="button" class="hidden border-t border-b border-gray-300 bg-white px-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:relative md:block">
+            Today
+          </button>
           <span class="relative -mx-px h-5 w-px bg-gray-300 md:hidden" />
+
           <button type="button" class="flex items-center justify-center rounded-r-md border border-l-0 border-gray-300 bg-white py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50">
-            <span class="sr-only">Next month</span>
+            <span class="sr-only">
+              Next month
+            </span>
             <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
           </button>
+
         </div>
         <div class="hidden md:ml-4 md:flex md:items-center">
+
           <Menu as="div" class="relative">
             <MenuButton type="button" class="flex items-center rounded-md border border-gray-300 bg-white py-2 pl-3 pr-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
               Month view
               <ChevronDownIcon class="ml-2 h-5 w-5 text-gray-400" aria-hidden="true" />
             </MenuButton>
 
-            <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+            <transition 
+              enter-active-class="transition ease-out duration-100" 
+              enter-from-class="transform opacity-0 scale-95" 
+              enter-to-class="transform opacity-100 scale-100" 
+              leave-active-class="transition ease-in duration-75" 
+              leave-from-class="transform opacity-100 scale-100" 
+              leave-to-class="transform opacity-0 scale-95"
+            >
+
               <MenuItems class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                 <div class="py-1">
                   <MenuItem v-slot="{ active }">
@@ -42,12 +59,18 @@
                   </MenuItem>
                 </div>
               </MenuItems>
+
             </transition>
           </Menu>
           <div class="ml-6 h-6 w-px bg-gray-300" />
-          <button type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add event</button>
+
+          <button type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Add event
+          </button>
+
         </div>
         <Menu as="div" class="relative ml-6 md:hidden">
+        
           <MenuButton class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500">
             <span class="sr-only">Open menu</span>
             <DotsHorizontalIcon class="h-5 w-5" aria-hidden="true" />
@@ -57,7 +80,9 @@
             <MenuItems class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div class="py-1">
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Create event</a>
+                  <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                    Create event
+                  </a>
                 </MenuItem>
               </div>
               <div class="py-1">
@@ -85,6 +110,7 @@
       </div>
     </header>
     <div class="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
+
       <div class="grid grid-cols-7 gap-px border-b border-gray-300 bg-gray-200 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
         <div class="bg-white py-2">M<span class="sr-only sm:not-sr-only">on</span></div>
         <div class="bg-white py-2">T<span class="sr-only sm:not-sr-only">ue</span></div>
@@ -94,6 +120,7 @@
         <div class="bg-white py-2">S<span class="sr-only sm:not-sr-only">at</span></div>
         <div class="bg-white py-2">S<span class="sr-only sm:not-sr-only">un</span></div>
       </div>
+
       <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto">
         <div class="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-6 lg:gap-px">
           <div v-for="day in days" :key="day.date" :class="[day.isCurrentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative py-2 px-3']">
@@ -144,6 +171,8 @@
 <script>
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ClockIcon, DotsHorizontalIcon } from '@heroicons/vue/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+
+const today = new Date()
 
 const days = [
   { date: '2021-12-27', events: [] },
@@ -232,6 +261,7 @@ export default {
   },
   setup() {
     return {
+      today,
       days,
       selectedDay,
     }

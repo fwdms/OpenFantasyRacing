@@ -1,9 +1,11 @@
 <template>
     <Head title="Scoring / Rules" />
+
     <Tabs 
         title = "Scoring / Rules"
         :tabs = tabs
     />
+    
     <div v-if="true == true">
         <points-table 
             title="Qualifing Points" 
@@ -12,11 +14,13 @@
             notes="* Cars that are not entered into the Qualifying session will be neither Classified nor Not Classified, and will not receive
                 points for either event type. Classifications are based on FIA decisions."
         />
+
         <points-table 
             title="Qualifying Bonus Points" 
             description="How to get bonus points for Qualifying"
             :points=qualifyingBonusPoints
         />
+
         <points-table 
             title="Racing Points" 
             description="How to get points for Race Day"
@@ -30,11 +34,13 @@
                 are not listed on the Race Starting Grid will be neither Classified nor Not Classified, and will not receive points for either
                 event type. Classifications are based on FIA decisions."
         />
+
         <points-table 
             title="Racing Bonus Points" 
             description="How to get bonus points for Race Day"
             :points=raceBonusPoints
         />
+
         <points-table 
             title="Streaks" 
             description="How to get bonus points from Sreaks"
@@ -45,6 +51,40 @@
                 points for a second time.
             
                 ** Sprint is excluded from Streaks calculations
+            "
+        />
+
+        <points-table 
+            title="Sprints" 
+            description="How to get bonus points from Sreaks"
+            :points=sprint
+            notes="
+                * Sprint Positions Gained: Sprint positions gained are relative to Qualifying finishing position.
+
+                ** Classification: Cars that have covered 90% of the number of laps covered by the winner (rounded down to the nears
+                whole number of laps) will be deemed to be Classified. Cars that have covered less than 90% of the number of laps
+                covered by the winner (rounded down to the nearest whole number of laps) will be deemed to be Not Classified. Cars that
+                are not listed on the Sprint Starting Grid will be neither Classified nor Not Classified, and will not receive points for either
+                event type. Classifications are based on FlA decisions.
+
+                *** Sprint is excluded from Streaks calculations.
+            "
+        />
+
+        <points-table 
+            title="Sprints Bonus" 
+            description="How to get bonus points from Sreaks"
+            :points=sprintBonus
+            notes="
+                * Sprint Positions Gained: Sprint positions gained are relative to Qualifying finishing position.
+
+                ** Classification: Cars that have covered 90% of the number of laps covered by the winner (rounded down to the nears
+                whole number of laps) will be deemed to be Classified. Cars that have covered less than 90% of the number of laps
+                covered by the winner (rounded down to the nearest whole number of laps) will be deemed to be Not Classified. Cars that
+                are not listed on the Sprint Starting Grid will be neither Classified nor Not Classified, and will not receive points for either
+                event type. Classifications are based on FlA decisions.
+
+                *** Sprint is excluded from Streaks calculations.
             "
         />
     </div>
@@ -59,7 +99,9 @@
         qualifyingBonusPoints: Array,
         racePoints: Array,
         raceBonusPoints: Array,
-        streaks: Array
+        streaks: Array,
+        sprint: Array,
+        sprintBonus: Array,
     });
 
     const tabs = [

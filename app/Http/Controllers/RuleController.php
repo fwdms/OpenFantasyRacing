@@ -36,6 +36,16 @@ class RuleController extends Controller
             ->orderBy('id')
             ->get();
 
+        $sprint = DB::table('points')
+            ->where('type', 'sprint')
+            ->orderBy('id')
+            ->get();
+
+        $sprintBonus = DB::table('points')
+            ->where('type', 'sprint-bonus')
+            ->orderBy('id')
+            ->get();
+
         return Inertia::render('Rules')
             ->with(
                 compact(
@@ -43,7 +53,9 @@ class RuleController extends Controller
                     'qualifyingBonusPoints',
                     'racePoints',
                     'raceBonusPoints',
-                    'streaks'
+                    'streaks',
+                    'sprint',
+                    'sprintBonus'
                 )
             );
     }
