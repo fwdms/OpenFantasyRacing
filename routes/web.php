@@ -1,10 +1,11 @@
 <?php
 
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
 
 // Try to keep these organized by controller in alphabetical order
@@ -21,6 +22,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(EventController::class)->group(function () {
         Route::get('/calendar', 'index')->name('calendar.index');
+    });
+
+    Route::controller(FAQController::class)->group(function () {
+        Route::get('/faq', 'index')->name('faq.index');
     });
 
     Route::controller(ProfileController::class)->group(function () {

@@ -104,7 +104,7 @@
         streaks: Array,
         sprint: Array,
         sprintBonus: Array,
-    });
+    })
 
     const tabs = [
         {

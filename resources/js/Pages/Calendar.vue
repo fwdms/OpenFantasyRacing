@@ -159,8 +159,10 @@
               {{ event.time }}
             </time>
           </div>
-          <a :href="event.href" class="ml-6 flex-none self-center rounded-md border border-gray-300 bg-white py-2 px-3 font-semibold text-gray-700 opacity-0 shadow-sm hover:bg-gray-50 focus:opacity-100 group-hover:opacity-100"
-            >Edit<span class="sr-only">, {{ event.name }}</span></a
+          <a :href="event.href" 
+            class="ml-6 flex-none self-center rounded-md border border-gray-300 bg-white py-2 px-3 font-semibold text-gray-700 opacity-0 shadow-sm hover:bg-gray-50 focus:opacity-100 group-hover:opacity-100"
+          >
+            Edit<span class="sr-only">, {{ event.name }}</span></a
           >
         </li>
       </ol>
@@ -245,6 +247,7 @@ const days = [
   { date: '2022-02-05', events: [] },
   { date: '2022-02-06', events: [] },
 ]
+// const selectedDay = new Date()
 const selectedDay = days.find((day) => day.isSelected)
 
 export default {

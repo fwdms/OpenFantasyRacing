@@ -108,8 +108,9 @@ import { usePage } from '@inertiajs/inertia-vue3'
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
   // { name: 'Team', href: '#', current: false },
-  { name: 'Scoring / Rules', href: '/rules', current: false },
   { name: 'Calendar', href: '/calendar', current: false },
+  { name: 'Scoring / Rules', href: '/rules', current: false },
+  { name: 'FAQs', href: '/faq', current: false },
 ]
 
 export default {
