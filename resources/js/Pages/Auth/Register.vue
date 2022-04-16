@@ -44,6 +44,14 @@
     </div>
 </template>
 
+<script>
+  import FullScreen from '@/Layouts/FullScreen'
+  
+  export default {
+    layout: FullScreen
+  }
+</script>
+
 <script setup>
 import BreezeButton from '@/Components/Forms/Button'
 import BreezeInput from '@/Components/Forms/Input'
