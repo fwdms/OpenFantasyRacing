@@ -25,7 +25,7 @@ import { defineComponent, h } from 'vue'
 const navigation = {
   main: [
     { name: 'Docs / Roadmap', href: 'https://notes-km.notion.site/OpenFantasyRacing-ae0c2b8a7de647c5a6297a9cc7ae4068', target: '_blank' },
-    // { name: 'Blog', href: '#' },
+    { name: 'Report a Bug', href: '/bug-report' },
     // { name: 'Jobs', href: '#' },
     // { name: 'Press', href: '#' },
     // { name: 'Accessibility', href: '#' },

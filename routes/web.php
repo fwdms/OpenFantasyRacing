@@ -14,6 +14,10 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
+Route::get('/bug-report', function () {
+    return Inertia::render('BugReport');
+})->name('bug-report');
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', function () {
