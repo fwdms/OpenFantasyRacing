@@ -96,6 +96,14 @@
   </div>
 </template>
 
+<script>
+import FullScreen from '@/Layouts/FullScreen'
+ 
+export default {
+  layout: FullScreen
+}
+</script>
+
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
 
