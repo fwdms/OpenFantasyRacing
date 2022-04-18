@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  phpVersion: 8.0
+  phpVersion: 8.1
   nodeVersion: 16.x
 
 steps:

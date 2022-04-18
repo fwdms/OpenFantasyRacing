@@ -56,13 +56,22 @@
             >
               <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
-                  <Link href="/profile" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your Profile</Link>
+                  <Link href="/profile" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">
+                    Your Profile
+                  </Link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <Link href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full']">Settings</Link>
+                  <Link href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full']">
+                    Settings
+                  </Link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <Link :href="route('logout')" method="post" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full text-left']" as="button">Sign out</Link>
+                  <Link :href="route('logout')" 
+                    method="post" 
+                    :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full text-left']" 
+                    as="button">
+                      Sign out
+                  </Link>
                 </MenuItem>
               </MenuItems>
             </transition>

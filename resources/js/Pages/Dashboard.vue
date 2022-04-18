@@ -7,20 +7,21 @@
       </div>
     </header>
 
-    <main>
-      <div class="h-screen max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <stats />
-      </div>
-    </main>
-    
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <league-table :leagues='leagues' />
+      <stats />
+    </div>
+
 </template>
 
 <script setup>
-  import Stats from "@/Components/DataDisplay/Stats";
+  import Stats from "@/Components/DataDisplay/Stats"
+  import LeagueTable from "@/Components/Lists/LeagueTable"
 
   defineProps({
       title: String,
       description: String,
-      rules: Array
-  });
+      rules: Array,
+      leagues: Array
+  })
 </script>

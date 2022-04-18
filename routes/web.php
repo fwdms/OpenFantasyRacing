@@ -3,10 +3,12 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\FAQController;
+use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 // Try to keep these organized by controller in alphabetical order
 
@@ -15,14 +17,18 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/bug-report', function () {
-    return Inertia::render('BugReport');
+    return Inertia::render('RequestForms/BugReport');
 })->name('bug-report');
+
+Route::get('/feature-request', function () {
+    return Inertia::render('RequestForms/FeatureRequest');
+})->name('feature-request');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/dashboard', 'index')->name('dashboard.index')->name('dashboard.index');
+    });
 
     Route::controller(EventController::class)->group(function () {
         Route::get('/calendar', 'index')->name('calendar.index');
@@ -30,6 +36,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(FAQController::class)->group(function () {
         Route::get('/faq', 'index')->name('faq.index');
+    });
+
+    Route::controller(LeagueController::class)->group(function () {
+        Route::get('/league/create', 'create')->name('league.create');
     });
 
     Route::controller(ProfileController::class)->group(function () {

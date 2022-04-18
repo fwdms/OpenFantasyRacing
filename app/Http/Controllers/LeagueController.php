@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\League;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,7 @@ class LeagueController extends Controller
     {
         $franchises = DB::table('franchises')->get();
 
-        return view('leagues.create')->with(compact('franchises'));
+        return Inertia::render('Leagues/Create')->with(compact('franchises'));
     }
 
     // Post request for handling a new league
