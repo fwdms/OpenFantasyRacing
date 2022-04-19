@@ -60,11 +60,11 @@
                     Your Profile
                   </Link>
                 </MenuItem>
-                <MenuItem v-slot="{ active }">
+                <!-- <MenuItem v-slot="{ active }">
                   <Link href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full']">
                     Settings
                   </Link>
-                </MenuItem>
+                </MenuItem> -->
                 <MenuItem v-slot="{ active }">
                   <Link :href="route('logout')" 
                     method="post" 
