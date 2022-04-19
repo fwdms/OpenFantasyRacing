@@ -27,7 +27,7 @@
       { name: 'Docs / Roadmap', href: 'https://fwdms.plutio.com/p/zzqngybr3ztyqnmgb?board=xXn9kQmf9F5iep83Q', target: '_blank' },
       { name: 'Report a Bug', href: '/bug-report', target: '_blank' },
       { name: 'Request a New Feature', href: '/feature-request', target: '_blank' },
-      { name: 'FAQ', href: '/faq' }
+      { name: 'FAQs', href: '/faq' }
     ],
   };
 
