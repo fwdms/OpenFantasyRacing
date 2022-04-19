@@ -40,6 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(LeagueController::class)->group(function () {
         Route::get('/league/create', 'create')->name('league.create');
+        Route::post('/league', 'store')->name('league.store');
     });
 
     Route::controller(ProfileController::class)->group(function () {

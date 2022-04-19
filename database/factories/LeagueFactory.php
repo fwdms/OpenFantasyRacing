@@ -23,7 +23,6 @@ class LeagueFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-
         ];
     }
 }

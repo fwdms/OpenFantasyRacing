@@ -11,11 +11,17 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $fantasy_teams = DB::table('fantasy_teams')->where('user_id', Auth::user()->id)->get();
+        $fantasy_teams = DB::table('fantasy_teams')->where('user_id', Auth::user()->id)
+            ->join('leagues', 'leagues.id', 'fantasy_teams.league_id')
+            ->join('franchises', 'franchises.id', 'leagues.franchise_id')
 
-        // Get relationship between Fantasy Teams, League ID,
-        $leagues = DB::table('leagues')->where('league_owner_id', Auth::user()->id)->get();
+            ->select(
+                'fantasy_teams.*',
+                'leagues.name as league_name',
+                'franchises.name as franchise_name'
+            )
+            ->get();
 
-        return Inertia::render('Dashboard')->with(compact('fantasy_teams', 'leagues'));
+        return Inertia::render('Dashboard')->with(compact('fantasy_teams'));
     }
 }

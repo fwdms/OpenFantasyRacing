@@ -30,16 +30,17 @@ class LeagueController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'bail|required|unique:leagues',
+            'name' => 'bail|required',
             'franchise_id' => 'required',
         ]);
 
         League::create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
+            'about_text' => $request->about_text,
             'league_owner_id' => Auth::user()->id
         ]);
 
-        return view('dashboard');
+        return Inertia::render('Dashboard');
     }
 }

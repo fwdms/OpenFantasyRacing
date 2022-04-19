@@ -7,21 +7,20 @@
       </div>
     </header>
 
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <league-table :leagues='leagues' />
+    <div class="max-w-7xl mx-auto my-8 py-6 sm:px-6 lg:px-8">
+      <fantasy-teams-table :fantasy_teams='fantasy_teams' />
       <stats />
     </div>
-
 </template>
 
 <script setup>
   import Stats from "@/Components/DataDisplay/Stats"
-  import LeagueTable from "@/Components/Lists/LeagueTable"
+  import FantasyTeamsTable from "@/Components/Lists/FantasyTeamsTable"
 
   defineProps({
       title: String,
       description: String,
       rules: Array,
-      leagues: Array
+      fantasy_teams: Array
   })
 </script>
