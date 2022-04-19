@@ -123,7 +123,6 @@ const navigation = [
 ]
 
 export default {
-
   components: {
     Disclosure,
     DisclosureButton,
@@ -139,7 +138,6 @@ export default {
 
   setup() {
     const appName = computed(() => usePage().props.value.appName)
-
     // const profilePhoto = usePage().props.auth.user.profile_image
 
     return {

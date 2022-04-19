@@ -21,7 +21,7 @@
   </footer>
 </template>
 
-<script setup>
+<script>
   const navigation = {
     main: [
       { name: 'Docs / Roadmap', href: 'https://fwdms.plutio.com/p/zzqngybr3ztyqnmgb?board=xXn9kQmf9F5iep83Q', target: '_blank' },
@@ -30,4 +30,12 @@
       { name: 'FAQ', href: '/faq' }
     ],
   };
+
+  export default {
+    setup() {
+      return {
+        navigation,
+      }
+    },
+  }
 </script>
