@@ -21,13 +21,13 @@
   </footer>
 </template>
 
-<script>
+<script setup>
   const navigation = {
     main: [
       { name: 'Docs / Roadmap', href: 'https://fwdms.plutio.com/p/zzqngybr3ztyqnmgb?board=xXn9kQmf9F5iep83Q', target: '_blank' },
       { name: 'Report a Bug', href: '/bug-report', target: '_blank' },
       { name: 'Request a New Feature', href: '/feature-request', target: '_blank' },
-      { name: 'FAQs', href: '/faq' }
+      { name: 'FAQ', href: '/faq' }
     ],
   };
 
