@@ -744,10 +744,6 @@ select {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -829,11 +825,11 @@ select {
 .ml-16 {
   margin-left: 4rem;
 }
-.-mr-px {
-  margin-right: -1px;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+.-mr-px {
+  margin-right: -1px;
 }
 .-mb-px {
   margin-bottom: -1px;
@@ -1446,6 +1442,10 @@ select {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.py-3\.5 {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
 .py-0\.5 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
@@ -1453,10 +1453,6 @@ select {
 .py-0 {
   padding-top: 0px;
   padding-bottom: 0px;
-}
-.py-3\.5 {
-  padding-top: 0.875rem;
-  padding-bottom: 0.875rem;
 }
 .py-14 {
   padding-top: 3.5rem;

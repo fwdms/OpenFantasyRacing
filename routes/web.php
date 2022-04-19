@@ -27,7 +27,7 @@ Route::get('/feature-request', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(DashboardController::class)->group(function () {
-        Route::get('/dashboard', 'index')->name('dashboard.index')->name('dashboard.index');
+        Route::get('/dashboard', 'index')->name('dashboard.index');
     });
 
     Route::controller(EventController::class)->group(function () {

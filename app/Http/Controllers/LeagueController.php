@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\League;
+use App\Models\FantasyTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LeagueController extends Controller
 {
@@ -32,15 +34,22 @@ class LeagueController extends Controller
         $validated = $request->validate([
             'name' => 'bail|required',
             'franchise_id' => 'required',
+            'fantasyTeamName' => 'required'
         ]);
 
-        League::create([
+        $league = League::create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
             'about_text' => $request->about_text,
             'league_owner_id' => Auth::user()->id
         ]);
 
-        return Inertia::render('Dashboard');
+        $team = FantasyTeam::create([
+            'team_name' => $request->fantasyTeamName,
+            'league_id' => $league->id,
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return Redirect::route('dashboard.index');
     }
 }

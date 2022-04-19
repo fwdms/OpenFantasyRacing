@@ -19,7 +19,7 @@ class CreateFantasyTeamsTable extends Migration
             $table->integer('points')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('league_id');
-            $table->unsignedBigInteger('constructor_id');
+            $table->unsignedBigInteger('constructor_id')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
 
