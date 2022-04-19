@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Response;
 
 class RuleController extends Controller
 {
     // Display a listing of the resource.
-    public function index()
+    public function index(): Response
     {
         $qualifyingPoints = DB::table('points')
             ->where('type', 'qualifying')

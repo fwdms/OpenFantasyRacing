@@ -147,34 +147,30 @@
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/inertia-vue3'
 
-const props = defineProps(['auth'])
+  const props = defineProps(['auth'])
 
-const form = useForm({
-    first_name: props.auth.user.first_name,
-    last_name: props.auth.user.last_name,
-    email: props.auth.user.email,
-    country: props.auth.user.country,
-    street_address: props.auth.user.street_address,
-    city: props.auth.user.city,
-    state: props.auth.user.state,
-    zip_code: props.auth.user.zip_code,
-    about: props.auth.user.about,
-    website: props.auth.user.website,
-    profile_image: props.auth.user.profile_image,
-    about: props.auth.user.about
-});
+  const form = useForm({
+      first_name: props.auth.user.first_name,
+      last_name: props.auth.user.last_name,
+      email: props.auth.user.email,
+      country: props.auth.user.country,
+      street_address: props.auth.user.street_address,
+      city: props.auth.user.city,
+      state: props.auth.user.state,
+      zip_code: props.auth.user.zip_code,
+      about: props.auth.user.about,
+      website: props.auth.user.website,
+      profile_image: props.auth.user.profile_image,
+      about: props.auth.user.about
+  });
 
-let profilePhoto = form.profile_image
+  let profilePhoto = form.profile_image
 
-const submit = () => {
-  form.post(route('profile.update'), {
-      onFinish: () => form.reset('password', 'password_confirmation'),
-  })
-} 
-
-const check = (event) => {
-  console.log(event.target.files[0])
-}
+  const submit = () => {
+    form.post(route('profile.update'), {
+        onFinish: () => form.reset('password', 'password_confirmation'),
+    })
+  } 
 </script>

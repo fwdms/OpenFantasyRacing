@@ -6,10 +6,11 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Response;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         $fantasy_teams = DB::table('fantasy_teams')->where('user_id', Auth::user()->id)
             ->join('leagues', 'leagues.id', 'fantasy_teams.league_id')

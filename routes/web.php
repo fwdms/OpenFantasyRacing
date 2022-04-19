@@ -1,6 +1,5 @@
 <?php
 
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\RuleController;
@@ -11,17 +10,11 @@ use App\Http\Controllers\DashboardController;
 
 // Try to keep these organized by controller in alphabetical order
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('home');
+Route::inertia('/', 'Home')->name('home');
 
-Route::get('/bug-report', function () {
-    return Inertia::render('RequestForms/BugReport');
-})->name('bug-report');
+Route::inertia('/bug-report', 'RequestForms/BugReport')->name('bug-report');
 
-Route::get('/feature-request', function () {
-    return Inertia::render('RequestForms/FeatureRequest');
-})->name('feature-request');
+Route::inertia('/feature-request', 'RequestForms/FeatureRequest')->name('feature-request');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
