@@ -960,6 +960,9 @@ select {
 .w-12 {
   width: 3rem;
 }
+.w-2 {
+  width: 0.5rem;
+}
 .min-w-full {
   min-width: 100%;
 }

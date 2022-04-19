@@ -28,40 +28,40 @@
 </template>
 
 <script>
-import { AnnotationIcon, ArrowsExpandIcon, CashIcon, LightningBoltIcon } from '@heroicons/vue/outline'
+  import { AnnotationIcon, ArrowsExpandIcon, CashIcon, LightningBoltIcon } from '@heroicons/vue/outline'
 
-const features = [
-  {
-    name: 'Set your own rules',
-    description:
-      'Want a different set of rules other than the default rules set up by other Fantasy Leagues? Here we offer "Fantasy Modes", these different modes will allow you to set which rules you want your league to follow!',
-    icon: ArrowsExpandIcon,
-  },
-  {
-    name: 'No hidden fees',
-    description:
-      'The goal is for OpenFantasyRacing.com to be free, & supported by donations. Please, if you like this project, donate & help us work on OpenFantasyRacing.com full time.',
-    icon: CashIcon,
-  },
-  {
-    name: 'Developed by you',
-    description:
-      'We dislike not having a say in how Fantasy Leagues should work, we promise to take your requests & figure out how to make them a reality. Keep in mind this project is in active delevelopment, with 1 person, as time permits.',
-    icon: LightningBoltIcon,
-  },
-  {
-    name: 'Open to suggestion',
-    description:
-      'Play with Leagues often forgotten by other Fantasy Leagues. Help us to develop & grow to support the type of racing you want to create a Fantasy League around.',
-    icon: AnnotationIcon,
-  },
-]
+  const features = [
+    {
+      name: 'Set your own rules',
+      description:
+        'Want a different set of rules other than the default rules set up by other Fantasy Leagues? Here we offer "Fantasy Modes", these different modes will allow you to set which rules you want your league to follow!',
+      icon: ArrowsExpandIcon,
+    },
+    {
+      name: 'No hidden fees',
+      description:
+        'The goal is for OpenFantasyRacing.com to be free, & supported by donations. Please, if you like this project, donate & help us work on OpenFantasyRacing.com full time.',
+      icon: CashIcon,
+    },
+    {
+      name: 'Developed by you',
+      description:
+        'We dislike not having a say in how Fantasy Leagues should work, we promise to take your requests & figure out how to make them a reality. Keep in mind this project is in active delevelopment, with 1 person, as time permits.',
+      icon: LightningBoltIcon,
+    },
+    {
+      name: 'Open to suggestion',
+      description:
+        'Play with Leagues often forgotten by other Fantasy Leagues. Help us to develop & grow to support the type of racing you want to create a Fantasy League around.',
+      icon: AnnotationIcon,
+    },
+  ]
 
-export default {
-  setup() {
-    return {
-      features,
-    }
-  },
-}
+  export default {
+    setup() {
+      return {
+        features,
+      }
+    },
+  }
 </script>
