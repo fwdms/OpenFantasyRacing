@@ -1,7 +1,6 @@
 <?php
 
 use Inertia\Inertia;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\RuleController;
