@@ -119,7 +119,6 @@ const navigation = [
   // { name: 'Team', href: '#', current: false },
   { name: 'Calendar', href: '/calendar', current: false },
   { name: 'Scoring / Rules', href: '/rules', current: false },
-  { name: 'FAQs', href: '/faq', current: false },
 ]
 
 export default {
