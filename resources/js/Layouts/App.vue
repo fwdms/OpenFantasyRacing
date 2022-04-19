@@ -12,7 +12,7 @@
 <script setup>
     import Navbar from '@/Components/Navigation/Navbar'
     import Footer from '@/Components/PageSections/Footer'
-    import CommandPalette from '@/Components/Navigation/CommandPalette'
+    // import CommandPalette from '@/Components/Navigation/CommandPalette'
 </script>
 
 <script>

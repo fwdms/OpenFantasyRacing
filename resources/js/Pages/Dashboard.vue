@@ -9,7 +9,7 @@
 
     <div class="max-w-7xl mx-auto my-8 py-6 sm:px-6 lg:px-8">
       <fantasy-teams-table :fantasy_teams='fantasy_teams' />
-      <stats />
+      <!-- <stats /> -->
     </div>
 </template>
 
