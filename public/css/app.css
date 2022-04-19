@@ -1366,6 +1366,12 @@ select {
 .fill-current {
   fill: currentColor;
 }
+.stroke-current {
+  stroke: currentColor;
+}
+.stroke-1 {
+  stroke-width: 1;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
