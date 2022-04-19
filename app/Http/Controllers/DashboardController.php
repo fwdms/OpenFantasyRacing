@@ -12,7 +12,8 @@ class DashboardController extends Controller
 {
     public function index(): Response
     {
-        $fantasy_teams = DB::table('fantasy_teams')->where('user_id', Auth::user()->id)
+        $fantasy_teams = DB::table('fantasy_teams')
+            ->where('user_id', Auth::user()->id)
             ->join('leagues', 'leagues.id', 'fantasy_teams.league_id')
             ->join('franchises', 'franchises.id', 'leagues.franchise_id')
 
