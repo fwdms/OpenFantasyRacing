@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use Inertia\Response;
+use App\Models\League;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Inertia\Response;
 
 class DashboardController extends Controller
 {
@@ -20,7 +21,8 @@ class DashboardController extends Controller
             ->select(
                 'fantasy_teams.*',
                 'leagues.name as league_name',
-                'franchises.name as franchise_name'
+                'franchises.name as franchise_name',
+                'franchises.id as franchise_id'
             )
             ->get();
 

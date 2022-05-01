@@ -14,4 +14,9 @@ class League extends Model
     protected $guarded = [];
 
     protected $fillable = [];
+
+    public function FantasyTeams()
+    {
+        return $this->hasMany(FantasyTeam::class, 'league_id');
+    }
 }

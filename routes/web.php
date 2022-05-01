@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FranchiseController;
 
 // Try to keep these organized by controller in alphabetical order
 
@@ -30,9 +31,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/faq', 'index')->name('faq.index');
     });
 
+    Route::controller(FranchiseController::class)->group(function () {
+        Route::get('/franchise/{id}', 'show')->name('franchise.show');
+    });
+
     Route::controller(LeagueController::class)->group(function () {
-        Route::get('/league/create', 'create')->name('league.create');
-        Route::post('/league', 'store')->name('league.store');
+        Route::get('/leagues/create', 'create')->name('league.create');
+        Route::get('/leagues/{id}', 'show')->name('league.show');
+        Route::post('/leagues', 'store')->name('league.store');
     });
 
     Route::controller(ProfileController::class)->group(function () {

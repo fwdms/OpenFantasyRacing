@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Driver;
 use App\Models\League;
 use App\Models\FantasyTeam;
 use Illuminate\Http\Request;
@@ -15,12 +16,14 @@ use Illuminate\Support\Facades\Redirect;
 class LeagueController extends Controller
 {
     // Show a single league
-    // public function show($id)
-    // {
-    //     $league = League::where('id', $id)->get();
+    public function show($id): Response
+    {
+        $league = League::where('id', $id)
+            ->with('FantasyTeams')
+            ->first();
 
-    //     return view('leagues.show')->with(compact('league'));
-    // }
+        return Inertia::render('Leagues/Show')->with(compact('league'));
+    }
 
     // View for the Form to create a League
     public function create(): Response

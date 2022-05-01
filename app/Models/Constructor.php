@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Constructor extends Model
 {
     use HasFactory;
+
+    public function driver()
+    {
+        return $this->hasMany(Driver::class);
+    }
 }

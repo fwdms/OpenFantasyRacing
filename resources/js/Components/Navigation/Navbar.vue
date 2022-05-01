@@ -27,6 +27,9 @@
                 : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" 
                 :aria-current="item.current ? 'page' : undefined">{{ item.name }}
               </Link>
+
+
+
             </div>
           </div>
         </div>
@@ -108,42 +111,17 @@
   </Disclosure>
 </template>
 
-<script>
-import { computed } from 'vue'
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { usePage } from '@inertiajs/inertia-vue3'
+<script setup>
+  import { computed } from 'vue'
+  import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+  import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+  import { usePage } from '@inertiajs/inertia-vue3'
 
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard', current: true },
-  // { name: 'Team', href: '#', current: false },
-  { name: 'Calendar', href: '/calendar', current: false },
-  { name: 'Scoring / Rules', href: '/rules', current: false },
-]
+  const appName = computed(() => usePage().props.value.appName)
 
-export default {
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    BellIcon,
-    MenuIcon,
-    XIcon,
-  },
-
-  setup() {
-    const appName = computed(() => usePage().props.value.appName)
-    // const profilePhoto = usePage().props.auth.user.profile_image
-
-    return {
-      navigation,
-      appName,
-      // profilePhoto
-    }
-  },
-}
+  const navigation = [
+    { name: 'Dashboard', href: '/dashboard', current: true },
+    { name: 'Franchises', href: '/franchise/1', current: false },
+    // { name: 'Team', href: '#', current: false },
+  ]
 </script>
