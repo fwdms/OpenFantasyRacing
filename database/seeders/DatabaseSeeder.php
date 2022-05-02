@@ -17,6 +17,14 @@ class DatabaseSeeder extends Seeder
             FranchiseSeeder::class,
             ConstructorSeeder::class,
             DriverSeeder::class,
+            UserSeeder::class,
+            PointsSeeders\QualifyingPointsSeeder::class,
+            PointsSeeders\QualifyingBonusPointsSeeder::class,
+            PointsSeeders\RacePointsSeeder::class,
+            PointsSeeders\RaceBonusPointsSeeder::class,
+            PointsSeeders\StreakPointsSeeder::class,
+            PointsSeeders\SprintPointsSeeder::class,
+            PointsSeeders\SprintBonusPointsSeeder::class,
         ]);
     }
 }

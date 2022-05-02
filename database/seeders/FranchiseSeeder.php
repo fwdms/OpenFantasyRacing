@@ -17,7 +17,8 @@ class FranchiseSeeder extends Seeder
         DB::table('franchises')->insert([
             'id' => 1,
             'name' => 'F1',
-            'governing_body' => 'FIA'
+            'governing_body' => 'FIA',
+            'slug' => 'f1'
         ]);
     }
 }

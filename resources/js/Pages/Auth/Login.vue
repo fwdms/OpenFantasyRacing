@@ -9,7 +9,6 @@
             Log in to your account
           </h2>
         </div>
-
         <div class="mt-8">
           <div class="mt-6">
             <form @submit.prevent="submit" class="space-y-6">
@@ -46,6 +45,8 @@
                 </div>
               </div>
 
+              <Alert v-if="form.errors.email" :errors="errors.email"/>
+
               <div>
                 <button type="submit" 
                   class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -77,10 +78,12 @@
 
 <script setup>
   import { useForm } from '@inertiajs/inertia-vue3'
+  import Alert from '../../Components/Feedback/Alert'
 
   defineProps({
       canResetPassword: Boolean,
       status: String,
+      errors: Object,
   });
 
   const form = useForm({

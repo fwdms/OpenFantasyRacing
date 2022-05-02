@@ -17,7 +17,8 @@
     { name: 'Drivers', href: '#', current: true },
     { name: 'Contstructors', href: '#', current: false },
     { name: 'Calendar', href: '/calendar', current: false },
-    { name: 'Scoring / rules', href: '/rules', current: false },
+    { name: 'Scoring Points', href: '/rules', current: false },
+    { name: 'Rules', href: '/rules', current: false },
   ]
 
   defineProps({
