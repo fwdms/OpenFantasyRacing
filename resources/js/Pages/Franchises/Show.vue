@@ -4,8 +4,8 @@
 
   <TabsBar :tabs="tabs"/>
 
-  <DriversGridList v-if="tabs[0].current === true" :drivers="drivers" />
-
+  <DriversGridList v-if="true === true" :drivers="drivers" />
+  <!-- <p class="text-center">current tab: {{ getTab().name }} </p> -->
 </template>
 
 <script setup>
@@ -13,17 +13,17 @@
   import TabsBar from '@/Components/Navigation/TabsBar'
   import DriversGridList from '@/Components/Lists/DriversGridList'
 
-  const tabs = [
-    { name: 'Drivers', href: '#', current: true },
-    { name: 'Contstructors', href: '#', current: false },
-    { name: 'Calendar', href: '/calendar', current: false },
-    { name: 'Scoring Points', href: '/rules', current: false },
-    { name: 'Rules', href: '/rules', current: false },
-  ]
-
   defineProps({
     franchise: Object,
     constructors: Array,
     drivers: Array
   })
+
+  const tabs = [
+    'Drivers',
+    'Contstructors',
+    'Calendar',
+    'Scoring Points',
+    'Rules',
+  ]
 </script>

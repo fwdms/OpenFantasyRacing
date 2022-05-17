@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::controller(FranchiseController::class)->group(function () {
-        Route::get('/franchise/{id}', 'show')->name('franchise.show');
+        Route::get('/franchise/{slug}', 'show')->name('franchise.show');
     });
 
     Route::controller(LeagueController::class)->group(function () {

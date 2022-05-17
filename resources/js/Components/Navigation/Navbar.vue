@@ -123,6 +123,6 @@
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Franchises', href: '/franchise/1' },
+    { name: 'Franchises', href: '/franchise/f1' },
   ]
 </script>

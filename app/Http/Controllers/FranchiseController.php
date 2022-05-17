@@ -10,12 +10,12 @@ use Inertia\Inertia;
 
 class FranchiseController extends Controller
 {
-    public function show($id)
+    public function show($slug)
     {
-        $franchise = Franchise::where('id', $id)
-            ->first();
+        $franchise = Franchise::where('slug', $slug)
+            ->firstOrFail();
 
-        $contructors = Constructor::where('franchise_id', $id)
+        $contructors = Constructor::where('franchise_id', $franchise['id'])
             ->get();
 
         $drivers = Driver::with('constructor')

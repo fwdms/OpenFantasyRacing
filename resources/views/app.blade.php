@@ -30,7 +30,7 @@
         @inertia
     </body>
 
-    <script>
+    <script defer>
         (function (p, l, u, t, i, o) {
             p[t] = p[t] || function () {
             (p[t].q = p[t].q || []).push(arguments);
