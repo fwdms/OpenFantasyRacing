@@ -5,6 +5,7 @@
   <TabsBar @setCurrentTab="(tab) => selectedTab.name = tab" :tabs="tabs"/>
 
   <DriversGridList v-if="selectedTab.name === 'Drivers'" :drivers="drivers" />
+  <ConstructorsGridList v-if="selectedTab.name === 'Constructors'" :constructors="constructors" />
 </template>
 
 <script setup>
