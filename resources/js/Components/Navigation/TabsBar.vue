@@ -18,11 +18,14 @@
   const props = defineProps({
     tabs: Array,
   })
-
+  
+  const emit = defineEmits(['setCurrentTab'])
+  
   const currentTab = ref({ name: '' })
 
   function selectedTab(currentTab, tabs) {
     if(currentTab.name == '') {
+      emit("setCurrentTab", tabs[0]);
       return tabs[0]
     }
     return currentTab.name
@@ -30,6 +33,7 @@
 
   function changeTab(currentTab, tab) {
     currentTab.name = tab
+    emit("setCurrentTab", currentTab.name);
   }
 
 </script>

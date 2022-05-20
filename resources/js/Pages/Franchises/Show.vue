@@ -2,13 +2,13 @@
   <Head :title="franchise.name" />
   <PageHeader :title="franchise.name"/>
 
-  <TabsBar :tabs="tabs"/>
+  <TabsBar @setCurrentTab="(tab) => selectedTab.name = tab" :tabs="tabs"/>
 
-  <DriversGridList v-if="true === true" :drivers="drivers" />
-  <!-- <p class="text-center">current tab: {{ getTab().name }} </p> -->
+  <DriversGridList v-if="selectedTab.name === 'Drivers'" :drivers="drivers" />
 </template>
 
 <script setup>
+  import { ref } from 'vue'
   import PageHeader from '@/Components/PageHeadings/PageHeader'
   import TabsBar from '@/Components/Navigation/TabsBar'
   import DriversGridList from '@/Components/Lists/DriversGridList'
@@ -19,11 +19,14 @@
     drivers: Array
   })
 
+  const selectedTab = ref({ name: '' })
+
   const tabs = [
     'Drivers',
-    'Contstructors',
-    'Calendar',
-    'Scoring Points',
-    'Rules',
+    // 'Contstructors',
+    // 'Calendar',
+    // 'Scoring Points',
+    // 'Rules',
   ]
+
 </script>
