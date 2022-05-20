@@ -22,7 +22,7 @@ class DashboardController extends Controller
                 'fantasy_teams.*',
                 'leagues.name as league_name',
                 'franchises.name as franchise_name',
-                'franchises.id as franchise_id'
+                'franchises.slug as franchise_slug'
             )
             ->get();
 

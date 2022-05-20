@@ -59,7 +59,7 @@
                     {{ team.league_name }}
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm">
-                    <Link class="text-blue-600" :href="'/franchise/' + team.franchise_id">{{ team.franchise_name }}</Link>
+                    <Link class="text-blue-600" :href="'/franchise/' + team.franchise_slug">{{ team.franchise_name }}</Link>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm">{{ team.points }}</td>
                 </tr>
