@@ -13,6 +13,7 @@
   import PageHeader from '@/Components/PageHeadings/PageHeader'
   import TabsBar from '@/Components/Navigation/TabsBar'
   import DriversGridList from '@/Components/Lists/DriversGridList'
+  import ConstructorsGridList from '@/Components/Lists/ConstructorsGridList'
 
   defineProps({
     franchise: Object,
@@ -24,7 +25,7 @@
 
   const tabs = [
     'Drivers',
-    'Contstructors',
+    'Constructors',
     // 'Calendar',
     // 'Scoring Points',
     // 'Rules',

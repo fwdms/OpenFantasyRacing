@@ -15,15 +15,15 @@ class FranchiseController extends Controller
         $franchise = Franchise::where('slug', $slug)
             ->firstOrFail();
 
-        $contructors = Constructor::where('franchise_id', $franchise['id'])
+        $constructors = Constructor::where('franchise_id', $franchise['id'])
             ->get();
 
         $drivers = Driver::with('constructor')
-            ->whereIn('constructor_id', $contructors->pluck('id'))
+            ->whereIn('constructor_id', $constructors->pluck('id'))
             ->orderBy('last_name')
             ->get();
 
         return Inertia::render('Franchises/Show')
-            ->with(compact('franchise', 'contructors', 'drivers'));
+            ->with(compact('franchise', 'constructors', 'drivers'));
     }
 }
