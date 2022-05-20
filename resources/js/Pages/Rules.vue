@@ -1,12 +1,11 @@
 <template>
     <Head title="Scoring / Rules" />
+    
+    <PageHeader title="Scoring / Rules"/>
 
-    <Tabs 
-        title = "Scoring / Rules"
-        :tabs = tabs
-    />
+    <TabsBar @setCurrentTab="(tab) => selectedTab.name = tab" :tabs="tabs"/>
 
-    <div v-if="true == true">
+    <div v-if="selectedTab.name == 'Scoring Points'">
     
         <points-table 
             title="Qualifing Points" 
@@ -93,8 +92,10 @@
 </template>
 
 <script setup>
+    import { ref } from 'vue'
+    import PageHeader from '@/Components/PageHeadings/PageHeader'
     import PointsTable from '@/Components/Lists/PointsTable'
-    import Tabs from '@/Components/Navigation/Tabs'
+    import TabsBar from '@/Components/Navigation/TabsBar'
 
     defineProps({
         qualifyingPoints: Array,
@@ -106,16 +107,6 @@
         sprintBonus: Array,
     })
 
-    const tabs = [
-        {
-            name: 'Scoring Points',
-            href: '#',
-            current: true
-        },
-        {
-            name: 'Rules',
-            href: '#',
-            current: false
-        }
-    ]
+    const selectedTab = ref({ name: '' })
+    const tabs = [ 'Scoring Points','Rules']
 </script>

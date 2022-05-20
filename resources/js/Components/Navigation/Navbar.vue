@@ -124,5 +124,6 @@
   const navigation = [
     { name: 'Dashboard', href: '/dashboard' },
     { name: 'Franchises', href: '/franchise/f1' },
+    { name: 'Scoring Points / Rules', href: '/rules' }
   ]
 </script>
