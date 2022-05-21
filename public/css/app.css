@@ -741,10 +741,6 @@ select {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 .-mx-5 {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
@@ -836,9 +832,6 @@ select {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
-.-mb-px {
-  margin-bottom: -1px;
-}
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -911,6 +904,9 @@ select {
 .h-12 {
   height: 3rem;
 }
+.h-24 {
+  height: 6rem;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -967,6 +963,12 @@ select {
 }
 .w-12 {
   width: 3rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-24 {
+  width: 6rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1044,6 +1046,11 @@ select {
 .scale-100 {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.scale-75 {
+  --tw-scale-x: .75;
+  --tw-scale-y: .75;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .transform {
@@ -1318,10 +1325,6 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
-.border-orange-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(249 115 22 / var(--tw-border-opacity));
-}
 .border-orange-300 {
   --tw-border-opacity: 1;
   border-color: rgb(253 186 116 / var(--tw-border-opacity));
@@ -1568,12 +1571,6 @@ select {
 }
 .pl-11 {
   padding-left: 2.75rem;
-}
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-.pr-10 {
-  padding-right: 2.5rem;
 }
 .text-left {
   text-align: left;
@@ -1943,13 +1940,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
 }
-.focus\:border-indigo-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(99 102 241 / var(--tw-border-opacity));
-}
 .focus\:border-orange-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(249 115 22 / var(--tw-border-opacity));
+}
+.focus\:border-indigo-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 102 241 / var(--tw-border-opacity));
 }
 .focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
@@ -2135,10 +2132,6 @@ select {
 
   .sm\:ml-16 {
     margin-left: 4rem;
-  }
-
-  .sm\:mt-4 {
-    margin-top: 1rem;
   }
 
   .sm\:mt-px {
@@ -2331,10 +2324,6 @@ select {
 
   .sm\:pr-0 {
     padding-right: 0px;
-  }
-
-  .sm\:pb-0 {
-    padding-bottom: 0px;
   }
 
   .sm\:pt-5 {

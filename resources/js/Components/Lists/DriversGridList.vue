@@ -4,15 +4,15 @@
       <div class="w-full flex items-center justify-between p-6 space-x-6">
         <div class="flex-1 truncate">
           <div class="flex items-center space-x-3">
-            <h3 class="text-gray-900 text-sm font-medium truncate">{{ driver.first_name }} {{ driver.last_name }}</h3>
-            <!-- <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ driver.constructor.name }}</span> -->
+            <img v-if="driver.profile_image != null" class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0" :src="driver.profile_image" alt="" />
+            <img v-else class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0" src="/assets/missingprofle.webp" alt="" />
+            <div class="flex flex-col">
+              <h3 class="text-gray-900 text-sm font-medium truncate">{{ driver.first_name }} {{ driver.last_name }}</h3>
+              <p class="mt-1 text-gray-500 text-sm truncate">{{ driver.constructor.name }}</p>
+            </div>
           </div>
-          <p class="mt-1 text-gray-500 text-sm truncate">{{ driver.constructor.name }}</p>
         </div>
-        <div class="flex items-center space-x-3">
-          <p class="font-bold text-xl">{{ driver.number }}</p>
-          <img v-if="driver.profile_image != null" class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" :src="driver.profile_image" alt="" />
-        </div>
+        <p class="font-bold text-xl">{{ driver.number }}</p>
       </div>
       <div>
         <div class="-mt-px flex divide-x divide-gray-200">
