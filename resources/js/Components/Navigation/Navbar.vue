@@ -16,7 +16,7 @@
           <div class="flex-shrink-0 flex items-center">
             <Link href="/">
               <!-- The Logo -->
-              <p class="text-orange-600 font-semibold text-2xl" style="font-family: 'Bangers', cursive;">{{ appName }}</p>
+              <p class="text-orange-600 font-semibold sm:text-xl md:text-2xl" style="font-family: 'Bangers', cursive;">{{ appName }}</p>
               <!-- <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" /> -->
             </Link>
           </div>
