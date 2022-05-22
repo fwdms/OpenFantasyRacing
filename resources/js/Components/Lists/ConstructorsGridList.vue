@@ -4,7 +4,7 @@
       <div class="w-full flex items-center justify-between p-6 space-x-6">
         <div class="flex-1 truncate">
           <div class="flex items-center space-x-3">
-            <img v-if="constructor.logo != null" class="w-10 h-10 flex-shrink-0" :src="constructor.logo" alt="" />
+            <img v-if="constructor.logo != null" class="w-16 h-16 flex-shrink-0" :src="constructor.logo" alt="" />
             <h3 class="text-gray-900 text-sm font-medium truncate">{{ constructor.name }}</h3>
             <!-- <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ driver.constructor.name }}</span> -->
           </div>
