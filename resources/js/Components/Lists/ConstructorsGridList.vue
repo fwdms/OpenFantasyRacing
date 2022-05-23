@@ -17,10 +17,10 @@
       <div>
         <div class="-mt-px flex divide-x divide-gray-200">
           <div class="w-0 flex-1 flex">
-            <a href="#" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+            <Link :href="'/franchise/f1/constructor/' + constructor.slug" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
               <ChartPieIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
-              <span class="ml-3">View Driver Profile</span>
-            </a>
+              <span class="ml-3">View Constructor Profile</span>
+            </Link>
           </div>
           <!-- <div class="-ml-px w-0 flex-1 flex">
             <a :href="`#`" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">

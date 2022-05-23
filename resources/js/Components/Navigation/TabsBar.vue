@@ -3,7 +3,7 @@
       <nav class="flex justify-center space-x-4 my-2" aria-label="Tabs">
         <button v-for="tab in tabs" 
           :key="tab" 
-          :class="[ selectedTab(currentTab, tabs) === tab ? 'bg-orange-100 text-orange-700' : 'text-gray-500 hover:text-gray-700', 'px-3 py-2 font-medium text-sm rounded-md' ]" 
+          :class="[ selectedTab(currentTab, tabs) === tab ? 'bg-orange-600 text-white' : 'text-gray-500 hover:text-gray-700', 'px-3 py-2 font-medium text-sm rounded-md' ]" 
           @click="changeTab(currentTab, tab)"
         >
           {{ tab }}
@@ -35,5 +35,4 @@
     currentTab.name = tab
     emit("setCurrentTab", currentTab.name);
   }
-
 </script>

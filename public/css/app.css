@@ -952,8 +952,8 @@ select {
 .w-48 {
   width: 12rem;
 }
-.w-10 {
-  width: 2.5rem;
+.w-16 {
+  width: 4rem;
 }
 .w-0 {
   width: 0px;
@@ -964,11 +964,11 @@ select {
 .w-96 {
   width: 24rem;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-12 {
   width: 3rem;
-}
-.w-16 {
-  width: 4rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1391,10 +1391,6 @@ select {
 .bg-transparent {
   background-color: transparent;
 }
-.bg-orange-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 237 213 / var(--tw-bg-opacity));
-}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1731,10 +1727,6 @@ select {
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
-}
-.text-orange-700 {
-  --tw-text-opacity: 1;
-  color: rgb(194 65 12 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

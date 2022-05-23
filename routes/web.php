@@ -8,6 +8,7 @@ use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FranchiseController;
+use App\Http\Controllers\ConstructorController;
 
 // Try to keep these organized by controller in alphabetical order
 
@@ -18,6 +19,9 @@ Route::inertia('/bug-report', 'RequestForms/BugReport')->name('bug-report');
 Route::inertia('/feature-request', 'RequestForms/FeatureRequest')->name('feature-request');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::controller(ConstructorController::class)->group(function () {
+        Route::get('/franchise/{franchise_slug}/constructor/{slug}', 'show')->name('constructor.show');
+    });
 
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard.index');
