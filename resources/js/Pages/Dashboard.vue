@@ -1,12 +1,11 @@
 <template>
     <Head title="Dashboard" />
     <PageHeader title="Dashboard" />
-    <BreadcrumbBar :pages="pages"/>
+    <!-- <BreadcrumbBar :pages="pages"/> -->
 
-    <!-- <div class=""> -->
-      <FantasyTeamsTable :fantasy_teams='fantasy_teams' />
-      <!-- <stats /> -->
-    <!-- </div> -->
+    <FantasyTeamsTable :fantasy_teams='fantasy_teams' />
+    <!-- <Stats /> -->
+
 </template>
 
 <script setup>
