@@ -928,6 +928,9 @@ select {
 .h-64 {
   height: 16rem;
 }
+.h-52 {
+  height: 13rem;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -996,6 +999,12 @@ select {
 }
 .w-64 {
   width: 16rem;
+}
+.w-56 {
+  width: 14rem;
+}
+.w-52 {
+  width: 13rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -2234,12 +2243,20 @@ select {
     height: 3rem;
   }
 
+  .sm\:h-64 {
+    height: 16rem;
+  }
+
   .sm\:w-auto {
     width: auto;
   }
 
   .sm\:w-12 {
     width: 3rem;
+  }
+
+  .sm\:w-64 {
+    width: 16rem;
   }
 
   .sm\:max-w-md {
