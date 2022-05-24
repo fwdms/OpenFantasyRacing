@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto py-12 px-4 text-center ">
       <div class="space-y-12">
         <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-          <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Drivers</h2>
+          <h2 class="text-3xl font-extrabold tracking-tight">Drivers</h2>
         </div>
 
         <ul role="list" class="flex flex-wrap mx-auto gap-x-16 justify-center items-center">
