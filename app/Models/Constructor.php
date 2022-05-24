@@ -9,7 +9,7 @@ class Constructor extends Model
 {
     use HasFactory;
 
-    public function driver()
+    public function drivers()
     {
         return $this->hasMany(Driver::class);
     }
