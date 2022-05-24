@@ -3,10 +3,10 @@
     <PageHeader title="Dashboard" />
     <BreadcrumbBar :pages="pages"/>
 
-    <div class="max-w-7xl mx-auto my-8 py-6 sm:px-6 lg:px-8">
+    <!-- <div class=""> -->
       <FantasyTeamsTable :fantasy_teams='fantasy_teams' />
       <!-- <stats /> -->
-    </div>
+    <!-- </div> -->
 </template>
 
 <script setup>

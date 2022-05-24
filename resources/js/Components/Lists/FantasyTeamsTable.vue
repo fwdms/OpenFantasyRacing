@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10">
+  <div class="max-w-7xl mx-auto my-8 py-6 px-6 mb-10">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
         <h1 class="text-xl font-semibold text-gray-900">
