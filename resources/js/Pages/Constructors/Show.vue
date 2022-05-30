@@ -2,7 +2,9 @@
 	<Head :title="constructor.name" />
 	<PageHeader :title="constructor.name"/>
 
-  <Drivers :drivers="constructor.drivers"/>
+  <Drivers :drivers="constructor.drivers" :franchiseSlug="franchise.slug"/>
+
+  <p>{{ constructor.franchise_id }}</p>
 </template>
 
 <script setup>
@@ -10,6 +12,7 @@
   import Drivers from '@/Components/PageSections/Drivers'
 
   defineProps({
-    constructor: Object
+    constructor: Object,
+    franchise: Object
   })
 </script>

@@ -12,7 +12,7 @@
       <div>
         <div class="-mt-px flex divide-x divide-gray-200">
           <div class="w-0 flex-1 flex">
-            <Link :href="'/franchise/f1/constructor/' + constructor.slug" 
+            <Link :href="currentUrl + '/constructor/' + constructor.slug" 
               class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
             >
               <ChartPieIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
@@ -28,6 +28,8 @@
 <script setup>
   import { ChartPieIcon } from '@heroicons/vue/outline'
   import { ClipboardListIcon } from '@heroicons/vue/outline'
+
+  const currentUrl = window.location.pathname;
 
   defineProps({
     constructors: Array

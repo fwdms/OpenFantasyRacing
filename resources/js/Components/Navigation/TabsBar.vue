@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden sm:block">
+    <div class="sm:block">
       <nav class="flex justify-center space-x-4 my-2" aria-label="Tabs">
         <button v-for="tab in tabs" 
           :key="tab" 

@@ -32,8 +32,6 @@
   import { ChartPieIcon } from '@heroicons/vue/outline'
   import { ClipboardListIcon } from '@heroicons/vue/outline'
 
-  const currentUrl = window.location.pathname;
-
   defineProps({
     drivers: Array
   })

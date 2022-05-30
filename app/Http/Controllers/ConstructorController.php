@@ -20,7 +20,8 @@ class ConstructorController extends Controller
             ->where('slug', $slug)
             ->first();
 
+
         return Inertia::render('Constructors/Show')
-            ->with(compact('constructor'));
+            ->with(compact('constructor', 'franchise'));
     }
 }

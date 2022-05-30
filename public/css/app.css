@@ -749,6 +749,10 @@ select {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
