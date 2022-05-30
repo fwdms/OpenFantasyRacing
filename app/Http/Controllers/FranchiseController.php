@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Constructor;
+use Inertia\Inertia;
+use App\Models\Event;
 use App\Models\Driver;
 use App\Models\Franchise;
+use App\Models\Constructor;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class FranchiseController extends Controller
 {
@@ -23,7 +24,10 @@ class FranchiseController extends Controller
             ->orderBy('last_name')
             ->get();
 
+        $events = Event::where('franchise_id', $franchise->id)
+            ->get();
+
         return Inertia::render('Franchises/Show')
-            ->with(compact('franchise', 'constructors', 'drivers'));
+            ->with(compact('franchise', 'constructors', 'drivers', 'events'));
     }
 }
