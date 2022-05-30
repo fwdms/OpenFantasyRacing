@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ConstructorController extends Controller
 {
-    public function show($franchise_slug, $slug)
+    public function show($franchise_slug, $slug): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)
             ->firstOrFail();

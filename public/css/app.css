@@ -1919,10 +1919,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
 }
-.hover\:text-indigo-900:hover {
-  --tw-text-opacity: 1;
-  color: rgb(49 46 129 / var(--tw-text-opacity));
-}
 .focus\:relative:focus {
   position: relative;
 }
@@ -2341,10 +2337,6 @@ select {
 
   .sm\:pt-2 {
     padding-top: 0.5rem;
-  }
-
-  .sm\:pr-6 {
-    padding-right: 1.5rem;
   }
 
   .sm\:text-center {

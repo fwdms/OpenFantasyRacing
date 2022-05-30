@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -33,8 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/{franchise_slug}/constructor/{slug}', 'show')->name('constructor.show');
         });
 
-        Route::controller(EventController::class)->group(function () {
-            Route::get('/calendar', 'index')->name('calendar.index');
+        Route::controller(DriverController::class)->group(function () {
+            Route::get('/{franchise_slug}/driver/{id}', 'show')->name('driver.show');
         });
     });
 

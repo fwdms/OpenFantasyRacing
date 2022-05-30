@@ -1,0 +1,44 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    public function index(): \Inertia\Response
+    {
+        //
+    }
+
+    public function create(): \Inertia\Response
+    {
+        //
+    }
+
+    public function store(Request $request): \Inertia\Response
+    {
+        //
+    }
+
+    public function show($id): \Inertia\Response
+    {
+        //
+    }
+
+    public function edit($id): \Inertia\Response
+    {
+        //
+    }
+
+    public function update(Request $request, $id): \Inertia\Response
+    {
+        //
+    }
+
+    public function destroy($id): \Inertia\Response
+    {
+        //
+    }
+}

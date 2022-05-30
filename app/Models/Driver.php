@@ -12,12 +12,13 @@ class Driver extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = [
-        'name'
-    ];
-
     public function constructor()
     {
         return $this->belongsTo(Constructor::class, 'constructor_id');
+    }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class, 'driver_id', 'id');
     }
 }
