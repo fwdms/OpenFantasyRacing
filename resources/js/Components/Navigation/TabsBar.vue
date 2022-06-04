@@ -1,15 +1,15 @@
 <template>
-    <div class="sm:block">
-      <nav class="flex justify-center space-x-4 my-2" aria-label="Tabs">
-        <button v-for="tab in tabs" 
-          :key="tab" 
-          :class="[ selectedTab(currentTab, tabs) === tab ? 'bg-orange-600 text-white' : 'text-gray-500 hover:text-gray-700', 'px-3 py-2 font-medium text-sm rounded-md' ]" 
-          @click="changeTab(currentTab, tab)"
-        >
-          {{ tab }}
-        </button>
-      </nav>
-    </div>
+  <div class="sm:block">
+    <nav class="flex justify-center space-x-4 my-2" aria-label="Tabs">
+      <button v-for="tab in tabs" 
+        :key="tab" 
+        :class="[ selectedTab(currentTab, tabs) === tab ? 'bg-orange-600 text-white' : 'text-gray-500 hover:text-gray-700', 'px-3 py-2 font-medium text-sm rounded-md' ]" 
+        @click="changeTab(currentTab, tab)"
+      >
+        {{ tab }}
+      </button>
+    </nav>
+  </div>
 </template>
 
 <script setup>

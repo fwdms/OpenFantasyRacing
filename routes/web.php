@@ -25,17 +25,21 @@ Route::controller(FAQController::class)->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::group(['prefix' => 'franchise'], function () {
+    Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
         Route::controller(FranchiseController::class)->group(function () {
-            Route::get('/{slug}', 'show')->name('franchise.show');
+            Route::get('/', 'show')->name('franchise.show');
         });
 
         Route::controller(ConstructorController::class)->group(function () {
-            Route::get('/{franchise_slug}/constructor/{slug}', 'show')->name('constructor.show');
+            Route::get('/constructor/{slug}', 'show')->name('constructor.show');
         });
 
         Route::controller(DriverController::class)->group(function () {
-            Route::get('/{franchise_slug}/driver/{id}', 'show')->name('driver.show');
+            Route::get('/driver/{id}', 'show')->name('driver.show');
+        });
+
+        Route::controller(EventController::class)->group(function () {
+            Route::get('/events/{id}', 'show')->name('event.show');
         });
     });
 

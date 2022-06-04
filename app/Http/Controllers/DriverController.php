@@ -23,7 +23,7 @@ class DriverController extends Controller
         //
     }
 
-    public function show(String $slug, String $id): \Inertia\Response
+    public function show(String $franchise_slug, String $id): \Inertia\Response
     {
         $driver = Driver::where('id', $id)
             ->with('results')

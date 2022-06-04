@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 
 class FranchiseController extends Controller
 {
-    public function show($slug)
+    public function show($franchise_slug)
     {
-        $franchise = Franchise::where('slug', $slug)
+        $franchise = Franchise::where('slug', $franchise_slug)
             ->firstOrFail();
 
         $constructors = Constructor::where('franchise_id', $franchise['id'])
