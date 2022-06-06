@@ -10,7 +10,7 @@
           </h1>
 
           <div class="mt-3">
-            <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" class="text-3xl text-gray-900">
+            <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" class="text-3xl text-orange-600">
               {{ driver.constructor.name }}
             </Link>
           </div>
