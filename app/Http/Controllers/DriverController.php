@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Driver;
+use App\Models\Franchise;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -25,11 +26,15 @@ class DriverController extends Controller
 
     public function show(String $franchise_slug, String $id): \Inertia\Response
     {
-        $driver = Driver::where('id', $id)
-            ->with('results')
+        $franchise = Franchise::where('slug', $franchise_slug)
             ->first();
 
-        return Inertia::render('Drivers/Show')->with(compact('driver'));
+        $driver = Driver::where('id', $id)
+            ->with('results')
+            ->with('constructor')
+            ->first();
+
+        return Inertia::render('Drivers/Show')->with(compact('driver', 'franchise'));
     }
 
     public function edit($id): \Inertia\Response

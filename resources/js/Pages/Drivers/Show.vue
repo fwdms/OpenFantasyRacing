@@ -1,16 +1,31 @@
 <template>
   <Head :title="driver.first_name + ' ' + driver.last_name" />
-  <PageHeader :title="driver.first_name + ' ' + driver.last_name"/>
+  <main class="flex flex-wrap bg-white mx-auto py-8 px-8 rounded my-8 max-w-7xl justify-center space-x-8">
+      <img :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" class="w-96 h-96 object-center object-cover rounded" />
 
-  <div class="aspect-w-3 aspect-h-2 mx-8 my-8">
-    <img class="object-cover shadow-lg rounded-lg w-96" :src="driver.profile_image" alt="" />
-  </div>
+      <div class="max-w-3xl">
+        <div class="mt-10 mt-16 xl:mt-0">
+          <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">
+            {{ driver.first_name + ' ' + driver.last_name }}
+          </h1>
+
+          <div class="mt-3">
+            <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" class="text-3xl text-gray-900">
+              {{ driver.constructor.name }}
+            </Link>
+          </div>
+
+          <div class="mt-6">
+            <p class="text-base text-gray-700" v-html="driver.bio"></p>
+          </div>
+        </div>
+      </div>
+  </main>
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
-
   defineProps({
-    driver: Object
+    driver: Object,
+    franchise: Object
   })
 </script>
