@@ -16,9 +16,9 @@
               <tbody class="divide-y divide-gray-200 bg-white">
                 <tr v-for="event in events" :key="event.id">
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                    <a :href="currentUrl + '/events/' + event.id" class="text-orange-600">
+                    <Link :href="currentUrl + '/events/' + event.id" class="text-orange-600">
                       {{ event.name }}
-                    </a>
+                    </Link>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.track[0].name }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.track[0].location }}</td>

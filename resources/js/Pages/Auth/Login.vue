@@ -37,11 +37,15 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
                   <input v-model="form.remember" id="remember" name="remember" type="checkbox" class="h-4 w-4 text-orange-600 focus:ring-orange-500 border-orange-300 rounded" />
-                  <label for="remember" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+                  <label for="remember" class="ml-2 block text-sm text-gray-900">
+                    Remember me
+                  </label>
                 </div>
 
                 <div class="text-sm">
-                  <a href="/forgot-password" class="font-medium text-gray-600 hover:text-orange-500"> Forgot your password? </a>
+                  <Link href="/forgot-password" class="font-medium text-gray-600 hover:text-orange-500">
+                    Forgot your password?
+                  </Link>
                 </div>
               </div>
 

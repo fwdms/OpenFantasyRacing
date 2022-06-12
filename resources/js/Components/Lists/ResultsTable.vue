@@ -32,7 +32,9 @@
 						<tbody class="divide-y divide-gray-200 bg-white">
 							<tr v-for="result in results" :key="result.id">
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									<a :href="'/franchise/' + franchise.slug + '/events/' + result.race_id" class="text-orange-600">{{ result.race[0].name }}</a>
+									<Link :href="'/franchise/' + franchise.slug + '/events/' + result.race_id" class="text-orange-600">
+										{{ result.race[0].name }}
+									</Link>
 								</td>	
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									{{ result.race[0].track[0].name }}

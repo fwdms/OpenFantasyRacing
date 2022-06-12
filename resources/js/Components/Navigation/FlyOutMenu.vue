@@ -13,7 +13,7 @@
       <PopoverPanel class="absolute z-10 inset-x-0 transform shadow-lg">
         <div class="bg-white">
           <div class="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-            <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
+            <Link v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
               <div class="flex md:h-full lg:flex-col">
                 <div class="flex-shrink-0">
                   <div class="inline-flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
@@ -29,19 +29,21 @@
                       {{ item.description }}
                     </p>
                   </div>
-                  <p class="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">Learn more <span aria-hidden="true">&rarr;</span></p>
+                  <p class="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
+                    Learn more <span aria-hidden="true">&rarr;</span>
+                  </p>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div class="bg-gray-50">
           <div class="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
             <div v-for="item in callsToAction" :key="item.name" class="flow-root">
-              <a :href="item.href" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150">
+              <Link :href="item.href" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150">
                 <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                 <span class="ml-3">{{ item.name }}</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

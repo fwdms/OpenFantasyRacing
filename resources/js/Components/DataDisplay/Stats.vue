@@ -22,9 +22,12 @@
           </p>
           <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
             <div class="text-sm">
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                View all<span class="sr-only"> {{ item.name }} stats</span></a
-              >
+              <Link href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                View all
+                <span class="sr-only">
+                  {{ item.name }} stats
+                </span>
+              </Link>
             </div>
           </div>
         </dd>
