@@ -10,6 +10,9 @@
 									Event
 								</th>
 								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
+									Track Name
+								</th>
+								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
 									Track Location
 								</th>
 								<th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
@@ -19,7 +22,7 @@
 									Finished
 								</th>
 								<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
-									Points Earned
+									Points
 								</th>
 							</tr>
 						</thead>
@@ -27,7 +30,10 @@
 							<tr v-for="result in results" :key="result.id">
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									<a :href="'/franchise/' + franchise.slug + '/events/' + result.race_id" class="text-orange-600">{{ result.race[0].name }}</a>
-								</td>								
+								</td>	
+								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
+									{{ result.race[0].track[0].name }}
+								</td>							
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									{{ result.race[0].track[0].location }}
 								</td>

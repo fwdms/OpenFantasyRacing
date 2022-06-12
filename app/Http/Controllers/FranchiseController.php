@@ -21,6 +21,7 @@ class FranchiseController extends Controller
 
         $drivers = Driver::with('constructor')
             ->whereIn('constructor_id', $constructors->pluck('id'))
+            ->with('results')
             ->orderBy('last_name')
             ->get();
 
