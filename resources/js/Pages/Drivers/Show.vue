@@ -1,10 +1,11 @@
 <template>
   <Head :title="driver.first_name + ' ' + driver.last_name" />
-  <main class="flex flex-wrap bg-white mx-auto py-8 px-8 rounded my-8 max-w-7xl justify-center space-x-8">
+  <main>
+    <div class="flex flex-wrap bg-white mx-auto py-8 px-8 justify-center rounded my-8 max-w-7xl space-x-8">
       <img :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" class="w-96 h-96 object-center object-cover rounded" />
 
       <div class="max-w-3xl">
-        <div class="mt-10 mt-16 xl:mt-0">
+        <div class="mt-16 xl:mt-0">
           <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">
             {{ driver.first_name + ' ' + driver.last_name }}
           </h1>
@@ -20,12 +21,27 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="max-w-7xl bg-white mx-auto py-8 px-8 rounded my-8">
+      <div class="mt-10 mt-16 xl:mt-0"> 
+        <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
+          Results
+        </h1>
+
+        <ResultsTable :franchise="franchise" :results="results" />
+
+      </div>
+    </div>
   </main>
 </template>
 
 <script setup>
+  import ResultsTable from '@/Components/Lists/ResultsTable'
+
   defineProps({
     driver: Object,
-    franchise: Object
+    franchise: Object,
+    results: Array,
   })
 </script>

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Race;
+use App\Models\Driver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Result extends Model
 {
@@ -12,4 +14,14 @@ class Result extends Model
     protected $guarded = [];
 
     protected $fillable = [];
+
+    public function race()
+    {
+        return $this->hasMany(Race::class, 'id', 'race_id')->with('track');
+    }
+
+    public function driver()
+    {
+        return $this->hasOne(Driver::class, 'id', 'driver_id');
+    }
 }

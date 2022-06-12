@@ -12,4 +12,9 @@ class Race extends Model
     protected $guarded = [];
 
     protected $fillable = [];
+
+    public function track()
+    {
+        return $this->hasMany(Track::class, 'id', 'track_id');
+    }
 }

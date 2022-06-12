@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Driver;
+use App\Models\Result;
 use App\Models\Franchise;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,11 @@ class DriverController extends Controller
             ->with('constructor')
             ->first();
 
-        return Inertia::render('Drivers/Show')->with(compact('driver', 'franchise'));
+        $results = Result::where('driver_id', $driver->id)
+            ->with('race')
+            ->get();
+
+        return Inertia::render('Drivers/Show')->with(compact('driver', 'franchise', 'results'));
     }
 
     public function edit($id): \Inertia\Response

@@ -11,8 +11,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FranchiseController;
 use App\Http\Controllers\ConstructorController;
 
-// Try to keep these organized by controller in alphabetical order
-
 Route::inertia('/', 'Home')->name('home');
 
 Route::inertia('/bug-report', 'RequestForms/BugReport')->name('bug-report');

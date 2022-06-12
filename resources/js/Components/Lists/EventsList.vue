@@ -15,10 +15,14 @@
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
                 <tr v-for="event in events" :key="event.id">
-                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ event.name }}</td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.track_name }}</td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.country }}</td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.date_time }}</td>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <a :href="currentUrl + '/events/' + event.id" class="text-orange-600">
+                      {{ event.name }}
+                    </a>
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.track[0].name }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.track[0].location }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ event.date }}</td>
                 </tr>
               </tbody>
             </table>
@@ -30,6 +34,8 @@
 </template>
 
 <script setup>
+  const currentUrl = window.location.pathname
+
   defineProps({
     events: Array
   })

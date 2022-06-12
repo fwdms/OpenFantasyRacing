@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Race;
 use Inertia\Inertia;
-use App\Models\Event;
 use App\Models\Driver;
 use App\Models\Franchise;
 use App\Models\Constructor;
@@ -24,7 +24,9 @@ class FranchiseController extends Controller
             ->orderBy('last_name')
             ->get();
 
-        $events = Event::where('franchise_id', $franchise->id)
+        $events = Race::where('franchise_id', $franchise->id)
+            ->with('track')
+            ->orderBy('date', 'ASC')
             ->get();
 
         return Inertia::render('Franchises/Show')
