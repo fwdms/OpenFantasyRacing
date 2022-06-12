@@ -17,7 +17,7 @@ class Result extends Model
 
     public function race()
     {
-        return $this->hasMany(Race::class, 'id', 'race_id')->with('track')->orderBy('date', 'DESC');
+        return $this->hasMany(Race::class, 'id', 'race_id')->with('track');
     }
 
     public function driver()
