@@ -22,6 +22,9 @@
 									Finished
 								</th>
 								<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
+									DNF
+								</th>
+								<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
 									Points
 								</th>
 							</tr>
@@ -42,6 +45,9 @@
 								</td>
 								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
 									{{ result.finish_pos }}
+								</td>
+								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
+									<span v-if="result.DNF">DNF</span>
 								</td>
 								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
 									{{ result.points_for_race }}
