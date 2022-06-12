@@ -36,18 +36,28 @@ class DriverController extends Controller
             ->first();
 
         $results = Result::where('driver_id', $driver->id)
-            ->with('race')
+            ->join('races', 'races.id', 'race_id')
+            ->join('tracks', 'races.track_id', 'tracks.id')
+            ->orderBy('races.date')
+
+            ->select(
+                'results.*',
+                'races.*',
+                'tracks.name as track_name',
+                'tracks.location as track_location'
+            )
+
             ->get();
 
         return Inertia::render('Drivers/Show')->with(compact('driver', 'franchise', 'results'));
     }
 
-    public function edit($id): \Inertia\Response
+    public function edit(Int $id): \Inertia\Response
     {
         //
     }
 
-    public function update(Request $request, $id): \Inertia\Response
+    public function update(Request $request, Int $id): \Inertia\Response
     {
         //
     }
