@@ -13,10 +13,10 @@
 									Track Location
 								</th>
 								<th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
-									Starting Position
+									Started
 								</th>
 								<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
-									Ending Position
+									Finished
 								</th>
 								<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
 									Points Earned

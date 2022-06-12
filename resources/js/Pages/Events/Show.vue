@@ -14,13 +14,13 @@
 						<thead class="bg-gray-50">
 							<tr>
                 <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
-                  #
+                  Finished
 								</th>
 								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
 									Driver
 								</th>
 								<th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
-									Starting Position
+									Started
 								</th>
                 <th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
                   DNF
