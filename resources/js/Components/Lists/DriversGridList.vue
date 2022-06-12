@@ -31,7 +31,7 @@
                 #{{ driver.number }}
             </p>
 
-            <p class="text-gray-500 text-xl mx-auto">{{ driver.championship_points }}</p>
+            <p class="text-gray-500 text-xl mx-auto">{{ driver.results_sum_points_for_race }}</p>
           </div>
         </div>
       <div>
