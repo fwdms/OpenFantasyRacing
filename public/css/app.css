@@ -749,6 +749,10 @@ select {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -973,6 +977,9 @@ select {
 }
 .w-4 {
   width: 1rem;
+}
+.w-64 {
+  width: 16rem;
 }
 .min-w-full {
   min-width: 100%;

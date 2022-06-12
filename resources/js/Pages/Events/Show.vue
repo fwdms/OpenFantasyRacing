@@ -2,6 +2,11 @@
   <Head :title="event.name" />
   <PageHeader :title="event.name"/>
 
+  <img v-if="event.track[0].track_photo" 
+    class="mx-auto my-4 w-64" 
+    :src="event.track[0].track_photo"
+  >
+
   <h1 class="text-3xl font-extrabold tracking-tight text-orange-600 my-8 text-center">
     Results
   </h1>
@@ -52,6 +57,7 @@
 							</tr>
 						</tbody>
 					</table>
+
 				</div>
 			</div>
 		</div>
