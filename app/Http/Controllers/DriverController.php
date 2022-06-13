@@ -33,6 +33,7 @@ class DriverController extends Controller
         $driver = Driver::where('id', $id)
             ->with('results')
             ->with('constructor')
+            ->withSum('results', 'points_for_race')
             ->first();
 
         $results = Result::where('driver_id', $driver->id)

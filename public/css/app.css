@@ -840,6 +840,12 @@ select {
 .ml-5 {
   margin-left: 1.25rem;
 }
+.mr-8 {
+  margin-right: 2rem;
+}
+.ml-8 {
+  margin-left: 2rem;
+}
 .block {
   display: block;
 }
@@ -915,6 +921,9 @@ select {
 .h-96 {
   height: 24rem;
 }
+.h-64 {
+  height: 16rem;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -981,11 +990,35 @@ select {
 .w-64 {
   width: 16rem;
 }
+.w-1\/4 {
+  width: 25%;
+}
+.w-3\/4 {
+  width: 75%;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-2\/6 {
+  width: 33.333333%;
+}
+.w-4\/6 {
+  width: 66.666667%;
+}
 .min-w-full {
   min-width: 100%;
 }
 .min-w-0 {
   min-width: 0px;
+}
+.min-w-\[20rem\] {
+  min-width: 20rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1007,6 +1040,9 @@ select {
 }
 .max-w-lg {
   max-width: 32rem;
+}
+.max-w-md {
+  max-width: 28rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1547,6 +1583,9 @@ select {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+.pl-8 {
+  padding-left: 2rem;
+}
 .text-left {
   text-align: left;
 }
@@ -2061,6 +2100,10 @@ select {
     margin-top: 1px;
   }
 
+  .sm\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -2253,6 +2296,10 @@ select {
     padding-top: 0.5rem;
   }
 
+  .sm\:pl-8 {
+    padding-left: 2rem;
+  }
+
   .sm\:text-center {
     text-align: center;
   }
@@ -2424,6 +2471,10 @@ select {
     padding-bottom: 5rem;
   }
 
+  .md\:pl-8 {
+    padding-left: 2rem;
+  }
+
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -2495,6 +2546,10 @@ select {
     margin-top: 1rem;
   }
 
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -2525,6 +2580,10 @@ select {
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .lg\:max-w-2xl {
@@ -2616,6 +2675,10 @@ select {
     display: inline;
   }
 
+  .xl\:w-4\/6 {
+    width: 66.666667%;
+  }
+
   .xl\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -2628,6 +2691,20 @@ select {
 
   .xl\:pb-32 {
     padding-bottom: 8rem;
+  }
+}
+@media (min-width: 1536px) {
+
+  .\32xl\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .\32xl\:w-4\/6 {
+    width: 66.666667%;
+  }
+
+  .\32xl\:text-left {
+    text-align: left;
   }
 }
 
