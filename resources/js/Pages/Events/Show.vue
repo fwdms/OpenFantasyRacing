@@ -24,6 +24,9 @@
 								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
 									Driver
 								</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
+									Constuctor
+								</th>
 								<th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
 									Started
 								</th>
@@ -44,7 +47,12 @@
 									<Link :href="'/franchise/' + franchise.slug + '/driver/' + result.driver.id" class="text-orange-600">
                     {{ result.driver.first_name + ' ' + result.driver.last_name }}
                   </Link>
-								</td>								
+								</td>			
+                <td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
+									<Link :href="'/franchise/' + franchise.slug + '/constructor/' + result.driver.constructor.slug" class="text-orange-600">
+                    {{ result.driver.constructor.name }}
+                  </Link>
+								</td>						
 								<td class="whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500">
 									{{ result.starting_pos }}
 								</td>
