@@ -20,9 +20,9 @@
                     <h3 class="text-gray-900 text-sm font-medium truncate">
                         {{ driver.first_name }} {{ driver.last_name }}
                     </h3>
-                    <p class="mt-1 text-gray-500 text-sm truncate">
+                    <Link :href="currentUrl + '/constructor/' + driver.constructor.slug " class="mt-1 text-orange-600 text-sm truncate">
                         {{ driver.constructor.short_name }}
-                    </p>
+                    </Link>
                   </div>
               </div>
           </div>
