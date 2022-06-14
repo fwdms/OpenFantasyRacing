@@ -21,7 +21,7 @@
                         {{ driver.first_name }} {{ driver.last_name }}
                     </h3>
                     <p class="mt-1 text-gray-500 text-sm truncate">
-                        {{ driver.constructor.name }}
+                        {{ driver.constructor.short_name }}
                     </p>
                   </div>
               </div>
