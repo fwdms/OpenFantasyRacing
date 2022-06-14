@@ -50,7 +50,7 @@
 								</td>			
                 <td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									<Link :href="'/franchise/' + franchise.slug + '/constructor/' + result.driver.constructor.slug" class="text-orange-600">
-                    {{ result.driver.constructor.name }}
+                    {{ result.driver.constructor.short_name }}
                   </Link>
 								</td>						
 								<td class="whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500">

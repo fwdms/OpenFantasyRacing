@@ -5,7 +5,10 @@
         <div class="flex-1 truncate">
           <div class="flex items-center space-x-3">
             <img v-if="constructor.logo != null" class="w-16 h-16 flex-shrink-0" :src="constructor.logo" alt="" />
-            <h3 class="text-gray-900 text-sm font-medium truncate">{{ constructor.name }}</h3>
+            <div> 
+              <h3 class="text-gray-900 text-sm font-medium truncate">{{ constructor.short_name }}</h3>
+              <h3 class="text-gray-500 text-sm font-medium truncate">{{ constructor.name }}</h3>
+            </div>
           </div>
         </div>
       </div>

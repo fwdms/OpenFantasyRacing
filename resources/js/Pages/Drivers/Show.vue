@@ -2,17 +2,20 @@
   <Head :title="driver.first_name + ' ' + driver.last_name" />
   <main>
     <div class="flex flex-wrap bg-white mx-8 py-8 px-8 rounded my-8">
-      <img :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" 
-        class="max-w-md px-8 min-w-[20rem] mx-auto object-center object-cover rounded" 
+      <img class="max-w-md mx-auto object-center object-cover rounded"
+        :src="driver.profile_image" 
+        :alt="driver.first_name + ' ' + driver.last_name"  
       />
 
-      <div class="mx-auto mt-8 2xl:mt-0 2xl:w-4/6">
-        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 text-center 2xl:text-left">
+      <div class="mx-auto mt-8 xl:mt-0 xl:w-4/6">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 text-center xl:text-left">
           {{ driver.first_name + ' ' + driver.last_name }}
         </h1>
 
-        <div class="mt-3 text-center 2xl:text-left">
-          <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" class="text-3xl text-orange-600">
+        <div class="mt-3 text-center xl:text-left">
+          <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" 
+            class="text-3xl text-orange-600"
+          >
             {{ driver.constructor.name }}
           </Link>
         </div>
