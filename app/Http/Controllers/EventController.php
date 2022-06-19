@@ -29,6 +29,7 @@ class EventController extends Controller
         $results = Result::where('race_id', $event->id)
             ->with('driver')
             ->orderBy('finish_pos', 'ASC')
+            ->orderBy('starting_pos', 'ASC')
             ->get();
 
         return Inertia::render('Events/Show')->with(compact('franchise', 'event', 'results'));
