@@ -21,6 +21,6 @@ class Constructor extends Model
 
     public function results()
     {
-        return $this->hasManyThrough(Result::class, Driver::class)->with('race');
+        return $this->hasManyThrough(Result::class, Driver::class);
     }
 }

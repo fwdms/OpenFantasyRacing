@@ -13,10 +13,7 @@
 									Event
 								</th>
 								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
-									Track Name
-								</th>
-								<th scope="col" class="py-3.5 pl-4 pr-3 w-96 text-center text-sm font-semibold text-gray-900 sm:pl-6">
-									Track Location
+									Driver Name
 								</th>
 								<th scope="col" class="px-3 py-3.5 w-96 text-center text-sm font-semibold text-gray-900">
 									Started
@@ -33,7 +30,7 @@
 							</tr>
 						</thead>
 						<tbody class="divide-y divide-gray-200 bg-white">
-							<tr v-for="result in team.results" :key="result.id">
+							<tr v-for="result in results" :key="result.id">
                 <td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									{{ result.race[0].round_number }}
 								</td>	
@@ -43,11 +40,8 @@
 									</Link>
 								</td>	
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									{{ result.track_name }}
+									{{ result.driver.first_name + ' ' + result.driver.last_name }}
 								</td>							
-								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									{{ result.track_location }}
-								</td>
 								<td class="whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500">
 									{{ result.starting_pos }}
 								</td>
@@ -72,6 +66,6 @@
 <script setup>
 	defineProps({
     franchise: Object,
-    team: Object,
+    results: Object,
   })
 </script>

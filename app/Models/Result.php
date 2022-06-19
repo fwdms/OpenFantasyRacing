@@ -13,9 +13,9 @@ class Result extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
-    protected $fillable = [];
+    // protected $fillable = [];
 
     public function race()
     {
@@ -24,7 +24,7 @@ class Result extends Model
 
     public function track()
     {
-        return $this->hasManyThrough(Track::class, Race::class);
+        return $this->hasManyThrough(Track::class, Race::class, 'track_id');
     }
 
     public function driver()

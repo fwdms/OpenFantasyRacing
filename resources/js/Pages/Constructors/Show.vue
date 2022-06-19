@@ -7,7 +7,7 @@
       <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
         Results
       </h1>
-      <ConstructorsResultsTable :franchise="franchise" :team="team" />
+      <ConstructorsResultsTable :franchise="franchise" :results="results" />
   </div>
 </template>
 
@@ -19,6 +19,7 @@
   defineProps({
     team: Object,
     franchise: Object,
-    drivers: Array
+    drivers: Array,
+    results: Array
   })
 </script>
