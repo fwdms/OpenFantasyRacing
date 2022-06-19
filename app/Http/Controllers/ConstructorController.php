@@ -42,13 +42,6 @@ class ConstructorController extends Controller
             ->orderBy('id', 'ASC')
             ->get();
 
-
-        // foreach ($results as $result) {
-        //     dd($result);
-        // }
-
-        // dd($results);
-
         return Inertia::render('Constructors/Show')
             ->with(compact('team', 'drivers', 'franchise', 'results'));
     }
