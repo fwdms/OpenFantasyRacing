@@ -4,6 +4,7 @@
       <div class="w-full flex items-center justify-between p-6 space-x-6">
           <div class="flex-1 truncate">
               <div class="flex items-center space-x-3">
+                <Link :href="currentUrl + '/driver/' + driver.id">
                   <img
                       v-if="driver.profile_image != null"
                       class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"
@@ -16,9 +17,12 @@
                       src="/assets/missingprofle.webp"
                       alt=""
                   />
+                  </Link>
                   <div class="flex flex-col">
-                    <h3 class="text-gray-900 text-sm font-medium truncate">
+                    <h3 class="font-medium truncate">
+                      <Link :href="currentUrl + '/driver/' + driver.id" class="text-gray-800 hover:text-orange-600">
                         {{ driver.first_name }} {{ driver.last_name }}
+                      </Link>
                     </h3>
                     <Link :href="currentUrl + '/constructor/' + driver.constructor.slug " class="mt-1 text-orange-600 text-sm truncate">
                         {{ driver.constructor.short_name }}
@@ -34,7 +38,7 @@
             <p class="text-gray-500 text-xl mx-auto">{{ driver.results_sum_points_for_race }}</p>
           </div>
         </div>
-      <div>
+      <!-- <div>
         <div class="-mt-px flex divide-x divide-gray-200">
           <div class="w-0 flex-1 flex">
             <Link
@@ -49,7 +53,7 @@
             </Link>
           </div>
         </div>
-      </div>
+      </div> -->
     </li>
   </ul>
 </template>
