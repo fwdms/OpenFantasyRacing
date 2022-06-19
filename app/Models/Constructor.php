@@ -11,6 +11,11 @@ class Constructor extends Model
 
     public function drivers()
     {
-        return $this->hasMany(Driver::class);
+        return $this->hasMany(Driver::class)->with('results');
+    }
+
+    public function results()
+    {
+        return $this->hasManyThrough(Result::class, Driver::class);
     }
 }

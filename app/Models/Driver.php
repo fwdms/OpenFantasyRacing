@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Driver extends Model
@@ -11,6 +12,7 @@ class Driver extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $fillable = ['first_name', 'last_name'];
 
     public function constructor()
     {

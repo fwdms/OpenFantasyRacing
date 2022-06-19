@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Constructor;
+use App\Models\Driver;
 use App\Models\Franchise;
+use App\Models\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,8 +20,9 @@ class ConstructorController extends Controller
         $constructor = Constructor::with('drivers')
             ->where('franchise_id', $franchise->id)
             ->where('slug', $slug)
+            ->with('results')
+            ->with('drivers')
             ->first();
-
 
         return Inertia::render('Constructors/Show')
             ->with(compact('constructor', 'franchise'));

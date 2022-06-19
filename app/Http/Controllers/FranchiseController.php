@@ -18,6 +18,10 @@ class FranchiseController extends Controller
             ->firstOrFail();
 
         $constructors = Constructor::where('franchise_id', $franchise['id'])
+            ->with('drivers')
+            ->with('results')
+            ->withSum('results', 'points_for_race')
+            ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
         $drivers = Driver::with('constructor')
