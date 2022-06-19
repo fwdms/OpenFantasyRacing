@@ -2,7 +2,7 @@
   <Head :title="driver.first_name + ' ' + driver.last_name" />
   <main>
     <div class="flex flex-wrap bg-white mx-8 py-8 px-8 rounded my-8">
-      <img class="max-w-md mx-auto object-center object-cover rounded"
+      <img class="max-w-md w-full mx-auto object-center object-cover rounded"
         :src="driver.profile_image" 
         :alt="driver.first_name + ' ' + driver.last_name"  
       />
