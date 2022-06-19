@@ -26,12 +26,13 @@
       </div>
     </div>
 
-    <div class="bg-white mx-8 py-8 px-8 rounded my-8">
+    <div class="bg-white py-8 mx-8 rounded my-8">
         <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
           Results
         </h1>
+        <ResultsTable :franchise="franchise" :results="results" />
     </div>
-    <ResultsTable :franchise="franchise" :results="results" />
+   
   </main>
 </template>
 

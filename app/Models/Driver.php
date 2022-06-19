@@ -21,6 +21,6 @@ class Driver extends Model
 
     public function results()
     {
-        return $this->hasMany(Result::class, 'driver_id', 'id');
+        return $this->hasMany(Result::class, 'driver_id');
     }
 }

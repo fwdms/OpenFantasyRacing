@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Race;
+use App\Models\Track;
 use App\Models\Driver;
 use App\Models\Constructor;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,12 @@ class Result extends Model
 
     public function race()
     {
-        return $this->hasMany(Race::class, 'id', 'race_id')->with('track');
+        return $this->hasMany(Race::class, 'id', 'race_id')->with('track')->orderBy('round_number');
+    }
+
+    public function track()
+    {
+        return $this->hasManyThrough(Track::class, Race::class);
     }
 
     public function driver()

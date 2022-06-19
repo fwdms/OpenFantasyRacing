@@ -12,7 +12,10 @@
                   <img class="h-52 w-52 rounded-full my-5" :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" />
                   <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
                 </Link>
-                <p class="text-gray-500">{{ driver.number }}</p>
+                <p class="text-gray-500">
+                  {{ driver.number }} 
+                  <span class="text-gray-400 px-3">{{ driver.results_sum_points_for_race }}</span>
+                </p>
               </div>
               <ul v-if="driver.twitterUrl != null" role="list" class="flex justify-center space-x-5">
                 <li>

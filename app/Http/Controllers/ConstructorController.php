@@ -17,14 +17,18 @@ class ConstructorController extends Controller
         $franchise = Franchise::where('slug', $franchise_slug)
             ->firstOrFail();
 
-        $constructor = Constructor::with('drivers')
-            ->where('franchise_id', $franchise->id)
+        $team = Constructor::where('franchise_id', $franchise->id)
             ->where('slug', $slug)
             ->with('results')
-            ->with('drivers')
             ->first();
 
+        $drivers = Driver::where('constructor_id', $team->id)
+            ->with('results')
+            ->withSum('results', 'points_for_race')
+            ->orderBy('results_sum_points_for_race', 'DESC')
+            ->get();
+
         return Inertia::render('Constructors/Show')
-            ->with(compact('constructor', 'franchise'));
+            ->with(compact('team', 'drivers', 'franchise'));
     }
 }

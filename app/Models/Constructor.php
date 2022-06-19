@@ -9,6 +9,11 @@ class Constructor extends Model
 {
     use HasFactory;
 
+    public function franchise()
+    {
+        return $this->belongsTo(Franchise::class);
+    }
+
     public function drivers()
     {
         return $this->hasMany(Driver::class)->with('results');
@@ -16,6 +21,6 @@ class Constructor extends Model
 
     public function results()
     {
-        return $this->hasManyThrough(Result::class, Driver::class);
+        return $this->hasManyThrough(Result::class, Driver::class)->with('race');
     }
 }
