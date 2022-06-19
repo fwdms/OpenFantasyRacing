@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="bg-white py-8 mx-4 px-8 rounded my-8">
+    <div class="bg-white py-8 mx-8 px-8 rounded my-8">
         <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
           Results
         </h1>
