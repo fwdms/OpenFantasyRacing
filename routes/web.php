@@ -21,26 +21,29 @@ Route::controller(FAQController::class)->group(function () {
     Route::get('/faq', 'index')->name('faq.index');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::controller(RuleController::class)->group(function () {
+    Route::get('/rules', 'index')->name('rules.index');
+});
 
-    Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
-        Route::controller(FranchiseController::class)->group(function () {
-            Route::get('/', 'show')->name('franchise.show');
-        });
-
-        Route::controller(ConstructorController::class)->group(function () {
-            Route::get('/constructor/{slug}', 'show')->name('constructor.show');
-        });
-
-        Route::controller(DriverController::class)->group(function () {
-            Route::get('/driver/{id}', 'show')->name('driver.show');
-        });
-
-        Route::controller(EventController::class)->group(function () {
-            Route::get('/events/{id}', 'show')->name('event.show');
-        });
+Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
+    Route::controller(FranchiseController::class)->group(function () {
+        Route::get('/', 'show')->name('franchise.show');
     });
 
+    Route::controller(ConstructorController::class)->group(function () {
+        Route::get('/constructor/{slug}', 'show')->name('constructor.show');
+    });
+
+    Route::controller(DriverController::class)->group(function () {
+        Route::get('/driver/{id}', 'show')->name('driver.show');
+    });
+
+    Route::controller(EventController::class)->group(function () {
+        Route::get('/events/{id}', 'show')->name('event.show');
+    });
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard.index');
     });
@@ -54,10 +57,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::post('/profile', 'update')->name('profile.update');
-    });
-
-    Route::controller(RuleController::class)->group(function () {
-        Route::get('/rules', 'index')->name('rules.index');
     });
 });
 
