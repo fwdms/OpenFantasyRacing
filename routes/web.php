@@ -43,6 +43,7 @@ Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
     });
 });
 
+// Requires Auth
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard.index');
