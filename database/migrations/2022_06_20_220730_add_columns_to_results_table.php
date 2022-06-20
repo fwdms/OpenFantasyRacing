@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->tinyInteger('not_classified')->default(0);
-            $table->tinyInteger('fastest_lap')->default(0);
+            $table->tinyInteger('not_classified')
+                ->after('laps_completed')
+                ->default(0);
+            $table->tinyInteger('fastest_lap')
+                ->default(0)
+                ->after('not_classified');
         });
     }
 
