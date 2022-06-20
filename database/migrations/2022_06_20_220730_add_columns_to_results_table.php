@@ -18,8 +18,8 @@ return new class extends Migration
                 ->after('laps_completed')
                 ->default(0);
             $table->tinyInteger('fastest_lap')
-                ->default(0)
-                ->after('not_classified');
+                ->after('not_classified')
+                ->default(0);
         });
     }
 
