@@ -13,6 +13,6 @@ class Franchise extends Model
 
     protected $fillable = [
         'name',
-        'governingBody'
+        'governingBody',
     ];
 }

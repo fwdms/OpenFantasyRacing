@@ -2,14 +2,15 @@
 
 namespace Tests\Feature\Auth;
 
-use Tests\TestCase;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     public function test_registration_screen_can_be_rendered()
     {

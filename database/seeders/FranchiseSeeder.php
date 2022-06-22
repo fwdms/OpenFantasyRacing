@@ -18,7 +18,7 @@ class FranchiseSeeder extends Seeder
             'id' => 1,
             'name' => 'F1',
             'governing_body' => 'FIA',
-            'slug' => 'f1'
+            'slug' => 'f1',
         ]);
     }
 }

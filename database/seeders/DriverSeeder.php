@@ -23,12 +23,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 1,
             'country' => 'United Kingdom',
             'position_last_season' => 1,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 281,
             'all_time_wins' => 100,
             'podiums' => 176,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -39,12 +39,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 2,
             'country' => 'Netherlands',
             'position_last_season' => 2,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 134,
             'all_time_Wins' => 17,
             'podiums' => 53,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -55,12 +55,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 1,
             'country' => 'Finland',
             'position_last_season' => 3,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 171,
             'all_time_Wins' => 9,
             'podiums' => 64,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -71,12 +71,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 3,
             'country' => 'United Kingdom',
             'position_last_season' => 4,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 53,
             'all_time_Wins' => 0,
             'podiums' => 5,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -87,12 +87,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 2,
             'country' => 'Mexico',
             'position_last_season' => 5,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 207,
             'all_time_Wins' => 2,
             'podiums' => 12,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -103,12 +103,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 6,
             'country' => 'Spain',
             'position_last_season' => 6,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 134,
             'all_time_Wins' => 0,
             'podiums' => 5,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -119,12 +119,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 6,
             'country' => 'Monaco',
             'position_last_season' => 7,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 74,
             'all_time_Wins' => 2,
             'podiums' => 13,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -135,12 +135,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 3,
             'country' => 'Australia',
             'position_last_season' => 8,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 74,
             'all_time_Wins' => 2,
             'podiums' => 13,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -151,12 +151,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 7,
             'country' => 'France',
             'position_last_season' => 9,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 79,
             'all_time_Wins' => 1,
             'podiums' => 3,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -167,12 +167,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 5,
             'country' => 'Spain',
             'position_last_season' => 10,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 329,
             'all_time_Wins' => 32,
             'podiums' => 97,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -183,12 +183,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 5,
             'country' => 'France',
             'position_last_season' => 11,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 82,
             'all_time_Wins' => 1,
             'podiums' => 2,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -199,12 +199,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 4,
             'country' => 'Germany',
             'position_last_season' => 12,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 273,
             'all_time_Wins' => 53,
             'podiums' => 122,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -215,12 +215,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 4,
             'country' => 'Canada',
             'position_last_season' => 13,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 93,
             'all_time_Wins' => 0,
             'podiums' => 3,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -231,12 +231,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 7,
             'country' => 'Japan',
             'position_last_season' => 14,
-            'is_rookie' => TRUE,
-            'new_to_constructor' => TRUE,
+            'is_rookie' => true,
+            'new_to_constructor' => true,
             'GPs_entered' => 15,
             'all_time_Wins' => 0,
             'podiums' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -247,12 +247,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 10,
             'country' => 'United Kingdom',
             'position_last_season' => 15,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 53,
             'all_time_Wins' => 0,
             'podiums' => 1,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -263,12 +263,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 10,
             'country' => 'Canada',
             'position_last_season' => 16,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 32,
             'all_time_Wins' => 0,
             'podiums' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -279,12 +279,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 8,
             'country' => 'Finland',
             'position_last_season' => 17,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 345,
             'all_time_Wins' => 21,
             'podiums' => 103,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -295,12 +295,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 8,
             'country' => 'Italy',
             'position_last_season' => 18,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 55,
             'all_time_Wins' => 0,
             'podiums' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -311,12 +311,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 9,
             'country' => 'Germany',
             'position_last_season' => 19,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 15,
             'all_time_Wins' => 0,
             'podiums' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('drivers')->insert([
@@ -327,12 +327,12 @@ class DriverSeeder extends Seeder
             'constructor_id' => 9,
             'country' => 'Russian Automobile Federation',
             'position_last_season' => 20,
-            'is_rookie' => FALSE,
-            'new_to_constructor' => FALSE,
+            'is_rookie' => false,
+            'new_to_constructor' => false,
             'GPs_entered' => 15,
             'all_time_Wins' => 0,
             'podiums' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
     }
 }

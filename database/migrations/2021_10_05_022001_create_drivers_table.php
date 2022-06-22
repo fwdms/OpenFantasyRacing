@@ -23,8 +23,8 @@ class CreateDriversTable extends Migration
             $table->string('country');
             $table->integer('position_last_season')->nullable();
             $table->integer('championship_points')->default(0);
-            $table->boolean('is_rookie')->default(FALSE);
-            $table->boolean('new_to_constructor')->default(FALSE);
+            $table->boolean('is_rookie')->default(false);
+            $table->boolean('new_to_constructor')->default(false);
             $table->integer('GPs_entered')->default(0);
             $table->integer('podiums')->default(0);
             $table->integer('all_time_wins')->default(0);

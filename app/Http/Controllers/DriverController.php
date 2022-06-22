@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use App\Models\Driver;
-use App\Models\Result;
 use App\Models\Franchise;
+use App\Models\Result;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class DriverController extends Controller
 {

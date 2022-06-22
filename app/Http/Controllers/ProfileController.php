@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 use Inertia\Response;
 
 class ProfileController extends Controller
@@ -22,7 +22,7 @@ class ProfileController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->first();
 
-        /** @var String $profileImage */
+        /** @var string $profileImage */
         $profileImage = Storage::put('/public/profile_images', $request->profile_image, 'public');
 
         $user->update([

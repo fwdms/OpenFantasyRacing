@@ -22,7 +22,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -32,7 +32,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -42,7 +42,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -52,7 +52,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -62,7 +62,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -72,7 +72,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -82,7 +82,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -92,7 +92,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -102,7 +102,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('constructors')->insert([
@@ -112,7 +112,7 @@ class ConstructorSeeder extends Seeder
             'franchise_id' => 1,
             'constructors_points' => 0,
             'number_of_times_picked' => 0,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
     }
 }

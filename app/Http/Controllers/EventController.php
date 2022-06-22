@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Race;
-use Inertia\Inertia;
-use App\Models\Result;
 use App\Models\Franchise;
-use App\Http\Requests\StoreEventRequest;
-use App\Http\Requests\UpdateEventRequest;
+use App\Models\Race;
+use App\Models\Result;
+use Inertia\Inertia;
 
 class EventController extends Controller
 {

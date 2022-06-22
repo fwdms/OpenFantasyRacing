@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FantasyTeam;
+use App\Models\League;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Models\Driver;
-use App\Models\League;
-use App\Models\FantasyTeam;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 
 class LeagueController extends Controller
 {
@@ -39,14 +38,14 @@ class LeagueController extends Controller
         $validated = $request->validate([
             'name' => 'bail|required',
             'franchise_id' => 'required',
-            'fantasyTeamName' => 'required'
+            'fantasyTeamName' => 'required',
         ]);
 
         $league = League::create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
             'about_text' => $request->about_text,
-            'league_owner_id' => Auth::user()->id
+            'league_owner_id' => Auth::user()->id,
         ]);
 
         $team = FantasyTeam::create([

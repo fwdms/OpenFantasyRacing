@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 use Inertia\Response;
 
 class RuleController extends Controller

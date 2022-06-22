@@ -24,7 +24,7 @@ class FantasyTeamFactory extends Factory
         return [
             'team_name' => $this->faker->name,
             'points' => $this->faker->randomNumber([0, 400]),
-            'logo' => $this->faker->imageUrl()
+            'logo' => $this->faker->imageUrl(),
         ];
     }
 }

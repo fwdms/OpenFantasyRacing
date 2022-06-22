@@ -12,6 +12,6 @@ class FantasyTeamDrivers extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

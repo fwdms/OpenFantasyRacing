@@ -22,7 +22,7 @@ class RuleFactory extends Factory
     public function definition()
     {
         return [
-            'max_number_of_drivers_per_team' => $this->faker->randomNumber([1-10]),
+            'max_number_of_drivers_per_team' => $this->faker->randomNumber([1 - 10]),
             'can_choose_from_same_team' => $this->faker->boolean(50),
             'can_choose_from_same_top_team' => $this->faker->boolean(50),
             'points_only_accrued_if_driver_in_seat' => $this->faker->boolean(50),

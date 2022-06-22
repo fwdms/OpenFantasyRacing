@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Race;
-use App\Models\Track;
-use App\Models\Driver;
-use App\Models\Constructor;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Result extends Model
 {

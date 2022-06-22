@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Race;
-use Inertia\Inertia;
-use App\Models\Driver;
-use App\Models\Result;
-use App\Models\Franchise;
 use App\Models\Constructor;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Driver;
+use App\Models\Franchise;
+use App\Models\Race;
+use App\Models\Result;
+use Inertia\Inertia;
 
 class ConstructorController extends Controller
 {

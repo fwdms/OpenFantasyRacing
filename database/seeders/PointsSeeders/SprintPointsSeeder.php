@@ -2,10 +2,9 @@
 
 namespace Database\Seeders\PointsSeeders;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SprintPointsSeeder extends Seeder
 {
@@ -21,7 +20,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Classified',
             'points_amount' => '1',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -29,7 +28,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Per position gained (max. +5 pts)',
             'points_amount' => '1',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -37,7 +36,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Beat team mate',
             'points_amount' => '2',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -45,7 +44,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Fastest Lap',
             'points_amount' => '3',
             'description' => 'Driver got the fastest lap in a Sprint.',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -53,7 +52,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Per position lost (max. -5 pts)',
             'points_amount' => '-1',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -61,7 +60,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Not classified',
             'points_amount' => '-5',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('points')->insert([
@@ -69,7 +68,7 @@ class SprintPointsSeeder extends Seeder
             'title' => 'Disqualification from Sprint',
             'points_amount' => '-10',
             'description' => '',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
     }
 }

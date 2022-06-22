@@ -6,10 +6,9 @@ use App\Models\Constructor;
 use App\Models\FantasyTeam;
 use App\Models\Franchise;
 use App\Models\League;
-use App\Models\User;
 use App\Models\Rule;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
@@ -41,7 +40,7 @@ class FactoryTest extends TestCase
 
         League::factory()->create([
             'franchise_id' => $franchise->id,
-            'league_owner_id' => $user->id
+            'league_owner_id' => $user->id,
         ]);
 
         $this->assertDatabaseCount('leagues', 1);
@@ -54,7 +53,7 @@ class FactoryTest extends TestCase
         $franchise = Franchise::factory()->create();
         $league = League::factory()->create([
             'franchise_id' => $franchise->id,
-            'league_owner_id' => $user->id
+            'league_owner_id' => $user->id,
         ]);
 
         Rule::factory()->create([
@@ -81,7 +80,7 @@ class FactoryTest extends TestCase
         FantasyTeam::factory()->create([
             'user_id' => $user->id,
             'league_id' => $league->id,
-            'constructor_id' => $constructor->id
+            'constructor_id' => $constructor->id,
         ]);
 
         $this->assertDatabaseCount('fantasy_teams', 1);

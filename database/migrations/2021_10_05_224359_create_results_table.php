@@ -18,11 +18,11 @@ class CreateResultsTable extends Migration
             $table->unsignedBigInteger('race_id');
             $table->unsignedBigInteger('driver_id');
             $table->integer('position');
-            $table->boolean('DNF')->default(FALSE);
+            $table->boolean('DNF')->default(false);
             $table->integer('points_for_race');
             $table->timestamps();
 
-            // keys 
+            // keys
             $table->foreign('race_id')->references('id')->on('races');
             $table->foreign('driver_id')->references('id')->on('drivers');
         });

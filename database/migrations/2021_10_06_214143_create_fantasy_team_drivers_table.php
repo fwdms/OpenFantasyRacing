@@ -17,7 +17,7 @@ class CreateFantasyTeamDriversTable extends Migration
             $table->id();
             $table->unsignedBigInteger('fantasy_team_id');
             $table->unsignedBigInteger('driver_id');
-            $table->boolean('driver_in_seat')->default(FALSE);
+            $table->boolean('driver_in_seat')->default(false);
             $table->integer('round_drafted')->nullable();
             $table->timestamps();
 
