@@ -2,9 +2,9 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: ['awaiting triage', 'bug']
 assignees: ''
-
+status: 'Backlog'
 ---
 
 **Describe the bug**
