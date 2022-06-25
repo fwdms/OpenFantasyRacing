@@ -10,7 +10,7 @@ use Inertia\Inertia;
 
 class FranchiseController extends Controller
 {
-    public function show($franchise_slug)
+    public function show(String $franchise_slug): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)
             ->firstOrFail();

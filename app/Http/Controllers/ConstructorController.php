@@ -11,7 +11,23 @@ use Inertia\Inertia;
 
 class ConstructorController extends Controller
 {
-    public function show($franchise_slug, $slug): \Inertia\Response
+    public function index(String $franchise_slug): \Inertia\Response
+    {
+        $franchise = Franchise::where('slug', $franchise_slug)
+            ->firstOrFail();
+
+        $teams = Constructor::where('franchise_id', $franchise->id)
+            ->with('drivers')
+            ->with('results')
+            ->withSum('results', 'points_for_race')
+            ->orderBy('results_sum_points_for_race', 'DESC')
+            ->get();
+
+        return Inertia::render('Constructors/Index')
+            ->with(compact('franchise', 'teams'));
+    }
+
+    public function show(String $franchise_slug, String $slug): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)
             ->firstOrFail();

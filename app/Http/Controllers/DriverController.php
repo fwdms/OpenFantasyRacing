@@ -2,13 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Driver;
-use App\Models\Franchise;
-use App\Models\Result;
 use Inertia\Inertia;
+use App\Models\Driver;
+use App\Models\Result;
+use App\Models\Franchise;
+use App\Models\Constructor;
 
 class DriverController extends Controller
 {
+    public function index(String $franchise_slug): \Inertia\Response
+    {
+        $franchise = Franchise::where('slug', $franchise_slug)
+            ->first();
+
+        $constructors = Constructor::where('franchise_id', $franchise['id'])
+            ->with('drivers')
+            ->with('results')
+            ->withSum('results', 'points_for_race')
+            ->orderBy('results_sum_points_for_race', 'DESC')
+            ->get();
+
+        $drivers = Driver::whereIn('constructor_id', $constructors->pluck('id'))
+            ->with('constructor')
+            ->with('results')
+            ->withSum('results', 'points_for_race')
+            ->orderBy('results_sum_points_for_race', 'DESC')
+            ->get();
+
+        return Inertia::render('Drivers/Index')
+            ->with(compact('drivers', 'franchise', 'constructors'));
+    }
     public function show(String $franchise_slug, String $id): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)

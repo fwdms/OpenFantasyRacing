@@ -9,13 +9,21 @@ use Inertia\Inertia;
 
 class EventController extends Controller
 {
-    // Display a listing of the resource.
-    public function index(): \Inertia\Response
+    public function index(String $franchise_slug): \Inertia\Response
     {
-        return Inertia::render('Calendar');
+        $franchise = Franchise::where('slug', $franchise_slug)
+            ->firstOrFail();
+
+        $events = Race::where('franchise_id', $franchise->id)
+            ->with('track')
+            ->orderBy('date', 'ASC')
+            ->get();
+
+        return Inertia::render('Events/Index')
+            ->with(compact('franchise', 'events'));
     }
 
-    public function show($franchise_slug, $id): \Inertia\Response
+    public function show(String $franchise_slug, Int $id): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)
             ->first();
@@ -30,6 +38,7 @@ class EventController extends Controller
             ->orderBy('starting_pos', 'ASC')
             ->get();
 
-        return Inertia::render('Events/Show')->with(compact('franchise', 'event', 'results'));
+        return Inertia::render('Events/Show')
+            ->with(compact('franchise', 'event', 'results'));
     }
 }
