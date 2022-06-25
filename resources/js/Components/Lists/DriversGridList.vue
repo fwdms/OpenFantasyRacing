@@ -4,7 +4,7 @@
       <div class="w-full flex items-center justify-between p-6 space-x-6">
         <div class="flex-1 truncate">
             <div class="flex items-center space-x-3">
-              <Link :href="currentUrl + '/driver/' + driver.id">
+              <Link :href="currentUrl +  driver.id">
                 <img
                     v-if="driver.profile_image != null"
                     class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"
@@ -20,7 +20,7 @@
                 </Link>
                 <div class="flex flex-col">
                   <h3 class="font-medium truncate">
-                    <Link :href="currentUrl + '/driver/' + driver.id" class="text-gray-800 hover:text-orange-600">
+                    <Link :href="currentUrl + driver.id" class="text-gray-800 hover:text-orange-600">
                       {{ driver.first_name }} {{ driver.last_name }}
                     </Link>
                   </h3>
@@ -46,7 +46,7 @@
   import { ChartPieIcon } from "@heroicons/vue/outline";
   import { ClipboardListIcon } from "@heroicons/vue/outline";
 
-  const currentUrl = window.location.pathname;
+  const currentUrl = window.location.pathname + '/';
 
   defineProps({
     drivers: Array,

@@ -5,7 +5,7 @@
           <div class="flex items-center space-x-3">
             <img v-if="constructor.logo != null" class="w-16 h-16 flex-shrink-0" :src="constructor.logo" alt="" />
             <div> 
-              <Link :href="currentUrl + '/constructor/' + constructor.slug" 
+              <Link :href="currentUrl + constructor.slug" 
                 class="font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
               >
                 <h3 class="text-orange-600 hover:text-gray-800 font-medium truncate">
@@ -25,7 +25,7 @@
   import { ChartPieIcon } from '@heroicons/vue/outline'
   import { ClipboardListIcon } from '@heroicons/vue/outline'
 
-  const currentUrl = window.location.pathname;
+  const currentUrl = window.location.pathname + '/';
 
   defineProps({
     constructors: Array

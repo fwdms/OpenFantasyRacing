@@ -27,10 +27,10 @@
     </div>
 
     <div class="bg-white my-8 mx-8 pt-8 pb-4 md:px-8 rounded">
-        <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
-          Results
-        </h1>
-        <ResultsTable :franchise="franchise" :results="results" />
+      <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
+        Results
+      </h1>
+      <ResultsTable :franchise="franchise" :results="results" />
     </div>
   </main>
 </template>
