@@ -25,6 +25,14 @@ body:
       value: "A bug happened!"
     validations:
       required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL where issue exists
+      description: Where did you find the issues
+      placeholder: ex. https://openfantasyracing.com/
+    validations:
+      required: true
   - type: dropdown
     id: browsers
     attributes:
@@ -37,6 +45,8 @@ body:
         - Microsoft Edge
         - Opera
         - Brave
+    validations:
+      required: true
   - type: textarea
     id: logs
     attributes:
