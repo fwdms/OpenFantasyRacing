@@ -8,5 +8,4 @@ jobs:
       - name: Create or Update Project Card
         uses: peter-evans/create-or-update-project-card@v2
         with:
-          project-name: Open Fantasy Racing
-          column-name: To Do
+          project-name: Open Fantasy Racings
