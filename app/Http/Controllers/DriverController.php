@@ -5,26 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\Franchise;
 use App\Models\Result;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class DriverController extends Controller
 {
-    public function index(): \Inertia\Response
-    {
-        //
-    }
-
-    public function create(): \Inertia\Response
-    {
-        //
-    }
-
-    public function store(Request $request): \Inertia\Response
-    {
-        //
-    }
-
     public function show(String $franchise_slug, String $id): \Inertia\Response
     {
         $franchise = Franchise::where('slug', $franchise_slug)
@@ -51,20 +35,5 @@ class DriverController extends Controller
             ->get();
 
         return Inertia::render('Drivers/Show')->with(compact('driver', 'franchise', 'results'));
-    }
-
-    public function edit(Int $id): \Inertia\Response
-    {
-        //
-    }
-
-    public function update(Request $request, Int $id): \Inertia\Response
-    {
-        //
-    }
-
-    public function destroy($id): \Inertia\Response
-    {
-        //
     }
 }
