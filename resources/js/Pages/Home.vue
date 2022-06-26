@@ -21,9 +21,7 @@
                                     <PopoverButton
                                         class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 
                                         hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                                    >
-
-                                    </PopoverButton>
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -46,7 +44,7 @@
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <Link href="/register"
+                                <Link :href="route('register')"
                                     class="w-full flex items-center justify-center px-8 py-3 
                                     border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-gray-800 md:py-4 md:text-lg md:px-10"
                                 >

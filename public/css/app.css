@@ -681,6 +681,12 @@ select {
 .m-14 {
   margin: 3.5rem;
 }
+.m-4 {
+  margin: 1rem;
+}
+.m-8 {
+  margin: 2rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -752,6 +758,10 @@ select {
 .-mx-5 {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
+}
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -2018,6 +2028,10 @@ select {
     grid-column: span 6 / span 6;
   }
 
+  .sm\:m-4 {
+    margin: 1rem;
+  }
+
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -2466,6 +2480,10 @@ select {
 
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:m-14 {
+    margin: 3.5rem;
   }
 
   .lg\:mx-0 {
