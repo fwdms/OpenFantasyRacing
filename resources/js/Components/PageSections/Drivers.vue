@@ -8,7 +8,9 @@
         <ul role="list" class="flex flex-wrap mx-auto gap-x-16 justify-center items-center">
           <li v-for="driver in drivers" :key="driver.last_name">
               <div class="text-lg leading-6 font-medium space-y-1 mx-auto">
-                <Link :href="'/franchise/' + franchiseSlug + '/driver/' + driver.id" class="text-orange-600 hover:text-gray-800">
+                <Link :href="route('driver.show', { franchise_slug: franchiseSlug, id: driver.id })" 
+                  class="text-orange-600 hover:text-gray-800"
+                >
                   <img class="h-52 w-52 rounded-full my-5" :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" />
                   <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
                 </Link>

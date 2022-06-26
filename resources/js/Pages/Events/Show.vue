@@ -45,14 +45,14 @@
 								</td>
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									<Link class="text-orange-600"
-                   :href="route('driver.show', { franchise_slug: franchise.slug, id: result.driver.id })" 
+                    :href="route('driver.show', { franchise_slug: franchise.slug, id: result.driver.id })"
                   >
                     {{ result.driver.first_name + ' ' + result.driver.last_name }}
                   </Link>
-								</td>
+								</td>			
                 <td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
 									<Link class="text-orange-600"
-                    :href="route('constructor.show',{franchise_slug: franchise.slug,  slug: result.driver.constructor.slug})"
+                    :href="route('constructor.show', { franchise_slug: franchise.slug, slug: result.driver.constructor.slug })" 
                   >
                     {{ result.driver.constructor.short_name }}
                   </Link>
@@ -61,7 +61,9 @@
 									{{ result.starting_pos }}
 								</td>
                 <td class="whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500">
-									<span v-if="result.DNF">DNF</span>
+									<span v-if="result.DNF">
+                    DNF
+                  </span>
 								</td>
 								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
 									{{ result.points_for_race }}

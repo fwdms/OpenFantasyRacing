@@ -38,7 +38,9 @@
 									{{ result.round_number }}
 								</td>	
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									<Link :href="'/franchise/' + franchise.slug + '/events/' + result.race_id" class="text-orange-600">
+									<Link :href="route('event.show', {franchise_slug: franchise.slug, id: result.race_id })" 
+                    class="text-orange-600"
+                  >
 										{{ result.name }}
 									</Link>
 								</td>	

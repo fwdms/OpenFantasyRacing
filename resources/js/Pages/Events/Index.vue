@@ -4,7 +4,7 @@
 
   <TabBar :tabs="tabs" />
 
-  <EventsList :events='events'/>
+  <EventsList :franchise="franchise" :events='events'/>
 </template>
 
 <script setup>
