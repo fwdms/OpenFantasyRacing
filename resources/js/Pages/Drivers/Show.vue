@@ -13,7 +13,7 @@
         </h1>
 
         <div class="mt-3 text-center xl:text-left">
-          <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" 
+          <Link :href="route('constructor.show', { franchise_slug: franchise.slug, slug: driver.constructor.slug })" 
             class="text-3xl text-orange-600"
           >
             {{ driver.constructor.name }}
@@ -30,6 +30,7 @@
       <h1 class="text-3xl font-extrabold tracking-tight text-center text-orange-600">
         Results
       </h1>
+      
       <ResultsTable :franchise="franchise" :results="results" />
     </div>
   </main>

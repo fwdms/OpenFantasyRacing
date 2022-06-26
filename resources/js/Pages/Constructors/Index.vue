@@ -4,8 +4,7 @@
 
   <TabBar :tabs="tabs" />
 
-  <ConstructorsGridList :constructors="teams" />
-
+  <ConstructorsGridList :franchise="franchise" :constructors="teams" />
 </template>
 
 <script setup>

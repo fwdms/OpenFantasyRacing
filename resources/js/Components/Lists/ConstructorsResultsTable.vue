@@ -35,7 +35,9 @@
 									{{ result.race[0].round_number }}
 								</td>	
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									<Link :href="'/franchise/' + franchise.slug + '/events/' + result.race_id" class="text-orange-600">
+									<Link class="text-orange-600" 
+										:href="route('event.show', { franchise_slug: franchise.slug, id: result.race_id })" 
+									>
 										{{ result.race[0].name }}
 									</Link>
 								</td>	
@@ -49,7 +51,9 @@
 									{{ result.finish_pos }}
 								</td>
 								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
-									<span v-if="result.DNF">DNF</span>
+									<span v-if="result.DNF">
+                    DNF
+                  </span>
 								</td>
 								<td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500">
 									{{ result.points_for_race }}

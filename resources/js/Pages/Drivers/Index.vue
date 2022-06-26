@@ -4,7 +4,7 @@
 
   <TabBar :tabs="tabs" />
 
-  <DriversGridList :drivers="drivers" />
+  <DriversGridList :franchise="franchise" :drivers="drivers" />
 </template>
 
 <script setup>
