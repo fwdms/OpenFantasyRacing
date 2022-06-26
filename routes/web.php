@@ -28,17 +28,17 @@ Route::controller(RuleController::class)->group(function () {
 Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
     Route::controller(ConstructorController::class)->group(function () {
         Route::get('/constructors', 'index')->name('constructor.index');
-        Route::get('/constructors/{slug}', 'show')->name('constructor.show');
+        Route::get('/constructor/{slug}', 'show')->name('constructor.show');
     });
 
     Route::controller(DriverController::class)->group(function () {
         Route::get('/drivers', 'index')->name('driver.index');
-        Route::get('/drivers/{id}', 'show')->name('driver.show');
+        Route::get('/driver/{id}', 'show')->name('driver.show');
     });
 
     Route::controller(EventController::class)->group(function () {
         Route::get('/events', 'index')->name('event.index');
-        Route::get('/events/{id}', 'show')->name('event.show');
+        Route::get('/event/{id}', 'show')->name('event.show');
     });
 });
 
