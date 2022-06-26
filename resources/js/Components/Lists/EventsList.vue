@@ -30,7 +30,9 @@
                     {{ event.round_number }}
                   </td>
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center">
-                    <Link :href="currentUrl + event.id" class="text-orange-600">
+                    <Link :href="route('event.show', {franchise_slug: franchise.slug, id: event.id})" 
+                      class="text-orange-600"
+                    >
                       {{ event.name }}
                     </Link>
                   </td>
@@ -54,9 +56,8 @@
 </template>
 
 <script setup>
-  const currentUrl = window.location.pathname + '/'
-
   defineProps({
+    franchise: Object,
     events: Array
   })
 </script>
