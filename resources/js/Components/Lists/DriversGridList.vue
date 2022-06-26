@@ -4,7 +4,9 @@
       <div class="w-full flex items-center justify-between p-6 space-x-6">
         <div class="flex-1 truncate">
             <div class="flex items-center space-x-3">
-              <Link :href="currentUrl +  driver.id">
+              <Link 
+                :href="route('driver.show', { franchise_slug: franchise.slug, id: driver.id })"
+              >
                 <img
                     v-if="driver.profile_image != null"
                     class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"
@@ -20,11 +22,13 @@
                 </Link>
                 <div class="flex flex-col">
                   <h3 class="font-medium truncate">
-                    <Link :href="currentUrl + driver.id" class="text-gray-800 hover:text-orange-600">
+                    <Link class="text-gray-800 hover:text-orange-600"
+                      :href="route('driver.show', { franchise_slug: franchise.slug, id: driver.id })" 
+                    >
                       {{ driver.first_name }} {{ driver.last_name }}
                     </Link>
                   </h3>
-                  <Link :href="currentUrl + '/constructor/' + driver.constructor.slug " class="mt-1 text-orange-600 text-sm truncate hover:text-gray-800">
+                  <Link :href="route('constructor.show', { slug: driver.constructor.slug })" class="mt-1 text-orange-600 text-sm truncate hover:text-gray-800">
                       {{ driver.constructor.short_name }}
                   </Link>
                 </div>
@@ -46,9 +50,8 @@
   import { ChartPieIcon } from "@heroicons/vue/outline";
   import { ClipboardListIcon } from "@heroicons/vue/outline";
 
-  const currentUrl = window.location.pathname + '/';
-
   defineProps({
+    franchise: Object,
     drivers: Array,
   });
 </script>

@@ -13,8 +13,8 @@
         </h1>
 
         <div class="mt-3 text-center xl:text-left">
-          <Link :href="'/franchise/' + franchise.slug + '/constructor/' + driver.constructor.slug" 
-            class="text-3xl text-orange-600"
+          <Link class="text-3xl text-orange-600"
+            :href="route('constructor.show', { franchise_slug:franchise.slug, slug: driver.constructor.slug })"
           >
             {{ driver.constructor.name }}
           </Link>
@@ -39,8 +39,8 @@
   import ResultsTable from '@/Components/Lists/ResultsTable'
 
   defineProps({
-    driver: Object,
     franchise: Object,
+    driver: Object,
     results: Array,
   })
 </script>

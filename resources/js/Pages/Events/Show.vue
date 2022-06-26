@@ -44,12 +44,16 @@
 									{{ result.finish_pos }}
 								</td>
 								<td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									<Link :href="'/franchise/' + franchise.slug + '/driver/' + result.driver.id" class="text-orange-600">
+									<Link class="text-orange-600"
+                   :href="route('driver.show', { franchise_slug: franchise.slug, id: result.driver.id })" 
+                  >
                     {{ result.driver.first_name + ' ' + result.driver.last_name }}
                   </Link>
-								</td>			
+								</td>
                 <td class="whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6">
-									<Link :href="'/franchise/' + franchise.slug + '/constructor/' + result.driver.constructor.slug" class="text-orange-600">
+									<Link class="text-orange-600"
+                    :href="route('constructor.show',{franchise_slug: franchise.slug,  slug: result.driver.constructor.slug})"
+                  >
                     {{ result.driver.constructor.short_name }}
                   </Link>
 								</td>						
