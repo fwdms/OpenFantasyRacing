@@ -27,7 +27,7 @@
 			{ name: 'Wiki', href: 'https://github.com/krlmrr/OpenFantasyRacing/wiki', target: '_blank' },
 			{ name: 'Roadmap', href: 'https://github.com/users/krlmrr/projects/2/views/2', target: '_blank' },
 			{ name: 'Report a Bug', href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=bug%2Cawaiting+triage&template=bug_report.yml', target: '_blank' },
-			{ name: 'Request a New Feature', href: '/feature-request', target: '_blank' },
+			{ name: 'Request a New Feature', href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=enhancement%2Cawaiting+triage&template=feature_request.yml', target: '_blank' },
 			{ name: 'Roadmap', href: 'https://github.com/users/krlmrr/projects/2/views/2', target: '_blank' },
 			{ name: 'FAQs', href: '/faq' },
 			{ name: 'Donate', href: 'https://www.patreon.com/openfantasyracing', target: '_blank' }
