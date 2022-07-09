@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-  import DriversGridList from "@/Components/Lists/DriversGridList"
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
-  import TabBar from '@/Components/Navigation/TabBar'
+  import DriversGridList from "@/Components/Lists/DriversGridList.vue"
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import TabBar from '@/Components/Navigation/TabBar.vue'
 
   const props = defineProps({
       drivers: Array,

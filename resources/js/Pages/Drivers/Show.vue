@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-  import ResultsTable from '@/Components/Lists/ResultsTable'
+  import ResultsTable from '@/Components/Lists/ResultsTable.vue'
 
   defineProps({
     driver: Object,

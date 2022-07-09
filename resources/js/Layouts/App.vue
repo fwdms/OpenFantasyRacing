@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import Navbar from '@/Components/Navigation/Navbar'
-  import Footer from '@/Components/PageSections/Footer'
+  import Navbar from '@/Components/Navigation/Navbar.vue'
+  import Footer from '@/Components/PageSections/Footer.vue'
   // import CommandPalette from '@/Components/Navigation/CommandPalette'
 </script>

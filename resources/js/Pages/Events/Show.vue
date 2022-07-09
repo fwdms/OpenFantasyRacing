@@ -79,7 +79,7 @@
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
 
   defineProps({
     franchise: Object,

@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-  import Table from '@/Components/Lists/Table'
+  import Table from '@/Components/Lists/Table.vue'
 
 	defineProps({
     franchise: Object,

@@ -8,7 +8,7 @@
 
 <script setup>
   import DriversGridList from '@/Components/Lists/DriversGridList.vue'
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
 
   defineProps({
     league: Object,

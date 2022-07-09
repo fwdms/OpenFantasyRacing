@@ -1,12 +1,9 @@
-window._ = require("lodash");
-
-window.axios = require("axios");
-
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-
 import { createApp, h } from "vue";
 import { createInertiaApp, Head, Link } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import '../css/app.css'
+
 import AppLayout from "./Layouts/App.vue";
 
 const appName =
@@ -14,11 +11,16 @@ const appName =
 
 createInertiaApp({
     title: (title) => `${title} : ${appName}`,
-    resolve: (name) => {
-        const page = require(`./Pages/${name}`).default;
-        page.layout = page.layout || AppLayout;
-        return page;
-    },
+	resolve: (name) => {
+		const page = resolvePageComponent(
+			`./Pages/${name}.vue`,
+			import.meta.glob("./Pages/**/*.vue")
+		)
+		page.then((module) => {
+			module.default.layout = module.default.layout || AppLayout
+		})
+		return page
+	},
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
@@ -26,7 +28,7 @@ createInertiaApp({
             .component("Head", Head)
             .mixin({ methods: { route } })
             .mount(el);
-    },
+    }
 });
 
 InertiaProgress.init({ color: "#4B5563" });

@@ -63,7 +63,7 @@
 </template>
 
 <script>
-  import FullScreen from '@/Layouts/FullScreen'
+  import FullScreen from '@/Layouts/FullScreen.vue'
   
   export default {
     layout: FullScreen
@@ -71,10 +71,10 @@
 </script>
 
 <script setup>
-import BreezeButton from '@/Components/Forms/Button'
-import BreezeInput from '@/Components/Forms/Input'
-import BreezeLabel from '@/Components/Forms/Label';
-import BreezeValidationErrors from '@/Components/Forms/ValidationErrors'
+import BreezeButton from '@/Components/Forms/Button.vue'
+import BreezeInput from '@/Components/Forms/Input.vue'
+import BreezeLabel from '@/Components/Forms/Label.vue';
+import BreezeValidationErrors from '@/Components/Forms/ValidationErrors.vue'
 
 import { useForm } from '@inertiajs/inertia-vue3'
 

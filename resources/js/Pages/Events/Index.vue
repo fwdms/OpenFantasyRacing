@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
-  import EventsList from '@/Components/Lists/EventsList'
-import TabBar from '@/Components/Navigation/TabBar.vue';
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import EventsList from '@/Components/Lists/EventsList.vue'
+  import TabBar from '@/Components/Navigation/TabBar.vue'
 
   const props = defineProps({
     franchise: Object,

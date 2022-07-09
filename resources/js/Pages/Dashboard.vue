@@ -9,10 +9,8 @@
 </template>
 
 <script setup>
-  import Stats from "@/Components/DataDisplay/Stats"
-  import FantasyTeamsTable from "@/Components/Lists/FantasyTeamsTable"
-  import PageHeader from "@/Components/PageHeadings/PageHeader"
-  import BreadcrumbBar from "@/Components/Navigation/BreadcrumbBar";
+  import FantasyTeamsTable from "@/Components/Lists/FantasyTeamsTable.vue"
+  import PageHeader from "@/Components/PageHeadings/PageHeader.vue"
 
   defineProps({
       title: String,

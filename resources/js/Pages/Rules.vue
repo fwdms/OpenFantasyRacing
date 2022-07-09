@@ -1,6 +1,6 @@
 <template>
     <Head title="Scoring / Rules" />
-    
+
     <PageHeader title="Scoring / Rules"/>
     
         <points-table 
@@ -88,8 +88,8 @@
 
 <script setup>
     import { ref } from 'vue'
-    import PageHeader from '@/Components/PageHeadings/PageHeader'
-    import PointsTable from '@/Components/Lists/PointsTable'
+    import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+    import PointsTable from '@/Components/Lists/PointsTable.vue'
 
     defineProps({
         qualifyingPoints: Array,

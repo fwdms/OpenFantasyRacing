@@ -69,7 +69,7 @@
 
 <script>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import Features from "@/Components/PageSections/Features";
+import Features from "@/Components/PageSections/Features.vue";
 
 export default {
     components: {
