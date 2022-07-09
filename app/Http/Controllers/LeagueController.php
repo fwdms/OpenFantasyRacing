@@ -15,7 +15,7 @@ use Inertia\Response;
 class LeagueController extends Controller
 {
     // Show a single league
-    public function show($id): Response
+    public function show(League $id): Response
     {
         $league = League::where('id', $id)
             ->with('FantasyTeams')

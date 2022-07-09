@@ -4,22 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Constructor extends Model
 {
     use HasFactory;
 
-    public function franchise()
+    public function franchise(): BelongsTo
     {
         return $this->belongsTo(Franchise::class);
     }
 
-    public function drivers()
+    public function drivers(): HasMany
     {
         return $this->hasMany(Driver::class)->with('results');
     }
 
-    public function results()
+    public function results(): HasManyThrough
     {
         return $this->hasManyThrough(Result::class, Driver::class);
     }
