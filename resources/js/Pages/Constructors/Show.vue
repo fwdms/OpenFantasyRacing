@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
-  import Drivers from '@/Components/PageSections/Drivers'
-  import ConstructorsResultsTable from '../../Components/Lists/ConstructorsResultsTable'
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import Drivers from '@/Components/PageSections/Drivers.vue'
+  import ConstructorsResultsTable from '@/Components/Lists/ConstructorsResultsTable.vue'
 
   defineProps({
     team: Object,

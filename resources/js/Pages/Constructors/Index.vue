@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader'
-  import ConstructorsGridList from '@/Components/Lists/ConstructorsGridList'
-  import TabBar from '@/Components/Navigation/TabBar'
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import ConstructorsGridList from '@/Components/Lists/ConstructorsGridList.vue'
+  import TabBar from '@/Components/Navigation/TabBar.vue'
 
   const props = defineProps({
     franchise: Object,

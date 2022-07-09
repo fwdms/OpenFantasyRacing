@@ -73,7 +73,7 @@
 </template>
 
 <script>
-  import FullScreen from '@/Layouts/FullScreen'
+  import FullScreen from '@/Layouts/FullScreen.vue'
   
   export default {
     layout: FullScreen
@@ -82,7 +82,7 @@
 
 <script setup>
   import { useForm } from '@inertiajs/inertia-vue3'
-  import Alert from '../../Components/Feedback/Alert'
+  import Alert from '../../Components/Feedback/Alert.vue'
 
   defineProps({
       canResetPassword: Boolean,
