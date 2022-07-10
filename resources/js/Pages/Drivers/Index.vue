@@ -1,5 +1,6 @@
 <template>
   <Head :title="franchise.name + ' Drivers'" />
+
   <PageHeader :title="franchise.name" />
 
   <TabBar :tabs="tabs" />
@@ -19,8 +20,18 @@
   });
 
   const tabs = [
-    { name: 'Drivers', href: '/franchise/' + props.franchise.slug + '/drivers', current: true },
-    { name: 'Constructors', href: '/franchise/' + props.franchise.slug + '/constructors', current: false },
-    { name: 'Events', href: '/franchise/' + props.franchise.slug + '/events', current: false },
+    {
+      name: 'Drivers',
+      href: '/franchise/' + props.franchise.slug + '/drivers',
+      current: true
+    },
+    { name: 'Constructors',
+      href: '/franchise/' + props.franchise.slug + '/constructors',
+      current: false
+    },
+    { name: 'Events',
+      href: '/franchise/' + props.franchise.slug + '/events',
+      current: false
+    },
   ]
 </script>

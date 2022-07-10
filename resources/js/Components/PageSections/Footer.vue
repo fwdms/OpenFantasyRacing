@@ -16,7 +16,9 @@
           </svg>
         </Link>
       </div>
-      <p class="mt-8 text-center text-base text-gray-400"> &copy; 2022 Fwd Motion Studio, Inc. <br> All rights reserved. </p> 
+      <p class="mt-8 text-center text-base text-gray-400">
+        &copy; 2022 Fwd Motion Studio, Inc. <br> All rights reserved.
+      </p>
     </div>
   </footer>
 </template>
@@ -24,13 +26,35 @@
 <script>
   const navigation = {
     main: [
-			{ name: 'Wiki', href: 'https://github.com/krlmrr/OpenFantasyRacing/wiki', target: '_blank' },
-			{ name: 'Roadmap', href: 'https://github.com/users/krlmrr/projects/2/views/2', target: '_blank' },
-			{ name: 'Report a Bug', href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=bug%2Cawaiting+triage&template=bug_report.yml', target: '_blank' },
-			{ name: 'Request a New Feature', href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=enhancement%2Cawaiting+triage&template=feature_request.yml', target: '_blank' },
-			{ name: 'Roadmap', href: 'https://github.com/users/krlmrr/projects/2/views/2', target: '_blank' },
-			{ name: 'FAQs', href: '/faq' },
-			{ name: 'Donate', href: 'https://www.patreon.com/openfantasyracing', target: '_blank' }
+			{
+        name: 'Wiki',
+        href: 'https://github.com/krlmrr/OpenFantasyRacing/wiki',
+        target: '_blank'
+      },
+			{
+        name: 'Roadmap',
+        href: 'https://github.com/users/krlmrr/projects/2/views/2',
+        target: '_blank'
+      },
+			{
+        name: 'Report a Bug',
+        href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=bug%2Cawaiting+triage&template=bug_report.yml',
+        target: '_blank'
+      },
+			{
+        name: 'Request a New Feature',
+        href: 'https://github.com/krlmrr/OpenFantasyRacing/issues/new?assignees=krlmrr&labels=enhancement%2Cawaiting+triage&template=feature_request.yml',
+        target: '_blank'
+      },
+			{
+        name: 'FAQs',
+        href: '/faq'
+      },
+			{
+        name: 'Donate',
+        href: 'https://www.patreon.com/openfantasyracing',
+        target: '_blank'
+      }
     ],
   };
 
