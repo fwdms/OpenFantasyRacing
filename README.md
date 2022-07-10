@@ -7,7 +7,6 @@ This application makes use of :
    2. [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum)
 3. [TailwindCSS](https://tailwindcss.com/docs)
 
-
 ## Contributing
 If you would wish to contribute, feel free to create a PR! A couple of things we expect :
 1. If you wrote a new feature, please write a test for that feature. 
@@ -15,7 +14,6 @@ If you would wish to contribute, feel free to create a PR! A couple of things we
 3. If your PR interacts with a model, make sure to update the Factories so the tests pass.
 
 ## Code of Conduct
-
 1. README only PRs will be declined.
 2. PRs without tests will also be declined.
 3. Your controllers should match the action of resource controllers (show below). Please, avoid custom controller actions in the controller.
