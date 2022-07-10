@@ -89,7 +89,7 @@
 <script setup>
     import { ref } from 'vue'
     import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
-    import PointsTable from '@/Components/Lists/PointsTable.vue'
+    import PointsTable from '@/Components/Tables/PointsTable.vue'
 
     defineProps({
         qualifyingPoints: Array,

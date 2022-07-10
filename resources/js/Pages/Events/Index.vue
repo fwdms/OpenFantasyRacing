@@ -1,5 +1,6 @@
 <template>
   <Head :title="franchise.name + ' Events'" />
+
   <PageHeader :title="franchise.name" />
 
   <TabBar :tabs="tabs" />
@@ -9,7 +10,7 @@
 
 <script setup>
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
-  import EventsList from '@/Components/Lists/EventsList.vue'
+  import EventsList from '@/Components/Tables/EventsTable.vue'
   import TabBar from '@/Components/Navigation/TabBar.vue'
 
   const props = defineProps({
@@ -18,8 +19,20 @@
   });
 
   const tabs = [
-    { name: 'Drivers', href: '/franchise/' + props.franchise.slug + '/drivers', current: false },
-    { name: 'Constructors', href: '/franchise/' + props.franchise.slug + '/constructors', current: false },
-    { name: 'Events', href: '/franchise/' + props.franchise.slug + '/events', current: true },
+    {
+      name: 'Drivers',
+      href: '/franchise/' + props.franchise.slug + '/drivers',
+      current: false
+    },
+    {
+      name: 'Constructors',
+      href: '/franchise/' + props.franchise.slug + '/constructors',
+      current: false
+    },
+    {
+      name: 'Events',
+      href: '/franchise/' + props.franchise.slug + '/events',
+      current: true
+    },
   ]
 </script>

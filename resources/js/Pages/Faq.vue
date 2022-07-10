@@ -26,11 +26,10 @@
 </template>
 
 <script setup>
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/outline'
+  import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+  import { ChevronDownIcon } from '@heroicons/vue/outline'
 
-defineProps({
+  defineProps({
     faqs: Array
-})
-
+  })
 </script>

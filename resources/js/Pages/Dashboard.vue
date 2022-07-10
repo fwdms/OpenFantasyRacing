@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-  import FantasyTeamsTable from "@/Components/Lists/FantasyTeamsTable.vue"
+  import FantasyTeamsTable from "@/Components/Tables/FantasyTeamsTable.vue"
   import PageHeader from "@/Components/PageHeadings/PageHeader.vue"
 
   defineProps({

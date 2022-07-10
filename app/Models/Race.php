@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Race extends Model
 {
@@ -13,7 +14,7 @@ class Race extends Model
 
     protected $fillable = [];
 
-    public function track()
+    public function track(): HasMany
     {
         return $this->hasMany(Track::class, 'id', 'track_id');
     }

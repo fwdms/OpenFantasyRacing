@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Result extends Model
 {
@@ -13,18 +16,21 @@ class Result extends Model
 
     // protected $fillable = [];
 
-    public function race()
+    public function race(): HasMany
     {
-        return $this->hasMany(Race::class, 'id', 'race_id')->with('track')->orderBy('round_number');
+        return $this->hasMany(Race::class, 'id', 'race_id')
+            ->with('track')
+            ->orderBy('round_number');
     }
 
-    public function track()
+    public function track(): HasManyThrough
     {
         return $this->hasManyThrough(Track::class, Race::class, 'track_id');
     }
 
-    public function driver()
+    public function driver(): HasOne
     {
-        return $this->hasOne(Driver::class, 'id', 'driver_id')->with('constructor');
+        return $this->hasOne(Driver::class, 'id', 'driver_id')
+            ->with('constructor');
     }
 }

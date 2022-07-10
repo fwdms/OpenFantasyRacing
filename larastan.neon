@@ -13,6 +13,7 @@ parameters:
 
     noModelMake: false
     noUnnecessaryCollectionCall: false
+    checkGenericClassInNonGenericObjectType: false
 
     ignoreErrors:
         - '#Unsafe usage of new static#'

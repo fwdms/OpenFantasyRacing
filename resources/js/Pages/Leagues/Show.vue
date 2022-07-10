@@ -1,9 +1,9 @@
 <template>
-    <Head :title="league.name" />
-    <div>
-        <page-header title="Drivers"/>
-        <drivers-grid-list :drivers="drivers" />
-    </div>
+  <Head :title="league.name" />
+
+  <PageHeader title="Drivers"/>
+
+  <DriversGridList :drivers="drivers" />
 </template>
 
 <script setup>
