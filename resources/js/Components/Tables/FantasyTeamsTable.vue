@@ -61,7 +61,7 @@
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm">
                     <Link class="text-blue-600" 
-                      :href="'/franchise/' + team.franchise_slug"
+                      :href="route('driver.index', team.franchise_slug )"
                     >
                       {{ team.franchise_name }}
                     </Link>

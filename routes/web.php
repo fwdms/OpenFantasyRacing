@@ -5,17 +5,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FAQController;
-use App\Http\Controllers\FranchiseController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RuleController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'Home')->name('home');
-
-Route::inertia('/bug-report', 'RequestForms/BugReport')->name('bug-report');
-
-Route::inertia('/feature-request', 'RequestForms/FeatureRequest')->name('feature-request');
 
 Route::controller(FAQController::class)->group(function () {
     Route::get('/faq', 'index')->name('faq.index');
