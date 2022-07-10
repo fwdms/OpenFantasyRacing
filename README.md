@@ -1,24 +1,27 @@
 ## Getting Started
-Link to [Notion documents](https://lydian-emmental-e07.notion.site/F1-Fantasy-League-003e34c960324cd5bd7eee69d59e9130). This document has some of the info about the models, and some of the features as I am working on them.
+Link to [Github Project](https://github.com/users/krlmrr/projects/2) to see current issues.
 
 This application makes use of :
 1. [Laravel](https://laravel.com/docs/8.x)
    1. [Laravel Sail](https://laravel.com/docs/8.x/sail)
    2. [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum)
+   3. [Laravel Pint](https://github.com/laravel/pint)
+   4. [Larastan](https://github.com/nunomaduro/larastan)
 3. [TailwindCSS](https://tailwindcss.com/docs)
-
+4. [Inertia.js](https://inertiajs.com/)
+5. [Vue.js 3](https://vuejs.org/guide/introduction.html)
+6. [Vite](https://vitejs.dev/)
 
 ## Contributing
-If you would wish to contribute, feel free to create a PR! A couple of things we expect :
+If you wish to contribute, feel free to create a PR! A couple of things we expect :
 1. If you wrote a new feature, please write a test for that feature. 
 2. Make sure your feature doesn't break any of the existing features by running `sail artisan test`.
 3. If your PR interacts with a model, make sure to update the Factories so the tests pass.
 
 ## Code of Conduct
-
 1. README only PRs will be declined.
 2. PRs without tests will also be declined.
-3. Your controllers should match the action of resource controllers (show below). Please, avoid custom controller actions in the controller.
+3. Your controllers should match the action of resource controllers (shown below). Please, avoid custom controller actions in the controller.
 
 ## Resource Controller Actions
 [Laravel Controller Actions](https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller)
