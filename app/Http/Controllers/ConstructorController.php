@@ -7,6 +7,7 @@ use App\Models\Driver;
 use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class ConstructorController extends Controller
@@ -55,15 +56,20 @@ class ConstructorController extends Controller
             ->with('Race')
             ->with('Driver')
             ->orderBy(
-                Race::query()
+                DB::table('races')
                     ->select('round_number')
                     ->whereColumn('results.race_id', 'races.id')
-                    ->take(1)
+                    ->take(1), 'ASC'
             )
             ->orderBy('id', 'ASC')
             ->get();
 
         return Inertia::render('Constructors/Show')
-            ->with(compact('team', 'drivers', 'franchise', 'results'));
+            ->with(compact(
+                'team',
+                'drivers',
+                'franchise',
+                'results'
+            ));
     }
 }
