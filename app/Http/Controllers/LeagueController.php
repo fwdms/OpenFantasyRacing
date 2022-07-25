@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LeagueRequest;
 use App\Models\FantasyTeam;
+use App\Models\Franchise;
 use App\Models\League;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,30 +19,27 @@ class LeagueController extends Controller
     // Show a single league
     public function show(League $id): Response
     {
-        $league = League::where('id', $id)
+        $league = League::query()
+            ->where('id', $id)
             ->with('FantasyTeams')
             ->first();
 
-        return Inertia::render('Leagues/Show')->with(compact('league'));
+        return Inertia::render('Leagues/Show')
+            ->with(compact('league'));
     }
 
     // View for the Form to create a League
     public function create(): Response
     {
-        $franchises = DB::table('franchises')->get();
+        $franchises = Franchise::all();
 
-        return Inertia::render('Leagues/Create')->with(compact('franchises'));
+        return Inertia::render('Leagues/Create')
+            ->with(compact('franchises'));
     }
 
     // Post request for handling a new league
-    public function store(Request $request): RedirectResponse
+    public function store(LeagueRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'bail|required',
-            'franchise_id' => 'required',
-            'fantasyTeamName' => 'required',
-        ]);
-
         $league = League::create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,

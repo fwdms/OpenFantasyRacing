@@ -1,13 +1,13 @@
-import { createApp, h } from "vue";
-import { createInertiaApp, Head, Link } from "@inertiajs/inertia-vue3";
-import { InertiaProgress } from "@inertiajs/progress";
+import { createApp, h } from "vue"
+import { createInertiaApp, Head, Link } from "@inertiajs/inertia-vue3"
+import { InertiaProgress } from "@inertiajs/progress"
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import '../css/app.css'
 
-import AppLayout from "./Layouts/App.vue";
+import AppLayout from "./Layouts/App.vue"
 
 const appName =
-    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
+    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel"
 
 createInertiaApp({
     title: (title) => `${title} : ${appName}`,

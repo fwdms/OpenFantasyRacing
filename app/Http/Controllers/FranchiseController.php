@@ -12,24 +12,27 @@ class FranchiseController extends Controller
 {
     public function show(String $franchise_slug): \Inertia\Response
     {
-        $franchise = Franchise::where('slug', $franchise_slug)
+        $franchise = Franchise::query()
+            ->where('slug', $franchise_slug)
             ->firstOrFail();
 
-        $constructors = Constructor::where('franchise_id', $franchise['id'])
+        $constructors = Constructor::query()
+            ->where('franchise_id', $franchise['id'])
             ->with('drivers')
             ->with('results')
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
-        $drivers = Driver::with('constructor')
+        $drivers = Driver::query()
             ->whereIn('constructor_id', $constructors->pluck('id'))
-            ->with('results')
+            ->with(['constructor','results'])
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
-        $events = Race::where('franchise_id', $franchise->id)
+        $events = Race::query()
+            ->where('franchise_id', $franchise->id)
             ->with('track')
             ->orderBy('date', 'ASC')
             ->get();

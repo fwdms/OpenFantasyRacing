@@ -47,16 +47,14 @@ class RuleController extends Controller
             ->get();
 
         return Inertia::render('Rules')
-            ->with(
-                compact(
-                    'qualifyingPoints',
-                    'qualifyingBonusPoints',
-                    'racePoints',
-                    'raceBonusPoints',
-                    'streaks',
-                    'sprint',
-                    'sprintBonus'
-                )
-            );
+            ->with(compact(
+                'qualifyingPoints',
+                'qualifyingBonusPoints',
+                'racePoints',
+                'raceBonusPoints',
+                'streaks',
+                'sprint',
+                'sprintBonus'
+            ));
     }
 }
