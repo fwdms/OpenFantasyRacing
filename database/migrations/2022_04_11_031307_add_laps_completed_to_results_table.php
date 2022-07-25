@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->integer('laps_completed')->after('DNF');
+            $table->integer('laps_completed')->nullable()->after('DNF');
             $table->integer('starting_pos')->after('driver_id');
             $table->integer('finish_pos')->after('starting_pos');
             $table->dropColumn('position');

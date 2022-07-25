@@ -23,6 +23,7 @@ class FranchiseFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'slug' => $this->faker->slug,
             'governing_body' => $this->faker->text(5),
         ];
     }
