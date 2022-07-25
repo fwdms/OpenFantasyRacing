@@ -16,7 +16,7 @@ class ConstructorSeeder extends Seeder
     public function run()
     {
         DB::table('constructors')->insert([
-            'name' => 'Mercedes',
+            'name' => 'Mercedes-AMG Petronas F1 Team',
             'short_name' => 'Mercedes',
             'slug' => 'mercedes',
             'engine_type' => 'Mercedes',
@@ -28,9 +28,9 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Red Bull Racing Honda',
-            'short_name' => 'Red Bull',
-            'slug' => 'red-bull',
+            'name' => 'Oracle Red Bull Racing',
+            'short_name' => 'Red Bull Racing',
+            'slug' => 'red_bull',
             'engine_type' => 'Honda',
             'position_last_season' => 2,
             'franchise_id' => 1,
@@ -40,7 +40,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'McLaren Mercedes',
+            'name' => 'McLaren F1 Team',
             'short_name' => 'McLaren',
             'slug' => 'mclaren',
             'engine_type' => 'Mercedes',
@@ -52,9 +52,9 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Aston Martin Mercedes',
+            'name' => 'Aston Martin Aramco Cognizant F1 Team',
             'short_name' => 'Aston Martin',
-            'slug' => 'aston-martin',
+            'slug' => 'aston_martin',
             'engine_type' => 'Mercedes',
             'position_last_season' => 4,
             'franchise_id' => 1,
@@ -64,7 +64,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Alpine Renault',
+            'name' => 'BWT Alpine F1 Team',
             'short_name' => 'Alpine',
             'slug' => 'alpine',
             'engine_type' => 'Renault',
@@ -76,7 +76,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Ferrari',
+            'name' => 'Scuderia Ferrari',
             'short_name' => 'Ferrari',
             'slug' => 'ferrari',
             'engine_type' => 'Ferrari',
@@ -88,7 +88,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'AlphaTauri Honda',
+            'name' => 'Scuderia AlphaTauri',
             'short_name' => 'AlphaTauri',
             'slug' => 'alphatauri',
             'engine_type' => 'Honda',
@@ -100,7 +100,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Alfa Romeo Racing Ferrari',
+            'name' => 'Alfa Romeo F1 Team ORLEN',
             'short_name' => 'Alfa Romeo',
             'slug' => 'alfa-romeo',
             'engine_type' => 'Ferrari',
@@ -112,7 +112,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Haas Ferrari',
+            'name' => 'Haas F1 Team',
             'short_name' => 'Haas',
             'slug' => 'haas',
             'engine_type' => 'Ferrari',
@@ -124,7 +124,7 @@ class ConstructorSeeder extends Seeder
         ]);
 
         DB::table('constructors')->insert([
-            'name' => 'Williams Mercedes',
+            'name' => 'Williams Racing',
             'short_name' => 'Williams',
             'slug' => 'williams',
             'engine_type' => 'Mercedes',
