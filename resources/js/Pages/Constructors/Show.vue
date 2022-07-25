@@ -3,9 +3,9 @@
 
 	<PageHeader :title="team.name"/>
 
-  <Drivers :drivers="drivers" :franchiseSlug="franchise.slug"/>
+    <Drivers :drivers="drivers" :franchiseSlug="franchise.slug"/>
 
-  <ConstructorsResultsTable :franchise="franchise" :results="results" />
+    <ConstructorsResultsTable :franchise="franchise" :results="results" />
 </template>
 
 <script setup>

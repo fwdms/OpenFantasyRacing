@@ -11,8 +11,10 @@
               <Link :href="route('driver.show', { franchise_slug: franchiseSlug, id: driver.id })"
                 class="text-orange-600 hover:text-gray-800"
               >
-                <img v-if="driver.profile_image" class="h-52 w-52 rounded-full my-5" :src="driver.profile_image" :alt="driver.first_name + ' ' + driver.last_name" />
-                <img v-else class="h-52 w-52 rounded-full my-5" src="/assets/missingprofle.webp" :alt="driver.first_name + ' ' + driver.last_name" />
+                <img class="h-52 w-52 rounded-full my-5"
+                     :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
+                     :alt="driver.first_name + ' ' + driver.last_name"
+                />
                 <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
               </Link>
               <p class="text-gray-500">

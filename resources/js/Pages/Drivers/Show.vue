@@ -4,7 +4,7 @@
   <main>
     <div class="flex flex-wrap bg-white mx-8 py-8 px-8 rounded my-8">
       <img class="max-w-md w-full mx-auto object-center object-cover rounded"
-        :src="driver.profile_image" 
+        :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
         :alt="driver.first_name + ' ' + driver.last_name"  
       />
 

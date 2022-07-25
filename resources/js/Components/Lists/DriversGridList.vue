@@ -6,18 +6,11 @@
             <div class="flex items-center space-x-3">
               <Link :href="route('driver.show', { franchise_slug: franchise.slug, id: driver.id })">
                 <img
-                    v-if="driver.profile_image != null"
                     class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"
-                    :src="driver.profile_image"
+                    :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
                     alt=""
                 />
-                <img
-                    v-else
-                    class="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"
-                    src="/assets/missingprofle.webp"
-                    alt=""
-                />
-                </Link>
+              </Link>
                 <div class="flex flex-col">
                   <h3 class="font-medium truncate">
                     <Link :href="route('driver.show', {franchise_slug: franchise.slug, id: driver.id})" 
