@@ -4,6 +4,7 @@ use App\Http\Controllers\ConstructorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FantasyTeamController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
@@ -47,6 +48,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/leagues/create', 'create')->name('league.create');
         Route::get('/leagues/{id}', 'show')->name('league.show');
         Route::post('/leagues', 'store')->name('league.store');
+    });
+
+    Route::group(['prefix' => '/leagues/{league}/'], function () {
+        Route::controller(FantasyTeamController::class)->group(function () {
+            Route::get('/team/{team}', 'show')->name('fantasy-team.show');
+        });
     });
 
     Route::controller(ProfileController::class)->group(function () {

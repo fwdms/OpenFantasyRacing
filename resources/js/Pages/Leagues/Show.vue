@@ -1,14 +1,18 @@
 <template>
   <Head :title="league.name" />
 
-  <PageHeader title="Drivers"/>
+  <PageHeader :title="league.name"/>
 
-  <DriversGridList :drivers="drivers" />
+  <LeagueTeamsTable 
+    :fantasyTeams="league.fantasy_teams"
+    :league="league"
+  />
 </template>
 
 <script setup>
-  import DriversGridList from '@/Components/Lists/DriversGridList.vue'
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import LeagueTeamsTable from '../../Components/Tables/LeagueTeamsTable.vue'
+  import DriversGridList from '@/Components/Lists/DriversGridList.vue'
 
   defineProps({
     league: Object,
