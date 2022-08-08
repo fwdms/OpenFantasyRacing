@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\FantasyTeam;
 use App\Models\League;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 

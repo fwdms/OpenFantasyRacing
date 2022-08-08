@@ -13,7 +13,7 @@
     </p>
 
     <DriversGridList :franchise="team.league.franchise" :drivers="drivers" />
-    
+
   </div>
 </template>
 

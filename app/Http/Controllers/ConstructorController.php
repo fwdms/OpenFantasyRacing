@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Constructor;
 use App\Models\Driver;
 use App\Models\Franchise;
-use App\Models\Race;
 use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -59,7 +58,8 @@ class ConstructorController extends Controller
                 DB::table('races')
                     ->select('round_number')
                     ->whereColumn('results.race_id', 'races.id')
-                    ->take(1), 'ASC'
+                    ->take(1),
+                'ASC'
             )
             ->orderBy('id', 'ASC')
             ->get();

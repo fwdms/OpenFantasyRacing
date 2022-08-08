@@ -26,7 +26,16 @@ class LeagueController extends Controller
         $fantasyTeams = FantasyTeam::query()
             ->where('league_id', $league->id)
             ->with('Drivers')
+            ->withSum('results', 'points_for_race')
             ->get();
+
+        foreach ($fantasyTeams as $team) {
+            foreach ($team->drivers as $driver) {
+                dump($driver);
+            }
+        }
+
+        dd('stop');
 
         return Inertia::render('Leagues/Show')
             ->with(compact('league', 'fantasyTeams'));

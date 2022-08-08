@@ -1,7 +1,7 @@
 <template>
-  <ul role="list" class="mx-10 my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <li v-for="driver in drivers" :key="driver.email" class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
-      <div class="w-full flex items-center justify-between p-6 space-x-6">
+  <div role="list" class="mx-10 my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-for="(driver, index) in drivers" :key="driver.email" class="bg-white rounded-lg shadow divide-y divide-gray-200">
+      <div class="w-full flex flex-wrap items-center justify-between p-6 space-x-6">
         <div class="flex-1 truncate">
             <div class="flex items-center space-x-3">
               <Link :href="route('driver.show', { franchise_slug: franchise.slug, id: driver.id })">
@@ -24,12 +24,15 @@
                   >
                       {{ driver.constructor.short_name }}
                   </Link>
+                  <p class="font-bold text-sm my-1">
+                    #{{ driver.number }}
+                  </p>
                 </div>
             </div>
         </div>
         <div class="flex flex-col space-y-2">
           <p class="font-bold text-xl mx-auto">
-              #{{ driver.number }}
+            #{{ index + 1 }}
           </p>
 
           <p class="text-gray-500 text-xl mx-auto">
@@ -37,8 +40,8 @@
           </p>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </template>
 
 <script setup>

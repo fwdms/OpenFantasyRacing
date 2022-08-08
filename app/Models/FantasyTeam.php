@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Support\Facades\DB;
 
 class FantasyTeam extends Model
 {
@@ -29,6 +27,6 @@ class FantasyTeam extends Model
     public function Drivers(): HasManyThrough
     {
         return $this->hasManyThrough(Driver::class, FantasyTeamDrivers::class, 'fantasy_team_id', 'id')
-            ->withSum('Results','points_for_race');
+            ->with('Results');
     }
 }
