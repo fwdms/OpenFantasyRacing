@@ -14,8 +14,8 @@ return new class () extends Migration {
     {
         Schema::table('events', function (Blueprint $table) {
             $table->string('name')->after('id')->nullable();
-            $table->string('track_name')->after('name');
-            $table->string('country')->after('track_name');
+            $table->string('track_name')->after('name')->nullable();
+            $table->string('country')->after('track_name')->nullable();
             $table->string('date_time')->after('country');
             $table->integer('franchise_id')->after('date_time');
         });
