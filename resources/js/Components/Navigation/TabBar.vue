@@ -5,7 +5,9 @@
       <select id="tabs" name="tabs" 
         class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
       >
-        <option v-for="tab in tabs" :key="tab.name" :selected="tab.current">{{ tab.name }}</option>
+        <option v-for="tab in tabs" :key="tab.name" :selected="tab.current">
+          {{ tab.name }}
+        </option>
       </select>
     </div>
     <div class="hidden sm:block">

@@ -14,7 +14,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $guarded = [
-        'id',
+        'id', 'is_admin'
     ];
 
     protected $fillable = [

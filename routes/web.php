@@ -1,15 +1,23 @@
 <?php
 
-use App\Http\Controllers\ConstructorController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DriverController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\FantasyTeamController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\RuleController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RuleController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ConstructorController;
+use App\Http\Controllers\FantasyTeamController;
+use App\Http\Resources\JsonCollection;
+
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\FranchiseController as AdminFranchiseController;
+use App\Http\Controllers\Admin\ResultsController as AdminResultsController;
+
+use App\Models\Event;
+use App\Models\Result;
 
 Route::inertia('/', 'Home')->name('home');
 
@@ -35,6 +43,9 @@ Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
     Route::controller(EventController::class)->group(function () {
         Route::get('/events', 'index')->name('event.index');
         Route::get('/event/{id}', 'show')->name('event.show');
+        Route::get('/event-collection', function () {
+            return new JsonCollection(Event::all());
+        })->name('event.index.collection');
     });
 });
 
@@ -59,6 +70,30 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::post('/profile', 'update')->name('profile.update');
+    });
+
+    Route::get('/results-collection/{event_id}', function ($event_id) {
+        return new JsonCollection(
+            Result::query()
+                ->where('race_id', $event_id)
+                ->with('driver')
+                ->orderBy('finish_pos', 'ASC')
+                ->get()
+        );
+    })->name('results.index.collection');
+
+    Route::middleware(['admin', 'verified'])->group(function () {
+        Route::group(['prefix' => 'admin/'], function () {
+            Route::controller(AdminDashboardController::class)->group(function () {
+                Route::get('/dashboard', 'index')->name('admin.dashboard.index');
+            });
+            Route::controller(AdminFranchiseController::class)->group(function () {
+                Route::get('/franchises', 'index')->name('admin.franchise.index');
+            });
+            Route::controller(AdminResultsController::class)->group(function () {
+                Route::get('/results', 'index')->name('admin.results.index');
+            });
+        });
     });
 });
 
