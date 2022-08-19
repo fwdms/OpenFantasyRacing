@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('constructors', function (Blueprint $table) {
-            $table->string('slug')->after('name');
+            $table->string('slug')->after('name')->nullable();
         });
     }
 
