@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::table('results', function (Blueprint $table) {
             $table->integer('laps_completed')->nullable()->after('DNF');
             $table->integer('starting_pos')->after('driver_id');
-            $table->integer('finish_pos')->after('starting_pos');
+            $table->integer('finish_pos')->after('starting_pos')->nullable();
             $table->dropColumn('position');
         });
     }
