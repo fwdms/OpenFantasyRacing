@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('name')->after('id');
+            $table->string('name')->after('id')->nullable();
             $table->string('track_name')->after('name');
             $table->string('country')->after('track_name');
             $table->string('date_time')->after('country');
