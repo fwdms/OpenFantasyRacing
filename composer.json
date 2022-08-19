@@ -14,7 +14,6 @@
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "spatie/ignition": "^1.0",
         "spatie/laravel-ignition": "^1.2",
         "spatie/laravel-ray": "^1.29",
         "tightenco/ziggy": "^1.0"
