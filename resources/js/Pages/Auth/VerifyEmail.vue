@@ -23,20 +23,19 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import BreezeButton from '@/Components/Forms/Button.vue';
-import BreezeGuestLayout from '@/Layouts/App.vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+    import { computed } from 'vue';
+    import BreezeButton from '@/Components/Form/Button.vue';
+    import { useForm } from '@inertiajs/inertia-vue3';
 
-const props = defineProps({
-    status: String,
-});
+    const props = defineProps({
+      status: String,
+    });
 
-const form = useForm();
+    const form = useForm();
 
-const submit = () => {
-    form.post(route('verification.send'));
-};
+    const submit = () => {
+      form.post(route('verification.send'));
+    };
 
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+    const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
 </script>

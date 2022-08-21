@@ -19,4 +19,9 @@ class Franchise extends Model
         'name',
         'governingBody',
     ];
+
+    public function constructors()
+    {
+        return $this->hasMany(Constructor::class, 'franchise_id');
+    }
 }

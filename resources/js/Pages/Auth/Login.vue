@@ -84,20 +84,20 @@
   import Alert from '../../Components/Feedback/Alert.vue'
 
   defineProps({
-      canResetPassword: Boolean,
-      status: String,
-      errors: Object,
+    canResetPassword: Boolean,
+    status: String,
+    errors: Object,
   });
 
   const form = useForm({
-      email: '',
-      password: '',
-      remember: false
+    email: '',
+    password: '',
+    remember: false
   });
 
   const submit = () => {
-      form.post(route('login'), {
-          onFinish: () => form.reset('password'),
-      });
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
   };
 </script>

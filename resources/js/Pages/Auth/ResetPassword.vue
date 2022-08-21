@@ -47,16 +47,6 @@
   </div>
 </template>
 
-
-
-
-
-
-
-
-
-
-
 <script>
   import FullScreen from '@/Layouts/FullScreen.vue'
   
@@ -66,28 +56,28 @@
 </script>
 
 <script setup>
-import BreezeButton from '@/Components/Forms/Button.vue'
-import BreezeInput from '@/Components/Forms/Input.vue'
-import BreezeLabel from '@/Components/Forms/Label.vue'
-import BreezeValidationErrors from '@/Components/Forms/ValidationErrors.vue'
+  import BreezeButton from '@/Components/Form/Button.vue'
+  import BreezeInput from '@/Components/Form/Input.vue'
+  import BreezeLabel from '@/Components/Form/Label.vue'
+  import BreezeValidationErrors from '@/Components/Form/ValidationErrors.vue'
 
-import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/inertia-vue3'
 
-const props = defineProps({
+  const props = defineProps({
     email: String,
     token: String,
-});
+  });
 
-const form = useForm({
+  const form = useForm({
     token: props.token,
     email: props.email,
     password: '',
     password_confirmation: '',
-});
+  });
 
-const submit = () => {
+  const submit = () => {
     form.post(route('password.update'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
+      onFinish: () => form.reset('password', 'password_confirmation'),
     });
-};
+  };
 </script>

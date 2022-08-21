@@ -15,7 +15,8 @@ use App\Http\Resources\JsonCollection;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FranchiseController as AdminFranchiseController;
 use App\Http\Controllers\Admin\ResultsController as AdminResultsController;
-
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\ResultsController;
 use App\Models\Event;
 use App\Models\Result;
 
@@ -72,15 +73,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/profile', 'update')->name('profile.update');
     });
 
-    Route::get('/results-collection/{event_id}', function ($event_id) {
-        return new JsonCollection(
-            Result::query()
-                ->where('race_id', $event_id)
-                ->with('driver')
-                ->orderBy('finish_pos', 'ASC')
-                ->get()
-        );
-    })->name('results.index.collection');
+    Route::controller(ResultsController::class)->group(function () {
+        Route::post('/results', 'store')->name('result.store');
+    });
 
     Route::get('/admin', function () {
         return redirect(route('admin.dashboard.index'));
@@ -98,6 +93,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/results', 'index')->name('admin.results.index');
             });
         });
+    });
+
+    Route::controller(CollectionController::class)->group(function () {
+        Route::get('/results-collection/{event_id}', 'results')->name('results.index.collection');
+        Route::get('/drivers-collection/{franchise_slug}', 'drivers')->name('drivers.index.collection');
     });
 });
 

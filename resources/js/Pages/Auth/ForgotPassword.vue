@@ -68,10 +68,10 @@
 </script>
 
 <script setup>
-    import BreezeButton from "@/Components/Forms/Button.vue";
-    import BreezeInput from "@/Components/Forms/Input.vue";
-    import BreezeLabel from "@/Components/Forms/Label.vue";
-    import BreezeValidationErrors from "@/Components/Forms/ValidationErrors.vue";
+    import BreezeButton from "@/Components/Form/Button.vue";
+    import BreezeInput from "@/Components/Form/Input.vue";
+    import BreezeLabel from "@/Components/Form/Label.vue";
+    import BreezeValidationErrors from "@/Components/Form/ValidationErrors.vue";
 
     import { useForm } from "@inertiajs/inertia-vue3";
 
