@@ -35,10 +35,13 @@
 
 <script setup>
   import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
+  import { ref } from 'vue'
 
   const props = defineProps({
     enabled: Boolean,
     label: String,
     subtext: String,
   })
+
+  const enabled = ref(false)
 </script>
