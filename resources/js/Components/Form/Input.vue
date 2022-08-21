@@ -23,7 +23,7 @@
         :id="id"
         class="shadow-sm focus:ring-orange-500 focus:border-orange-500 block w-full sm:text-sm border-gray-300 rounded-md"
         :placeholder="placeholder"
-        v-model="value"
+        :value="value"
         @change="$emit('updated', value)"
       />
     </div>
@@ -31,5 +31,5 @@
 </template>
 
 <script setup>
-  defineProps(['id', 'value', 'label', 'required', 'placeholder'])
+  const props = defineProps(['id', 'value', 'label', 'required', 'placeholder'])
 </script>

@@ -11,6 +11,7 @@
       <Input
         id="starting_pos"
         label="Start Pos"
+        :value="startingPos"
         :placeholder="startingPos"
         @updated="updateStartPos"
       />
@@ -19,6 +20,7 @@
         id="finish_pos"
         label="Finish Pos"
         :placeholder="finishPos"
+        :value="finishPos"
         @updated="updateFinishPos"
       />
 

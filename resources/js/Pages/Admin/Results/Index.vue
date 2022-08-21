@@ -62,8 +62,8 @@
   })
 
   const franchise = ref({})
-  const drivers = ref([])
   const event = ref({})
+  const drivers = ref([])
   const events = ref([])
   const results = ref([])
 
