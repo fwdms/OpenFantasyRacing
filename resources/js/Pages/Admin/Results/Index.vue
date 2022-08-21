@@ -101,7 +101,6 @@
   }
 
   function getEvent() {
-    console.log('changed')
     axios
       .get(
         route('results.index.collection', {

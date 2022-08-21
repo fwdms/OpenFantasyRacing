@@ -51,7 +51,7 @@
     event: Object,
   })
 
-  const emit = defineEmits(['buttonClicked'])
+  const emit = defineEmits(['submitForm'])
 
   const startingPos = ref()
   const finishPos = ref()
