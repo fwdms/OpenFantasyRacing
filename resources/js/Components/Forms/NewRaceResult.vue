@@ -11,14 +11,14 @@
       <Input
         id="starting_pos"
         label="Start Pos"
-        :value="startingPos"
+        :placeholder="startingPos"
         @updated="updateStartPos"
       />
 
       <Input
         id="finish_pos"
         label="Finish Pos"
-        :value="finishPos"
+        :placeholder="finishPos"
         @updated="updateFinishPos"
       />
 
@@ -26,6 +26,7 @@
         id="points_earned"
         label="Points Earned"
         :value="pointsEarned"
+        :placeholder="pointsEarned"
         @updated="updatePointsEarned"
       />
     </div>
@@ -57,9 +58,9 @@
 
   const emit = defineEmits(['submitForm'])
 
-  const startingPos = ref()
-  const finishPos = ref()
-  const pointsEarned = ref()
+  const startingPos = ref(0)
+  const finishPos = ref(0)
+  const pointsEarned = ref(0)
   const dnf = ref(false)
   const driver = ref({})
 
