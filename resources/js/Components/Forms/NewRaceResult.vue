@@ -2,6 +2,7 @@
   <form class="flex flex-wrap justify-between items-center my-4 mx-4">
     <div class="flex flex-wrap items-center">
       <SelectMenu
+        v-if="drivers.length > 0"
         label="Driver"
         :options="drivers"
         @selected="driverSelected"
@@ -10,13 +11,14 @@
       <Input
         id="starting_pos"
         label="Start Pos"
-        v-model="startingPos"
+        :value="startingPos"
         @updated="updateStartPos"
       />
 
       <Input
         id="finish_pos"
         label="Finish Pos"
+        :value="finishPos"
         @updated="updateFinishPos"
       />
 
