@@ -10,6 +10,7 @@
       <Input
         id="starting_pos"
         label="Start Pos"
+        v-model="startingPos"
         @updated="updateStartPos"
       />
 
@@ -64,15 +65,15 @@
   }
 
   function updateStartPos(value) {
-    startingPos.value = parseInt(value)
+    startingPos.value = value
   }
 
   function updateFinishPos(value) {
-    finishPos.value = parseInt(value)
+    finishPos.value = value
   }
 
   function updatePointsEarned(value) {
-    pointsEarned.value = parseInt(value)
+    pointsEarned.value = value
   }
 
   function updateDNF(value) {
