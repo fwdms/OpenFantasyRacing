@@ -25,6 +25,7 @@
       <Input
         id="points_earned"
         label="Points Earned"
+        :value="pointsEarned"
         @updated="updatePointsEarned"
       />
     </div>
