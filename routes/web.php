@@ -82,6 +82,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         );
     })->name('results.index.collection');
 
+    Route::get('/admin', function () {
+        return redirect(route('admin.dashboard.index'));
+    });
+
     Route::middleware(['admin', 'verified'])->group(function () {
         Route::group(['prefix' => 'admin/'], function () {
             Route::controller(AdminDashboardController::class)->group(function () {
