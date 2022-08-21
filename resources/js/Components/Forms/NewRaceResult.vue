@@ -57,9 +57,9 @@
 
   const emit = defineEmits(['submitForm'])
 
-  const startingPos = ref(0)
-  const finishPos = ref(0)
-  const pointsEarned = ref(0)
+  const startingPos = ref()
+  const finishPos = ref()
+  const pointsEarned = ref()
   const dnf = ref(false)
   const driver = ref({})
 

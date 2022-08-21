@@ -23,7 +23,7 @@
         class="shadow-sm focus:ring-orange-500 focus:border-orange-500 block w-full sm:text-sm border-gray-300 rounded-md"
         :placeholder="placeholder"
         v-model="value"
-        @change="$emit('updated', value)"
+        @change="$emit('updated', value ?? '')"
       />
     </div>
   </div>
