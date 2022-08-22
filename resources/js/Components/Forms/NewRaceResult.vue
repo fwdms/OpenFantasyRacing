@@ -1,10 +1,11 @@
 <template>
   <form class="flex flex-wrap justify-between items-center my-4 mx-4">
     <div class="flex flex-wrap items-center">
-      <SelectMenu
+      <Combobox
         v-if="drivers.length > 0"
         label="Driver"
         :options="drivers"
+        :keys="keys"
         @selected="driverSelected"
       />
 
@@ -45,7 +46,7 @@
 <script setup>
   import { ref } from 'vue'
   import axios from 'axios'
-  import SelectMenu from '@/Components/Form/SelectMenu.vue'
+  import Combobox from '@/Components/Form/Combobox.vue'
   import Input from '@/Components/Form/Input.vue'
   import Toggle from '@/Components/Form/Toggle.vue'
   import Button from '@/Components/Form/Button.vue'
@@ -62,6 +63,8 @@
   const pointsEarned = ref(0)
   const dnf = ref(false)
   const driver = ref({})
+
+  const keys = ['first_name', 'last_name']
 
   function driverSelected(selected) {
     driver.value = selected
