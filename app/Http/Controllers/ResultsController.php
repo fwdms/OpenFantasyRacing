@@ -14,6 +14,7 @@ class ResultsController extends Controller
             'driver_id' => $request->driver_id,
             'starting_pos' => $request->startingPos,
             'finish_pos' => $request->finishPos,
+            'points_for_race' => $request->pointsEarned,
             'DNF' => $request->dnf
         ]);
 
