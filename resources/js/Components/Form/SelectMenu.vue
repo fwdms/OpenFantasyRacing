@@ -2,7 +2,7 @@
   <div class="my-2 mx-2">
     <label
       :for="label"
-      class="block text-sm font-medium text-gray-700"
+      class="block text-sm font-medium text-gray-700 mx-3"
     >
       {{ label }}
     </label>

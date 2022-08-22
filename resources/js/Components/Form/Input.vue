@@ -3,7 +3,7 @@
     <div class="flex justify-between">
       <label
         :for="id"
-        class="block text-sm font-medium text-gray-700"
+        class="block text-sm font-medium text-gray-700 mx-3"
       >
         {{ label }}
       </label>
