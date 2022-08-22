@@ -23,7 +23,7 @@
         :id="id"
         class="shadow-sm focus:ring-orange-500 focus:border-orange-500 block w-full sm:text-sm border-gray-300 rounded-md"
         :placeholder="placeholder"
-        :value="value"
+        v-model="value"
         @change="$emit('updated', value)"
       />
     </div>
@@ -31,5 +31,13 @@
 </template>
 
 <script setup>
+  import { ref, onMounted } from 'vue'
+
   const props = defineProps(['id', 'value', 'label', 'required', 'placeholder'])
+
+  const value = ref('')
+
+  onMounted(() => {
+    props.value !== undefined ? (value.value = props.value) : (value.value = '')
+  })
 </script>

@@ -34,13 +34,18 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
 
   const props = defineProps({
     label: String,
     subtext: String,
+    enabled: Boolean,
   })
 
   const enabled = ref(false)
+
+  onMounted(() => {
+    props.enabled === true ? (enabled.value = true) : (enabled.value = false)
+  })
 </script>

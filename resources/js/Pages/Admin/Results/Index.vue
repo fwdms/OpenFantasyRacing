@@ -19,14 +19,14 @@
     </div>
 
     <Button
-      @click.prevent="createNewRow()"
+      @click.prevent="creatingRecord = !creatingRecord"
       class="my-0 mx-0 p-0"
     >
       Create a New Race Result
     </Button>
   </div>
 
-  <div v-if="event">
+  <div v-if="creatingRecord">
     <NewRaceResult
       :drivers="drivers"
       :event="event"
@@ -66,6 +66,8 @@
   const drivers = ref([])
   const events = ref([])
   const results = ref([])
+
+  const creatingRecord = ref(false)
 
   function franchiseSelected(selected) {
     franchise.value = selected
