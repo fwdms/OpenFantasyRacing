@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Driver;
+use App\Models\Event;
 use App\Models\Result;
 use App\Models\Franchise;
 use App\Models\Constructor;
 use Illuminate\Http\Request;
 use App\Http\Resources\JsonCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CollectionController extends Controller
 {
-    public function results($event_id)
+    public function results(Event $event_id): ResourceCollection
     {
         return new JsonCollection(
             Result::query()
@@ -22,7 +24,7 @@ class CollectionController extends Controller
         );
     }
 
-    public function drivers($franchise_slug)
+    public function drivers(String $franchise_slug): ResourceCollection
     {
         $franchise = Franchise::query()
             ->where('slug', $franchise_slug)

@@ -18,9 +18,9 @@ use App\Http\Controllers\Admin\ResultsController as AdminResultsController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ResultsController;
 use App\Models\Event;
-use App\Models\Result;
+use Inertia\Inertia;
 
-Route::inertia('/', 'Home')->name('home');
+Route::get('/', fn() => Inertia::render('Home'));
 
 Route::controller(FAQController::class)->group(function () {
     Route::get('/faq', 'index')->name('faq.index');

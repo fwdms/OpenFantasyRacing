@@ -24,6 +24,7 @@ class DashboardController extends Controller
             )
             ->get();
 
-        return Inertia::render('Dashboard')->with(compact('fantasy_teams'));
+        return Inertia::render('Dashboard')
+            ->with(compact('fantasy_teams'));
     }
 }

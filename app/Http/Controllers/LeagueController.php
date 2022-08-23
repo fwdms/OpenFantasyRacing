@@ -35,8 +35,6 @@ class LeagueController extends Controller
             }
         }
 
-        dd('stop');
-
         return Inertia::render('Leagues/Show')
             ->with(compact('league', 'fantasyTeams'));
     }

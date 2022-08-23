@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ResultsController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request): Result
     {
         $response = Result::create([
             'race_id' => $request->event_id,

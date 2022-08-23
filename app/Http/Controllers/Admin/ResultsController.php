@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Inertia\Inertia;
+use Inertia\Response;
 use App\Models\Franchise;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Race;
 
 class ResultsController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         $franchises = Franchise::all();
 
