@@ -14,7 +14,7 @@
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700"> Email address </label>
                 <div class="mt-1">
-                  <input v-model="form.email" id="email" 
+                  <input v-model="form.email" id="email"
                     name="email" 
                     type="email" 
                     autocomplete="email" 

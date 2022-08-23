@@ -1,5 +1,6 @@
 <template>
     <Head title="Forgot Password" />
+
     <div class="min-h-full flex">
         <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div class="mx-auto w-full max-w-sm lg:w-96">
@@ -22,33 +23,31 @@
 
                         <BreezeValidationErrors class="mb-4" />
 
-                        <form @submit.prevent="submit">
-                            <div>
-                                <BreezeLabel for="email" value="Email" />
-                                <BreezeInput
-                                    id="email"
-                                    type="email"
-                                    class="mt-1 block w-full"
-                                    v-model="form.email"
-                                    required
-                                    autofocus
-                                    autocomplete="username"
-                                />
-                            </div>
+                        <Input
+                            id="email"
+                            type="email"
+                            label='Email'
+                            placeholder='email@email.com'
+                            v-model="form.email"
+                            :required = true
+                            autofocus
+                            autocomplete="username"
+                        />
 
-                            <div class="flex items-center justify-end mt-4">
-                                <BreezeButton
-                                    :class="{ 'opacity-25': form.processing }"
-                                    :disabled="form.processing"
-                                >
-                                    Email Password Reset Link
-                                </BreezeButton>
-                            </div>
-                        </form>
+                        <div class="flex items-center justify-end mt-4">
+                            <Button
+                                :class="{ 'opacity-25': form.processing }"
+                                :disabled="form.processing"
+                                @click='submit'
+                            >
+                                Email Password Reset Link
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="hidden lg:block relative w-0 flex-1">
             <img
                 class="absolute inset-0 h-full w-full object-cover"
@@ -60,30 +59,29 @@
 </template>
 
 <script>
-    import FullScreen from "@/Layouts/FullScreen.vue";
+    import FullScreen from "@/Layouts/FullScreen.vue"
 
     export default {
         layout: FullScreen,
-    };
+    }
 </script>
 
 <script setup>
-    import BreezeButton from "@/Components/Form/Button.vue";
-    import BreezeInput from "@/Components/Form/Input.vue";
-    import BreezeLabel from "@/Components/Form/Label.vue";
-    import BreezeValidationErrors from "@/Components/Form/ValidationErrors.vue";
+    import Button from "@/Components/Form/Button.vue"
+    import Input from "@/Components/Form/Input.vue"
+    import BreezeValidationErrors from "@/Components/Form/ValidationErrors.vue"
 
-    import { useForm } from "@inertiajs/inertia-vue3";
+    import { useForm } from "@inertiajs/inertia-vue3"
 
     defineProps({
         status: String,
-    });
+    })
 
     const form = useForm({
         email: "",
-    });
+    })
 
-    const submit = () => {
+    function submit() {
         form.post(route("password.email"));
-    };
+    }
 </script>

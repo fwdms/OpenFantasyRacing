@@ -1,27 +1,27 @@
 <template>
-  <div class="my-2 mx-2">
-    <div class="flex justify-between">
+  <div class="m-3">
+    <div class="flex justify-between mx-3">
       <label
         :for="id"
-        class="block text-sm font-medium text-gray-700 mx-3"
+        class="text-sm font-medium text-gray-700"
       >
         {{ label }}
       </label>
 
-      <span
+      <p
         class="text-sm text-gray-500"
         v-if="required"
       >
         Required
-      </span>
+      </p>
     </div>
 
     <div class="mt-1">
       <input
-        type="text"
+        :type="type"
         :name="id"
         :id="id"
-        class="shadow-sm focus:ring-orange-500 focus:border-orange-500 block w-full sm:text-sm border-gray-300 rounded-md"
+        class="w-full border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
         :placeholder="placeholder"
         v-model="value"
         @change="$emit('updated', value)"
@@ -33,7 +33,17 @@
 <script setup>
   import { ref, onMounted } from 'vue'
 
-  const props = defineProps(['id', 'value', 'label', 'required', 'placeholder'])
+  const props = defineProps({
+    id: String,
+    value: String,
+    label: String,
+    required: Boolean,
+    placeholder: String,
+    type: {
+      type: String,
+      default: 'text'
+    }
+  })
 
   const value = ref('')
 
