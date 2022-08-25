@@ -11,22 +11,22 @@ Route::controller('FAQController')->group(function () {
     Route::get('/faq', 'index')->name('faq.index');
 });
 
-Route::controller('RuleController')->group(function () {
+Route::controller('RuleController')->namespace('App\Http\Controllers')->group(function () {
     Route::get('/rules', 'index')->name('rules.index');
 });
 
 Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
-    Route::controller('ConstructorController')->group(function () {
+    Route::controller('ConstructorController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/constructors', 'index')->name('constructor.index');
         Route::get('/constructor/{slug}', 'show')->name('constructor.show');
     });
 
-    Route::controller('DriverController')->group(function () {
+    Route::controller('DriverController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/drivers', 'index')->name('driver.index');
         Route::get('/driver/{id}', 'show')->name('driver.show');
     });
 
-    Route::controller('EventController')->group(function () {
+    Route::controller('EventController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/events', 'index')->name('event.index');
         Route::get('/event/{id}', 'show')->name('event.show');
         Route::get('/event-collection', function () {
@@ -37,28 +37,28 @@ Route::group(['prefix' => 'franchise/{franchise_slug}/'], function () {
 
 // Requires Auth
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::controller('DashboardController')->group(function () {
+    Route::controller('DashboardController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard.index');
     });
 
-    Route::controller('LeagueController')->group(function () {
+    Route::controller('LeagueController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/leagues/create', 'create')->name('league.create');
         Route::get('/leagues/{id}', 'show')->name('league.show');
         Route::post('/leagues', 'store')->name('league.store');
     });
 
     Route::group(['prefix' => '/leagues/{league}/'], function () {
-        Route::controller('FantasyTeamController')->group(function () {
+        Route::controller('FantasyTeamController')->namespace('App\Http\Controllers')->group(function () {
             Route::get('/team/{team}', 'show')->name('fantasy-team.show');
         });
     });
 
-    Route::controller('ProfileController')->group(function () {
+    Route::controller('ProfileController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::post('/profile', 'update')->name('profile.update');
     });
 
-    Route::controller('ResultsController')->group(function () {
+    Route::controller('ResultsController')->namespace('App\Http\Controllers')->group(function () {
         Route::post('/results', 'store')->name('result.store');
     });
 
@@ -80,7 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
 
-    Route::controller('CollectionController')->group(function () {
+    Route::controller('CollectionController')->namespace('App\Http\Controllers')->group(function () {
         Route::get('/results-collection/{event_id}', 'results')->name('results.index.collection');
         Route::get('/drivers-collection/{franchise_slug}', 'drivers')->name('drivers.index.collection');
     });
