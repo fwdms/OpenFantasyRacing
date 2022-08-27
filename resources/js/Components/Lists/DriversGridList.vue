@@ -6,7 +6,7 @@
       <div class='w-full flex flex-wrap items-center justify-between p-6 space-x-6'>
         <div class='flex-1 truncate'>
           <div class='flex items-center space-x-3'>
-            <Link :href="route('driver.show', { franchise: franchise.slug, id: driver.id })">
+            <Link :href="route('driver.show', { franchise: franchise.slug, driver: driver.id })">
               <img
                 class='w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0'
                 :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
@@ -15,7 +15,7 @@
             </Link>
             <div class='flex flex-col'>
               <h3 class='font-medium truncate'>
-                <Link :href="route('driver.show', { franchise: $props.franchise.slug, id: driver.id })"
+                <Link :href="route('driver.show', { franchise: $props.franchise.slug, driver: driver.id })"
                       class='text-gray-800 hover:text-orange-600'
                 >
                   {{ driver.first_name }} {{ driver.last_name }}
