@@ -82,7 +82,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     
     Route::controller('CollectionController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/results-collection/{event_id}', 'results')->name('results.index.collection');
-        Route::get('/drivers-collection/{franchise_slug}', 'drivers')->name('drivers.index.collection');
+        Route::get('/drivers-collection/{franchise}', 'drivers')->name('drivers.index.collection');
     });
 });
 

@@ -72,12 +72,11 @@
   function franchiseSelected(selected) {
     franchise.value = selected
     
-    axios
-      .get(
-        route('event.index.collection', {
-          franchise_slug: franchise.value.slug
-        })
-      )
+    axios.get(
+      route('event.index.collection', {
+        franchise: franchise.value.slug
+      })
+    )
       .then(res => {
         events.value = res.data.data
       })
@@ -85,12 +84,11 @@
         console.log(error)
       })
     
-    axios
-      .get(
-        route('drivers.index.collection', {
-          franchise_slug: franchise.value.slug
-        })
-      )
+    axios.get(
+      route('drivers.index.collection', {
+        franchise: franchise.value.slug
+      })
+    )
       .then(res => {
         drivers.value = res.data.data
       })
@@ -103,13 +101,12 @@
   }
   
   function getEvent() {
-    axios
-      .get(
-        route('results.index.collection', {
-          franchise_slug: franchise.value.slug,
-          event_id: event.value.id
-        })
-      )
+    axios.get(
+      route('results.index.collection', {
+        franchise: franchise.value.slug,
+        event_id: event.value.id
+      })
+    )
       .then(res => {
         results.value = res.data.data
       })
