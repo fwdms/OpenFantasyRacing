@@ -23,7 +23,7 @@ Route::group(['prefix' => 'franchise/{franchise:slug}/'], function() {
     
     Route::controller('DriverController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/drivers', 'index')->name('driver.index');
-        Route::get('/driver/{id}', 'show')->name('driver.show');
+        Route::get('/driver/{driver}', 'show')->name('driver.show');
     });
     
     Route::controller('EventController')->namespace('App\Http\Controllers')->group(function() {
