@@ -12,10 +12,9 @@ class DashboardController extends Controller
     public function index(): Response
     {
         $fantasy_teams = DB::table('fantasy_teams')
-            ->where('user_id', Auth::user()->id)
+            ->where('user_id', Auth::id())
             ->join('leagues', 'leagues.id', 'fantasy_teams.league_id')
             ->join('franchises', 'franchises.id', 'leagues.franchise_id')
-
             ->select(
                 'fantasy_teams.*',
                 'leagues.name as league_name',
@@ -23,7 +22,7 @@ class DashboardController extends Controller
                 'franchises.slug as franchise_slug'
             )
             ->get();
-
+        
         return Inertia::render('Dashboard')
             ->with(compact('fantasy_teams'));
     }

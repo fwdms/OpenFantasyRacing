@@ -9,36 +9,17 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use Notifiable;
-
+    use HasApiTokens, HasFactory, Notifiable;
+    
     protected $guarded = [
         'id', 'is_admin'
     ];
-
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'password',
-        'about',
-        'website',
-        'cover_photo',
-        'country',
-        'street_address',
-        'city',
-        'state',
-        'zip_code',
-        'wins',
-        'profile_image',
-    ];
-
+    
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
+    
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

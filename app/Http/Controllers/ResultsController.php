@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Result;
-use Illuminate\Http\Request;
+use App\Http\Requests\ResultRequest;
 
 class ResultsController extends Controller
 {
-    public function store(Request $request): Result
+    public function store(ResultRequest $request): Result
     {
-        $response = Result::create([
+        return Result::create([
             'race_id' => $request->event_id,
             'driver_id' => $request->driver_id,
             'starting_pos' => $request->startingPos,
@@ -17,7 +17,5 @@ class ResultsController extends Controller
             'points_for_race' => $request->pointsEarned,
             'DNF' => $request->dnf
         ]);
-
-        return $response;
     }
 }

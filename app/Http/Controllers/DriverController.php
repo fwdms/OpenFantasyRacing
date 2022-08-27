@@ -7,15 +7,16 @@ use App\Models\Driver;
 use App\Models\Result;
 use App\Models\Franchise;
 use App\Models\Constructor;
+use Inertia\Response;
 
 class DriverController extends Controller
 {
-    public function index(String $franchise_slug): \Inertia\Response
+    public function index(string $franchise_slug): Response
     {
         $franchise = Franchise::query()
             ->where('slug', $franchise_slug)
             ->first();
-
+        
         $constructors = Constructor::query()
             ->where('franchise_id', $franchise['id'])
             ->with('drivers')
@@ -23,7 +24,7 @@ class DriverController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-
+        
         $drivers = Driver::query()
             ->whereIn('constructor_id', $constructors->pluck('id'))
             ->with('constructor')
@@ -31,24 +32,25 @@ class DriverController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-
+        
         return Inertia::render('Drivers/Index')
             ->with(compact('drivers', 'franchise', 'constructors'));
     }
-
-    public function show(String $franchise_slug, String $id): \Inertia\Response
+    
+    public function show(string $franchise_slug, string $id): Response
     {
         $franchise = Franchise::query()
             ->where('slug', $franchise_slug)
             ->first();
-
+        
         $driver = Driver::query()
             ->where('id', $id)
             ->with('results')
             ->with('constructor')
             ->withSum('results', 'points_for_race')
             ->first();
-
+        
+        /** @var Driver $driver */
         $results = Result::query()
             ->where('driver_id', $driver->id)
             ->join('races', 'races.id', 'race_id')
@@ -61,7 +63,7 @@ class DriverController extends Controller
                 'tracks.location as track_location'
             )
             ->get();
-
+        
         return Inertia::render('Drivers/Show')
             ->with(compact('driver', 'franchise', 'results'));
     }

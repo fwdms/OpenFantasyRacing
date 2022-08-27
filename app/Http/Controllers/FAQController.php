@@ -12,7 +12,7 @@ class FAQController extends Controller
     {
         $faqs = DB::table('faq')
             ->get();
-
+        
         return Inertia::render('Faq')->with(compact('faqs'));
     }
 }
