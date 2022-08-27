@@ -1,11 +1,11 @@
 <template>
-  <Head title="Admin | Franchises" />
-
-  <PageHeader :title="'Fanchises'"/>
+  <Header title='Admin | Franchises' />
+  
+  <PageHeader :title="'Fanchises'" />
 </template>
 
 <script setup>
-    import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
 </script>
 
 <script>

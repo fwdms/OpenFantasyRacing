@@ -1,23 +1,23 @@
 <template>
-  <Head :title="franchise.name + ' Events'" />
-
-  <PageHeader :title="franchise.name" />
-
-  <TabBar :tabs="tabs" />
-
-  <EventsList :franchise="franchise" :events='events'/>
+  <Header :title="franchise.name + ' Events'" />
+  
+  <PageHeader :title='franchise.name' />
+  
+  <TabBar :tabs='tabs' />
+  
+  <EventsList :franchise='franchise' :events='events' />
 </template>
 
 <script setup>
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import EventsList from '@/Components/Tables/EventsTable.vue'
   import TabBar from '@/Components/Navigation/TabBar.vue'
-
+  
   const props = defineProps({
     franchise: Object,
-    events: Array,
-  });
-
+    events: Array
+  })
+  
   const tabs = [
     {
       name: 'Drivers',
@@ -33,6 +33,6 @@
       name: 'Events',
       href: '/franchise/' + props.franchise.slug + '/events',
       current: true
-    },
+    }
   ]
 </script>

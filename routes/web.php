@@ -7,7 +7,7 @@ use Inertia\Inertia;
 
 Route::get('/', fn() => Inertia::render('Home'));
 
-Route::controller('FAQController')->group(function() {
+Route::controller('FaqController')->namespace('App\Http\Controllers')->group(function() {
     Route::get('/faq', 'index')->name('faq.index');
 });
 
