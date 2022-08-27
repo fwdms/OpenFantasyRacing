@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+  import { onMounted } from 'vue'
   import DriversGridList from '@/Components/Lists/DriversGridList.vue'
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import TabBar from '@/Components/Navigation/TabBar.vue'

@@ -12,16 +12,16 @@
           />
           <div>
             <Link class='font-medium border border-transparent rounded-bl-lg hover:text-gray-500'
-                  :href="route('constructor.show', { franchise_slug: franchise.slug, slug: constructor.slug })"
+                  :href="route('constructor.show', { franchise: franchise.slug, slug: constructor.slug })"
             >
               <h3 class='text-orange-600 hover:text-gray-800 font-medium truncate'>
                 {{ constructor.short_name }}
               </h3>
-
+              
               <h3 class='text-gray-500 text-sm truncate font-medium w-48'>
                 {{ constructor.name }}
               </h3>
-              
+            
             </Link>
           </div>
         </div>
@@ -29,11 +29,11 @@
           <p class='font-bold text-xl mx-auto'>
             #{{ index + 1 }}
           </p>
-
+          
           <p class='text-gray-500 text-xl mx-auto'>
             {{ constructor.results_sum_points_for_race }}
           </p>
-
+        
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
 <script setup>
   import { ChartPieIcon } from '@heroicons/vue/outline'
   import { ClipboardListIcon } from '@heroicons/vue/outline'
-
+  
   defineProps({
     franchise: Object,
     constructors: Array

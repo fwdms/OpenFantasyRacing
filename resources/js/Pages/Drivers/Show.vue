@@ -13,7 +13,7 @@
       </h1>
       
       <div class='mt-3 text-center xl:text-left'>
-        <Link :href="route('constructor.show', { franchise_slug: franchise.slug, slug: driver.constructor.slug })"
+        <Link :href="route('constructor.show', { franchise: franchise.slug, slug: driver.constructor.slug })"
               class='text-3xl text-orange-600'
         >
           {{ driver.constructor.name }}

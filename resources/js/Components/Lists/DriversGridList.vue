@@ -6,7 +6,7 @@
       <div class='w-full flex flex-wrap items-center justify-between p-6 space-x-6'>
         <div class='flex-1 truncate'>
           <div class='flex items-center space-x-3'>
-            <Link :href="route('driver.show', { franchise_slug: franchise.slug, id: driver.id })">
+            <Link :href="route('driver.show', { franchise: franchise.slug, id: driver.id })">
               <img
                 class='w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0'
                 :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
@@ -15,14 +15,14 @@
             </Link>
             <div class='flex flex-col'>
               <h3 class='font-medium truncate'>
-                <Link :href="route('driver.show', {franchise_slug: franchise.slug, id: driver.id})"
+                <Link :href="route('driver.show', { franchise: $props.franchise.slug, id: driver.id })"
                       class='text-gray-800 hover:text-orange-600'
                 >
                   {{ driver.first_name }} {{ driver.last_name }}
                 </Link>
               </h3>
               <Link class='mt-1 text-orange-600 text-sm truncate hover:text-gray-800'
-                    :href="route('constructor.show', { franchise_slug: franchise.slug, slug: driver.constructor.slug })"
+                    :href="route('constructor.show', { franchise: franchise.slug, slug: driver.constructor.slug })"
               >
                 {{ driver.constructor.short_name }}
               </Link>
@@ -36,7 +36,7 @@
           <p class='font-bold text-xl mx-auto'>
             #{{ index + 1 }}
           </p>
-
+          
           <p class='text-gray-500 text-xl mx-auto'>
             {{ driver.results_sum_points_for_race }}
           </p>
@@ -49,8 +49,8 @@
 <script setup>
   import { ChartPieIcon } from '@heroicons/vue/outline'
   import { ClipboardListIcon } from '@heroicons/vue/outline'
-
-  defineProps({
+  
+  const props = defineProps({
     franchise: Object,
     drivers: Array
   })
