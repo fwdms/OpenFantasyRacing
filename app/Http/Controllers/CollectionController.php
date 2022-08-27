@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Driver;
 use App\Models\Event;
+use App\Models\Race;
 use App\Models\Result;
 use App\Models\Franchise;
 use App\Http\Resources\JsonCollection;
@@ -11,11 +12,11 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CollectionController extends Controller
 {
-    public function results(Event $event): ResourceCollection
+    public function results(Race $race): ResourceCollection
     {
         return new JsonCollection(
             Result::query()
-                ->where('race_id', $event->id)
+                ->where('race_id', $race->id)
                 ->with('driver')
                 ->orderBy('finish_pos', 'ASC')
                 ->get()

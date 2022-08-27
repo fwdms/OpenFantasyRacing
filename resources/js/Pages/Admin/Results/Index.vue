@@ -104,7 +104,7 @@
     axios.get(
       route('results.index.collection', {
         franchise: franchise.value.slug,
-        event_id: event.value.id
+        race: event.value.id
       })
     )
       .then(res => {
