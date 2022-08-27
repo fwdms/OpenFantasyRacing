@@ -35,7 +35,6 @@ class DriverController extends Controller
     
     public function show(Franchise $franchise, Driver $driver): Response
     {
-        dd($driver);
         $driver = $driver
             ->with('results')
             ->with('constructor')
