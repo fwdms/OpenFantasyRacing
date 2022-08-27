@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @mixin Builder
  * @property int $id
  * @property string $franchise_slug
+ * @property array $constructors
  */
 class Franchise extends Model
 {

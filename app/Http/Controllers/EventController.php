@@ -10,13 +10,8 @@ use Inertia\Response;
 
 class EventController extends Controller
 {
-    public function index(string $franchise_slug): Response
+    public function index(Franchise $franchise): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->firstOrFail();
-        
-        /** @var Franchise $franchise */
         $events = Race::query()
             ->where('franchise_id', $franchise->id)
             ->with('track')
@@ -27,18 +22,13 @@ class EventController extends Controller
             ->with(compact('franchise', 'events'));
     }
     
-    public function show(string $franchise_slug, int $id): Response
+    public function show(Franchise $franchise, Race $race): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->first();
-        
-        $event = Race::query()
-            ->where('id', $id)
+        $event = $race
             ->with('track')
             ->first();
         
-        /** @var Result $event */
+        /** @var Race $event */
         $results = Result::query()
             ->where('race_id', $event->id)
             ->with('driver')

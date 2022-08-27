@@ -11,21 +11,20 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CollectionController extends Controller
 {
-    public function results(Event $event_id): ResourceCollection
+    public function results(Event $event): ResourceCollection
     {
         return new JsonCollection(
             Result::query()
-                ->where('race_id', $event_id)
+                ->where('race_id', $event->id)
                 ->with('driver')
                 ->orderBy('finish_pos', 'ASC')
                 ->get()
         );
     }
     
-    public function drivers(string $franchise_slug): ResourceCollection
+    public function drivers(Franchise $franchise): ResourceCollection
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
+        $franchise = $franchise
             ->with('constructors')
             ->firstOrFail();
         

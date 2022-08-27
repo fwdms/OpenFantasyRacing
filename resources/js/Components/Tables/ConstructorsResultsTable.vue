@@ -6,7 +6,7 @@
       </td>
       <td class='whitespace-nowrap py-4 w-96 pl-4 pr-3 text-center text-sm font-medium text-gray-900 sm:pl-6'>
         <Link class='text-orange-600'
-              :href="route('event.show', { franchise: franchise.slug, id: result.race_id })"
+              :href="route('event.show', { franchise: franchise.slug, race: result.race_id })"
         >
           {{ result.race[0].name }}
         </Link>

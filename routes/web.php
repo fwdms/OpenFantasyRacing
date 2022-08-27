@@ -15,7 +15,7 @@ Route::controller('RuleController')->namespace('App\Http\Controllers')->group(fu
     Route::get('/rules', 'index')->name('rules.index');
 });
 
-Route::group(['prefix' => 'franchise/{franchise}/'], function() {
+Route::group(['prefix' => 'franchise/{franchise:slug}/'], function() {
     Route::controller('ConstructorController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/constructors', 'index')->name('constructor.index');
         Route::get('/constructor/{slug}', 'show')->name('constructor.show');
@@ -28,7 +28,7 @@ Route::group(['prefix' => 'franchise/{franchise}/'], function() {
     
     Route::controller('EventController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/events', 'index')->name('event.index');
-        Route::get('/event/{id}', 'show')->name('event.show');
+        Route::get('/event/{race}', 'show')->name('event.show');
         Route::get('/event-collection', function() {
             return new JsonCollection(Event::all());
         })->name('event.index.collection');
@@ -82,7 +82,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     
     Route::controller('CollectionController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/results-collection/{event_id}', 'results')->name('results.index.collection');
-        Route::get('/drivers-collection/{franchise}', 'drivers')->name('drivers.index.collection');
+        Route::get('/drivers-collection/{franchise:slug}', 'drivers')->name('drivers.index.collection');
     });
 });
 

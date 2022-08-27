@@ -12,13 +12,8 @@ use Inertia\Response;
 
 class ConstructorController extends Controller
 {
-    public function index(string $franchise_slug): Response
+    public function index(Franchise $franchise): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->firstOrFail();
-        
-        /** @var Franchise $franchise */
         $teams = Constructor::query()
             ->where('franchise_id', $franchise->id)
             ->with('drivers')
@@ -31,13 +26,8 @@ class ConstructorController extends Controller
             ->with(compact('franchise', 'teams'));
     }
     
-    public function show(string $franchise_slug, string $slug): Response
+    public function show(Franchise $franchise, string $slug): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->firstOrFail();
-        
-        /** @var Franchise $franchise */
         $team = Constructor::query()
             ->where('franchise_id', $franchise->id)
             ->where('slug', $slug)

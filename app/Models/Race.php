@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 
-/* @mixin Builder */
+/**
+ * @mixin Builder
+ * @property int $id
+ */
 class Race extends Model
 {
     use HasFactory;

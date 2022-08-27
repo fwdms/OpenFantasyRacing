@@ -5,7 +5,7 @@
         {{ event.round_number }}
       </td>
       <td class='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center'>
-        <Link :href="route('event.show', {franchise: franchise.slug, id: event.id})"
+        <Link :href="route('event.show', {franchise: franchise.slug, race: event.id})"
               class='text-orange-600'
         >
           {{ event.name }}

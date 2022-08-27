@@ -15,7 +15,7 @@
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import EventResultsTable from '@/Components/Tables/EventResultsTable.vue'
   
-  defineProps({
+  const props = defineProps({
     franchise: Object,
     event: Object,
     results: Array

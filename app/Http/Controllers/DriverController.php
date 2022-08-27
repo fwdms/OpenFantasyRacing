@@ -11,12 +11,8 @@ use Inertia\Response;
 
 class DriverController extends Controller
 {
-    public function index(string $franchise_slug): Response
+    public function index(Franchise $franchise): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->firstOrFail();
-        
         $constructors = Constructor::query()
             ->where('franchise_id', $franchise['id'])
             ->with('drivers')
@@ -37,14 +33,9 @@ class DriverController extends Controller
             ->with(compact('drivers', 'franchise', 'constructors'));
     }
     
-    public function show(string $franchise_slug, string $id): Response
+    public function show(Franchise $franchise, Driver $driver): Response
     {
-        $franchise = Franchise::query()
-            ->where('slug', $franchise_slug)
-            ->first();
-        
-        $driver = Driver::query()
-            ->where('id', $id)
+        $driver = $driver
             ->with('results')
             ->with('constructor')
             ->withSum('results', 'points_for_race')
