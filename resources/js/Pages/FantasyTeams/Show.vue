@@ -26,6 +26,7 @@
   defineProps({
     league: Object,
     team: Object,
+    points: String,
     drivers: Array
   })
 </script>

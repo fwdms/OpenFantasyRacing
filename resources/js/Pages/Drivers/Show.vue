@@ -10,6 +10,10 @@
     <div class='mx-auto mt-8 xl:mt-0 xl:w-4/6'>
       <h1 class='text-3xl font-extrabold tracking-tight text-gray-900 text-center xl:text-left'>
         {{ driver.first_name + ' ' + driver.last_name }}
+        
+        <span class='text-orange-600 text-2xl'>
+          {{ driver.number }}
+        </span>
       </h1>
       
       <div class='mt-3 text-center xl:text-left'>
@@ -19,6 +23,7 @@
           {{ driver.constructor.name }}
         </Link>
       </div>
+      <p class='mt-6'> Total Points : {{ points }}</p>
       
       <div class='mt-6'>
         <p class='text-base text-gray-700' v-html='driver.bio'></p>
@@ -36,6 +41,7 @@
   defineProps({
     driver: Object,
     franchise: Object,
+    points: String,
     results: Array
   })
 </script>

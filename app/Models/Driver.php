@@ -25,4 +25,10 @@ class Driver extends Model
     {
         return $this->hasMany(Result::class, 'driver_id');
     }
+    
+    public function points()
+    {
+        return $this->hasMany(Result::class, 'driver_id')
+            ->withSum('points_for_race');
+    }
 }

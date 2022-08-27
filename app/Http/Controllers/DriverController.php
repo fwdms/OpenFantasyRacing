@@ -36,12 +36,13 @@ class DriverController extends Controller
     public function show(Franchise $franchise, Driver $driver): Response
     {
         $driver = $driver
-            ->with('results')
-            ->with('constructor')
-            ->withSum('results', 'points_for_race')
-            ->first();
+            ->load('constructor');
         
-        /** @var Driver $driver */
+        $points = Driver::query()
+            ->where('id', $driver->id)
+            ->withSum('results', 'points_for_race')
+            ->first()->results_sum_points_for_race;
+        
         $results = Result::query()
             ->where('driver_id', $driver->id)
             ->join('races', 'races.id', 'race_id')
@@ -56,6 +57,6 @@ class DriverController extends Controller
             ->get();
         
         return Inertia::render('Drivers/Show')
-            ->with(compact('driver', 'franchise', 'results'));
+            ->with(compact('driver', 'points', 'franchise', 'results'));
     }
 }
