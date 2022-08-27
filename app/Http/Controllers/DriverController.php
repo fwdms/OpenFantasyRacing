@@ -15,7 +15,7 @@ class DriverController extends Controller
     {
         $franchise = Franchise::query()
             ->where('slug', $franchise_slug)
-            ->first();
+            ->firstOrFail();
         
         $constructors = Constructor::query()
             ->where('franchise_id', $franchise['id'])

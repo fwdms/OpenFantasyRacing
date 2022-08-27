@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FantasyTeam;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index(): Response
     {
-        $fantasy_teams = DB::table('fantasy_teams')
+        $fantasy_teams = FantasyTeam::query()
             ->where('user_id', Auth::id())
             ->join('leagues', 'leagues.id', 'fantasy_teams.league_id')
             ->join('franchises', 'franchises.id', 'leagues.franchise_id')

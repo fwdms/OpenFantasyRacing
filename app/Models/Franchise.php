@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @mixin Builder
- * @property $id
- * @property $franchise_slug
+ * @property int $id
+ * @property string $franchise_slug
  */
 class Franchise extends Model
 {

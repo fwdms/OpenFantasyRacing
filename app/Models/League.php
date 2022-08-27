@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Builder;
 
-/* @mixin Builder */
+/**
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @property int $id
+ */
 class League extends Model
 {
     use HasFactory;
@@ -16,11 +18,6 @@ class League extends Model
     protected $table = 'leagues';
     
     protected $guarded = ['id'];
-    
-    public function __construct(array $attributes = ['id'])
-    {
-        parent::__construct($attributes);
-    }
     
     public function fantasyTeams(): HasMany
     {

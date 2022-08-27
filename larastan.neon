@@ -9,10 +9,8 @@ parameters:
     phpVersion: 80199
 
     # The level 9 is the highest level - Mini 5
-    level: 6
+    level: 8
 
-    noModelMake: false
-    noUnnecessaryCollectionCall: false
     checkGenericClassInNonGenericObjectType: false
 
     ignoreErrors:

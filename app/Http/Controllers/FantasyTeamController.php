@@ -15,12 +15,12 @@ class FantasyTeamController extends Controller
     {
         $league = $league->query()
             ->with('franchise')
-            ->first();
+            ->firstOrFail();
         
         $team = $team->query()
             ->with('User')
             ->with('league')
-            ->first();
+            ->firstOrFail();
         
         /* @var FantasyTeam $team */
         $fantasyDrivers = DB::table('fantasy_team_drivers')

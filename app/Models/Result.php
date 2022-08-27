@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
 
-/* @mixin Builder
- * @property $id
+/**
+ * @mixin Builder
+ * @property int $id
  */
 class Result extends Model
 {

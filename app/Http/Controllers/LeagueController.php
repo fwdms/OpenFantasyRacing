@@ -19,11 +19,12 @@ class LeagueController extends Controller
         $league = $league->query()
             ->with('FantasyTeams')
             ->with('Franchise')
-            ->first();
+            ->firstOrFail();
         
+        /* @var League $league */
         $fantasyTeams = FantasyTeam::query()
             ->where('league_id', $league->id)
-            ->with('Drivers')
+            ->with('drivers')
             ->withSum('results', 'points_for_race')
             ->get();
         
@@ -47,14 +48,14 @@ class LeagueController extends Controller
     
     public function store(LeagueRequest $request): RedirectResponse
     {
-        $league = League::create([
+        $league = (new League)->create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
             'about_text' => $request->about_text,
             'league_owner_id' => Auth::id(),
         ]);
         
-        $team = FantasyTeam::create([
+        (new FantasyTeam)->create([
             'team_name' => $request->fantasyTeamName,
             'league_id' => $league->id,
             'user_id' => Auth::id(),

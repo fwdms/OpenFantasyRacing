@@ -27,7 +27,7 @@ class CollectionController extends Controller
         $franchise = Franchise::query()
             ->where('slug', $franchise_slug)
             ->with('constructors')
-            ->first();
+            ->firstOrFail();
         
         return new JsonCollection(
             Driver::query()
