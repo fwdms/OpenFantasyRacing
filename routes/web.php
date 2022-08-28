@@ -43,7 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     
     Route::controller('LeagueController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/leagues/create', 'create')->name('league.create');
-        Route::get('/leagues/{id}', 'show')->name('league.show');
+        Route::get('/leagues/{league}', 'show')->name('league.show');
         Route::post('/leagues', 'store')->name('league.store');
     });
     

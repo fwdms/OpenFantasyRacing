@@ -13,16 +13,10 @@ class FantasyTeamController extends Controller
 {
     public function show(League $league, FantasyTeam $team): Response
     {
-        $league = $league->query()
-            ->with('franchise')
-            ->firstOrFail();
+        $league->load('franchise');
         
-        $team = $team->query()
-            ->with('User')
-            ->with('league')
-            ->firstOrFail();
+        $team->load('User')->load('league');
         
-        /* @var FantasyTeam $team */
         $fantasyDrivers = DB::table('fantasy_team_drivers')
             ->where('fantasy_team_id', $team->id)
             ->get();

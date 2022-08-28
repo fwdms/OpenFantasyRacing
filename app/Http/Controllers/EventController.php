@@ -24,11 +24,8 @@ class EventController extends Controller
     
     public function show(Franchise $franchise, Race $race): Response
     {
-        $event = $race
-            ->with('track')
-            ->first();
+        $event = $race->load('track');
         
-        /** @var Race $event */
         $results = Result::query()
             ->where('race_id', $event->id)
             ->with('driver')

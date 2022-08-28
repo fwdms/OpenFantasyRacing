@@ -14,7 +14,7 @@ class DriverController extends Controller
     public function index(Franchise $franchise): Response
     {
         $constructors = Constructor::query()
-            ->where('franchise_id', $franchise['id'])
+            ->where('franchise_id', $franchise->id)
             ->with('drivers')
             ->with('results')
             ->withSum('results', 'points_for_race')
@@ -35,8 +35,7 @@ class DriverController extends Controller
     
     public function show(Franchise $franchise, Driver $driver): Response
     {
-        $driver = $driver
-            ->load('constructor');
+        $driver = $driver->load('constructor');
         
         $points = Driver::query()
             ->where('id', $driver->id)

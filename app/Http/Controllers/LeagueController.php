@@ -14,30 +14,6 @@ use Inertia\Response;
 
 class LeagueController extends Controller
 {
-    public function show(League $league): Response
-    {
-        $league = $league->query()
-            ->with('FantasyTeams')
-            ->with('Franchise')
-            ->firstOrFail();
-        
-        /* @var League $league */
-        $fantasyTeams = FantasyTeam::query()
-            ->where('league_id', $league->id)
-            ->with('drivers')
-            ->withSum('results', 'points_for_race')
-            ->get();
-        
-        foreach($fantasyTeams as $team) {
-            foreach($team->drivers as $driver) {
-                dump($driver);
-            }
-        }
-        
-        return Inertia::render('Leagues/Show')
-            ->with(compact('league', 'fantasyTeams'));
-    }
-    
     public function create(): Response
     {
         $franchises = Franchise::all();
@@ -62,5 +38,18 @@ class LeagueController extends Controller
         ]);
         
         return Redirect::route('dashboard.index');
+    }
+    
+    public function show(League $league): Response
+    {
+        $league->load('FantasyTeams')->load('Franchise');
+        
+        $fantasyTeams = FantasyTeam::query()
+            ->where('league_id', $league->id)
+            ->with('drivers')
+            ->get();
+        
+        return Inertia::render('Leagues/Show')
+            ->with(compact('league', 'fantasyTeams'));
     }
 }

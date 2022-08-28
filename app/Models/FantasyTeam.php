@@ -30,7 +30,6 @@ class FantasyTeam extends Model
     
     public function drivers(): HasManyThrough
     {
-        return $this->hasManyThrough(Driver::class, FantasyTeamDrivers::class, 'fantasy_team_id', 'id')
-            ->with('Results');
+        return $this->hasManyThrough(Driver::class, FantasyTeamDrivers::class, 'fantasy_team_id', 'id');
     }
 }
