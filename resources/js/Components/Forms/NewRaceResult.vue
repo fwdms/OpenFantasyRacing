@@ -6,31 +6,28 @@
         label='Driver'
         :options='drivers'
         :keys='keys'
-        @selected='driverSelected'
+        v-model='fields.driver'
       />
       
       <Input
         id='starting_pos'
         label='Start Pos'
         type='number'
-        :placeholder='startingPos'
-        @updated='updateStartPos'
+        :value='fields.startingPos'
       />
       
       <Input
         id='finish_pos'
         label='Finish Pos'
         type='number'
-        :placeholder='finishPos'
-        @updated='updateFinishPos'
+        :value='fields.finishPos'
       />
       
       <Input
         id='points_earned'
         label='Points Earned'
         type='number'
-        :placeholder='pointsEarned'
-        @updated='updatePointsEarned'
+        :value='fields.pointsEarned'
       />
     </div>
     
@@ -38,7 +35,7 @@
       <Toggle
         id='starting_pos'
         label='DNF'
-        @changed='updateDNF'
+        :enabled='fields.dnf'
       />
       
       <Button @click.prevent='submitForm()'> Save</Button>
@@ -47,7 +44,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onBeforeMount } from 'vue'
   import axios from 'axios'
   import Combobox from '@/Components/Form/Combobox.vue'
   import Input from '@/Components/Form/Input.vue'
@@ -56,49 +53,46 @@
   
   const props = defineProps({
     drivers: Array,
-    event: Object
+    event: Object,
+    fields: Object
+  })
+  
+  const fields = ref({
+    startingPos: 0,
+    finishPos: 0,
+    dnf: false,
+    pointsEarned: 0,
+    driver: {}
   })
   
   const emit = defineEmits(['submitForm'])
   
-  const startingPos = ref(0)
-  const finishPos = ref(0)
   const pointsEarned = ref(0)
-  const dnf = ref(false)
-  const driver = ref({})
   
   const keys = ['first_name', 'last_name']
   
+  onBeforeMount(() => {
+    if (props.fields !== undefined) {
+      fields.value.startingPos = props.fields.starting_pos
+      fields.value.finishPos = props.fields.finish_pos
+      fields.value.dnf = props.fields.DNF === 1
+      fields.value.driver = props.fields.driver
+    }
+  })
+  
   function driverSelected(selected) {
-    driver.value = selected
-  }
-  
-  function updateStartPos(value) {
-    startingPos.value = parseInt(value)
-  }
-  
-  function updateFinishPos(value) {
-    finishPos.value = parseInt(value)
-  }
-  
-  function updatePointsEarned(value) {
-    pointsEarned.value = parseInt(value)
-  }
-  
-  function updateDNF(value) {
-    dnf.value = value
+    fields.value.driver = selected
   }
   
   function submitForm() {
-    axios
-      .post(route('result.store'), {
-        driver_id: driver.value.id,
-        event_id: props.event.id,
-        startingPos: startingPos.value,
-        finishPos: finishPos.value,
-        pointsEarned: pointsEarned.value,
-        dnf: dnf.value
-      })
+    axios.post(route('result.store'), {
+      driver_id: driver.value.id,
+      event_id: props.event.id,
+      startingPos: startingPos.value,
+      finishPos: finishPos.value,
+      pointsEarned: pointsEarned.value,
+      dnf: dnf.value
+    })
       .then(res => {
         emit('submitForm')
       })

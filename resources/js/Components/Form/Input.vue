@@ -35,7 +35,7 @@
   
   const props = defineProps({
     id: String,
-    value: String,
+    value: String | Number,
     label: String,
     required: Boolean,
     placeholder: String | Number,

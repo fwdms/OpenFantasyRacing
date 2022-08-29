@@ -35,9 +35,11 @@
   </div>
   
   <div v-if='results.length > 0'>
-    <EventResultsTable
+    <EditableEventResultsTable
       :franchise='franchise'
       :results='results'
+      :drivers='drivers'
+      :event='event'
     />
   </div>
   
@@ -54,8 +56,8 @@
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import SelectMenu from '@/Components/Form/SelectMenu.vue'
   import Button from '@/Components/Form/Button.vue'
-  import EventResultsTable from '@/Components/Tables/EventResultsTable.vue'
   import NewRaceResult from '@/Components/Forms/NewRaceResult.vue'
+  import EditableEventResultsTable from '@/Components/Tables/EditableEventResultsTable.vue'
   
   const props = defineProps({
     franchises: Array
@@ -72,8 +74,7 @@
   function franchiseSelected(selected) {
     franchise.value = selected
     
-    axios.get(
-      route('event.index.collection', {
+    axios.get(route('event.index.collection', {
         franchise: franchise.value.slug
       })
     )
@@ -101,8 +102,7 @@
   }
   
   function getEvent() {
-    axios.get(
-      route('results.index.collection', {
+    axios.get(route('results.index.collection', {
         franchise: franchise.value.slug,
         race: event.value.id
       })
@@ -113,13 +113,6 @@
       .catch(error => {
         console.log(error)
       })
-  }
-  
-  function createNewRow() {
-    results.value.unshift({
-      finish_pos: 0,
-      'driver.first_name': 'Unknown'
-    })
   }
 </script>
 

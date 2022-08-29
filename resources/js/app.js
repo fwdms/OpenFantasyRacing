@@ -7,7 +7,7 @@ import '../css/app.css'
 import AppLayout from './Layouts/App.vue'
 
 const appName =
-  window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
+  window.document.getElementsByTagName('title')[0]?.innerText
 
 createInertiaApp({
   title: (title) => `${title} : ${appName}`,
