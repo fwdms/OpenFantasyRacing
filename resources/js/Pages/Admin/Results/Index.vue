@@ -40,6 +40,7 @@
       :results='results'
       :drivers='drivers'
       :event='event'
+      @refreshResults='getEvent()'
     />
   </div>
   

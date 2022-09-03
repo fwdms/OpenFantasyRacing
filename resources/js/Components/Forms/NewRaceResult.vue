@@ -106,5 +106,8 @@
       points_for_race: fields.value.pointsEarned,
       DNF: fields.value.dnf
     })
+      .then(res => {
+        emit('submitForm')
+      })
   }
 </script>

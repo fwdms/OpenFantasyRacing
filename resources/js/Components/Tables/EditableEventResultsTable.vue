@@ -43,6 +43,7 @@
       :event='event'
       :resultID='resultID'
       :fields='fields'
+      @submitForm='closeModalUpdate()'
     />
     
     <div class=''>
@@ -56,7 +57,6 @@
 
 <script setup>
   import { ref } from 'vue'
-  import axios from 'axios'
   import Table from '@/Components/Tables/Table.vue'
   import Modal from '@/Components/Overlays/Modal.vue'
   import Button from '@/Components/Form/Button.vue'
@@ -73,10 +73,17 @@
   const fields = ref([])
   const resultID = ref()
   
+  const emit = defineEmits(['refreshResults'])
+  
   function openEditModal(result) {
     resultID.value = result.id
     modalOpen.value = true
     fields.value = result
+  }
+  
+  function closeModalUpdate() {
+    modalOpen.value = false
+    emit('refreshResults')
   }
   
   const headers = [

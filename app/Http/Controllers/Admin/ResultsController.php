@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ResultRequest;
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Franchise;
