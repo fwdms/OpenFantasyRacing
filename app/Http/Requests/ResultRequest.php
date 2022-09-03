@@ -7,10 +7,10 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property int $event_id
  * @property int $driver_id
- * @property int $startingPos
- * @property int $finishPos
- * @property int $pointsEarned
- * @property bool $dnf
+ * @property int $starting_pos
+ * @property int $finish_pos
+ * @property int $points_for_race
+ * @property bool $DNF
  */
 class ResultRequest extends FormRequest
 {

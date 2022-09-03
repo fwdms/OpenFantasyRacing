@@ -10,32 +10,30 @@
       />
       
       <Input
-        id='starting_pos'
         label='Start Pos'
         type='number'
-        :value='fields.startingPos'
+        v-model='fields.startingPos'
       />
       
       <Input
         id='finish_pos'
         label='Finish Pos'
         type='number'
-        :value='fields.finishPos'
+        v-model='fields.finishPos'
       />
       
       <Input
         id='points_earned'
         label='Points Earned'
         type='number'
-        :value='fields.pointsEarned'
+        v-model='fields.pointsEarned'
       />
     </div>
     
     <div class='flex flex-wrap'>
       <Toggle
-        id='starting_pos'
         label='DNF'
-        :enabled='fields.dnf'
+        v-model='fields.dnf'
       />
       
       <Button @click.prevent='submitForm()'> Save</Button>
@@ -67,8 +65,6 @@
   
   const emit = defineEmits(['submitForm'])
   
-  const pointsEarned = ref(0)
-  
   const keys = ['first_name', 'last_name']
   
   onBeforeMount(() => {
@@ -76,22 +72,19 @@
       fields.value.startingPos = props.fields.starting_pos
       fields.value.finishPos = props.fields.finish_pos
       fields.value.dnf = props.fields.DNF === 1
+      fields.value.pointsEarned = props.fields.points_for_race
       fields.value.driver = props.fields.driver
     }
   })
   
-  function driverSelected(selected) {
-    fields.value.driver = selected
-  }
-  
   function submitForm() {
-    axios.post(route('result.store'), {
-      driver_id: driver.value.id,
+    axios.post(route('admin.results.store'), {
+      driver_id: fields.value.driver.id,
       event_id: props.event.id,
-      startingPos: startingPos.value,
-      finishPos: finishPos.value,
-      pointsEarned: pointsEarned.value,
-      dnf: dnf.value
+      starting_pos: fields.value.startingPos,
+      finish_pos: fields.value.finishPos,
+      points_earned: fields.value.pointsEarned,
+      DNF: fields.value.dnf
     })
       .then(res => {
         emit('submitForm')

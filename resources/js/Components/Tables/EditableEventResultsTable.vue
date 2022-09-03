@@ -42,7 +42,7 @@
       :drivers='drivers'
       :event='event'
       :fields='fields'
-      @submitForm='updateResult'
+      @submitForm='updateResult()'
     />
     
     <div class='mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense'>
@@ -50,7 +50,7 @@
         Cancel
       </Button>
       
-      <Button type='button' @click='open = false'>
+      <Button type='button' @click='updateResult()'>
         Save Result
       </Button>
     </div>
@@ -60,6 +60,7 @@
 
 <script setup>
   import { ref } from 'vue'
+  import axios from 'axios'
   import Table from '@/Components/Tables/Table.vue'
   import Modal from '@/Components/Overlays/Modal.vue'
   import Button from '@/Components/Form/Button.vue'
@@ -77,12 +78,18 @@
   
   function openEditModal(result) {
     modalOpen.value = true
-    
     fields.value = result
   }
   
   function updateResult() {
     console.log(fields.value)
+    axios.put(route('admin.results.update', { result: fields.value.id }),
+      fields.value
+    )
+      .then(res => {
+        console.log(res)
+      })
+    modalOpen.value = false
   }
   
   const headers = [

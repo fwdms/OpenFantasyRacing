@@ -1,5 +1,5 @@
 <template>
-  <Header title='Admin | Restuls' />
+  <Header title='Admin | Results' />
   
   <PageHeader title='Results' />
   
