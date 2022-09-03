@@ -21,7 +21,7 @@
         class='w-full border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
         :type='type'
         :name='name'
-        v-model='modelValue'
+        v-model='props.modelValue'
         :placeholder='placeholder'
         @input='updateValue'
       />
