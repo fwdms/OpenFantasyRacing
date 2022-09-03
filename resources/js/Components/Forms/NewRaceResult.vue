@@ -36,7 +36,12 @@
         v-model='fields.dnf'
       />
       
-      <Button @click.prevent='submitForm()'> Save</Button>
+      <Button v-if='props.fields === undefined' @click.prevent='submitForm()'>
+        Save
+      </Button>
+      <Button v-else @click.prevent='updateResult()'>
+        Update
+      </Button>
     </div>
   </form>
 </template>
@@ -52,6 +57,7 @@
   const props = defineProps({
     drivers: Array,
     event: Object,
+    resultID: Number,
     fields: Object
   })
   
@@ -89,5 +95,16 @@
       .then(res => {
         emit('submitForm')
       })
+  }
+  
+  function updateResult() {
+    axios.put(route('admin.results.update', { result: props.resultID }), {
+      event_id: props.event.id,
+      driver_id: fields.value.driver.id,
+      starting_pos: fields.value.startingPos,
+      finish_pos: fields.value.finishPos,
+      points_for_race: fields.value.pointsEarned,
+      DNF: fields.value.dnf
+    })
   }
 </script>

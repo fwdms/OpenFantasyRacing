@@ -37,21 +37,17 @@
     </tr>
   </Table>
   
-  <Modal title='Edit Result' text='Save Result' :open='modalOpen'>
+  <Modal title='Edit Result' :open='modalOpen'>
     <NewRaceResult
       :drivers='drivers'
       :event='event'
+      :resultID='resultID'
       :fields='fields'
-      @submitForm='updateResult()'
     />
     
-    <div class='mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense'>
-      <Button @click='modalOpen = false' ref='cancelButtonRef'>
-        Cancel
-      </Button>
-      
-      <Button type='button' @click='updateResult()'>
-        Save Result
+    <div class=''>
+      <Button type='button' @click='modalOpen = false'>
+        Close
       </Button>
     </div>
   </Modal>
@@ -66,7 +62,7 @@
   import Button from '@/Components/Form/Button.vue'
   import NewRaceResult from '@/Components/Forms/NewRaceResult.vue'
   
-  defineProps({
+  const props = defineProps({
     franchise: Object,
     results: Array,
     drivers: Array,
@@ -75,21 +71,12 @@
   
   const modalOpen = ref(false)
   const fields = ref([])
+  const resultID = ref()
   
   function openEditModal(result) {
+    resultID.value = result.id
     modalOpen.value = true
     fields.value = result
-  }
-  
-  function updateResult() {
-    console.log(fields.value)
-    axios.put(route('admin.results.update', { result: fields.value.id }),
-      fields.value
-    )
-      .then(res => {
-        console.log(res)
-      })
-    modalOpen.value = false
   }
   
   const headers = [

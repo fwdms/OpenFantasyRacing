@@ -76,7 +76,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
             });
             Route::controller('ResultsController')->group(function() {
                 Route::get('/results', 'index')->name('admin.results.index');
-                Route::put('/results/{result}', 'edit')->name('admin.results.edit');
+                Route::post('/results', 'store')->name('admin.results.store');
+                Route::put('/results/{result}', 'update')->name('admin.results.update');
             });
         });
     });

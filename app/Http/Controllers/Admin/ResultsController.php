@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ResultRequest;
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Franchise;
@@ -22,19 +23,27 @@ class ResultsController extends Controller
     
     public function store(ResultRequest $request): Model
     {
-        dd($request);
         return (new Result)->create([
             'race_id' => $request->event_id,
             'driver_id' => $request->driver_id,
-            'starting_pos' => $request->startingPos,
-            'finish_pos' => $request->finishPos,
-            'points_for_race' => $request->pointsEarned,
-            'DNF' => $request->dnf
+            'starting_pos' => $request->starting_pos,
+            'finish_pos' => $request->finish_pos,
+            'points_for_race' => $request->points_earned,
+            'DNF' => $request->DNF
         ]);
     }
     
     public function update(Result $result, ResultRequest $request)
     {
-        dd($result);
+        $response = $result->update([
+            'race_id' => $request->event_id,
+            'driver_id' => $request->driver_id,
+            'starting_pos' => $request->starting_pos,
+            'finish_pos' => $request->finish_pos,
+            'points_for_race' => $request->points_for_race,
+            'DNF' => $request->DNF
+        ]);
+        
+        return $response;
     }
 }
