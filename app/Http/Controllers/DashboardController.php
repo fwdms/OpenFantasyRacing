@@ -9,6 +9,11 @@ use Inertia\Response;
 
 class DashboardController extends Controller
 {
+    public function adminIndex(): Response
+    {
+        return Inertia::render('Admin/Dashboard/Index');
+    }
+    
     public function index(): Response
     {
         $fantasy_teams = FantasyTeam::query()

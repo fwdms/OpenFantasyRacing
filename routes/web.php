@@ -66,10 +66,10 @@ Route::middleware(['auth', 'verified'])->group(function() {
         return redirect(route('admin.dashboard.index'));
     });
     
-    Route::middleware(['admin', 'verified'])->namespace('App\Http\Controllers\Admin')->group(function() {
+    Route::middleware(['admin', 'verified'])->namespace('App\Http\Controllers')->group(function() {
         Route::group(['prefix' => 'admin'], function() {
             Route::controller('DashboardController')->group(function() {
-                Route::get('/dashboard', 'index')->name('admin.dashboard.index');
+                Route::get('/dashboard', 'adminIndex')->name('admin.dashboard.index');
             });
             Route::controller('FranchiseController')->group(function() {
                 Route::get('/franchises', 'index')->name('admin.franchise.index');
