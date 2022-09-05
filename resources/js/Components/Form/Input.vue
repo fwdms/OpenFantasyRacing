@@ -1,19 +1,18 @@
 <template>
   <div class='m-3'>
-    <div class='flex justify-between mx-3'>
-      <label
+    <div class='flex justify-between'>
+      <Label
         :for='name'
-        class='text-sm font-medium text-gray-700'
       >
         {{ label }}
-      </label>
+      </Label>
       
-      <p
-        class='text-sm text-gray-500'
+      <Label
+        class='text-sm text-gray-400'
         v-if='required'
       >
         Required
-      </p>
+      </Label>
     </div>
     
     <div class='mt-1'>
@@ -31,6 +30,7 @@
 
 <script setup>
   import { defineEmits, computed } from 'vue'
+  import Label from '@/Components/Form/Label.vue'
   
   const props = defineProps({
     label: String,

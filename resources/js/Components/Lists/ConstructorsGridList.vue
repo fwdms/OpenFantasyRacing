@@ -41,9 +41,6 @@
 </template>
 
 <script setup>
-  import { ChartPieIcon } from '@heroicons/vue/outline'
-  import { ClipboardListIcon } from '@heroicons/vue/outline'
-  
   defineProps({
     franchise: Object,
     constructors: Array

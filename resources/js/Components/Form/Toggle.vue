@@ -19,23 +19,19 @@
         ]"
       />
     </Switch>
-    <SwitchLabel
-      as='span'
-      class='ml-3'
-    >
-      <span class='text-sm font-medium text-gray-900'>
-        {{ label }}
-      </span>
+    <Label>
+      {{ label }}
       <span class='text-sm text-gray-500'>
         {{ subtext }}
       </span>
-    </SwitchLabel>
+    </Label>
   </SwitchGroup>
 </template>
 
 <script setup>
-  import { computed, defineEmits } from 'vue'
-  import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
+  import { defineEmits } from 'vue'
+  import { Switch, SwitchGroup } from '@headlessui/vue'
+  import Label from '@/Components/Form/Label.vue'
   
   const props = defineProps({
     label: String,
