@@ -2,8 +2,8 @@
   <Combobox
     as='div'
     v-model='selectedOption'
-    class='mx-2'
     @update:modelValue="$emit('selected', selectedOption)"
+    class='mx-4'
   >
     <Label>
       {{ label }}
@@ -73,7 +73,6 @@
     Combobox,
     ComboboxButton,
     ComboboxInput,
-    ComboboxLabel,
     ComboboxOption,
     ComboboxOptions
   } from '@headlessui/vue'

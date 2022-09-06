@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-  import { computed, onBeforeMount } from 'vue'
+  import { computed } from 'vue'
   import Label from '@/Components/Form/Label.vue'
   
   const emit = defineEmits(['update:checked'])
@@ -19,10 +19,6 @@
   const props = defineProps({
     label: String,
     modalValue: Boolean
-  })
-  
-  onBeforeMount(() => {
-    console.log(proxyChecked)
   })
   
   const proxyChecked = computed({

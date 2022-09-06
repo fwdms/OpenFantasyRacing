@@ -21,12 +21,12 @@
   </div>
   
   <div class='flex flex-wrap items-center justify-center my-4'>
-    
     <Combobox label='Driver' :options='props.drivers' v-model='combobox' />
     <SelectMenu label='Select Menu' :options='drivers' v-model='selectMenu' />
     
     <Input label='Test Input' v-model='input' />
     <Input label='Test Input' :required='true' v-model='input' />
+    <Input label='Test Number Input' type='number' v-model='numInput' />
     
     <Toggle label='Boolean' v-model='toggleRef' />
     <Checkbox label='Checkbox' v-model='checkbox' />
@@ -49,6 +49,7 @@
   
   <div class='mx-4 mt-4'>
     <p class='my-4'> Input = {{ input }}</p>
+    <p class='my-4'> Number Input = {{ numInput }}</p>
     <p class='my-4'> Button = {{ button }}</p>
     <p class='my-4'> Toggle = {{ toggleRef }}</p>
     <p class='my-4'> Checkbox = {{ checkbox }}</p>
@@ -84,6 +85,7 @@
   
   const combobox = ref('')
   const input = ref('Test Input')
+  const numInput = ref(10)
   const toggleRef = ref(true)
   const button = ref('')
   const checkbox = ref(true)
@@ -100,6 +102,21 @@
       name: 'Selected',
       href: '#',
       current: true
+    },
+    {
+      name: 'Not Selected',
+      href: '#',
+      current: false
+    },
+    {
+      name: 'Not Selected',
+      href: '#',
+      current: false
+    },
+    {
+      name: 'Not Selected',
+      href: '#',
+      current: false
     }
   ]
   
