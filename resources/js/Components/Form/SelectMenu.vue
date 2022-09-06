@@ -10,9 +10,10 @@
     <select
       :id='label'
       :name='label'
-      class='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md'
-      v-model='selected'
-      @change="$emit('selected', selected)"
+      class='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300
+      focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md'
+      v-model='selectedOption'
+      @change="$emit('update:modelValue', selectedOption)"
     >
       <option></option>
       
@@ -30,7 +31,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, defineEmits, onBeforeMount } from 'vue'
   
   const props = defineProps({
     label: String,
@@ -38,5 +39,13 @@
     modelValue: Object
   })
   
-  const selected = ref({})
+  onBeforeMount(() => {
+    if (props.modelValue !== undefined) {
+      selectedOption.value = props.modelValue
+    }
+  })
+  
+  const emit = defineEmits(['update:modelValue'])
+  
+  const selectedOption = ref({})
 </script>

@@ -54,8 +54,8 @@
     <p class='my-4'> Toggle = {{ toggleRef }}</p>
     <p class='my-4'> Checkbox = {{ checkbox }}</p>
     <p class='my-4'> Modal = {{ modalOpen }}</p>
-    <p class='my-4'> Select Menu = {{ selectMenu }}</p>
     <p class='my-4'> Combobox = {{ combobox }}</p>
+    <p class='my-4'> Select Menu = {{ selectMenu }}</p>
   </div>
   
   <div>
@@ -83,13 +83,13 @@
     'drivers'
   ])
   
-  const combobox = ref('')
+  const combobox = ref(props.drivers[0])
+  const selectMenu = ref(props.drivers[1])
   const input = ref('Test Input')
   const numInput = ref(10)
   const toggleRef = ref(true)
   const button = ref('')
   const checkbox = ref(true)
-  const selectMenu = ref()
   const modalOpen = ref(false)
   
   const tabs = [
