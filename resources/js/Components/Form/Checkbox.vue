@@ -3,8 +3,9 @@
     <Label>
       {{ label }}
     </Label>
-    <input type='checkbox' :value='proxyChecked' v-model='proxyChecked'
-           class='mx-3 rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50'
+    <input type='checkbox' v-model='proxyChecked'
+           class='mx-3 rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300
+           focus:ring focus:ring-orange-200 focus:ring-opacity-50'
     >
   </div>
 
@@ -14,20 +15,20 @@
   import { computed } from 'vue'
   import Label from '@/Components/Form/Label.vue'
   
-  const emit = defineEmits(['update:checked'])
+  const emit = defineEmits(['update:modelValue'])
   
   const props = defineProps({
     label: String,
-    modalValue: Boolean
+    modelValue: Boolean
   })
   
   const proxyChecked = computed({
     get() {
-      return props.modalValue
+      return props.modelValue
     },
     
     set(value) {
-      emit('update:modalValue', value)
+      emit('update:modelValue', value)
     }
   })
 </script>
