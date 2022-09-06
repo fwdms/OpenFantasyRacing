@@ -79,6 +79,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::post('/results', 'store')->name('admin.results.store');
                 Route::put('/results/{result}', 'update')->name('admin.results.update');
             });
+            Route::controller('TestController')->group(function() {
+                Route::get('/ui-test', 'uiTest')->name('admin.ui.test');
+            });
         });
     });
     

@@ -2,17 +2,18 @@
   <Combobox
     as='div'
     v-model='selectedOption'
-    class='mx-2'
     @update:modelValue="$emit('selected', selectedOption)"
+    class='mx-4'
   >
-    <ComboboxLabel class='block text-sm font-medium text-gray-700 mx-3'>
+    <Label>
       {{ label }}
-    </ComboboxLabel>
+    </Label>
     
     <div class='relative mt-1'>
       <ComboboxInput
         class='w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm'
         @change='query = $event.target.value'
+        autocomplete='off'
         :display-value="
           option => (Object.keys(option).length !== 0 ? option.first_name + ' ' + option.last_name : '')
         "
@@ -72,10 +73,10 @@
     Combobox,
     ComboboxButton,
     ComboboxInput,
-    ComboboxLabel,
     ComboboxOption,
     ComboboxOptions
   } from '@headlessui/vue'
+  import Label from '@/Components/Form/Label.vue'
   
   const props = defineProps(['options', 'label', 'keys'])
   

@@ -1,6 +1,6 @@
 <template>
-  <TransitionRoot as='template' :show='open'>
-    <Dialog as='div' class='relative z-10' @close='open = false'>
+  <TransitionRoot as='template' @click='toggleModal()' :show='props.modelValue'>
+    <Dialog as='div' class='relative z-10'>
       <TransitionChild as='template' enter='ease-out duration-300' enter-from='opacity-0' enter-to='opacity-100'
                        leave='ease-in duration-200' leave-from='opacity-100' leave-to='opacity-0'
       >
@@ -39,12 +39,19 @@
 <script setup>
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
   
-  defineProps({
+  const props = defineProps({
     title: String,
-    text: String,
-    open: {
+    modelValue: {
       type: Boolean,
       default: false
     }
   })
+  
+  const emit = defineEmits([
+    'update:open'
+  ])
+  
+  function toggleModal() {
+    emit('update:open', props.modalValue = false)
+  }
 </script>

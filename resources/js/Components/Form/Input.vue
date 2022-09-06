@@ -1,55 +1,58 @@
 <template>
-  <div class='m-3'>
-    <div class='flex justify-between mx-3'>
-      <label
+  <div class='my-3 mx-4'>
+    <div class='flex justify-between'>
+      <Label
         :for='name'
-        class='text-sm font-medium text-gray-700'
       >
         {{ label }}
-      </label>
+      </Label>
       
-      <p
-        class='text-sm text-gray-500'
+      <Label
+        class='text-sm text-gray-400'
         v-if='required'
       >
         Required
-      </p>
+      </Label>
     </div>
     
     <div class='mt-1'>
       <input
-        class='w-full border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
+        class='w-full border-gray-300 rounded-md shadow-sm placeholder-gray-400
+        focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
         :type='type'
         :name='name'
-        v-model='props.modelValue'
+        v-model='inputValue'
         :placeholder='placeholder'
-        @input='updateValue'
       />
     </div>
   </div>
 </template>
 
 <script setup>
-  import { defineEmits, computed } from 'vue'
+  import { computed } from 'vue'
+  import Label from '@/Components/Form/Label.vue'
   
   const props = defineProps({
     label: String,
-    modelValue: String | Number,
     required: Boolean,
     placeholder: String | Number,
+    modelValue: String | Number,
     type: {
       type: String,
       default: 'text'
     }
   })
   
+  const emit = defineEmits(['update:modelValue'])
+  
   const name = computed(() => props.label.toLowerCase())
   
-  const emit = defineEmits(['update:modelValue'])
-  const updateValue = (event) => {
-    if (props.type === 'number') {
-      return emit('update:modelValue', parseInt(event.target.value))
+  const inputValue = computed({
+    get() {
+      return props.modelValue
+    },
+    set(value) {
+      emit('update:modelValue', value)
     }
-    emit('update:modelValue', event.target.value)
-  }
+  })
 </script>

@@ -16,7 +16,7 @@ class ResultsController extends Controller
     {
         $franchises = Franchise::all();
         
-        return Inertia::render('Admin/Results/Index')
+        return Inertia::render('Admin/Results')
             ->with(compact('franchises'));
     }
     

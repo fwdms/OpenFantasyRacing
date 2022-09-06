@@ -6,15 +6,17 @@
   <div class='flex flex-wrap justify-between items-center w-100 my-4 mx-4'>
     <div class='flex flex-wrap'>
       <SelectMenu
-        @selected='franchiseSelected'
         label='Franchise'
         :options='franchises'
+        v-model='franchise'
+        @update:modelValue='franchiseSelected'
       />
       <SelectMenu
-        @selected='eventSelected'
         v-if='events.length > 0'
         label='Event'
         :options='events'
+        v-model='event'
+        @update:modelValue='eventSelected'
       />
     </div>
     
@@ -72,9 +74,7 @@
   
   const creatingRecord = ref(false)
   
-  function franchiseSelected(selected) {
-    franchise.value = selected
-    
+  function franchiseSelected() {
     axios.get(route('event.index.collection', {
         franchise: franchise.value.slug
       })
@@ -96,9 +96,7 @@
       })
   }
   
-  function eventSelected(selected) {
-    event.value = selected
-    
+  function eventSelected() {
     getEvent()
   }
   

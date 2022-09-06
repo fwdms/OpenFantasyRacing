@@ -1,7 +1,7 @@
 <template>
   <Header title='Admin | Dashboard' />
   
-  <PageHeader :title="'Dashboard'" />
+  <PageHeader title='Dashboard' />
   
   <Stats />
 </template>

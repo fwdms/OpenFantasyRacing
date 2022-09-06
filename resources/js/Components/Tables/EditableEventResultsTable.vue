@@ -37,7 +37,7 @@
     </tr>
   </Table>
   
-  <Modal title='Edit Result' :open='modalOpen'>
+  <Modal title='Edit Result' v-model='modalOpen'>
     <NewRaceResult
       :drivers='drivers'
       :event='event'
