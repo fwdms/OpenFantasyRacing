@@ -48,8 +48,8 @@
   </p>
   
   <div class='mx-4 mt-4'>
-    <p class='my-4'> Input = {{ input }}</p>
-    <p class='my-4'> Number Input = {{ numInput }}</p>
+    <p class='my-4'> Input = {{ input }} ({{ typeof input }})</p>
+    <p class='my-4'> Number Input = {{ numInput }} ({{ typeof numInput }})</p>
     <p class='my-4'> Button = {{ button }}</p>
     <p class='my-4'> Toggle = {{ toggleRef }}</p>
     <p class='my-4'> Checkbox = {{ checkbox }}</p>

@@ -23,14 +23,13 @@
         :name='name'
         v-model='inputValue'
         :placeholder='placeholder'
-        @input='updateValue'
       />
     </div>
   </div>
 </template>
 
 <script setup>
-  import { defineEmits, computed, ref } from 'vue'
+  import { computed } from 'vue'
   import Label from '@/Components/Form/Label.vue'
   
   const props = defineProps({
@@ -44,23 +43,16 @@
     }
   })
   
+  const emit = defineEmits(['update:modelValue'])
+  
   const name = computed(() => props.label.toLowerCase())
   
   const inputValue = computed({
     get() {
       return props.modelValue
     },
-    set(newValue) {
-      return newValue
+    set(value) {
+      emit('update:modelValue', value)
     }
   })
-  
-  const emit = defineEmits(['update:modelValue'])
-  
-  const updateValue = (event) => {
-    if (props.type === 'number') {
-      return emit('update:modelValue', parseInt(event.target.value))
-    }
-    emit('update:modelValue', event.target.value)
-  }
 </script>

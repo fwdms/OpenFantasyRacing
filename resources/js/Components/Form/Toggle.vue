@@ -11,7 +11,6 @@
          'cursor-pointer transition-colors ease-in-out duration-200 ' +
          'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500',
       ]"
-      @update:modelValue="$emit('update:modelValue', value)"
     >
       <span
         aria-hidden='true'
@@ -31,7 +30,7 @@
 </template>
 
 <script setup>
-  import { ref, defineProps, onBeforeMount } from 'vue'
+  import { computed } from 'vue'
   import { Switch, SwitchGroup } from '@headlessui/vue'
   import Label from '@/Components/Form/Label.vue'
   
@@ -41,12 +40,15 @@
     modelValue: Boolean
   })
   
-  onBeforeMount(() => {
-    if (props.modelValue !== undefined) {
-      value.value = props.modelValue
+  const emit = defineEmits(['update:modelValue'])
+  
+  const value = computed({
+    get() {
+      return props.modelValue
+    },
+    set(value) {
+      emit('update:modelValue', value)
     }
   })
-  
-  const value = ref(false)
 
 </script>
