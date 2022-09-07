@@ -22,27 +22,24 @@
         v-model='fields.finishPos'
       />
       
-      <Input
-        id='points_earned'
-        label='Points Earned'
-        type='number'
-        v-model='fields.pointsEarned'
+      <Toggle
+        label='Fastest Lap'
+        v-model='fields.fastestLap'
       />
-    </div>
-    
-    <div class='flex flex-wrap'>
+      
       <Toggle
         label='DNF'
         v-model='fields.dnf'
       />
-      
-      <Button v-if='props.fields === undefined' @click.prevent='submitForm()'>
-        Save
-      </Button>
-      <Button v-else @click.prevent='updateResult()'>
-        Update
-      </Button>
     </div>
+    
+    <Button v-if='props.fields === undefined' @click.prevent='submitForm()'>
+      Save
+    </Button>
+    
+    <Button v-else @click.prevent='updateResult()'>
+      Update
+    </Button>
   </form>
 </template>
 
@@ -65,7 +62,7 @@
     startingPos: 0,
     finishPos: 0,
     dnf: false,
-    pointsEarned: 0,
+    fastestLap: false,
     driver: {}
   })
   
@@ -79,6 +76,7 @@
       fields.value.finishPos = props.fields.finish_pos
       fields.value.dnf = props.fields.DNF === 1
       fields.value.pointsEarned = props.fields.points_for_race
+      fields.value.fastestLap = props.fields.fastest_lap
       fields.value.driver = props.fields.driver
     }
   })
@@ -89,7 +87,7 @@
       event_id: props.event.id,
       starting_pos: fields.value.startingPos,
       finish_pos: fields.value.finishPos,
-      points_earned: fields.value.pointsEarned,
+      fastest_lap: fields.value.fastest_lap,
       DNF: fields.value.dnf
     })
       .then(res => {
@@ -103,7 +101,7 @@
       driver_id: fields.value.driver.id,
       starting_pos: fields.value.startingPos,
       finish_pos: fields.value.finishPos,
-      points_for_race: fields.value.pointsEarned,
+      fastest_lap: fields.value.fastestLap,
       DNF: fields.value.dnf
     })
       .then(res => {
