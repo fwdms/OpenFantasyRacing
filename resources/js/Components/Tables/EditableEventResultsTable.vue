@@ -22,6 +22,11 @@
         {{ result.starting_pos }}
       </td>
       <td class='whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500'>
+        <span v-if='result.fastest_lap'>
+            Fastest Lap
+        </span>
+      </td>
+      <td class='whitespace-nowrap px-3 w-96 py-4 text-center text-sm text-gray-500'>
         <span v-if='result.DNF'>
             DNF
         </span>
@@ -91,6 +96,7 @@
     'Driver',
     'Constuctor',
     'Started',
+    'Fastest Lap',
     'DNF',
     'Points Earned',
     ''
