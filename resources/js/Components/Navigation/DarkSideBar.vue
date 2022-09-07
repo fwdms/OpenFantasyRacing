@@ -45,7 +45,8 @@
               <div class='absolute top-0 right-0 -mr-12 pt-2'>
                 <button
                   type='button'
-                  class='ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+                  class='ml-1 flex items-center justify-center h-10 w-10 rounded-full
+                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
                   @click='sidebarOpen = false'
                 >
                   <span class='sr-only'>Close sidebar</span>
@@ -58,11 +59,10 @@
             </TransitionChild>
             <div class='flex-1 h-0 pt-5 pb-4 overflow-y-auto'>
               <div class='flex-shrink-0 flex items-center px-4'>
-                <img
-                  class='h-8 w-auto'
-                  src='https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500'
-                  alt='Workflow'
-                />
+                <p class='text-orange-600 font-semibold mx-auto text-2xl' style="font-family: 'Bangers', cursive"
+                >
+                  OFR Admin
+                </p>
               </div>
               <nav class='mt-5 px-2 space-y-1'>
                 <a
@@ -99,16 +99,13 @@
                   <div>
                     <img
                       class='inline-block h-10 w-10 rounded-full'
-                      src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                      :src='authUser.profile_image'
                       alt=''
                     />
                   </div>
                   <div class='ml-3'>
-                    <p class='text-base font-medium text-white'>Tom Cook</p>
-                    <p
-                      class='text-sm font-medium text-gray-400 group-hover:text-gray-300'
-                    >
-                      View profile
+                    <p class='text-base font-medium text-white'>
+                      {{ authUser.first_name }} {{ authUser.last_name }}
                     </p>
                   </div>
                 </div>
@@ -162,19 +159,17 @@
           </Link>
         </nav>
       </div>
-      <div class='flex-shrink-0 flex bg-gray-700 p-4'>
+      <div class='bg-gray-700 p-4'>
         <a
           href='#'
           class='flex-shrink-0 w-full group block'
         >
           <div class='flex items-center'>
-            <div>
-              <img
-                class='inline-block h-9 w-9 rounded-full'
-                src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                alt=''
-              />
-            </div>
+            <img
+              class='h-9 w-9 rounded-full'
+              :src='authUser.profile_image'
+              :alt="authUser.first_name + ' ' + authUser.last_name"
+            />
             <div class='ml-3'>
               <p class='text-sm font-medium text-white'>
                 {{ authUser.first_name }} {{ authUser.last_name }}
@@ -192,7 +187,8 @@
     >
       <button
         type='button'
-        class='-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'
+        class='-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900
+        focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'
         @click='sidebarOpen = true'
       >
         <span class='sr-only'> Open sidebar </span>

@@ -9,14 +9,14 @@
         label='Franchise'
         :options='franchises'
         v-model='franchise'
-        @update:modelValue='franchiseSelected'
+        @change='franchiseSelected()'
       />
       <SelectMenu
         v-if='events.length > 0'
         label='Event'
         :options='events'
         v-model='event'
-        @update:modelValue='eventSelected'
+        @change='eventSelected()'
       />
     </div>
     
