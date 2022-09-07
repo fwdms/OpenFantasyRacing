@@ -21,23 +21,23 @@
   </div>
   
   <div class='flex flex-wrap items-center justify-center my-4'>
-    <Combobox label='Driver' :options='props.drivers' v-model='combobox' />
-    <SelectMenu label='Select Menu' :options='drivers' v-model='selectMenu' />
+    <Input label='Input' v-model='input' />
+    <Input label='Input' :required='true' v-model='input' />
+    <Input label='Input' type='number' v-model='numInput' />
     
-    <Input label='Test Input' v-model='input' />
-    <Input label='Test Input' :required='true' v-model='input' />
-    <Input label='Test Number Input' type='number' v-model='numInput' />
-    
-    <Toggle label='Boolean' v-model='toggleRef' />
+    <Toggle label='Toggle' v-model='toggleRef' />
     <Checkbox label='Checkbox' v-model='checkbox' />
     
-    <Button @click='buttonClicked()'>Test Button</Button>
+    <Button @click='buttonClicked()'>Button</Button>
     <Button v-if='modalOpen === false' @click='modalOpen = !modalOpen'>
       Activate Modal
     </Button>
     <Button v-else @click='modalOpen = !modalOpen'>
       Close Modal
     </Button>
+    
+    <Combobox label='Combobox' :options='props.drivers' v-model='combobox' />
+    <SelectMenu label='Select Menu' :options='drivers' v-model='selectMenu' />
   </div>
   
   <hr class='my-4'>
@@ -47,15 +47,35 @@
     This is set up this way because in production, you don't have access to VueDevTools.
   </p>
   
+  <div class='flex flex-wrap gap-x-4  justify-center mx-4 mt-4'>
+    <p class='my-4'>
+      <span class='text-red-600'>Input :</span> {{ input }} ( {{ typeof input }} )
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Number Input :</span>
+      {{ numInput }} ( {{ typeof numInput }} )
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Button : </span> {{ button }}
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Toggle : </span> {{ toggleRef }}
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Checkbox : </span> {{ checkbox }}
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Modal : </span> {{ modalOpen }}
+    </p>
+  </div>
+  
   <div class='mx-4 mt-4'>
-    <p class='my-4'> Input = {{ input }} ({{ typeof input }})</p>
-    <p class='my-4'> Number Input = {{ numInput }} ({{ typeof numInput }})</p>
-    <p class='my-4'> Button = {{ button }}</p>
-    <p class='my-4'> Toggle = {{ toggleRef }}</p>
-    <p class='my-4'> Checkbox = {{ checkbox }}</p>
-    <p class='my-4'> Modal = {{ modalOpen }}</p>
-    <p class='my-4'> Combobox = {{ combobox }}</p>
-    <p class='my-4'> Select Menu = {{ selectMenu }}</p>
+    <p class='my-4'>
+      <span class='text-red-600'>Combobox : </span> {{ combobox }}
+    </p>
+    <p class='my-4'>
+      <span class='text-red-600'>Select Menu : </span> {{ selectMenu }}
+    </p>
   </div>
   
   <div>
