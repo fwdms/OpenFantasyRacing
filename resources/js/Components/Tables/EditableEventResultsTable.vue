@@ -38,6 +38,9 @@
         <Button @click='openEditModal(result)'>
           edit
         </Button>
+        <Button @click='destroy(result)'>
+          x
+        </Button>
       </td>
     </tr>
   </Table>
@@ -61,6 +64,7 @@
 </template>
 
 <script setup>
+  import axios from 'axios'
   import { ref } from 'vue'
   import Table from '@/Components/Tables/Table.vue'
   import Modal from '@/Components/Overlays/Modal.vue'
@@ -89,6 +93,14 @@
   function closeModalUpdate() {
     modalOpen.value = false
     emit('refreshResults')
+  }
+  
+  function destroy(result) {
+    axios.delete(route('admin.result.delete', { result: result.id }))
+      .then(res => {
+        emit('refreshResults')
+      })
+    
   }
   
   const headers = [
