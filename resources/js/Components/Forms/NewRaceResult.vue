@@ -87,7 +87,7 @@
       event_id: props.event.id,
       starting_pos: fields.value.startingPos,
       finish_pos: fields.value.finishPos,
-      fastest_lap: fields.value.fastest_lap,
+      fastest_lap: fields.value.fastestLap,
       DNF: fields.value.dnf
     })
       .then(res => {

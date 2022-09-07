@@ -78,6 +78,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::get('/results', 'index')->name('admin.results.index');
                 Route::post('/results', 'store')->name('admin.results.store');
                 Route::put('/results/{result}', 'update')->name('admin.results.update');
+                Route::delete('/results/{result}', 'destroy')->name('admin.result.delete');
             });
             Route::controller('TestController')->group(function() {
                 Route::get('/ui-test', 'uiTest')->name('admin.ui.test');

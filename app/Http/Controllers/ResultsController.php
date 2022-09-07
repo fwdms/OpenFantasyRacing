@@ -49,4 +49,9 @@ class ResultsController extends Controller
         
         return $response;
     }
+    
+    public function destroy(Result $result)
+    {
+        return $result->delete();
+    }
 }
