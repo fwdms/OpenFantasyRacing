@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResultRequest;
+use App\Models\Race;
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Model;
 use Inertia\Inertia;

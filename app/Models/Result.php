@@ -20,29 +20,6 @@ class Result extends Model
     
     protected $guarded = ['id'];
     
-    public function calculatePoints(Request $request): int
-    {
-        $value = match ($request->finish_pos) {
-            1 => 25,
-            2 => 18,
-            3 => 15,
-            4 => 12,
-            5 => 10,
-            6 => 8,
-            7 => 6,
-            8 => 4,
-            9 => 2,
-            10 => 1,
-            default => 0,
-        };
-        
-        if($request->fastest_lap === true) {
-            $value = $value + 1;
-        }
-        
-        return $value;
-    }
-    
     public function race(): HasMany
     {
         return $this->hasMany(Race::class, 'id', 'race_id')
@@ -59,5 +36,47 @@ class Result extends Model
     {
         return $this->hasOne(Driver::class, 'id', 'driver_id')
             ->with('constructor');
+    }
+    
+    public function calculatePoints(Request $request): int
+    {
+        // need to get the race type, so we know how to calculate points
+        $raceType = Race::query()
+            ->where('id', $request->event_id)
+            ->first()->race_type;
+        
+        if($raceType !== 'standard') {
+            $value = match ($request->finish_pos) {
+                1 => 8,
+                2 => 7,
+                3 => 6,
+                4 => 5,
+                5 => 4,
+                6 => 3,
+                7 => 2,
+                8 => 1,
+                default => 0,
+            };
+        } else {
+            $value = match ($request->finish_pos) {
+                1 => 25,
+                2 => 18,
+                3 => 15,
+                4 => 12,
+                5 => 10,
+                6 => 8,
+                7 => 6,
+                8 => 4,
+                9 => 2,
+                10 => 1,
+                default => 0,
+            };
+            
+            if($request->fastest_lap === true) {
+                $value = $value + 1;
+            }
+        }
+        
+        return $value;
     }
 }
