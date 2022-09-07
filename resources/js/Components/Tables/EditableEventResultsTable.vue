@@ -106,7 +106,7 @@
   const headers = [
     'Finished',
     'Driver',
-    'Constuctor',
+    'Constructor',
     'Started',
     'Fastest Lap',
     'DNF',
