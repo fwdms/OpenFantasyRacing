@@ -1,5 +1,8 @@
 <template>
   <div class='bg-white my-8 mx-6 py-2 rounded-lg'>
+    
+    <slot name='top' />
+    
     <h1
       v-if='title'
       class='text-3xl my-2 font-extrabold tracking-tight text-center text-orange-600'
@@ -58,6 +61,7 @@
     title: String,
     description: String,
     headers: Array,
-    footnote: String
+    footnote: String,
+    rows: Array
   })
 </script>

@@ -46,7 +46,7 @@ class LeagueController extends Controller
         
         $fantasyTeams = FantasyTeam::query()
             ->where('league_id', $league->id)
-            ->with('drivers')
+            ->with(['drivers', 'user'])
             ->get();
         
         return Inertia::render('Leagues/Show')
