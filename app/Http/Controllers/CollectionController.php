@@ -45,6 +45,7 @@ class CollectionController extends Controller
         return new JsonCollection(
             Constructor::query()
                 ->where('franchise_id', $franchise->id)
+                ->orderBy('name', 'ASC')
                 ->get()
         );
     }
