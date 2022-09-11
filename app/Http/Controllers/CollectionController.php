@@ -19,8 +19,8 @@ class CollectionController extends Controller
             Result::query()
                 ->where('race_id', $race->id)
                 ->with('driver')
-                ->orderBy('starting_pos', 'ASC')
                 ->orderBy('finish_pos', 'ASC')
+                ->orderBy('starting_pos', 'ASC')
                 ->get()
         );
     }

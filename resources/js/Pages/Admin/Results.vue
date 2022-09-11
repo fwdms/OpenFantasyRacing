@@ -40,7 +40,7 @@
     <Table title='Results' :headers='headers'>
       <tr v-for='result in results'>
         <TableColumn>
-          {{ result.finish_pos }}
+          {{ result.id }}
         </TableColumn>
         
         <TableColumn>
@@ -61,6 +61,10 @@
         
         <TableColumn>
           {{ result.starting_pos }}
+        </TableColumn>
+        
+        <TableColumn>
+          {{ result.finish_pos }}
         </TableColumn>
         
         <TableColumn>
@@ -140,10 +144,11 @@
   const resultID = ref()
   
   const headers = [
-    'Finished',
+    'Result ID',
     'Driver',
     'Constructor',
     'Started',
+    'Finished',
     'Fastest Lap',
     'DNF',
     'Points Earned',

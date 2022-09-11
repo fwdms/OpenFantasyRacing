@@ -136,7 +136,7 @@
   })
   
   const headers = [
-    'id',
+    'Driver ID',
     'Profile Image',
     'Name',
     '#',

@@ -69,7 +69,7 @@
   ])
   
   const headers = [
-    'id',
+    'Franchise ID',
     'Name',
     'Slug',
     'Governing Body',
