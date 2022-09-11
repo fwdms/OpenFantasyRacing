@@ -59,7 +59,7 @@
   })
   
   const fields = ref({
-    startingPos: 0,
+    startingPos: 1,
     finishPos: 0,
     dnf: false,
     fastestLap: false,
@@ -91,9 +91,9 @@
       DNF: fields.value.dnf
     })
       .then(() => {
+        emit('submitForm')
         fields.value.startingPos++
         fields.value.driver = {}
-        emit('submitForm')
       })
   }
   
