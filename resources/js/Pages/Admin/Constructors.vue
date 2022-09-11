@@ -21,7 +21,7 @@
         <div class='sm:flex sm:items-center'>
           <div class='sm:flex-auto px-2'>
             <h1 class='text-xl font-semibold text-gray-900'>
-              Constructors
+              Constructors / Teams
             </h1>
             <p class='mt-2 text-sm text-gray-700'>
               A list of all the constructors from a given franchise.
