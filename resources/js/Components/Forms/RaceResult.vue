@@ -92,6 +92,7 @@
     })
       .then(() => {
         fields.value.startingPos++
+        fields.value.driver = {}
         emit('submitForm')
       })
   }
