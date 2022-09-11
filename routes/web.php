@@ -93,6 +93,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
             Route::controller('EventController')->group(function() {
                 Route::get('/event', 'adminIndex')->name('admin.event.index');
             });
+            Route::controller('Auth\RegisteredUserController')->group(function() {
+                Route::get('/users', 'index')->name('admin.users.index');
+            });
             Route::controller('TestController')->group(function() {
                 Route::get('/ui-test', 'uiTest')->name('admin.ui.test');
             });

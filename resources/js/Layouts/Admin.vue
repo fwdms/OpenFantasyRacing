@@ -269,7 +269,12 @@
       },
       { name: 'Races / Events', href: '#', icon: TicketIcon, current: false },
       { name: 'Tracks', href: '#', icon: GlobeIcon, current: false },
-      { name: 'Users', href: '#', icon: UsersIcon, current: false },
+      {
+        name: 'Users',
+        href: route('admin.users.index'),
+        icon: UsersIcon,
+        current: route().current('admin.users.index')
+      },
       {
         name: 'UI Test',
         href: route('admin.ui.test'),
