@@ -14,7 +14,10 @@ class ConstructorController extends Controller
 {
     public function adminIndex()
     {
-        return Inertia::render('Admin/Constructors');
+        $franchises = Franchise::all();
+        
+        return Inertia::render('Admin/Constructors')
+            ->with(compact('franchises'));
     }
     
     public function index(Franchise $franchise): Response
