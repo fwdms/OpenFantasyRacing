@@ -91,6 +91,10 @@
       </TableColumn>
       
       <TableColumn>
+        <span v-if='driver.is_rookie'>Rookie</span>
+      </TableColumn>
+      
+      <TableColumn>
         <Button @click='editDriver(driver)'>edit</Button>
         <Button @click='deleteDriver(driver)'>x</Button>
       </TableColumn>
@@ -132,6 +136,7 @@
     'Profile Image',
     'Name',
     'Constructor',
+    'Rookie',
     ''
   ]
   
