@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Constructor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\JsonCollection;
 use App\Models\Event;
@@ -72,7 +73,10 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::get('/dashboard', 'adminIndex')->name('admin.dashboard.index');
             });
             Route::controller('FranchiseController')->group(function() {
-                Route::get('/franchises', 'index')->name('admin.franchise.index');
+                Route::get('/franchises', 'adminIndex')->name('admin.franchise.index');
+            });
+            Route::controller('ConstructorController')->group(function() {
+                Route::get('/constructors', 'adminIndex')->name('admin.constructor.index');
             });
             Route::controller('DriverController')->group(function() {
                 Route::get('/driver', 'adminIndex')->name('admin.driver.index');
@@ -85,6 +89,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::post('/results', 'store')->name('admin.results.store');
                 Route::put('/results/{result}', 'update')->name('admin.results.update');
                 Route::delete('/results/{result}', 'destroy')->name('admin.result.destroy');
+            });
+            Route::controller('EventController')->group(function() {
+                Route::get('/event', 'adminIndex')->name('admin.event.index');
             });
             Route::controller('TestController')->group(function() {
                 Route::get('/ui-test', 'uiTest')->name('admin.ui.test');

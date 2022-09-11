@@ -218,9 +218,9 @@
     TransitionRoot
   } from '@headlessui/vue'
   import {
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
+    GlobeIcon,
+    TicketIcon,
+    UserGroupIcon,
     BriefcaseIcon,
     HomeIcon,
     IdentificationIcon,
@@ -235,7 +235,6 @@
   
   const authUser = Inertia.page.props.auth.user
   
-  // On sucessful navigation, we will set the nav, that way we can check which nav link is current
   Inertia.on('navigate', event => {
     navigation.value = [
       {
@@ -244,13 +243,18 @@
         icon: HomeIcon,
         current: route().current('admin.dashboard.index')
       },
-      // {
-      //   name: 'Franchises',
-      //   href: route('admin.franchise.index'),
-      //   icon: BriefcaseIcon,
-      //   current: route().current('admin.franchise.index')
-      // },
-      // { name: 'Constructors', href: '#', icon: FolderIcon, current: false },
+      {
+        name: 'Franchises',
+        href: route('admin.franchise.index'),
+        icon: BriefcaseIcon,
+        current: route().current('admin.franchise.index')
+      },
+      {
+        name: 'Constructors / Teams',
+        href: route('admin.constructor.index'),
+        icon: UserGroupIcon,
+        current: route().current('admin.constructor.index')
+      },
       {
         name: 'Drivers',
         href: route('admin.driver.index'),
@@ -263,9 +267,9 @@
         icon: BookOpenIcon,
         current: route().current('admin.results.index')
       },
-      // { name: 'Races', href: '#', icon: InboxIcon, current: false },
-      // { name: 'Tracks', href: '#', icon: InboxIcon, current: false },
-      // { name: 'Users', href: '#', icon: UsersIcon, current: false },
+      { name: 'Races / Events', href: '#', icon: TicketIcon, current: false },
+      { name: 'Tracks', href: '#', icon: GlobeIcon, current: false },
+      { name: 'Users', href: '#', icon: UsersIcon, current: false },
       {
         name: 'UI Test',
         href: route('admin.ui.test'),

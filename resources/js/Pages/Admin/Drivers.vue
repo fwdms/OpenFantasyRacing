@@ -72,7 +72,7 @@
     
     <tr v-for='driver in drivers'>
       <TableColumn>
-        {{ driver.number }}
+        {{ driver.id }}
       </TableColumn>
       
       <TableColumn>
@@ -83,6 +83,10 @@
       
       <TableColumn>
         {{ driver.first_name }} {{ driver.last_name }}
+      </TableColumn>
+      
+      <TableColumn>
+        {{ driver.number }}
       </TableColumn>
       
       <TableColumn>
@@ -132,9 +136,10 @@
   })
   
   const headers = [
-    '#',
+    'id',
     'Profile Image',
     'Name',
+    '#',
     'Constructor',
     'Rookie',
     ''

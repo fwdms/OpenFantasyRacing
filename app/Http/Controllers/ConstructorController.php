@@ -12,6 +12,11 @@ use Inertia\Response;
 
 class ConstructorController extends Controller
 {
+    public function adminIndex()
+    {
+        return Inertia::render('Admin/Constructors');
+    }
+    
     public function index(Franchise $franchise): Response
     {
         $teams = Constructor::query()

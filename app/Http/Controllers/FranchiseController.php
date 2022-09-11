@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Franchise;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class FranchiseController extends Controller
 {
-    public function index(): Response
+    public function adminIndex(): Response
     {
-        return Inertia::render('Admin/Franchises');
+        $franchises = Franchise::all();
+        
+        return Inertia::render('Admin/Franchises')
+            ->with(compact('franchises'));
     }
 }
