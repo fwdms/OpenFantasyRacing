@@ -48,6 +48,10 @@
       </TableColumn>
       
       <TableColumn>
+        <img :src='team.logo' class='rounded-lg h-20 mx-auto' />
+      </TableColumn>
+      
+      <TableColumn>
         {{ team.name }}
       </TableColumn>
       
@@ -57,6 +61,10 @@
       
       <TableColumn>
         {{ team.slug }}
+      </TableColumn>
+      
+      <TableColumn>
+        {{ team.engine_type }}
       </TableColumn>
       
       <TableColumn>
@@ -85,9 +93,11 @@
   
   const headers = [
     'Team ID',
+    'Logo',
     'Name',
     'Short Name',
     'Slug',
+    'Engine',
     ''
   ]
   
