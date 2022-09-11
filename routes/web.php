@@ -74,6 +74,12 @@ Route::middleware(['auth', 'verified'])->group(function() {
             Route::controller('FranchiseController')->group(function() {
                 Route::get('/franchises', 'index')->name('admin.franchise.index');
             });
+            Route::controller('DriverController')->group(function() {
+                Route::get('/driver', 'adminIndex')->name('admin.driver.index');
+                Route::post('/driver', 'store')->name('driver.store');
+                Route::put('/driver/{driver}', 'update')->name('driver.update');
+                Route::delete('/driver/{driver}', 'destroy')->name('driver.destroy');
+            });
             Route::controller('ResultsController')->group(function() {
                 Route::get('/results', 'index')->name('admin.results.index');
                 Route::post('/results', 'store')->name('admin.results.store');
@@ -86,9 +92,11 @@ Route::middleware(['auth', 'verified'])->group(function() {
         });
     });
     
+    // We should move these into actual controllers, and stop treating them as if they are API routes...
     Route::controller('CollectionController')->namespace('App\Http\Controllers')->group(function() {
         Route::get('/results-collection/{race}', 'results')->name('results.index.collection');
         Route::get('/drivers-collection/{franchise:slug}', 'drivers')->name('drivers.index.collection');
+        Route::get('/constructors-collection/{franchise:slug}', 'constructors')->name('constructors.index.collection');
     });
 });
 

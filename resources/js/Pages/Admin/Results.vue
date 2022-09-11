@@ -29,7 +29,7 @@
   </div>
   
   <div v-if='creatingRecord'>
-    <NewRaceResult
+    <RaceResult
       :drivers='drivers'
       :event='event'
       @submitForm='getEvent'
@@ -37,13 +37,58 @@
   </div>
   
   <div v-if='results.length > 0'>
-    <EditableEventResultsTable
-      :franchise='franchise'
-      :results='results'
-      :drivers='drivers'
-      :event='event'
-      @refreshResults='getEvent()'
-    />
+    <Table title='Results' :headers='headers'>
+      <tr v-for='result in results'>
+        <TableColumn>
+          {{ result.finish_pos }}
+        </TableColumn>
+        
+        <TableColumn>
+          <Link class='text-orange-600'
+                :href="route('driver.show', { franchise: franchise.slug, driver: result.driver.id })"
+          >
+            {{ result.driver.first_name + ' ' + result.driver.last_name }}
+          </Link>
+        </TableColumn>
+        
+        <TableColumn>
+          <Link class='text-orange-600'
+                :href="route('constructor.show', { franchise: franchise.slug, slug: result.driver.constructor.slug })"
+          >
+            {{ result.driver.constructor.short_name }}
+          </Link>
+        </TableColumn>
+        
+        <TableColumn>
+          {{ result.starting_pos }}
+        </TableColumn>
+        
+        <TableColumn>
+          <span v-if='result.fastest_lap'>
+            Fastest Lap
+          </span>
+        </TableColumn>
+        
+        <TableColumn>
+          <span v-if='result.DNF'>
+            DNF
+          </span>
+        </TableColumn>
+        
+        <TableColumn>
+          {{ result.points_for_race }}
+        </TableColumn>
+        
+        <TableColumn>
+          <Button @click='openEditModal(result)'>
+            edit
+          </Button>
+          <Button @click='destroy(result)'>
+            x
+          </Button>
+        </TableColumn>
+      </tr>
+    </Table>
   </div>
   
   <div v-else>
@@ -51,6 +96,22 @@
       No results for this event yet... Maybe you should add some!
     </p>
   </div>
+  
+  <Modal title='Edit Result' v-model='modalOpen'>
+    <RaceResult
+      :drivers='drivers'
+      :event='event'
+      :resultID='resultID'
+      :fields='fields'
+      @submitForm='closeModalUpdate()'
+    />
+    
+    <div class=''>
+      <Button type='button' @click='modalOpen = false'>
+        Close
+      </Button>
+    </div>
+  </Modal>
 </template>
 
 <script setup>
@@ -59,8 +120,10 @@
   import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import SelectMenu from '@/Components/Form/SelectMenu.vue'
   import Button from '@/Components/Form/Button.vue'
-  import NewRaceResult from '@/Components/Forms/NewRaceResult.vue'
-  import EditableEventResultsTable from '@/Components/Tables/EditableEventResultsTable.vue'
+  import RaceResult from '@/Components/Forms/RaceResult.vue'
+  import Modal from '@/Components/Overlays/Modal.vue'
+  import Table from '@/Components/Tables/Table.vue'
+  import TableColumn from '@/Components/Tables/TableColumn.vue'
   
   const props = defineProps({
     franchises: Array
@@ -71,8 +134,32 @@
   const drivers = ref([])
   const events = ref([])
   const results = ref([])
-  
   const creatingRecord = ref(false)
+  const modalOpen = ref(false)
+  const fields = ref([])
+  const resultID = ref()
+  
+  const headers = [
+    'Finished',
+    'Driver',
+    'Constructor',
+    'Started',
+    'Fastest Lap',
+    'DNF',
+    'Points Earned',
+    ''
+  ]
+  
+  function openEditModal(result) {
+    resultID.value = result.id
+    modalOpen.value = true
+    fields.value = result
+  }
+  
+  function closeModalUpdate() {
+    modalOpen.value = false
+    getEvent()
+  }
   
   function franchiseSelected() {
     axios.get(route('event.index.collection', {
@@ -111,6 +198,13 @@
       })
       .catch(error => {
         console.log(error)
+      })
+  }
+  
+  function destroy(result) {
+    axios.delete(route('admin.result.delete', { result: result.id }))
+      .then(res => {
+        getEvent()
       })
   }
 </script>

@@ -219,7 +219,7 @@
     FolderIcon,
     BriefcaseIcon,
     HomeIcon,
-    InboxIcon,
+    IdentificationIcon,
     BookOpenIcon,
     MenuIcon,
     UsersIcon,
@@ -227,6 +227,7 @@
   } from '@heroicons/vue/outline'
   
   const navigation = ref([])
+  const sidebarOpen = ref(false)
   
   const authUser = Inertia.page.props.auth.user
   
@@ -246,7 +247,12 @@
       //   current: route().current('admin.franchise.index')
       // },
       // { name: 'Constructors', href: '#', icon: FolderIcon, current: false },
-      // { name: 'Drivers', href: '#', icon: CalendarIcon, current: false },
+      {
+        name: 'Drivers',
+        href: route('admin.driver.index'),
+        icon: IdentificationIcon,
+        current: route().current('admin.driver.index')
+      },
       {
         name: 'Results',
         href: route('admin.results.index'),
@@ -264,6 +270,4 @@
       }
     ]
   })
-  
-  const sidebarOpen = ref(false)
 </script>

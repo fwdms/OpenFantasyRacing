@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Constructor;
 use App\Models\Driver;
 use App\Models\Event;
 use App\Models\Race;
@@ -33,6 +34,16 @@ class CollectionController extends Controller
             Driver::query()
                 ->whereIn('constructor_id', $franchise->constructors->pluck('id'))
                 ->orderBy('last_name', 'ASC')
+                ->with('constructor')
+                ->get()
+        );
+    }
+    
+    public function constructors(Franchise $franchise): ResourceCollection
+    {
+        return new JsonCollection(
+            Constructor::query()
+                ->where('franchise_id', $franchise->id)
                 ->get()
         );
     }
