@@ -180,7 +180,7 @@
   }
   
   function saveDriver() {
-    axios.post(route('driver.store'),
+    axios.post(route('admin.driver.store'),
       fields.value
     )
       .then(() => {
@@ -193,7 +193,7 @@
   }
   
   function updateDriver() {
-    axios.put(route('driver.update', { driver: fields.value.id }),
+    axios.put(route('admin.driver.update', { driver: fields.value.id }),
       fields.value
     )
       .then(() => {
@@ -206,7 +206,7 @@
   }
   
   function deleteDriver(driver) {
-    axios.delete(route('driver.destroy', { driver: driver.id }))
+    axios.delete(route('admin.driver.destroy', { driver: driver.id }))
       .then(() => {
         getDrivers()
       })

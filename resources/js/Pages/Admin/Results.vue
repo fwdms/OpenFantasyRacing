@@ -202,8 +202,8 @@
   }
   
   function destroy(result) {
-    axios.delete(route('admin.result.delete', { result: result.id }))
-      .then(res => {
+    axios.delete(route('admin.result.destroy', { result: result.id }))
+      .then(() => {
         getEvent()
       })
   }

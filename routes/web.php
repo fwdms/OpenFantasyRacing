@@ -76,15 +76,15 @@ Route::middleware(['auth', 'verified'])->group(function() {
             });
             Route::controller('DriverController')->group(function() {
                 Route::get('/driver', 'adminIndex')->name('admin.driver.index');
-                Route::post('/driver', 'store')->name('driver.store');
-                Route::put('/driver/{driver}', 'update')->name('driver.update');
-                Route::delete('/driver/{driver}', 'destroy')->name('driver.destroy');
+                Route::post('/driver', 'store')->name('admin.driver.store');
+                Route::put('/driver/{driver}', 'update')->name('admin.driver.update');
+                Route::delete('/driver/{driver}', 'destroy')->name('admin.driver.destroy');
             });
             Route::controller('ResultsController')->group(function() {
                 Route::get('/results', 'index')->name('admin.results.index');
                 Route::post('/results', 'store')->name('admin.results.store');
                 Route::put('/results/{result}', 'update')->name('admin.results.update');
-                Route::delete('/results/{result}', 'destroy')->name('admin.result.delete');
+                Route::delete('/results/{result}', 'destroy')->name('admin.result.destroy');
             });
             Route::controller('TestController')->group(function() {
                 Route::get('/ui-test', 'uiTest')->name('admin.ui.test');
