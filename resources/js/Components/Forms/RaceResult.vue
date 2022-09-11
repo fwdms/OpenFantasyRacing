@@ -90,7 +90,8 @@
       fastest_lap: fields.value.fastestLap,
       DNF: fields.value.dnf
     })
-      .then(res => {
+      .then(() => {
+        fields.value.startingPos++
         emit('submitForm')
       })
   }
