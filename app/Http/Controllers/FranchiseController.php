@@ -11,7 +11,7 @@ class FranchiseController extends Controller
     public function adminIndex(): Response
     {
         $franchises = Franchise::all();
-
+        
         return Inertia::render('Admin/Franchises')
             ->with(compact('franchises'));
     }

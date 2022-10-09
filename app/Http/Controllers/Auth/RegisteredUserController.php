@@ -22,7 +22,7 @@ class RegisteredUserController extends Controller
         return Inertia::render('Admin/Users')
             ->with(compact('users'));
     }
-
+    
     /**
      * Display the registration view.
      */
@@ -30,7 +30,7 @@ class RegisteredUserController extends Controller
     {
         return Inertia::render('Auth/Register');
     }
-
+    
     /**
      * Handle an incoming registration request.
      * @throws \Illuminate\Validation\ValidationException
@@ -43,18 +43,18 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        
         event(new Registered($user));
-
+        
         Auth::login($user);
-
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }

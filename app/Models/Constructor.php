@@ -16,17 +16,17 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Constructor extends Model
 {
     use HasFactory;
-
+    
     public function franchise(): BelongsTo
     {
         return $this->belongsTo(Franchise::class);
     }
-
+    
     public function drivers(): HasMany
     {
         return $this->hasMany(Driver::class)->with('results');
     }
-
+    
     public function results(): HasManyThrough
     {
         return $this->hasManyThrough(Result::class, Driver::class);

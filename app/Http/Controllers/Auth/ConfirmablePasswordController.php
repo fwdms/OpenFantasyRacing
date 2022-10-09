@@ -16,10 +16,10 @@ class ConfirmablePasswordController extends Controller
     {
         return Inertia::render('Auth/ConfirmPassword');
     }
-
+    
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-        if (!Auth::guard('web')->validate([
+        if(!Auth::guard('web')->validate([
             'email' => $request->user() ? $request->user()->email : '',
             'password' => $request->password,
         ])) {
@@ -27,9 +27,9 @@ class ConfirmablePasswordController extends Controller
                 'password' => __('auth.password'),
             ]);
         }
-
+        
         $request->session()->put('auth.password_confirmed_at', time());
-
+        
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 }

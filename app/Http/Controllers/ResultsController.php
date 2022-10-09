@@ -14,15 +14,15 @@ class ResultsController extends Controller
     public function index(): Response
     {
         $franchises = Franchise::all();
-
+        
         return Inertia::render('Admin/Results')
             ->with(compact('franchises'));
     }
-
+    
     public function store(ResultRequest $request): Model
     {
         $pointsEarned = (new Result())->calculatePoints($request);
-
+        
         return (new Result())->create([
             'race_id' => $request->event_id,
             'driver_id' => $request->driver_id,
@@ -33,7 +33,7 @@ class ResultsController extends Controller
             'DNF' => $request->DNF
         ]);
     }
-
+    
     public function update(Result $result, ResultRequest $request)
     {
         $response = $result->update([
@@ -45,10 +45,10 @@ class ResultsController extends Controller
             'points_for_race' => $result->calculatePoints($request),
             'DNF' => $request->DNF
         ]);
-
+        
         return $response;
     }
-
+    
     public function destroy(Result $result)
     {
         return $result->delete();

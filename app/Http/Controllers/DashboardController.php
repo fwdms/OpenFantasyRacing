@@ -13,7 +13,7 @@ class DashboardController extends Controller
     {
         return Inertia::render('Admin/Dashboard');
     }
-
+    
     public function index(): Response
     {
         $fantasy_teams = FantasyTeam::query()
@@ -27,7 +27,7 @@ class DashboardController extends Controller
                 'franchises.slug as franchise_slug'
             )
             ->get();
-
+        
         return Inertia::render('Dashboard')
             ->with(compact('fantasy_teams'));
     }

@@ -15,11 +15,11 @@ class ConstructorController extends Controller
     public function adminIndex()
     {
         $franchises = Franchise::all();
-
+        
         return Inertia::render('Admin/Constructors')
             ->with(compact('franchises'));
     }
-
+    
     public function index(Franchise $franchise): Response
     {
         $teams = Constructor::query()
@@ -29,11 +29,11 @@ class ConstructorController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-
+        
         return Inertia::render('Constructors/Index')
             ->with(compact('franchise', 'teams'));
     }
-
+    
     public function show(Franchise $franchise, string $slug): Response
     {
         $team = Constructor::query()
@@ -41,7 +41,7 @@ class ConstructorController extends Controller
             ->where('slug', $slug)
             ->with('results')
             ->first();
-
+        
         /** @var Constructor $team */
         $drivers = Driver::query()
             ->where('constructor_id', $team->id)
@@ -49,9 +49,9 @@ class ConstructorController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-
+        
         $drivers_Ids = $drivers->pluck('id');
-
+        
         $results = Result::query()
             ->whereIn('driver_id', $drivers_Ids)
             ->with('Race')
@@ -65,7 +65,7 @@ class ConstructorController extends Controller
             )
             ->orderBy('id', 'ASC')
             ->get();
-
+        
         return Inertia::render('Constructors/Show')
             ->with(compact(
                 'team',

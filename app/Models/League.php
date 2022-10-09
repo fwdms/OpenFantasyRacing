@@ -14,17 +14,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class League extends Model
 {
     use HasFactory;
-
+    
     protected $table = 'leagues';
-
+    
     protected $guarded = ['id'];
-
+    
     public function fantasyTeams(): HasMany
     {
         return $this->hasMany(FantasyTeam::class, 'league_id')
             ->with('User');
     }
-
+    
     public function franchise(): BelongsTo
     {
         return $this->belongsTo(Franchise::class, 'franchise_id');
