@@ -17,15 +17,15 @@ class ProfileController extends Controller
     {
         return Inertia::render('Profile/Edit');
     }
-    
+
     public function update(ProfileRequest $request): RedirectResponse
     {
         $user = User::query()
             ->where('id', Auth::id())
             ->firstOrFail();
-        
+
         $profileImage = Storage::put('/public/profile_images', $request->profile_image, 'public');
-        
+
         /** @var string $profileImage */
         $user->update([
             'first_name' => $request->first_name,
@@ -41,7 +41,7 @@ class ProfileController extends Controller
             'cover_photo' => $request->cover_photo,
             'profile_image' => Storage::url($profileImage),
         ]);
-        
+
         return Redirect::route('profile.edit');
     }
 }
