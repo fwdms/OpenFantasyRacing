@@ -84,11 +84,10 @@
       </TableColumn>
       
       <TableColumn>
-        <img v-if='driver.profile_image !== null' :src='driver.profile_image'
-             class='rounded-lg object-contain h-20 w-20 mx-auto'
+        <img
+          :src="driver.profile_image ? driver.profile_image : '/assets/missingprofle.webp'"
+          class='rounded-lg object-contain h-20 w-20 mx-auto'
         >
-      
-      
       </TableColumn>
       
       <TableColumn>
