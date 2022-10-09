@@ -4,8 +4,13 @@
   <PageHeader title='Drivers' />
   
   <Modal v-model='modalOpen'>
-    <h2 v-if='editing' class='text-2xl text-orange-600'>Update {{ fields.first_name }} {{ fields.last_name }}</h2>
-    <h2 v-else class='text-2xl text-orange-600'>Add a Driver</h2>
+    <h2 v-if='editing' class='text-2xl text-orange-600'>
+      Update {{ fields.first_name }} {{ fields.last_name }}
+    </h2>
+    
+    <h2 v-else class='text-2xl text-orange-600'>
+      Add a Driver
+    </h2>
     
     <div class='flex flex-wrap justify-center items-center mt-4'>
       <Input label='First Name' v-model='fields.first_name' />
@@ -32,15 +37,18 @@
   </Modal>
   
   <div class='mx-auto w-1/5'>
-    <SelectMenu label='Franchise'
-                :options='props.franchises'
-                v-model='franchise'
-                @change='franchiseSelected()'
+    <SelectMenu
+      label='Franchise'
+      :options='props.franchises'
+      v-model='franchise'
+      @change='franchiseSelected()'
     />
   </div>
   
   <div v-if='drivers.length === 0'>
-    <p class='text-center py-4'>Please, select a franchise</p>
+    <p class='text-center py-4'>
+      Please, select a franchise
+    </p>
   </div>
   
   <Table :headers='headers' v-if='drivers.length > 0'>
@@ -76,9 +84,11 @@
       </TableColumn>
       
       <TableColumn>
-        <img :src='driver.profile_image'
+        <img v-if='driver.profile_image !== null' :src='driver.profile_image'
              class='rounded-lg object-contain h-20 w-20 mx-auto'
         >
+      
+      
       </TableColumn>
       
       <TableColumn>
