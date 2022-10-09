@@ -11,20 +11,30 @@
         v-model='franchise'
         @change='franchiseSelected()'
       />
+      
       <SelectMenu
         v-if='events.length > 0'
         label='Event'
         :options='events'
         v-model='event'
-        @change='eventSelected()'
+        @change='getEvent()'
       />
     </div>
     
     <Button
       @click.prevent='creatingRecord = !creatingRecord'
       class='my-0 mx-0 p-0'
+      v-if='creatingRecord === false'
     >
       Create a New Race Result
+    </Button>
+    
+    <Button
+      @click.prevent='creatingRecord = !creatingRecord'
+      class='my-0 mx-0 p-0'
+      v-else
+    >
+      Hide form
     </Button>
   </div>
   
@@ -44,16 +54,18 @@
         </TableColumn>
         
         <TableColumn>
-          <Link class='text-orange-600'
-                :href="route('driver.show', { franchise: franchise.slug, driver: result.driver.id })"
+          <Link
+            class='text-orange-600'
+            :href="route('driver.show', { franchise: franchise.slug, driver: result.driver.id })"
           >
             {{ result.driver.first_name + ' ' + result.driver.last_name }}
           </Link>
         </TableColumn>
         
         <TableColumn>
-          <Link class='text-orange-600'
-                :href="route('constructor.show', { franchise: franchise.slug, slug: result.driver.constructor.slug })"
+          <Link
+            class='text-orange-600'
+            :href="route('constructor.show', { franchise: franchise.slug, slug: result.driver.constructor.slug })"
           >
             {{ result.driver.constructor.short_name }}
           </Link>
@@ -186,10 +198,6 @@
       .then(res => {
         drivers.value = res.data.data
       })
-  }
-  
-  function eventSelected() {
-    getEvent()
   }
   
   function getEvent() {

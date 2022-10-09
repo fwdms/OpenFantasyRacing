@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\JsonCollection;
 use App\Models\Constructor;
 use App\Models\Driver;
-use App\Models\Event;
+use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
-use App\Models\Franchise;
-use App\Http\Resources\JsonCollection;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CollectionController extends Controller
@@ -46,6 +45,14 @@ class CollectionController extends Controller
             Constructor::query()
                 ->where('franchise_id', $franchise->id)
                 ->orderBy('name', 'ASC')
+                ->get()
+        );
+    }
+    
+    public function events(Franchise $franchise): ResourceCollection
+    {
+        return new JsonCollection(
+            Race::where('franchise_id', $franchise->id)
                 ->get()
         );
     }

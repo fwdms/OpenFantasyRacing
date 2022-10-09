@@ -1,9 +1,8 @@
 <?php
 
-use App\Models\Constructor;
-use Illuminate\Support\Facades\Route;
 use App\Http\Resources\JsonCollection;
 use App\Models\Event;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', fn() => Inertia::render('Home'));
@@ -91,10 +90,13 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::delete('/results/{result}', 'destroy')->name('admin.result.destroy');
             });
             Route::controller('EventController')->group(function() {
-                Route::get('/event', 'adminIndex')->name('admin.event.index');
+                Route::get('/event', 'adminIndex')->name('admin.events.index');
             });
             Route::controller('Auth\RegisteredUserController')->group(function() {
                 Route::get('/users', 'index')->name('admin.users.index');
+            });
+            Route::controller('TrackController')->group(function() {
+                Route::get('/tracks', 'index')->name('admin.tracks.index');
             });
             Route::controller('TestController')->group(function() {
                 Route::get('/ui-test', 'uiTest')->name('admin.ui.test');
@@ -103,11 +105,17 @@ Route::middleware(['auth', 'verified'])->group(function() {
     });
     
     // We should move these into actual controllers, and stop treating them as if they are API routes...
-    Route::controller('CollectionController')->namespace('App\Http\Controllers')->group(function() {
-        Route::get('/results-collection/{race}', 'results')->name('results.index.collection');
-        Route::get('/drivers-collection/{franchise:slug}', 'drivers')->name('drivers.index.collection');
-        Route::get('/constructors-collection/{franchise:slug}', 'constructors')->name('constructors.index.collection');
-    });
+    Route::controller('CollectionController')->namespace('App\Http\Controllers')
+        ->group(function() {
+            Route::get('/results-collection/{race}', 'results')
+                ->name('results.index.collection');
+            Route::get('/drivers-collection/{franchise:slug}', 'drivers')
+                ->name('drivers.index.collection');
+            Route::get('/constructors-collection/{franchise:slug}', 'constructors')
+                ->name('constructors.index.collection');
+            Route::get('/events-collection/{franchise:slug}', 'events')
+                ->name('events.index.collection');
+        });
 });
 
 require __DIR__ . '/auth.php';

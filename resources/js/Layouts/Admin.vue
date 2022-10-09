@@ -211,23 +211,19 @@
 <script setup>
   import { ref } from 'vue'
   import { Inertia } from '@inertiajs/inertia'
+  import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
   import {
-    Dialog,
-    DialogPanel,
-    TransitionChild,
-    TransitionRoot
-  } from '@headlessui/vue'
-  import {
-    GlobeIcon,
-    TicketIcon,
-    UserGroupIcon,
+    AdjustmentsIcon,
+    BookOpenIcon,
     BriefcaseIcon,
+    GlobeIcon,
     HomeIcon,
     IdentificationIcon,
-    BookOpenIcon,
     MenuIcon,
+    TicketIcon,
+    UserGroupIcon,
     UsersIcon,
-    XIcon, AdjustmentsIcon
+    XIcon
   } from '@heroicons/vue/outline'
   
   const navigation = ref([])
@@ -267,8 +263,18 @@
         icon: BookOpenIcon,
         current: route().current('admin.results.index')
       },
-      { name: 'Races / Events', href: '#', icon: TicketIcon, current: false },
-      { name: 'Tracks', href: '#', icon: GlobeIcon, current: false },
+      {
+        name: 'Races / Events',
+        href: route('admin.events.index'),
+        icon: TicketIcon,
+        current: route().current('admin.events.index')
+      },
+      {
+        name: 'Tracks',
+        href: route('admin.tracks.index'),
+        icon: GlobeIcon,
+        current: route().current('admin.tracks.index')
+      },
       {
         name: 'Users',
         href: route('admin.users.index'),

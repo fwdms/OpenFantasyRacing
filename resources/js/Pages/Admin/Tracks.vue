@@ -1,5 +1,7 @@
 <template>
-  <Header title='Admin | Franchises' />
+  <Header title='Admin | Tracks' />
+  
+  <PageHeader title='Tracks' />
   
   <Table :headers='headers'>
     <template v-slot:top>
@@ -7,10 +9,10 @@
         <div class='sm:flex sm:items-center'>
           <div class='sm:flex-auto px-2'>
             <h1 class='text-xl font-semibold text-gray-900'>
-              Franchises
+              Tracks
             </h1>
             <p class='mt-2 text-sm text-gray-700'>
-              A list of all supported Franchises.
+              A list of all the tracks in a franchise.
             </p>
           </div>
           <div class='mt-4 sm:mt-0 sm:ml-16 sm:flex-none'>
@@ -20,57 +22,40 @@
               font-medium text-white shadow-sm
               hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto'
             >
-              Create a Franchise
+              Add a Track
             </button>
           </div>
         </div>
       </div>
     </template>
     
-    <tr v-for='franchise in franchises'>
+    <tr v-for='track in tracks'>
       <TableColumn>
-        {{ franchise.id }}
+        {{ track.name }}
       </TableColumn>
       
       <TableColumn>
-        {{ franchise.name }}
+        {{ track.location }}
       </TableColumn>
       
       <TableColumn>
-        {{ franchise.slug }}
-      </TableColumn>
-      
-      <TableColumn>
-        {{ franchise.governing_body }}
-      </TableColumn>
-      
-      <TableColumn>
-        <Button>
-          edit
-        </Button>
-        <Button>
-          x
-        </Button>
+        {{ track.number_of_turns }}
       </TableColumn>
     </tr>
   </Table>
 </template>
 
 <script setup>
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
   import Table from '@/Components/Tables/Table.vue'
   import TableColumn from '@/Components/Tables/TableColumn.vue'
-  import Button from '@/Components/Form/Button.vue'
   
-  const props = defineProps([
-    'franchises'
-  ])
+  const props = defineProps(['tracks'])
   
   const headers = [
-    'Franchise ID',
     'Name',
-    'Slug',
-    'Governing Body',
-    ''
+    'Location',
+    'Number of Turns'
   ]
 </script>
 
