@@ -10,6 +10,15 @@ use Inertia\Response;
 
 class EventController extends Controller
 {
+    public function adminIndex()
+    {
+        $franchises = Franchise::get();
+        
+        return Inertia::render('Admin/Events',
+            ['franchises' => $franchises]
+        );
+    }
+    
     public function index(Franchise $franchise): Response
     {
         $events = Race::query()

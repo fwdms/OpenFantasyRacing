@@ -1,7 +1,7 @@
 <template>
   <Header title='Admin | Drivers' />
   
-  <PageHeader title='Drivers' />
+  <PageHeader title='Races / Events' />
   
   <Modal v-model='modalOpen'>
     <h2 v-if='editing' class='text-2xl text-orange-600'>Update {{ fields.first_name }} {{ fields.last_name }}</h2>
@@ -39,20 +39,20 @@
     />
   </div>
   
-  <div v-if='drivers.length === 0'>
+  <div v-if='events.length === 0'>
     <p class='text-center py-4'>Please, select a franchise</p>
   </div>
   
-  <Table :headers='headers' v-if='drivers.length > 0'>
+  <Table :headers='headers' v-if='events.length > 0'>
     <template v-slot:top>
       <div class='mx-auto my-4 mx-6'>
         <div class='sm:flex sm:items-center'>
           <div class='sm:flex-auto px-2'>
             <h1 class='text-xl font-semibold text-gray-900'>
-              Drivers
+              Events
             </h1>
             <p class='mt-2 text-sm text-gray-700'>
-              A list of all the drivers from a given franchise.
+              A list of all the events from a given franchise.
             </p>
           </div>
           <div class='mt-4 sm:mt-0 sm:ml-16 sm:flex-none'>
@@ -63,44 +63,21 @@
               hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto'
               @click='modalOpen = !modalOpen'
             >
-              Add a Driver
+              Add an Event
             </button>
           </div>
         </div>
       </div>
     </template>
     
-    <tr v-for='driver in drivers'>
+    <tr v-for='event in events'>
       <TableColumn>
-        {{ driver.id }}
+        {{ event.name }}
       </TableColumn>
       
       <TableColumn>
-        <img :src='driver.profile_image'
-             class='rounded-lg object-contain h-20 w-20 mx-auto'
-        >
-      </TableColumn>
-      
-      <TableColumn>
-        {{ driver.first_name }} {{ driver.last_name }}
-      </TableColumn>
-      
-      <TableColumn>
-        {{ driver.number }}
-      </TableColumn>
-      
-      <TableColumn>
-        <p>{{ driver.constructor.short_name }}</p>
-        <p>{{ driver.constructor.name }}</p>
-      </TableColumn>
-      
-      <TableColumn>
-        <span v-if='driver.is_rookie'>Rookie</span>
-      </TableColumn>
-      
-      <TableColumn>
-        <Button @click='editDriver(driver)'>edit</Button>
-        <Button @click='deleteDriver(driver)'>x</Button>
+        <!--        <Button @click='editDriver(driver)'>edit</Button>-->
+        <!--        <Button @click='deleteDriver(driver)'>x</Button>-->
       </TableColumn>
     </tr>
   </Table>
@@ -125,7 +102,7 @@
   const drivers = ref([])
   const franchise = ref({})
   const modalOpen = ref(false)
-  const constructors = ref([])
+  const events = ref([])
   const editing = ref(false)
   const fields = ref({
     number: '',
@@ -136,7 +113,7 @@
   })
   
   const headers = [
-    'Driver ID',
+    'Name',
     'Profile Image',
     'Name',
     '#',
@@ -146,12 +123,11 @@
   ]
   
   function franchiseSelected() {
-    getDrivers()
-    axios.get(route('constructors.index.collection', {
+    axios.get(route('events.index.collection', {
       franchise: franchise.value.slug
     }))
       .then(res => {
-        constructors.value = res.data.data
+        events.value = res.data.data
       })
       .catch(error => {
         console.log(error)

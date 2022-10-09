@@ -35,7 +35,7 @@
               hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto'
               @click='modalOpen = !modalOpen'
             >
-              Add a Driver
+              Add a Constructor / Team
             </button>
           </div>
         </div>
@@ -48,7 +48,7 @@
       </TableColumn>
       
       <TableColumn>
-        <img :src='team.logo' class='rounded-lg h-20 mx-auto' />
+        <img :src='team.logo' class='rounded-lg object-scale-down h-20 mx-auto flex-none' />
       </TableColumn>
       
       <TableColumn>
