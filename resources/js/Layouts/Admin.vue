@@ -237,49 +237,49 @@
         name: 'Dashboard',
         href: route('admin.dashboard.index'),
         icon: HomeIcon,
-        current: route().current('admin.dashboard.index')
+        current: route().current('admin.dashboard.*')
       },
       {
         name: 'Franchises',
         href: route('admin.franchise.index'),
         icon: BriefcaseIcon,
-        current: route().current('admin.franchise.index')
+        current: route().current('admin.franchise.*')
       },
       {
         name: 'Constructors / Teams',
         href: route('admin.constructor.index'),
         icon: UserGroupIcon,
-        current: route().current('admin.constructor.index')
+        current: route().current('admin.constructor.*')
       },
       {
         name: 'Drivers',
         href: route('admin.driver.index'),
         icon: IdentificationIcon,
-        current: route().current('admin.driver.index')
+        current: route().current('admin.driver.*')
       },
       {
         name: 'Results',
         href: route('admin.results.index'),
         icon: BookOpenIcon,
-        current: route().current('admin.results.index')
+        current: route().current('admin.results.*')
       },
       {
         name: 'Races / Events',
         href: route('admin.events.index'),
         icon: TicketIcon,
-        current: route().current('admin.events.index')
+        current: route().current('admin.events.*')
       },
       {
         name: 'Tracks',
         href: route('admin.tracks.index'),
         icon: GlobeIcon,
-        current: route().current('admin.tracks.index')
+        current: route().current('admin.tracks.*')
       },
       {
         name: 'Users',
         href: route('admin.users.index'),
         icon: UsersIcon,
-        current: route().current('admin.users.index')
+        current: route().current('admin.users.*')
       },
       {
         name: 'UI Test',
