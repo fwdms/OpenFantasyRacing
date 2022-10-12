@@ -12,7 +12,7 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::table('drivers', function(Blueprint $table) {
+        Schema::table('drivers', function (Blueprint $table) {
             $table->string('birthday')->nullable()->change();
             $table->string('country')->nullable()->change();
             $table->integer('position_last_season')->nullable()->change();
@@ -22,7 +22,7 @@ return new class () extends Migration {
             $table->integer('all_time_wins')->nullable()->change();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *

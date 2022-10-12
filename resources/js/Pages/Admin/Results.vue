@@ -179,7 +179,7 @@
   }
   
   function franchiseSelected() {
-    axios.get(route('event.index.collection', {
+    axios.get(route('events.index.collection', {
         franchise: franchise.value.slug
       })
     )

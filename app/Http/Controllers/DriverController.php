@@ -44,7 +44,10 @@ class DriverController extends Controller
     
     public function create(): Response
     {
-        return Inertia::render('Admin/Drivers/Create');
+        $franchises = Franchise::all();
+        
+        return Inertia::render('Admin/Drivers/Create')
+            ->with(compact('franchises'));
     }
     
     public function store(Request $request): \Illuminate\Http\Response

@@ -12,15 +12,15 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::table('races', function(Blueprint $table) {
+        Schema::table('races', function (Blueprint $table) {
             $table->renameColumn('qualifying_type', 'race_type');
         });
-        
-        Schema::table('races', function(Blueprint $table) {
+
+        Schema::table('races', function (Blueprint $table) {
             $table->dropColumn('weather');
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -28,7 +28,7 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::table('races', function(Blueprint $table) {
+        Schema::table('races', function (Blueprint $table) {
             $table->renameColumn('race_type', 'qualifying_type');
             $table->string('weather')->nullable();
         });

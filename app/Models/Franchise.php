@@ -17,14 +17,14 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Franchise extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = ['id'];
-    
+
     public function constructors(): HasMany
     {
         return $this->hasMany(Constructor::class, 'franchise_id');
     }
-    
+
     public function drivers(): HasManyThrough
     {
         return $this->hasManyThrough(

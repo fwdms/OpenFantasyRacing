@@ -3,39 +3,6 @@
   
   <PageHeader title='Drivers' />
   
-  <Modal v-model='modalOpen'>
-    <h2 v-if='editing' class='text-2xl text-orange-600'>
-      Update {{ fields.first_name }} {{ fields.last_name }}
-    </h2>
-    
-    <h2 v-else class='text-2xl text-orange-600'>
-      Add a Driver
-    </h2>
-    
-    <div class='flex flex-wrap justify-center items-center mt-4'>
-      <Input label='First Name' v-model='fields.first_name' />
-      <Input label='Last Name' v-model='fields.last_name' />
-      
-      <Input label='Number' type='number' v-model='fields.number' />
-      
-      <SelectMenu label='Constructor' :options='constructors' v-model='fields.constructor' />
-      
-      <Toggle label='Rookie' v-model='fields.is_rookie' />
-    </div>
-    
-    <Button @click='resetForm()'>
-      Close
-    </Button>
-    
-    <Button v-if='editing' @click='updateDriver()'>
-      Update
-    </Button>
-    
-    <Button v-else @click='saveDriver()'>
-      Save
-    </Button>
-  </Modal>
-  
   <div class='mx-auto w-1/5'>
     <SelectMenu
       label='Franchise'
@@ -125,9 +92,6 @@
   import Table from '@/Components/Tables/Table.vue'
   import TableColumn from '@/Components/Tables/TableColumn.vue'
   import Button from '@/Components/Form/Button.vue'
-  import Modal from '@/Components/Overlays/Modal.vue'
-  import Input from '@/Components/Form/Input.vue'
-  import Toggle from '@/Components/Form/Toggle.vue'
   
   const props = defineProps([
     'franchises'
@@ -135,16 +99,7 @@
   
   const drivers = ref([])
   const franchise = ref({})
-  const modalOpen = ref(false)
   const constructors = ref([])
-  const editing = ref(false)
-  const fields = ref({
-    number: '',
-    first_name: '',
-    last_name: '',
-    constructor: '',
-    is_rookie: false
-  })
   
   const headers = [
     'Driver ID',
@@ -181,46 +136,6 @@
       })
   }
   
-  function editDriver(driver) {
-    modalOpen.value = true
-    editing.value = true
-    
-    fields.value = {
-      id: driver.id,
-      first_name: driver.first_name,
-      last_name: driver.last_name,
-      number: driver.number,
-      constructor: driver.constructor,
-      is_rookie: driver.is_rookie
-    }
-  }
-  
-  function saveDriver() {
-    axios.post(route('admin.driver.store'),
-      fields.value
-    )
-      .then(() => {
-        getDrivers()
-        resetForm()
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-  
-  function updateDriver() {
-    axios.put(route('admin.driver.update', { driver: fields.value.id }),
-      fields.value
-    )
-      .then(() => {
-        getDrivers()
-        resetForm()
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-  
   function deleteDriver(driver) {
     axios.delete(route('admin.driver.destroy', { driver: driver.id }))
       .then(() => {
@@ -229,23 +144,6 @@
       .catch(error => {
         console.log(error)
       })
-  }
-  
-  function resetForm() {
-    modalOpen.value = false
-    
-    // Wait for the modal to finish closing... then we will reset the form.
-    setTimeout(() => {
-      fields.value = {
-        first_name: '',
-        last_name: '',
-        number: '',
-        constructor: {},
-        is_rookie: false
-      }
-      
-      editing.value = false
-    }, 700)
   }
 </script>
 

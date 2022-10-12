@@ -17,11 +17,11 @@ class LeagueController extends Controller
     public function create(): Response
     {
         $franchises = Franchise::all();
-        
+
         return Inertia::render('Leagues/Create')
             ->with(compact('franchises'));
     }
-    
+
     public function store(LeagueRequest $request): RedirectResponse
     {
         $league = (new League())->create([
@@ -30,25 +30,25 @@ class LeagueController extends Controller
             'about_text' => $request->about_text,
             'league_owner_id' => Auth::id(),
         ]);
-        
+
         (new FantasyTeam())->create([
             'team_name' => $request->fantasyTeamName,
             'league_id' => $league->id,
             'user_id' => Auth::id(),
         ]);
-        
+
         return Redirect::route('dashboard.index');
     }
-    
+
     public function show(League $league): Response
     {
         $league->load('FantasyTeams')->load('Franchise');
-        
+
         $fantasyTeams = FantasyTeam::query()
             ->where('league_id', $league->id)
             ->with(['drivers', 'user'])
             ->get();
-        
+
         return Inertia::render('Leagues/Show')
             ->with(compact('league', 'fantasyTeams'));
     }

@@ -2,10 +2,19 @@
   <Header title='Admin | Drivers' />
   
   <PageHeader title='Drivers' />
+  
+  <Driver :franchises='franchises' />
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'</script>
+  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
+  import Driver from '@/Components/Forms/Driver.vue'
+  
+  const props = defineProps([
+    'franchises'
+  ])
+
+</script>
 
 <script>
   import Admin from '@/Layouts/Admin.vue'
