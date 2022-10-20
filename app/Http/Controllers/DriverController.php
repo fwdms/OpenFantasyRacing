@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Constructor;
-use App\Models\Driver;
-use App\Models\Franchise;
-use App\Models\Result;
-use Illuminate\Http\Request;
+use App\Http\Requests\DriverRequest;
+use Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Driver;
+use App\Models\Result;
+use App\Models\Franchise;
+use App\Models\Constructor;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class DriverController extends Controller
 {
     public function adminIndex(): Response
     {
         $franchises = Franchise::all();
-        
+
         return Inertia::render('Admin/Drivers/Index')
             ->with(compact('franchises'));
     }
-    
+
     public function index(Franchise $franchise): Response
     {
         $constructors = Constructor::query()
@@ -29,7 +32,7 @@ class DriverController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-        
+
         $drivers = Driver::query()
             ->whereIn('constructor_id', $constructors->pluck('id'))
             ->with('constructor')
@@ -37,41 +40,37 @@ class DriverController extends Controller
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
-        
+
         return Inertia::render('Drivers/Index')
             ->with(compact('drivers', 'franchise', 'constructors'));
     }
-    
+
     public function create(): Response
     {
         $franchises = Franchise::all();
-        
+
         return Inertia::render('Admin/Drivers/Create')
             ->with(compact('franchises'));
     }
-    
-    public function store(Request $request): \Illuminate\Http\Response
+
+    public function store(DriverRequest $request): RedirectResponse
     {
-        $driver = (new Driver())->create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'number' => $request->number,
-            'constructor_id' => $request->constructor['id'],
-            'is_rookie' => $request->is_rookie
-        ]);
-        
-        return response($driver, 200);
+        Driver::create(
+            $request->validated()
+        );
+
+        return Redirect(route('admin.driver.index'));
     }
-    
+
     public function show(Franchise $franchise, Driver $driver): Response
     {
         $driver = $driver->load('constructor');
-        
+
         $points = Driver::query()
             ->where('id', $driver->id)
             ->withSum('results', 'points_for_race')
             ->first()->results_sum_points_for_race;
-        
+
         $results = Result::query()
             ->where('driver_id', $driver->id)
             ->join('races', 'races.id', 'race_id')
@@ -84,22 +83,26 @@ class DriverController extends Controller
                 'tracks.location as track_location'
             )
             ->get();
-        
+
         return Inertia::render('Drivers/Show')
             ->with(compact('driver', 'points', 'franchise', 'results'));
     }
-    
-    public function update(Driver $driver, Request $request)
+
+    public function edit(Driver $driver)
     {
-        $driver->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'number' => $request->number,
-            'constructor_id' => $request->constructor['id'],
-            'is_rookie' => $request->is_rookie
-        ]);
+        $franchises = Franchise::all();
+
+        $driver->load('constructor', 'constructor.franchise');
+
+        return Inertia::render('Admin/Drivers/Edit')
+            ->with(compact('franchises', 'driver'));
     }
-    
+
+    public function update(Driver $driver, DriverRequest $request)
+    {
+        $driver->update($request->validated());
+    }
+
     public function destroy(Driver $driver)
     {
         $driver->delete();

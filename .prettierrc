@@ -1,0 +1,10 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "vueIndentScriptAndStyle": true,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": true,
+  "singleQuote": true,
+  "proseWrap": "always"
+}
