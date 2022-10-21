@@ -59,10 +59,10 @@
   import { ref, onMounted } from 'vue'
   import { useForm } from '@inertiajs/inertia-vue3'
   import axios from 'axios'
-  import Input from '@/Components/Form/Input.vue'
-  import Button from '@/Components/Form/Button.vue'
-  import SelectMenu from '@/Components/Form/SelectMenu.vue'
-  import Toggle from '@/Components/Form/Toggle.vue'
+  import Input from '@/Shared/Form/Input.vue'
+  import Button from '@/Shared/Form/Button.vue'
+  import SelectMenu from '@/Shared/Form/SelectMenu.vue'
+  import Toggle from '@/Shared/Form/Toggle.vue'
 
   const props = defineProps(['franchises', 'driver'])
 

@@ -31,7 +31,7 @@
 
 <script setup>
   import { computed } from 'vue'
-  import Label from '@/Components/Form/Label.vue'
+  import Label from '@/Shared/Form/Label.vue'
 
   const props = defineProps({
     label: String,

@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
-  import Driver from '@/Components/Forms/Driver.vue'
+  import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
+  import Driver from '@/Shared/Forms/Driver.vue'
 
   const props = defineProps(['franchises', 'driver'])
 </script>

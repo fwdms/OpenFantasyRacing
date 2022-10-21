@@ -90,11 +90,11 @@
 <script setup>
   import { ref } from 'vue'
   import axios from 'axios'
-  import PageHeader from '@/Components/PageHeadings/PageHeader.vue'
-  import SelectMenu from '@/Components/Form/SelectMenu.vue'
-  import Table from '@/Components/Tables/Table.vue'
-  import TableColumn from '@/Components/Tables/TableColumn.vue'
-  import Button from '@/Components/Form/Button.vue'
+  import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
+  import SelectMenu from '@/Shared/Form/SelectMenu.vue'
+  import Table from '@/Shared/Tables/Table.vue'
+  import TableColumn from '@/Shared/Tables/TableColumn.vue'
+  import Button from '@/Shared/Form/Button.vue'
 
   const props = defineProps(['franchises'])
 
