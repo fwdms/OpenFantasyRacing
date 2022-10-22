@@ -12,7 +12,12 @@ class FranchiseController extends Controller
     {
         $franchises = Franchise::all();
 
-        return Inertia::render('Admin/Franchises')
+        return Inertia::render('Admin/Franchises/Index')
             ->with(compact('franchises'));
+    }
+
+    public function create()
+    {
+        return Inertia::render('Admin/Franchises/Create');
     }
 }
