@@ -77,7 +77,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return redirect(route('admin.dashboard.index'));
     });
 
-
     // We should move these into actual controllers
     Route::controller('CollectionController')
         ->group(function () {

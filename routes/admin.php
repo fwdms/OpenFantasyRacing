@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 Route::controller('DashboardController')->group(function () {
     Route::get('/dashboard', 'adminIndex')->name('admin.dashboard.index');
 });

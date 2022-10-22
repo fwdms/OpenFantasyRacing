@@ -11,7 +11,7 @@ class TestController extends Controller
     {
         $drivers = Driver::orderBy('last_name', 'ASC')->get();
 
-        return Inertia::render('UiTest')
+        return Inertia::render('Admin/UiTest')
             ->with(compact('drivers'));
     }
 }

@@ -16,7 +16,7 @@ class ConstructorController extends Controller
     {
         $franchises = Franchise::all();
 
-        return Inertia::render('Admin/Constructors')
+        return Inertia::render('Admin/Constructors/Index')
             ->with(compact('franchises'));
     }
 

@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FantasyTeam;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Event;
 use Inertia\Response;
+use App\Models\Driver;
+use App\Models\Result;
+use App\Models\Franchise;
+use App\Models\FantasyTeam;
+use App\Models\Track;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function adminIndex(): Response
     {
-        return Inertia::render('Admin/Dashboard');
+        $users = User::all()->count();
+        $franchises = Franchise::all()->count();
+        $drivers = Driver::all()->count();
+        $events = Event::all()->count();
+        $results = Result::all()->count();
+        $fantasyTeams = FantasyTeam::all()->count();
+        $tracks = Track::all()->count();
+                
+        return Inertia::render('Admin/Dashboard')
+            ->with(compact('users', 'franchises', 'drivers', 'events', 'results', 'fantasyTeams', 'tracks'));
     }
 
     public function index(): Response

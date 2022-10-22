@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
     public function index(): Response
     {
         $users = User::all();
-        return Inertia::render('Admin/Users')
+        return Inertia::render('Admin/Users/Index')
             ->with(compact('users'));
     }
 

@@ -14,7 +14,7 @@ class TrackController extends Controller
         $tracks = Track::all();
 
         return Inertia::render(
-            'Admin/Tracks',
+            'Admin/Tracks/Index',
             ['tracks' => $tracks]
         );
     }
