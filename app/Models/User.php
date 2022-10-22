@@ -9,17 +9,19 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-    
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+
     protected $guarded = [
         'id', 'is_admin'
     ];
-    
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

@@ -8,14 +8,11 @@ use App\Models\Franchise;
 use App\Models\League;
 use App\Models\Rule;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class FactoryTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function user_can_be_created()
     {
@@ -50,7 +47,9 @@ class FactoryTest extends TestCase
     public function a_rule_can_be_added_to_a_league()
     {
         $user = User::factory()->create();
+
         $franchise = Franchise::factory()->create();
+
         $league = League::factory()->create([
             'franchise_id' => $franchise->id,
             'league_owner_id' => $user->id,
@@ -69,7 +68,9 @@ class FactoryTest extends TestCase
         Artisan::call('db:seed');
 
         $user = User::factory()->create();
+
         $franchise = Franchise::factory()->create();
+
         $league = League::factory()->create([
             'league_owner_id' => $user->id,
             'franchise_id' => $franchise->id,

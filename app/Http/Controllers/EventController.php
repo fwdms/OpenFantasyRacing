@@ -14,7 +14,7 @@ class EventController extends Controller
     {
         $franchises = Franchise::get();
         
-        return Inertia::render('Admin/Events',
+        return Inertia::render('Admin/Events/Index',
             ['franchises' => $franchises]
         );
     }
