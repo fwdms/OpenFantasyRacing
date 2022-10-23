@@ -15,4 +15,9 @@ class Event extends Model
     use HasFactory;
 
     protected $table = 'races';
+
+    public function track()
+    {
+        $this->hasOne(Track::class);
+    }
 }

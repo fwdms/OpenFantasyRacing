@@ -51,6 +51,7 @@ class CollectionController extends Controller
     {
         return new JsonCollection(
             Race::where('franchise_id', $franchise->id)
+                ->with('track')
                 ->get()
         );
     }
