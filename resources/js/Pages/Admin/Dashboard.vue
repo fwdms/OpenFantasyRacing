@@ -36,7 +36,7 @@
 
 <script setup>
   import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
-  import { CursorClickIcon, MailOpenIcon, UsersIcon } from '@heroicons/vue/outline'
+  import { CursorArrowRaysIcon, EnvelopeOpenIcon, UsersIcon } from '@heroicons/vue/24/outline'
 
   const props = defineProps([
     'users',
@@ -52,14 +52,14 @@
   
   const stats = [
     { name: 'Users', stat: props.users, icon: UsersIcon, link: 'admin.users.index'},
-    { name: 'leagues', stat: props.leagues, icon: CursorClickIcon, link: 'admin.results.index' },
-    { name: 'Fantasy Teams', stat: props.fantasyTeams, icon: CursorClickIcon, link: 'admin.results.index' },
-    { name: 'Franchises', stat: props.franchises, icon: MailOpenIcon, link: 'admin.franchise.index' },
-    { name: 'Constructors', stat: props.constructors, icon: MailOpenIcon, link: 'admin.constructor.index' },
-    { name: 'Drivers', stat: props.drivers, icon: CursorClickIcon, link: 'admin.driver.index' },
-    { name: 'Events', stat: props.events, icon: CursorClickIcon, link: 'admin.events.index' },
-    { name: 'Results', stat: props.results, icon: CursorClickIcon, link: 'admin.results.index' },
-    { name: 'Tracks', stat: props.tracks, icon: CursorClickIcon, link: 'admin.tracks.index' },
+    { name: 'leagues', stat: props.leagues, icon: CursorArrowRaysIcon, link: 'admin.results.index' },
+    { name: 'Fantasy Teams', stat: props.fantasyTeams, icon: CursorArrowRaysIcon, link: 'admin.results.index' },
+    { name: 'Franchises', stat: props.franchises, icon: EnvelopeOpenIcon, link: 'admin.franchise.index' },
+    { name: 'Constructors', stat: props.constructors, icon: EnvelopeOpenIcon, link: 'admin.constructor.index' },
+    { name: 'Drivers', stat: props.drivers, icon: CursorArrowRaysIcon, link: 'admin.driver.index' },
+    { name: 'Events', stat: props.events, icon: CursorArrowRaysIcon, link: 'admin.events.index' },
+    { name: 'Results', stat: props.results, icon: CursorArrowRaysIcon, link: 'admin.results.index' },
+    { name: 'Tracks', stat: props.tracks, icon: CursorArrowRaysIcon, link: 'admin.tracks.index' },
   ]
 </script>
 

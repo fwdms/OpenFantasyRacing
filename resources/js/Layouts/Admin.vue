@@ -51,7 +51,7 @@
                       @click="sidebarOpen = false"
                     >
                       <span class="sr-only">Close sidebar</span>
-                      <XIcon
+                      <XMarkIcon
                         class="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
@@ -194,7 +194,8 @@
             @click="sidebarOpen = true"
           >
             <span class="sr-only"> Open sidebar </span>
-            <MenuIcon
+
+            <Bars3Icon
               class="h-6 w-6"
               aria-hidden="true"
             />
@@ -218,18 +219,18 @@
     TransitionRoot,
   } from '@headlessui/vue'
   import {
-    AdjustmentsIcon,
+    AdjustmentsHorizontalIcon,
     BookOpenIcon,
     BriefcaseIcon,
-    GlobeIcon,
+    GlobeAltIcon,
     HomeIcon,
     IdentificationIcon,
-    MenuIcon,
+    Bars3Icon,
     TicketIcon,
     UserGroupIcon,
     UsersIcon,
-    XIcon,
-  } from '@heroicons/vue/outline'
+    XMarkIcon,
+  } from '@heroicons/vue/24/outline'
 
   const navigation = ref([])
   const sidebarOpen = ref(false)
@@ -277,7 +278,7 @@
       {
         name: 'Tracks',
         href: route('admin.tracks.index'),
-        icon: GlobeIcon,
+        icon: GlobeAltIcon,
         current: route().current('admin.tracks.*'),
       },
       {
@@ -289,7 +290,7 @@
       {
         name: 'UI Test',
         href: route('admin.ui.test'),
-        icon: AdjustmentsIcon,
+        icon: AdjustmentsHorizontalIcon,
         current: route().current('admin.ui.test'),
       },
     ]

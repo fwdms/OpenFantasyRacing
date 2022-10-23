@@ -46,10 +46,7 @@
   </div>
 </template>
 
-<script setup>
-  import { ChartPieIcon } from '@heroicons/vue/outline'
-  import { ClipboardListIcon } from '@heroicons/vue/outline'
-  
+<script setup>  
   const props = defineProps({
     franchise: Object,
     drivers: Array

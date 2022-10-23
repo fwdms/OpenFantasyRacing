@@ -8,8 +8,8 @@
             hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
           >
             <span class='sr-only'>Open main menu</span>
-            <MenuIcon v-if='!open' class='block h-6 w-6' aria-hidden='true' />
-            <XIcon v-else class='block h-6 w-6' aria-hidden='true' />
+            <Bars3Icon v-if='!open' class='block h-6 w-6' aria-hidden='true' />
+            <XMarkIcon v-else class='block h-6 w-6' aria-hidden='true' />
           </DisclosureButton>
         </div>
         <div class='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
@@ -95,7 +95,7 @@
             focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
           >
             <span class='sr-only'>View notifications</span>
-            <BellIcon class='h-6 w-6' aria-hidden='true' />
+            <BellAlertIcon class='h-6 w-6' aria-hidden='true' />
           </button>
         </div>
         
@@ -128,7 +128,7 @@
 <script setup>
   import { computed } from 'vue'
   import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-  import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+  import { BellAlertIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
   import { usePage } from '@inertiajs/inertia-vue3'
   
   const appName = computed(() => usePage().props.value.appName)
