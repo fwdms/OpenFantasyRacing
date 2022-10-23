@@ -17,6 +17,8 @@ class Constructor extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function franchise(): BelongsTo
     {
         return $this->belongsTo(Franchise::class);

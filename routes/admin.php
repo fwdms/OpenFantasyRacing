@@ -1,4 +1,4 @@
- <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -6,23 +6,31 @@ Route::controller('DashboardController')->group(function () {
     Route::get('/dashboard', 'adminIndex')->name('admin.dashboard.index');
 });
 
-Route::controller('FranchiseController')->prefix('/frachises')->group(function () {
+Route::controller('FranchiseController')->prefix('/franchises')->group(function () {
     Route::get('/', 'adminIndex')->name('admin.franchise.index');
     Route::get('/create', 'create')->name('admin.franchise.create');
     Route::post('/store', 'store')->name('admin.franchise.store');
+    Route::get('/{franchise}/edit', 'edit')->name('admin.franchise.edit');
+    Route::put('/{franchise}', 'update')->name('admin.franchise.update');
+    Route::delete('/{franchise}', 'destroy')->name('admin.franchise.destroy');
 });
 
-Route::controller('ConstructorController')->group(function () {
-    Route::get('/constructors', 'adminIndex')->name('admin.constructor.index');
+Route::controller('ConstructorController')->prefix('/constructors')->group(function () {
+    Route::get('/', 'adminIndex')->name('admin.constructor.index');
+    Route::get('/create', 'create')->name('admin.constructor.create');
+    Route::post('/', 'store')->name('admin.constructor.store');
+    Route::get('/{team}/edit', 'edit')->name('admin.constructor.edit');
+    Route::put('/{team}', 'update')->name('admin.constructor.update');
+    Route::delete('/{team}', 'destroy')->name('admin.constructor.destroy');
 });
 
-Route::controller('DriverController')->group(function () {
-    Route::get('/driver', 'adminIndex')->name('admin.driver.index');
-    Route::get('/driver/create', 'create')->name('admin.driver.create');
-    Route::post('/driver', 'store')->name('admin.driver.store');
-    Route::get('/driver/{driver}/edit', 'edit')->name('admin.driver.edit');
-    Route::put('/driver/{driver}', 'update')->name('admin.driver.update');
-    Route::delete('/driver/{driver}', 'destroy')->name('admin.driver.destroy');
+Route::controller('DriverController')->prefix('driver')->group(function () {
+    Route::get('/', 'adminIndex')->name('admin.driver.index');
+    Route::get('/create', 'create')->name('admin.driver.create');
+    Route::post('/', 'store')->name('admin.driver.store');
+    Route::get('/{driver}/edit', 'edit')->name('admin.driver.edit');
+    Route::put('/{driver}', 'update')->name('admin.driver.update');
+    Route::delete('/{driver}', 'destroy')->name('admin.driver.destroy');
 });
 
 Route::controller('ResultsController')->prefix('/results')->group(function () {

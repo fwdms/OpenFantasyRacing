@@ -101,10 +101,14 @@ class DriverController extends Controller
     public function update(Driver $driver, DriverRequest $request)
     {
         $driver->update($request->validated());
+
+        return Redirect(route('admin.driver.index'));
     }
 
     public function destroy(Driver $driver)
     {
         $driver->delete();
+
+        return Redirect(route('admin.driver.index'));
     }
 }

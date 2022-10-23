@@ -15,13 +15,14 @@ class FranchiseRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required'
+            'slug' => 'required',
+            'governing_body' => 'nullable'
         ];
     }
-    
+
     public function messages()
     {
-        return [ 
+        return [
             'name.required' => 'Franchise name is required.',
             'slug.required' => 'Franchise slug is required.'
         ];
