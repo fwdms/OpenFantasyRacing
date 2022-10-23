@@ -11,7 +11,10 @@ class Track extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
-    protected $fillable = [];
+    public function event()
+    {
+        $this->belongsTo(Event::class);
+    }
 }
