@@ -35,8 +35,6 @@
                 Submit
             </Button>
        </div>
-
-
     </form>
 </template>
 
@@ -45,15 +43,27 @@
     import Input from '@/Shared/Form/Input.vue'
     import Button from '@/Shared/Form/Button.vue';
     
+    const props = defineProps([
+        'franchise'
+    ])
+    
     const form = useForm({
-        name: '',
-        slug: '',
-        governing_body: ''
+        name: props.franchise?.name ?? '',
+        slug: props.franchise?.slug ?? '',
+        governing_body: props.franchise?.governing_body ?? ''
     })
     
     const submit = () => {
-        form.post(route('admin.franchise.store'), {
-            onFinish: () => form.reset(),
-        })
+        if(props.franchise !== undefined) {
+            form.put(
+                route('admin.franchise.update', { franchise: props.franchise.id })
+            )
+        }
+        else {
+            form.post(
+                route('admin.franchise.store')
+            )
+        }
+
     }
 </script>

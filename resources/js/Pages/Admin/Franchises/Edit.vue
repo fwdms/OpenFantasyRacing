@@ -3,19 +3,17 @@
 
   <PageHeader title="Edit Driver" />
 
-  <Driver
-    :franchises="franchises"
-    :driver="driver"
+  <Franchise
+    :franchise="franchise"
   />
 </template>
 
 <script setup>
   import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
-  import Driver from '@/Shared/Forms/Driver.vue'
+  import Franchise from '@/Shared/Forms/Franchise.vue'
 
   const props = defineProps([
-    'franchises', 
-    'driver'
+    'franchise'
   ])
 </script>
 

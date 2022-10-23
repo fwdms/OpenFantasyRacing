@@ -43,8 +43,17 @@
 			</TableColumn>
 
 			<TableColumn>
-				<Button> edit </Button>
-				<Button> x </Button>
+				<Link :href="route('admin.franchise.edit', {franchise: franchise.id})">
+					<Button> edit </Button>
+				</Link>
+
+				<Button
+					@click="deleteFranchise(franchise)"
+				> 
+					x 
+				</Button>
+
+
 			</TableColumn>
 		</tr>
 	</Table>
@@ -54,18 +63,25 @@
 	import Table from '@/Shared/Tables/Table.vue'
 	import TableColumn from '@/Shared/Tables/TableColumn.vue'
 	import Button from '@/Shared/Form/Button.vue'
-
+	import { Inertia } from '@inertiajs/inertia'
+	
 	const props = defineProps([
-    'franchises'
-  ])
+		'franchises'
+	])
 
 	const headers = [
-    'Franchise ID',
-    'Name',
-    'Slug', 
-    'Governing Body', 
-    ''
-  ]
+		'Franchise ID',
+		'Name',
+		'Slug', 
+		'Governing Body', 
+		''
+	]
+	
+	function deleteFranchise(franchise) {
+		Inertia.delete(
+			route('admin.franchise.destroy', {franchise: franchise.id})
+		)
+	}
   
 </script>
 

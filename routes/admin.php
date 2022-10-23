@@ -10,6 +10,9 @@ Route::controller('FranchiseController')->prefix('/frachises')->group(function (
     Route::get('/', 'adminIndex')->name('admin.franchise.index');
     Route::get('/create', 'create')->name('admin.franchise.create');
     Route::post('/store', 'store')->name('admin.franchise.store');
+    Route::get('/{franchise}/edit', 'edit')->name('admin.franchise.edit');
+    Route::put('/{franchise}', 'update')->name('admin.franchise.update');
+    Route::delete('/{franchise}', 'destroy')->name('admin.franchise.destroy');
 });
 
 Route::controller('ConstructorController')->group(function () {
