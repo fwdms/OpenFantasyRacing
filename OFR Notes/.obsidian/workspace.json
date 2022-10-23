@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "22344dc58b2e89d1",
+    "type": "split",
+    "children": [
+      {
+        "id": "c8d235c16d5859b5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "09c408397babc984",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Models/Drivers.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4ff7a815982fe9ac",
+    "type": "split",
+    "children": [
+      {
+        "id": "8dc8c7b7139de750",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "34da74364f1c3747",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bc545df9c3c34b42",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f801bd1e8200a0b5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4b74a8b1eddb6889",
+    "type": "split",
+    "children": [
+      {
+        "id": "8451a67f1381ad4e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5805cf9a7e76f716",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Models/Drivers.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "38ebde319133d2c0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Models/Drivers.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "df3bfbe6040639c2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "744bc9cf314bb567",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Models/Drivers.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "09c408397babc984",
+  "lastOpenFiles": []
+}
