@@ -68,8 +68,13 @@
       </TableColumn>
 
       <TableColumn>
-        <Button>edit</Button>
-        <Button>x</Button>
+        <Link :href="route('admin.constructor.edit', { team: team.id })">
+          <Button>edit</Button>
+        </Link>
+
+        <Button @click="deleteConstructor(team)">
+          x
+        </Button>
       </TableColumn>
     </tr>
   </Table>
@@ -78,6 +83,8 @@
 <script setup>
 import {ref} from 'vue'
 import axios from 'axios'
+import {Inertia} from "@inertiajs/inertia"
+import {useForm} from "@inertiajs/inertia-vue3"
 import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
 import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 import Button from '@/Shared/Form/Button.vue'
@@ -99,6 +106,8 @@ const headers = [
   '',
 ]
 
+const form = useForm()
+
 function franchiseSelected() {
   axios
       .get(
@@ -110,6 +119,15 @@ function franchiseSelected() {
         constructors.value = res.data.data
       })
 }
+
+function deleteConstructor(team) {
+  form.delete(
+      route('admin.constructor.destroy', {team: team.id}), {
+        onSuccess: () => Inertia.visit(route('admin.constructor.index'))
+      }
+  )
+}
+
 </script>
 
 <script>

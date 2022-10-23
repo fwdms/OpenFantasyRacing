@@ -1,9 +1,9 @@
 <template>
-  <Header title="Create a Constructor"/>
+  <Header title="Edit a Constructor"/>
 
-  <PageHeader title="Create a Constructor / Team"/>
+  <PageHeader title="Edit a Constructor / Team"/>
 
-  <Constructor :franchises="franchises"/>
+  <Constructor :franchises="franchises" :team="team"/>
 </template>
 
 <script setup>
@@ -11,7 +11,8 @@ import PageHeader from "@/Shared/PageHeadings/PageHeader.vue"
 import Constructor from "@/Shared/Forms/Constructor.vue"
 
 const props = defineProps([
-  'franchises'
+  'franchises',
+  'team'
 ])
 </script>
 

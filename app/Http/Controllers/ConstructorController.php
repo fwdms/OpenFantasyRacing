@@ -10,10 +10,11 @@ use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ConstructorController extends Controller
 {
-    public function adminIndex()
+    public function adminIndex(): Response
     {
         $franchises = Franchise::all();
 
@@ -35,17 +36,21 @@ class ConstructorController extends Controller
             ->with(compact('franchise', 'teams'));
     }
 
-    public function create()
+    public function create(): Response
     {
-        $constructors = Constructor::all();
+        $franchises = Franchise::all();
 
         return Inertia::render('Admin/Constructors/Create')
-            ->with(compact('constructors'));
+            ->with(compact('franchises'));
     }
 
-    public function store(ConstructorRequest $request)
+    public function store(ConstructorRequest $request): RedirectResponse
     {
-        dd($request);
+        Constructor::create(
+            $request->validated()
+        );
+
+        return redirect()->route('admin.constructor.index');
     }
 
     public function show(Franchise $franchise, string $slug): Response
@@ -87,5 +92,31 @@ class ConstructorController extends Controller
                 'franchise',
                 'results'
             ));
+    }
+
+    public function edit(Constructor $team): Response
+    {
+        $team->load('franchise');
+
+        $franchises = Franchise::all();
+
+        return Inertia::render('Admin/Constructors/Edit')
+            ->with(compact('franchises', 'team'));
+    }
+
+    public function update(Constructor $team, ConstructorRequest $request): RedirectResponse
+    {
+        $team->update(
+            $request->validated()
+        );
+
+        return redirect()->route('admin.constructor.index');
+    }
+
+    public function destroy(Constructor $team)
+    {
+        $team->delete();
+
+        return redirect()->route('admin.constructor.index');
     }
 }

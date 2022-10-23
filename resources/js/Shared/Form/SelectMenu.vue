@@ -1,52 +1,58 @@
 <template>
   <div class='my-2 mx-2'>
     <label
-      :for='label'
-      class='block text-sm font-medium text-gray-700 mx-3'
+        :for='label'
+        class='block text-sm font-medium text-gray-700 mx-3'
     >
       {{ label }}
     </label>
-    
+
     <select
-      :id='label'
-      :name='label'
-      class='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300
+        :id='label'
+        :name='label'
+        class='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300
       focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md'
-      v-model='selectedOption'
+        v-model='selectedOption'
     >
       <option></option>
-      
+
       <option
-        v-for='option in options'
-        :value='option'
+          v-for='option in options'
+          :value='option'
       >
         {{ option.name }}
-        
+
         {{ option.first_name }}
         {{ option.last_name }}
       </option>
     </select>
+
+    <p class="mt-2 text-orange-600">
+      {{ errors }}
+    </p>
+
   </div>
 </template>
 
 <script setup>
-  import { computed } from 'vue'
-  
-  const props = defineProps({
-    label: String,
-    options: Array,
-    modelValue: Object
-  })
-  
-  const emit = defineEmits(['update:modelValue'])
-  
-  const selectedOption = computed({
-    get() {
-      return props.modelValue
-    },
-    set(value) {
-      emit('update:modelValue', value)
-    }
-  })
+import {computed} from 'vue'
+
+const props = defineProps({
+  label: String,
+  errors: String,
+  options: Array,
+  modelValue: Object
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const selectedOption = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
 
 </script>

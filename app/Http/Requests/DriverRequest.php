@@ -6,33 +6,32 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DriverRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'constructor_id' => request()->constructor['id'],
+        ]);
+    }
+
+    public function rules(): array
     {
         return [
+            'constructor_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'number' => 'integer'
         ];
     }
 
-    public function message()
+    public function message(): array
     {
         return [
+            'constructor_id.required' => 'A constructor / team is required',
             'first_name.required' => 'A drivers first name is required.',
             'last_name.required' => 'A drivers last name is required',
             'number.integer' => "Driver's number must be a number."
