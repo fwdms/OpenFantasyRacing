@@ -9,6 +9,7 @@ Route::controller('DashboardController')->group(function () {
 Route::controller('FranchiseController')->prefix('/frachises')->group(function () {
     Route::get('/', 'adminIndex')->name('admin.franchise.index');
     Route::get('/create', 'create')->name('admin.franchise.create');
+    Route::post('/store', 'store')->name('admin.franchise.store');
 });
 
 Route::controller('ConstructorController')->group(function () {
