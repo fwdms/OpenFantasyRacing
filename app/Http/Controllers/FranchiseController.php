@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FranchiseRequest;
 use App\Models\Franchise;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -19,5 +20,14 @@ class FranchiseController extends Controller
     public function create()
     {
         return Inertia::render('Admin/Franchises/Create');
+    }
+    
+    public function store(FranchiseRequest $request)
+    {
+        dd($request->validated());
+    
+        return Franchise::create(
+            $request->validated()
+        );
     }
 }
