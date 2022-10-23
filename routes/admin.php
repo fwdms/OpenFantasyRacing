@@ -1,4 +1,4 @@
- <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +15,9 @@ Route::controller('FranchiseController')->prefix('/frachises')->group(function (
     Route::delete('/{franchise}', 'destroy')->name('admin.franchise.destroy');
 });
 
-Route::controller('ConstructorController')->group(function () {
-    Route::get('/constructors', 'adminIndex')->name('admin.constructor.index');
+Route::controller('ConstructorController')->prefix('/constructors')->group(function () {
+    Route::get('/', 'adminIndex')->name('admin.constructor.index');
+    Route::get('/create', 'create')->name('admin.constructor.create');
 });
 
 Route::controller('DriverController')->group(function () {

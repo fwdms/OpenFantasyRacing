@@ -23,13 +23,11 @@ class CollectionController extends Controller
                 ->get()
         );
     }
-    
+
     public function drivers(Franchise $franchise): ResourceCollection
     {
-        $franchise = $franchise
-            ->with('constructors')
-            ->firstOrFail();
-        
+        $franchise->load('constructors');
+
         return new JsonCollection(
             Driver::query()
                 ->whereIn('constructor_id', $franchise->constructors->pluck('id'))
@@ -38,7 +36,7 @@ class CollectionController extends Controller
                 ->get()
         );
     }
-    
+
     public function constructors(Franchise $franchise): ResourceCollection
     {
         return new JsonCollection(
@@ -48,7 +46,7 @@ class CollectionController extends Controller
                 ->get()
         );
     }
-    
+
     public function events(Franchise $franchise): ResourceCollection
     {
         return new JsonCollection(

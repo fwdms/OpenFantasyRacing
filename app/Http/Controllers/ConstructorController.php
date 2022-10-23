@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConstructorRequest;
 use App\Models\Constructor;
 use App\Models\Driver;
 use App\Models\Franchise;
@@ -32,6 +33,19 @@ class ConstructorController extends Controller
 
         return Inertia::render('Constructors/Index')
             ->with(compact('franchise', 'teams'));
+    }
+
+    public function create()
+    {
+        $constructors = Constructor::all();
+
+        return Inertia::render('Admin/Constructors/Create')
+            ->with(compact('constructors'));
+    }
+
+    public function store(ConstructorRequest $request)
+    {
+        dd($request);
     }
 
     public function show(Franchise $franchise, string $slug): Response
