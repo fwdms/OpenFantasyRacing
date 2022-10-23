@@ -11,12 +11,8 @@
             "id": "09c408397babc984",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Models/Drivers.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Models/Drivers.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Models/Drivers.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Models/Drivers.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -140,5 +132,7 @@
     "mostRecentAction": ""
   },
   "active": "09c408397babc984",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Models/Drivers.md"
+  ]
 }
