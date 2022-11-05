@@ -15,4 +15,3 @@ jobs:
                 with:
                     path: .
                     options: --exclude=*.log
-            -   run: pint --test
