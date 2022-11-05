@@ -30,7 +30,7 @@ class ResultsController extends Controller
             'finish_pos' => $request->finish_pos,
             'fastest_lap' => $request->fastest_lap,
             'points_for_race' => $pointsEarned,
-            'DNF' => $request->DNF
+            'DNF' => $request->DNF,
         ]);
     }
 
@@ -43,7 +43,7 @@ class ResultsController extends Controller
             'finish_pos' => $request->finish_pos,
             'fastest_lap' => $request->fastest_lap,
             'points_for_race' => $result->calculatePoints($request),
-            'DNF' => $request->DNF
+            'DNF' => $request->DNF,
         ]);
 
         return $response;

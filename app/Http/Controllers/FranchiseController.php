@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FranchiseRequest;
+use App\Models\Franchise;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Models\Franchise;
-use App\Http\Requests\FranchiseRequest;
-use Illuminate\Support\Facades\Redirect;
 
 class FranchiseController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Database\Seeders\FranchiseSeeder;
 use Database\Seeders\ConstructorSeeder;
-use Inertia\Testing\AssertableInertia as Assert;
+use Database\Seeders\FranchiseSeeder;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Inertia\Testing\AssertableInertia as Assert;
+use Tests\TestCase;
 
 class ConstructorTest extends TestCase
 {
@@ -18,7 +18,7 @@ class ConstructorTest extends TestCase
 
         $this->seed([
             FranchiseSeeder::class,
-            ConstructorSeeder::class
+            ConstructorSeeder::class,
         ]);
     }
 

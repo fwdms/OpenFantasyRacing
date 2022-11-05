@@ -16,7 +16,7 @@ class FranchiseRequest extends FormRequest
         return [
             'name' => 'required',
             'slug' => 'required',
-            'governing_body' => 'nullable'
+            'governing_body' => 'nullable',
         ];
     }
 
@@ -24,7 +24,7 @@ class FranchiseRequest extends FormRequest
     {
         return [
             'name.required' => 'Franchise name is required.',
-            'slug.required' => 'Franchise slug is required.'
+            'slug.required' => 'Franchise slug is required.',
         ];
     }
 }

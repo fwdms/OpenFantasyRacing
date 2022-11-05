@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Constructor;
-use App\Models\User;
-use Inertia\Inertia;
-use App\Models\Event;
-use Inertia\Response;
 use App\Models\Driver;
-use App\Models\Result;
-use App\Models\Franchise;
+use App\Models\Event;
 use App\Models\FantasyTeam;
+use App\Models\Franchise;
 use App\Models\League;
+use App\Models\Result;
 use App\Models\Track;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class DashboardController extends Controller
 {

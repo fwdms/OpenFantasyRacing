@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * @mixin Builder
+ *
  * @property int $id
  * @property string $franchise_slug
  * @property array $constructors

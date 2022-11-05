@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin Builder
+ *
  * @property int $id
  */
 class Event extends Model

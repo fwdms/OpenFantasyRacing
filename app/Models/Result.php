@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 /**
  * @mixin Builder
+ *
  * @property int $id
  */
 class Result extends Model
