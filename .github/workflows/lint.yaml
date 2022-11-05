@@ -15,3 +15,4 @@ jobs:
                 with:
                     path: .
                     options: --exclude=*.log
+            -   run: pint --test --preset laravel
