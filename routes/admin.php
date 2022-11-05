@@ -48,8 +48,11 @@ Route::controller('Auth\RegisteredUserController')->group(function () {
     Route::get('/users', 'index')->name('admin.users.index');
 });
 
-Route::controller('TrackController')->group(function () {
-    Route::get('/tracks', 'index')->name('admin.tracks.index');
+Route::controller('TrackController')->prefix('tracks')->group(function () {
+    Route::get('/', 'index')->name('admin.tracks.index');
+    Route::get('/create', 'create')->name('admin.tracks.create');
+    Route::post('/', 'store')->name('admin.tracks.store');
+    Route::delete('/{track}', 'destroy')->name('admin.tracks.destroy');
 });
 
 Route::controller('TestController')->group(function () {
