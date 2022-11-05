@@ -28,7 +28,7 @@ class DashboardController extends Controller
         $tracks = Track::all()->count();
         $leagues = League::all()->count();
         $constructors = Constructor::all()->count();
-                
+
         return Inertia::render('Admin/Dashboard')
             ->with(compact('users', 'franchises', 'constructors', 'drivers', 'events', 'results', 'fantasyTeams', 'tracks', 'leagues'));
     }
