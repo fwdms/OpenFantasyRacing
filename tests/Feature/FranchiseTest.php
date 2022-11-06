@@ -2,11 +2,9 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-
-use Illuminate\Foundation\Testing\WithFaker;
-use Inertia\Testing\AssertableInertia as Assert;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Inertia\Testing\AssertableInertia as Assert;
+use Tests\TestCase;
 
 class FranchiseTest extends TestCase
 {

@@ -13,12 +13,13 @@ class EventController extends Controller
     public function adminIndex()
     {
         $franchises = Franchise::get();
-        
-        return Inertia::render('Admin/Events/Index',
+
+        return Inertia::render(
+            'Admin/Events/Index',
             ['franchises' => $franchises]
         );
     }
-    
+
     public function index(Franchise $franchise): Response
     {
         $events = Race::query()
@@ -26,22 +27,22 @@ class EventController extends Controller
             ->with('track')
             ->orderBy('date', 'ASC')
             ->get();
-        
+
         return Inertia::render('Events/Index')
             ->with(compact('franchise', 'events'));
     }
-    
+
     public function show(Franchise $franchise, Race $race): Response
     {
         $event = $race->load('track');
-        
+
         $results = Result::query()
             ->where('race_id', $event->id)
             ->with('driver')
             ->orderBy('finish_pos', 'ASC')
             ->orderBy('starting_pos', 'ASC')
             ->get();
-        
+
         return Inertia::render('Events/Show')
             ->with(compact('franchise', 'event', 'results'));
     }

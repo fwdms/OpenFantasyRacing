@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * @mixin Builder
+ *
  * @property int $id
  */
 class Constructor extends Model

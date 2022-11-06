@@ -19,6 +19,7 @@ class RegisteredUserController extends Controller
     public function index(): Response
     {
         $users = User::all();
+
         return Inertia::render('Admin/Users/Index')
             ->with(compact('users'));
     }
@@ -33,6 +34,7 @@ class RegisteredUserController extends Controller
 
     /**
      * Handle an incoming registration request.
+     *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse

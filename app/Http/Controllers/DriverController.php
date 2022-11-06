@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DriverRequest;
-use Redirect;
+use App\Models\Constructor;
+use App\Models\Driver;
+use App\Models\Franchise;
+use App\Models\Result;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Models\Driver;
-use App\Models\Result;
-use App\Models\Franchise;
-use App\Models\Constructor;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 
 class DriverController extends Controller
 {

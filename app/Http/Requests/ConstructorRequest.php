@@ -24,7 +24,7 @@ class ConstructorRequest extends FormRequest
             'franchise_id' => 'required',
             'name' => 'required',
             'short_name' => 'nullable',
-            'slug' => 'required'
+            'slug' => 'required',
         ];
     }
 
@@ -33,7 +33,7 @@ class ConstructorRequest extends FormRequest
         return [
             'franchise_id.required' => 'A franchise is required',
             'name.required' => 'Constructor name is required.',
-            'slug.required' => 'Constructor slug is required.'
+            'slug.required' => 'Constructor slug is required.',
         ];
     }
 }

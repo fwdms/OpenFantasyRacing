@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn() => inertia('Home'))->name('home.index');
+Route::get('/', fn () => inertia('Home'))->name('home.index');
 
 Route::controller('FaqController')
     ->group(function () {
@@ -90,4 +90,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

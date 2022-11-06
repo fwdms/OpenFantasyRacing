@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Builder
+ *
  * @property int $id
  */
 class League extends Model
