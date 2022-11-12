@@ -15,4 +15,4 @@ jobs:
                     php-version: ${{ matrix.php }}
                     tools: laravel/pint, overtrue/phplint:${{ matrix.php }}.x-dev
             -   run: phplint --exclude=*.log .
-            -   run: pint --test
+            -   run: pint
