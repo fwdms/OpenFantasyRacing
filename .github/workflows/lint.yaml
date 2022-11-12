@@ -14,6 +14,5 @@ jobs:
                 with:
                     php-version: ${{ matrix.php }}
                     tools: laravel/pint
-            -   run: pint
             -   run: pint --test
          
