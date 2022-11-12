@@ -61,7 +61,6 @@ class ConstructorController extends Controller
             ->with('results')
             ->first();
 
-        /** @var Constructor $team */
         $drivers = Driver::query()
             ->where('constructor_id', $team->id)
             ->with('results')
@@ -69,10 +68,8 @@ class ConstructorController extends Controller
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
-        $drivers_Ids = $drivers->pluck('id');
-
         $results = Result::query()
-            ->whereIn('driver_id', $drivers_Ids)
+            ->whereIn('driver_id', $drivers->pluck('id'))
             ->with('Race')
             ->with('Driver')
             ->orderBy(
