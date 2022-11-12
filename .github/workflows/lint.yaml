@@ -13,5 +13,5 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
-                    tools: laravel/pint, overtrue/phplint:${{ matrix.php }}.x-dev
+                    tools: laravel/pint
             -   run: pint --test
