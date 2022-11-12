@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                php: [ '8.0', '8.1' ]
+                php: [ '8.0', '8.1', '8.2' ]
         steps:
             -   uses: actions/checkout@v3
             -   name: Setup PHP
@@ -14,5 +14,4 @@ jobs:
                 with:
                     php-version: ${{ matrix.php }}
                     tools: laravel/pint, overtrue/phplint:${{ matrix.php }}.x-dev
-            -   run: phplint --exclude=*.log .
-            -   run: pint
+            -   run: pint --test
