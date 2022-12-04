@@ -1,24 +1,24 @@
 <template>
-  <div class="flex flex-wrap justify-center items-center mt-4">
+  <div class="flex flex-wrap justify-center items-start mt-4">
     <Input
-        label="First Name"
+        label="Name"
         v-model="form.first_name"
         :errors="form.errors.first_name"
         required
     />
 
     <Input
-        label="Last Name"
-        v-model="form.last_name"
-        :errors="form.errors.last_name"
+        label="Round Number"
+        v-model="form.first_name"
+        :errors="form.errors.first_name"
         required
     />
 
     <Input
-        label="Number"
-        type="number"
-        v-model="form.number"
-        :errors="form.errors.number"
+        label="Date of Event"
+        v-model="form.first_name"
+        :errors="form.errors.first_name"
+        required
     />
 
     <SelectMenu
@@ -28,16 +28,16 @@
         @change="getConstructors()"
     />
 
-    <SelectMenu
-        v-if="constructors.length > 0"
-        label="Constructor"
-        :options="constructors"
-        v-model="form.constructor"
+    <Combobox
+        label="Track"
+        :options="props.tracks"
+        v-model="form.track"
     />
 
-    <Toggle
-        label="Rookie"
+    <SelectMenu
+        label="Event Type"
         v-model="form.is_rookie"
+        :options="options"
     />
   </div>
 
@@ -59,51 +59,34 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
 import {useForm} from '@inertiajs/inertia-vue3'
-import axios from 'axios'
 import Input from '@/Shared/Form/Input.vue'
 import Button from '@/Shared/Form/Button.vue'
 import SelectMenu from '@/Shared/Form/SelectMenu.vue'
-import Toggle from '@/Shared/Form/Toggle.vue'
+import Combobox from "@/Shared/Form/Combobox.vue";
 
-const props = defineProps(['franchises', 'driver'])
+const props = defineProps([
+  'franchises',
+  'tracks'
+])
 
 const form = useForm({
   id: props.driver?.id ?? '',
-  number: props.driver?.number ?? '',
   franchise: props.driver?.constructor.franchise ?? {},
-  first_name: props.driver?.first_name ?? '',
-  last_name: props.driver?.last_name ?? '',
-  constructor: props.driver?.constructor ?? {},
-  is_rookie: props.driver?.is_rookie ?? false,
+  track: {}
 })
 
-const constructors = ref({})
+const options = [
+  {name: 'Standard'},
+  {name: 'Sprint'},
+  {name: 'Qualifying'}
+]
 
-onMounted: {
-  if (props.driver?.constructor.franchise !== undefined) {
-    getConstructors()
-  }
-}
-
-function getConstructors() {
-  axios.get(
-      route('constructors.index.collection', {
-        franchise: form.franchise.slug,
-      })
-  ).then(res => {
-    constructors.value = res.data.data
-  })
-}
-
-function saveDriver() {
+function submit() {
   form.post(route('admin.driver.store'), {
     onSuccess: () => form.reset(),
   })
-}
 
-function updateDriver() {
   form.put(route('admin.driver.update', {driver: form.id}))
 }
 </script>

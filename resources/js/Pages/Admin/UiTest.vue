@@ -40,6 +40,7 @@
         label="Toggle"
         v-model="toggleRef"
     />
+
     <Checkbox
         label="Checkbox"
         v-model="checkbox"
@@ -64,6 +65,7 @@
         :options="props.drivers"
         v-model="combobox"
     />
+
     <SelectMenu
         label="Select Menu"
         :options="drivers"
@@ -82,7 +84,10 @@
 
   <div class="flex flex-wrap gap-x-4 justify-center mx-4 mt-4">
     <p class="my-4">
-      <span class="text-red-600">Input :</span> {{ input }} (
+      <span class="text-red-600">
+        Input :
+      </span>
+      {{ input }} (
       {{ typeof input }} )
     </p>
     <p class="my-4">
@@ -97,16 +102,25 @@
       <span class="text-red-600">Checkbox : </span> {{ checkbox }}
     </p>
     <p class="my-4">
-      <span class="text-red-600">Modal : </span> {{ modalOpen }}
+      <span class="text-red-600">
+        Modal :
+      </span>
+      {{ modalOpen }}
     </p>
   </div>
 
   <div class="mx-4 mt-4">
     <p class="my-4">
-      <span class="text-red-600">Combobox : </span> {{ combobox }}
+      <span class="text-red-600">
+        Combobox :
+      </span>
+      {{ combobox }}
     </p>
     <p class="my-4">
-      <span class="text-red-600">Select Menu : </span> {{ selectMenu }}
+      <span class="text-red-600">
+        Select Menu :
+      </span>
+      {{ selectMenu }}
     </p>
   </div>
 

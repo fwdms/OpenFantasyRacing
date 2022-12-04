@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
+use App\Models\Track;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -30,6 +31,15 @@ class EventController extends Controller
 
         return Inertia::render('Events/Index')
             ->with(compact('franchise', 'events'));
+    }
+
+    public function create(): Response
+    {
+        $franchises = Franchise::get();
+        $tracks = Track::get();
+
+        return Inertia::render('Admin/Events/Create')
+            ->with(compact('franchises', 'tracks'));
     }
 
     public function show(Franchise $franchise, Race $race): Response
