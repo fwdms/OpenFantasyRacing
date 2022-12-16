@@ -25,7 +25,7 @@ class DriverController extends Controller
     {
         $constructors = Constructor::query()
             ->where('franchise_id', $franchise->id)
-            ->with('drivers')
+            ->with(['drivers', 'results'])
             ->with('results')
             ->withSum('results', 'points_for_race')
             ->orderBy('results_sum_points_for_race', 'DESC')

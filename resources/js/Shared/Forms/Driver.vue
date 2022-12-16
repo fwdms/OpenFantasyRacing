@@ -42,6 +42,13 @@
   </div>
 
   <div class="flex flex-wrap justify-center items-center">
+    <FileUpload
+        label="Profile Image"
+        v-model="form.profile_image"
+    />
+  </div>
+
+  <div class="flex flex-wrap justify-center items-center">
     <Button
         v-if="props.driver"
         @click="updateDriver()"
@@ -66,6 +73,7 @@ import Input from '@/Shared/Form/Input.vue'
 import Button from '@/Shared/Form/Button.vue'
 import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 import Toggle from '@/Shared/Form/Toggle.vue'
+import FileUpload from "@/Shared/Form/FileUpload.vue"
 
 const props = defineProps(['franchises', 'driver'])
 
@@ -75,6 +83,7 @@ const form = useForm({
   franchise: props.driver?.constructor.franchise ?? {},
   first_name: props.driver?.first_name ?? '',
   last_name: props.driver?.last_name ?? '',
+  profile_image: props.driver?.profile_image ?? '',
   constructor: props.driver?.constructor ?? {},
   is_rookie: props.driver?.is_rookie ?? false,
 })

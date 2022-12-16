@@ -94,7 +94,10 @@
             hover:text-white focus:outline-none focus:ring-2 
             focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
           >
-            <span class='sr-only'>View notifications</span>
+            <span class='sr-only'>
+              View notifications
+            </span>
+            
             <BellAlertIcon class='h-6 w-6' aria-hidden='true' />
           </button>
         </div>
@@ -104,6 +107,7 @@
                 class='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
             Log in
           </Link>
+
           <Link :href="route('register')"
                 class='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
             Register
