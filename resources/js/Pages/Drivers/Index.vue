@@ -1,16 +1,3 @@
-<template>
-  <Header :title="franchise.name + ' Drivers'" />
-
-  <PageHeader :title="franchise.name" />
-
-  <TabBar :tabs="tabs" />
-
-  <DriversGridList
-    :franchise="franchise"
-    :drivers="drivers"
-  />
-</template>
-
 <script setup>
   import DriversGridList from '@/Shared/Lists/DriversGridList.vue'
   import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
@@ -40,3 +27,17 @@
     },
   ]
 </script>
+
+<template>
+  <Header :title="franchise.name + ' Drivers'" />
+
+  <PageHeader :title="franchise.name" />
+
+  <TabBar :tabs="tabs" />
+
+  <DriversGridList
+    :franchise="franchise"
+    :drivers="drivers"
+  />
+</template>
+
