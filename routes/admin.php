@@ -42,6 +42,7 @@ Route::controller('ResultsController')->prefix('/results')->group(function () {
 
 Route::controller('EventController')->group(function () {
     Route::get('/event', 'adminIndex')->name('admin.events.index');
+    Route::get('/event/create', 'create')->name('admin.events.create');
 });
 
 Route::controller('Auth\RegisteredUserController')->group(function () {

@@ -59,51 +59,51 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-import {useForm} from '@inertiajs/inertia-vue3'
-import axios from 'axios'
-import Input from '@/Shared/Form/Input.vue'
-import Button from '@/Shared/Form/Button.vue'
-import SelectMenu from '@/Shared/Form/SelectMenu.vue'
-import Toggle from '@/Shared/Form/Toggle.vue'
+    import {ref, onMounted} from 'vue'
+    import {useForm} from '@inertiajs/inertia-vue3'
+    import axios from 'axios'
+    import Input from '@/Shared/Form/Input.vue'
+    import Button from '@/Shared/Form/Button.vue'
+    import SelectMenu from '@/Shared/Form/SelectMenu.vue'
+    import Toggle from '@/Shared/Form/Toggle.vue'
 
-const props = defineProps(['franchises', 'driver'])
+    const props = defineProps(['franchises', 'driver'])
 
-const form = useForm({
-  id: props.driver?.id ?? '',
-  number: props.driver?.number ?? '',
-  franchise: props.driver?.constructor.franchise ?? {},
-  first_name: props.driver?.first_name ?? '',
-  last_name: props.driver?.last_name ?? '',
-  constructor: props.driver?.constructor ?? {},
-  is_rookie: props.driver?.is_rookie ?? false,
-})
+    const form = useForm({
+    id: props.driver?.id ?? '',
+    number: props.driver?.number ?? '',
+    franchise: props.driver?.constructor.franchise ?? {},
+    first_name: props.driver?.first_name ?? '',
+    last_name: props.driver?.last_name ?? '',
+    constructor: props.driver?.constructor ?? {},
+    is_rookie: props.driver?.is_rookie ?? false,
+    })
 
-const constructors = ref({})
+    const constructors = ref({})
 
-onMounted: {
-  if (props.driver?.constructor.franchise !== undefined) {
-    getConstructors()
-  }
-}
+    onMounted: {
+    if (props.driver?.constructor.franchise !== undefined) {
+        getConstructors()
+    }
+    }
 
-function getConstructors() {
-  axios.get(
-      route('constructors.index.collection', {
-        franchise: form.franchise.slug,
-      })
-  ).then(res => {
-    constructors.value = res.data.data
-  })
-}
+    function getConstructors() {
+    axios.get(
+        route('constructors.index.collection', {
+            franchise: form.franchise.slug,
+        })
+    ).then(res => {
+        constructors.value = res.data.data
+    })
+    }
 
-function saveDriver() {
-  form.post(route('admin.driver.store'), {
-    onSuccess: () => form.reset(),
-  })
-}
+    function saveDriver() {
+    form.post(route('admin.driver.store'), {
+        onSuccess: () => form.reset(),
+    })
+    }
 
-function updateDriver() {
-  form.put(route('admin.driver.update', {driver: form.id}))
-}
+    function updateDriver() {
+    form.put(route('admin.driver.update', {driver: form.id}))
+    }
 </script>
