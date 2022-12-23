@@ -15,7 +15,8 @@
         franchise: props.event?.franchise ?? {},
         name: props.event?.name ?? '',
         short_name: props.event?.short_name ?? '',
-        slug: props.event?.slug ?? ''
+        slug: props.event?.slug ?? '',
+        track: props.event?.track_id ?? {} 
     })
 
     function submit() {
@@ -72,9 +73,16 @@
             <Combobox 
                 label="Track"
                 :keys="['name']"
-                :display="name"
+                :inputDisplay="[
+                    'name'
+                ]"
                 :options="props.tracks"
-            />
+                v-model="form.track"
+            >
+                <template #option="{ option }">
+                    {{ option.name }}
+                </template>
+            </Combobox>
 
             <Input
                 label="Slug"

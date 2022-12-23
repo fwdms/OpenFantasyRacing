@@ -40,7 +40,7 @@
 	
 	function buildString(option) {
 		let string = []
-		console.log(option)
+
 		props.inputDisplay.map(key => {
 			string.push(Object.getOwnPropertyDescriptor(option, key).value)
 		})
@@ -54,7 +54,7 @@
 		as="div"
 		v-model="selectedOption"
 		@update:modelValue="$emit('selected', selectedOption)"
-		class="mx-4"
+		class="mx-4 my-2"
 	>
 		<Label>
 			{{ label }}
