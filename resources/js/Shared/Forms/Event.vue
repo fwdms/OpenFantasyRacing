@@ -11,12 +11,19 @@
         'event'
     ])
 
+    const raceTypes = [
+        'standard',
+        'sprint'
+    ]
+
     const form = useForm({
         franchise: props.event?.franchise ?? {},
         name: props.event?.name ?? '',
         short_name: props.event?.short_name ?? '',
         slug: props.event?.slug ?? '',
-        track: props.event?.track_id ?? {} 
+        round_number: props.event?.round_number ?? '',
+        track: props.event?.track_id ?? {},
+        race_type: props.event?.race_type ?? '' 
     })
 
     function submit() {
@@ -54,22 +61,13 @@
             />
 
             <Input
-                label="Event Name"
+                label="Round #"
                 required
-                v-model="form.name"
+                type="number"
+                v-model="form.round_number"
                 :errors="form.errors.name"
             />
 
-            <SelectMenu
-                label="Track"
-                class="w-48"
-                :options="franchises"
-                v-model="form.franchise"
-                :errors="form.errors.franchise_id"
-                @change="form.clearErrors()"
-                required
-            />
-            
             <Combobox 
                 label="Track"
                 :keys="['name']"
@@ -84,11 +82,19 @@
                 </template>
             </Combobox>
 
-            <Input
-                label="Slug"
-                v-model="form.slug"
+            <SelectMenu
+                label="Race Type"
+                class="w-48"
+                :options="raceTypes"
+                v-model="form.race_type"
+                :errors="form.errors.franchise_id"
+                @change="form.clearErrors()"
                 required
-            />
+            >
+                <template #option="option">
+                    {{ option }}
+                </template>
+            </SelectMenu>
         </div>
         
         <div class="text-center">

@@ -50,11 +50,10 @@
 </script>
 
 <template>
-	<Combobox
-		as="div"
+	<Combobox as="div"
 		v-model="selectedOption"
 		@update:modelValue="$emit('selected', selectedOption)"
-		class="mx-4 my-2"
+		class="mx-2 my-2"
 	>
 		<Label>
 			{{ label }}
@@ -63,8 +62,8 @@
 		<div class="relative mt-1">
 			<ComboboxInput
 				class="
-					w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm 
-					focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:text-sm
+					mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300
+					focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md
 				"
 				@change="query = $event.target.value"
 				autocomplete="off"
@@ -93,8 +92,7 @@
 					as="template"
 					v-slot="{ active, selected }"
 				> 
-					<li
-						:class="[
+					<li :class="[
 							'relative cursor-default select-none py-2 pl-3 pr-9',
 							active ? 'bg-orange-600 text-white' : 'text-gray-900',
 						]"
@@ -118,6 +116,10 @@
 					</li>
 				</ComboboxOption>
 			</ComboboxOptions>
+
+			<p class="mt-2 text-orange-600">
+				{{ errors }}
+			</p>
 		</div>
 	</Combobox>
 </template>

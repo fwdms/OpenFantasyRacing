@@ -92,21 +92,49 @@
 
 	<div class="flex flex-wrap items-center justify-center my-4">
 		<Input
-				label="Input"
-				v-model="input"
+			label="Input"
+			v-model="input"
 		/>
 		
 		<Input
-				label="Input"
-				:required="true"
-				v-model="input"
+			label="Input"
+			:required="true"
+			v-model="input"
 		/>
 		
 		<Input
-				label="Input"
-				type="number"
-				v-model="numInput"
+			label="Input"
+			type="number"
+			v-model="numInput"
 		/>
+		
+		<Combobox
+			label="Combobox"
+			:options="props.drivers"
+			:keys="[
+				'first_name', 
+				'last_name',
+			]"
+			:inputDisplay = "[
+				'first_name',
+				'last_name',
+			]"
+			v-model="combobox"
+		>
+			<template #option="{ option }">
+				{{ option.first_name + ' ' + option.last_name }} 
+			</template> 
+		</Combobox>
+		
+		<SelectMenu
+			label="Select Menu"
+			:options="drivers"
+			v-model="selectMenu"
+		>
+			<template #option="{ option }">
+				{{ option.first_name + ' ' + option.last_name }}
+			</template>
+		</SelectMenu>
 
 		<Toggle
 				label="Toggle"
@@ -135,30 +163,7 @@
 			Close Modal
 		</Button>
 
-		<Combobox
-				label="Combobox"
-				:options="props.drivers"
-				:keys="[
-						'first_name', 
-						'last_name',
-				]"
-				:inputDisplay = "[
-						'first_name',
-						'last_name',
-				]"
-				v-model="combobox"
-		>
-				<template #option="{ option }">
-					 {{ option.first_name + ' ' + option.last_name }} 
-				</template> 
-		</Combobox>
-		
 
-		<SelectMenu
-				label="Select Menu"
-				:options="drivers"
-				v-model="selectMenu"
-		/>
 	</div>
 
 	<hr class="my-4"/>
@@ -198,7 +203,7 @@
 		</p>
 	</div>
 
-	<div class="mx-4 mt-4">
+	<div class="mx-16 mt-4">
 		<p class="my-4">
 			<span class="text-red-600">Combobox : </span> {{ combobox }}
 		</p>
