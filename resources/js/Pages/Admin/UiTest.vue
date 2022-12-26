@@ -1,75 +1,76 @@
 <script>
-		import Admin from '@/Layouts/Admin.vue'
+	import Admin from '@/Layouts/Admin.vue'
 
-		export default {
+	export default {
 		layout: Admin,
-		}
+	}
 </script>
 
 <script setup>
-		import {ref} from 'vue'
-		import Combobox from '@/Shared/Form/Combobox.vue'
-		import Toggle from '@/Shared/Form/Toggle.vue'
-		import Input from '@/Shared/Form/Input.vue'
-		import Button from '@/Shared/Form/Button.vue'
-		import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
-		import Modal from '@/Shared/Overlays/Modal.vue'
-		import Checkbox from '@/Shared/Form/Checkbox.vue'
-		import SelectMenu from '@/Shared/Form/SelectMenu.vue'
-		import TabBar from '@/Shared/Navigation/TabBar.vue'
-		import Alert from '@/Shared/Feedback/Alert.vue'
+	import {ref} from 'vue'
+	import Combobox from '@/Shared/Form/Combobox.vue'
+	import Toggle from '@/Shared/Form/Toggle.vue'
+	import Input from '@/Shared/Form/Input.vue'
+	import Button from '@/Shared/Form/Button.vue'
+	import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
+	import Modal from '@/Shared/Overlays/Modal.vue'
+	import Checkbox from '@/Shared/Form/Checkbox.vue'
+	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
+	import TabBar from '@/Shared/Navigation/TabBar.vue'
+	import Alert from '@/Shared/Feedback/Alert.vue'
 
-		const props = defineProps([
-				'drivers'
-		])
+	const props = defineProps([
+		'drivers'
+	])
 
-		const combobox = ref(props.drivers[0])
-		const selectMenu = ref(props.drivers[1])
-		const input = ref('Test Input')
-		const numInput = ref(10)
-		const toggleRef = ref(true)
-		const button = ref('')
-		const checkbox = ref(true)
-		const modalOpen = ref(false)
+	const combobox = ref(props.drivers[0])
+	const selectMenu = ref(props.drivers[1])
+	const input = ref('Test Input')
+	const numInput = ref(10)
+	const toggleRef = ref(true)
+	const button = ref('')
+	const checkbox = ref(true)
+	const modalOpen = ref(false)
 
-		const tabs = [
-		{
-				name: 'Not Selected',
-				href: '#',
-				current: false,
-		},
-		{
-				name: 'Selected',
-				href: '#',
-				current: true,
-		},
-		{
-				name: 'Not Selected',
-				href: '#',
-				current: false,
-		},
-		{
-				name: 'Not Selected',
-				href: '#',
-				current: false,
-		},
-		{
-				name: 'Not Selected',
-				href: '#',
-				current: false,
-		},
-		]
+	const tabs = [
+	{
+		name: 'Not Selected',
+		href: '#',
+		current: false,
+	},
+	{
+		name: 'Selected',
+		href: '#',
+		current: true,
+	},
+	{
+		name: 'Not Selected',
+		href: '#',
+		current: false,
+	},
+	{
+		name: 'Not Selected',
+		href: '#',
+		current: false,
+	},
+	{
+		name: 'Not Selected',
+		href: '#',
+		current: false,
+	},
+	]
 
-		function buttonClicked() {
-				button.value = 'clicked'
-				setTimeout(() => {
-						button.value = ''
-				}, 1000)
-		}
+	function buttonClicked() {
+		button.value = 'clicked'
+		setTimeout(() => {
+				button.value = ''
+		}, 1000)
+	}
 </script>
 
 <template>
 	<Header title="UI Test Area"/>
+
 	<PageHeader title="UI Test Area"/>
 
 	<div class="mt-8 mb-4">
@@ -137,28 +138,28 @@
 		</SelectMenu>
 
 		<Toggle
-				label="Toggle"
-				v-model="toggleRef"
+			label="Toggle"
+			v-model="toggleRef"
 		/>
 		<Checkbox
-				label="Checkbox"
-				v-model="checkbox"
+			label="Checkbox"
+			v-model="checkbox"
 		/>
 
 		<Button @click="buttonClicked()">
-				Button
+			Button
 		</Button>
 		
 		<Button
-				v-if="modalOpen === false"
-				@click="modalOpen = !modalOpen"
+			v-if="modalOpen === false"
+			@click="modalOpen = !modalOpen"
 		>
 			Activate Modal
 		</Button>
 
 		<Button
-				v-else
-				@click="modalOpen = !modalOpen"
+			v-else
+			@click="modalOpen = !modalOpen"
 		>
 			Close Modal
 		</Button>
@@ -215,17 +216,17 @@
 
 	<div>
 		<Modal
-				title="Test Modal"
-				v-model="modalOpen"
+			title="Test Modal"
+			v-model="modalOpen"
 		>
 			<p class="mx-16">Modal Works!</p>
+
 			<Button
-					class="my-8"
-					@click="modalOpen = !modalOpen"
+				class="my-8"
+				@click="modalOpen = !modalOpen"
 			>
 				Close Modal
-			</Button
-			>
+			</Button>
 		</Modal>
 	</div>
 </template>

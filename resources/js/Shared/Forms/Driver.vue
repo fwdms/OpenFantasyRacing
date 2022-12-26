@@ -26,14 +26,22 @@
         :options="franchises"
         v-model="form.franchise"
         @change="getConstructors()"
-    />
+    >
+        <template #option="{ option }">
+            {{ option.name }}
+        </template>
+    </SelectMenu>
 
     <SelectMenu
         v-if="constructors.length > 0"
         label="Constructor"
         :options="constructors"
         v-model="form.constructor"
-    />
+    >
+        <template #option="{ option }">
+            {{ option.name }} 
+        </template>
+    </SelectMenu>
 
     <Toggle
         label="Rookie"
@@ -70,40 +78,40 @@
     const props = defineProps(['franchises', 'driver'])
 
     const form = useForm({
-    id: props.driver?.id ?? '',
-    number: props.driver?.number ?? '',
-    franchise: props.driver?.constructor.franchise ?? {},
-    first_name: props.driver?.first_name ?? '',
-    last_name: props.driver?.last_name ?? '',
-    constructor: props.driver?.constructor ?? {},
-    is_rookie: props.driver?.is_rookie ?? false,
+        id: props.driver?.id ?? '',
+        number: props.driver?.number ?? '',
+        franchise: props.driver?.constructor.franchise ?? {},
+        first_name: props.driver?.first_name ?? '',
+        last_name: props.driver?.last_name ?? '',
+        constructor: props.driver?.constructor ?? {},
+        is_rookie: props.driver?.is_rookie ?? false,
     })
 
     const constructors = ref({})
 
     onMounted: {
-    if (props.driver?.constructor.franchise !== undefined) {
-        getConstructors()
-    }
+        if (props.driver?.constructor.franchise !== undefined) {
+            getConstructors()
+        }
     }
 
     function getConstructors() {
-    axios.get(
-        route('constructors.index.collection', {
-            franchise: form.franchise.slug,
+        axios.get(
+            route('constructors.index.collection', {
+                franchise: form.franchise.slug,
+            })
+        ).then(res => {
+            constructors.value = res.data.data
         })
-    ).then(res => {
-        constructors.value = res.data.data
-    })
     }
 
     function saveDriver() {
-    form.post(route('admin.driver.store'), {
-        onSuccess: () => form.reset(),
-    })
+        form.post(route('admin.driver.store'), {
+            onSuccess: () => form.reset(),
+        })
     }
 
     function updateDriver() {
-    form.put(route('admin.driver.update', {driver: form.id}))
+        form.put(route('admin.driver.update', {driver: form.id}))
     }
 </script>

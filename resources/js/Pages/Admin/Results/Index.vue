@@ -1,3 +1,109 @@
+<script>
+	import Admin from '@/Layouts/Admin.vue'
+
+	export default {
+		layout: Admin,
+	}
+</script>
+
+<script setup>
+	import { ref } from 'vue'
+	import axios from 'axios'
+	import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
+	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
+	import Button from '@/Shared/Form/Button.vue'
+	import RaceResult from '@/Shared/Forms/RaceResult.vue'
+	import Modal from '@/Shared/Overlays/Modal.vue'
+	import Table from '@/Shared/Tables/Table.vue'
+	import TableColumn from '@/Shared/Tables/TableColumn.vue'
+
+	const props = defineProps({
+		franchises: Array,
+	})
+
+	const franchise = ref({})
+	const event = ref({})
+	const drivers = ref([])
+	const events = ref([])
+	const results = ref([])
+	const creatingRecord = ref(false)
+	const modalOpen = ref(false)
+	const fields = ref([])
+	const resultID = ref()
+
+	const headers = [
+		'Result ID',
+		'Driver',
+		'Constructor',
+		'Started',
+		'Finished',
+		'Fastest Lap',
+		'DNF',
+		'Points Earned',
+		'',
+	]
+
+	function openEditModal(result) {
+		resultID.value = result.id
+		modalOpen.value = true
+		fields.value = result
+	}
+
+	function closeModalUpdate() {
+		modalOpen.value = false
+		getEvent()
+	}
+
+	function franchiseSelected() {
+		axios
+			.get(
+				route('events.index.collection', {
+					franchise: franchise.value.slug,
+				})
+			)
+			.then(res => {
+				events.value = res.data.data
+			})
+			.catch(error => {
+				console.log(error)
+			})
+
+		axios
+			.get(
+				route('drivers.index.collection', {
+					franchise: franchise.value.slug,
+				})
+			)
+			.then(res => {
+				drivers.value = res.data.data
+			})
+	}
+
+	function getEvent() {
+		axios
+			.get(
+				route('results.index.collection', {
+					franchise: franchise.value.slug,
+					race: event.value.id,
+				})
+			)
+			.then(res => {
+				results.value = res.data.data
+			})
+			.catch(error => {
+				console.log(error)
+			})
+	}
+
+	function destroy(result) {
+		axios
+			.delete(route('admin.result.destroy', { result: result.id }))
+			.then(() => {
+				getEvent()
+			})
+	}
+</script>
+
 <template>
 	<Header title="Admin | Results" />
 
@@ -149,108 +255,3 @@
 	</Modal>
 </template>
 
-<script setup>
-	import { ref } from 'vue'
-	import axios from 'axios'
-	import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
-	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
-	import Button from '@/Shared/Form/Button.vue'
-	import RaceResult from '@/Shared/Forms/RaceResult.vue'
-	import Modal from '@/Shared/Overlays/Modal.vue'
-	import Table from '@/Shared/Tables/Table.vue'
-	import TableColumn from '@/Shared/Tables/TableColumn.vue'
-
-	const props = defineProps({
-		franchises: Array,
-	})
-
-	const franchise = ref({})
-	const event = ref({})
-	const drivers = ref([])
-	const events = ref([])
-	const results = ref([])
-	const creatingRecord = ref(false)
-	const modalOpen = ref(false)
-	const fields = ref([])
-	const resultID = ref()
-
-	const headers = [
-		'Result ID',
-		'Driver',
-		'Constructor',
-		'Started',
-		'Finished',
-		'Fastest Lap',
-		'DNF',
-		'Points Earned',
-		'',
-	]
-
-	function openEditModal(result) {
-		resultID.value = result.id
-		modalOpen.value = true
-		fields.value = result
-	}
-
-	function closeModalUpdate() {
-		modalOpen.value = false
-		getEvent()
-	}
-
-	function franchiseSelected() {
-		axios
-			.get(
-				route('events.index.collection', {
-					franchise: franchise.value.slug,
-				})
-			)
-			.then(res => {
-				events.value = res.data.data
-			})
-			.catch(error => {
-				console.log(error)
-			})
-
-		axios
-			.get(
-				route('drivers.index.collection', {
-					franchise: franchise.value.slug,
-				})
-			)
-			.then(res => {
-				drivers.value = res.data.data
-			})
-	}
-
-	function getEvent() {
-		axios
-			.get(
-				route('results.index.collection', {
-					franchise: franchise.value.slug,
-					race: event.value.id,
-				})
-			)
-			.then(res => {
-				results.value = res.data.data
-			})
-			.catch(error => {
-				console.log(error)
-			})
-	}
-
-	function destroy(result) {
-		axios
-			.delete(route('admin.result.destroy', { result: result.id }))
-			.then(() => {
-				getEvent()
-			})
-	}
-</script>
-
-<script>
-	import Admin from '@/Layouts/Admin.vue'
-
-	export default {
-		layout: Admin,
-	}
-</script>
