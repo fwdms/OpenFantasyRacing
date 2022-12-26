@@ -63,7 +63,11 @@
         :options="props.franchises"
         v-model="franchise"
         @change="franchiseSelected()"
-    />
+    >
+      <template #option="{ option }">
+        {{ option.name }}
+      </template>
+    </SelectMenu>
   </div>
 
   <Table
