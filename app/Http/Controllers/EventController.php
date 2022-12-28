@@ -6,6 +6,7 @@ use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
 use App\Models\Track;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -41,7 +42,13 @@ class EventController extends Controller
         return Inertia::render('Admin/Events/Create')
             ->with(compact('franchises', 'tracks'));
     }
-
+    
+    public function store(Franchise $franchise): RedirectResponse
+    {
+        // Do logic to save the event.
+        return redirect(route('admin.events.index'));
+    }
+    
     public function show(Franchise $franchise, Race $race): Response
     {
         $event = $race->load('track');
@@ -54,6 +61,23 @@ class EventController extends Controller
             ->get();
 
         return Inertia::render('Events/Show')
-            ->with(compact('franchise', 'event', 'results'));
+            ->with(compact(
+                'franchise', 
+                'event',
+                'results'
+            ));
+    }
+    
+    public function edit(Race $event): Response 
+    {
+        $franchises = Franchise::get();
+        $tracks = Track::get();
+
+        return Inertia::render('Admin/Events/Edit')
+            ->with(compact(
+                'franchises',
+                'tracks', 
+                'event'
+            ));
     }
 }

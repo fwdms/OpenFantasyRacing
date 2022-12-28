@@ -67,8 +67,8 @@
 </template>
 
 <script setup>
-    import {ref, onMounted} from 'vue'
-    import {useForm} from '@inertiajs/inertia-vue3'
+    import { ref, onMounted } from 'vue'
+    import { useForm } from '@inertiajs/inertia-vue3'
     import axios from 'axios'
     import Input from '@/Shared/Form/Input.vue'
     import Button from '@/Shared/Form/Button.vue'

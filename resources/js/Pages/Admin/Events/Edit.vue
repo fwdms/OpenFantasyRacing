@@ -4,7 +4,8 @@
 
     const props = defineProps([
         'franchises',
-        'tracks'
+        'tracks',
+        'event'
     ])
 </script>
 
@@ -21,5 +22,9 @@
 
     <PageHeader title="Races / Events"/>
     
-    <Event :franchises="franchises" :tracks="tracks" /> 
+    <Event 
+        :franchises="franchises" 
+        :tracks="tracks" 
+        :event="event" 
+    /> 
 </template>

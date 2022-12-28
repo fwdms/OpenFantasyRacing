@@ -40,9 +40,10 @@ Route::controller('ResultsController')->prefix('/results')->group(function () {
     Route::delete('/{result}', 'destroy')->name('admin.result.destroy');
 });
 
-Route::controller('EventController')->group(function () {
-    Route::get('/event', 'adminIndex')->name('admin.events.index');
-    Route::get('/event/create', 'create')->name('admin.events.create');
+Route::controller('EventController')->prefix('event')->group(function () {
+    Route::get('/', 'adminIndex')->name('admin.events.index');
+    Route::get('/create', 'create')->name('admin.events.create');
+    Route::get('/{event}/edit', 'edit')->name('admin.events.edit');
 });
 
 Route::controller('Auth\RegisteredUserController')->group(function () {
