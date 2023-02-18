@@ -2,7 +2,7 @@
   <Header title="Email Verification" />
 
   <div
-    class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"
+    class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0"
   >
     <div class="mb-4 text-sm text-gray-600">
       Thanks for signing up! Before getting started, could you verify your email
@@ -11,7 +11,7 @@
     </div>
 
     <div
-      class="mb-4 font-medium text-sm text-green-600"
+      class="mb-4 text-sm font-medium text-green-600"
       v-if="verificationLinkSent"
     >
       A new verification link has been sent to the email address you provided
@@ -19,7 +19,7 @@
     </div>
 
     <form @submit.prevent="submit">
-      <div class="mt-4 flex items-center justify-between">
+      <div class="flex items-center justify-between mt-4">
         <BreezeButton
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
@@ -31,7 +31,7 @@
           :href="route('logout')"
           method="post"
           as="button"
-          class="underline text-sm text-gray-600 hover:text-gray-900"
+          class="text-sm text-gray-600 underline hover:text-gray-900"
           >Log Out
         </Link>
       </div>
@@ -42,7 +42,7 @@
 <script setup>
   import { computed } from 'vue'
   import BreezeButton from '@/Shared/Form/Button.vue'
-  import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/vue3'
 
   const props = defineProps({
     status: String,

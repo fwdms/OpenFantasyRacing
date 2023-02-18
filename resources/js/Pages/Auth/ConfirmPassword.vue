@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col sm:justify-center items-center">
+  <div class="flex flex-col items-center sm:justify-center">
     <Header title="Confirm Password" />
 
     <div class="mb-4 text-sm text-gray-600">
@@ -18,7 +18,7 @@
         <Input
           id="password"
           type="password"
-          class="mt-1 block w-full"
+          class="block w-full mt-1"
           v-model="form.password"
           required
           autocomplete="current-password"
@@ -44,8 +44,8 @@
   import Input from '@/Shared/Form/Input.vue'
   import Label from '@/Shared/Form/Label.vue'
   import ValidationErrors from '@/Shared/Form/ValidationErrors.vue'
-
-  import { useForm } from '@inertiajs/inertia-vue3'
+  
+  import { useForm } from '@inertiajs/vue3'
 
   const form = useForm({
     password: '',

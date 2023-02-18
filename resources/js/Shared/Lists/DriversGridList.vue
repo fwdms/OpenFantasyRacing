@@ -15,14 +15,16 @@
             </Link>
             <div class='flex flex-col'>
               <h3 class='font-medium truncate'>
-                <Link :href="route('driver.show', { franchise: $props.franchise.slug, driver: driver.id })"
-                      class='text-gray-800 hover:text-orange-600'
+                <Link 
+                    :href="route('driver.show', { franchise: $props.franchise.slug, driver: driver.id })"
+                    class='text-gray-800 hover:text-orange-600'
                 >
-                  {{ driver.first_name }} {{ driver.last_name }}
+                    {{ driver.first_name }} {{ driver.last_name }}
                 </Link>
               </h3>
-              <Link class='mt-1 text-orange-600 text-sm truncate hover:text-gray-800'
-                    :href="route('constructor.show', { franchise: franchise.slug, slug: driver.constructor.slug })"
+              <Link
+                class='mt-1 text-orange-600 text-sm truncate hover:text-gray-800'
+                :href="route('constructor.show', { franchise: franchise.slug, slug: driver.constructor.slug })"
               >
                 {{ driver.constructor.short_name }}
               </Link>
