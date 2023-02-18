@@ -1,6 +1,5 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3'
-import { InertiaProgress } from '@inertiajs/progress'
+import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { Ziggy } from './ziggy'
 import '../css/app.css'
@@ -11,6 +10,9 @@ const appName =
   window.document.getElementsByTagName('title')[0]?.innerText
 
 createInertiaApp({
+  progress: { 
+    color: '#4B5563' 
+  },
   title: (title) => `${title} : ${appName}`,
   resolve: (name) => {
     const page = resolvePageComponent(
@@ -22,8 +24,8 @@ createInertiaApp({
     })
     return page
   },
-  setup({ el, app, props, plugin }) {
-    return createApp({ render: () => h(app, props) })
+  setup({ el, App, props, plugin }) {
+    return createApp({ render: () => h(App, props) })
         .use(plugin)
         .component('Link', Link)
         .component('Header', Head)
@@ -32,5 +34,3 @@ createInertiaApp({
         .mount(el)
   }
 })
-
-InertiaProgress.init({ color: '#4B5563' })

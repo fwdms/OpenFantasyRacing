@@ -1,6 +1,6 @@
 <script setup>
 	import { onMounted } from 'vue'
-	import { useForm } from '@inertiajs/inertia-vue3'
+	import { useForm } from '@inertiajs/vue3'
 	import dayjs from 'dayjs'
 	import Input from '@/Shared/Form/Input.vue'
 	import SelectMenu from '@/Shared/Form/SelectMenu.vue'

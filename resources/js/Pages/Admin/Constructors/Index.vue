@@ -9,8 +9,8 @@
 <script setup>
 	import {ref} from 'vue'
 	import axios from 'axios'
-	import {Inertia} from "@inertiajs/inertia"
-	import {useForm} from "@inertiajs/inertia-vue3"
+	import { router } from '@inertiajs/vue3'
+	import { useForm } from '@inertiajs/vue3'
 	import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
 	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 	import Button from '@/Shared/Form/Button.vue'
@@ -47,9 +47,9 @@
 
 	function deleteConstructor(team) {
 		form.delete(
-				route('admin.constructor.destroy', {team: team.id}), {
-					onSuccess: () => Inertia.visit(route('admin.constructor.index'))
-				}
+			route('admin.constructor.destroy', {team: team.id}), {
+				onSuccess: () => router.visit(route('admin.constructor.index'))
+			}
 		)
 	}
 </script>
@@ -59,7 +59,7 @@
 
 	<PageHeader title="Teams"/>
 
-	<div class="mx-auto w-1/5">
+	<div class="w-1/5 mx-auto">
 		<SelectMenu
 			label="Franchise"
 			:options="props.franchises"
@@ -76,9 +76,9 @@
 		:headers="headers"
 	>
 		<template v-slot:top>
-			<div class="my-4 mx-6">
+			<div class="mx-6 my-4">
 				<div class="sm:flex sm:items-center">
-					<div class="sm:flex-auto px-2">
+					<div class="px-2 sm:flex-auto">
 						<h1 class="text-xl font-semibold text-gray-900">
 							Teams
 						</h1>
@@ -88,11 +88,7 @@
 					</div>
 					<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
 						<Link :href="route('admin.constructor.create')">
-							<Button class="
-								inline-flex items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm 
-								font-medium text-white shadow-sm 
-								hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto
-							">
+							<Button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto">
 								Add a Team
 							</Button>
 						</Link>
@@ -109,7 +105,7 @@
 			<TableColumn>
 				<img
 					:src="team.logo"
-					class="rounded-lg object-scale-down h-20 mx-auto flex-none"
+					class="flex-none object-scale-down h-20 mx-auto rounded-lg"
 				/>
 			</TableColumn>
 

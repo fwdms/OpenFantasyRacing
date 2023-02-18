@@ -3,7 +3,7 @@
       class="mx-8 my-8 text-center"
       @submit.prevent="submit"
   >
-    <div class="flex flex-wrap justify-center items-start mt-4">
+    <div class="flex flex-wrap items-start justify-center mt-4">
       <Input
           label="Track Name"
           v-model="form.name"
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import {useForm} from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/vue3'
 import Input from '@/Shared/Form/Input.vue'
 import Button from '@/Shared/Form/Button.vue'
 

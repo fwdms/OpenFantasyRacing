@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-center items-center mt-4">
+  <div class="flex flex-wrap items-center justify-center mt-4">
     <Input
         label="First Name"
         v-model="form.first_name"
@@ -49,7 +49,7 @@
     />
   </div>
 
-  <div class="flex flex-wrap justify-center items-center">
+  <div class="flex flex-wrap items-center justify-center">
     <Button
         v-if="props.driver"
         @click="updateDriver()"
@@ -68,7 +68,7 @@
 
 <script setup>
     import { ref, onMounted } from 'vue'
-    import { useForm } from '@inertiajs/inertia-vue3'
+    import { useForm } from '@inertiajs/vue3'
     import axios from 'axios'
     import Input from '@/Shared/Form/Input.vue'
     import Button from '@/Shared/Form/Button.vue'

@@ -1,11 +1,11 @@
 <template>
   <Header title="Forgot Password" />
 
-  <div class="min-h-full flex">
+  <div class="flex min-h-full">
     <div
-      class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
+      class="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
     >
-      <div class="mx-auto w-full max-w-sm lg:w-96">
+      <div class="w-full max-w-sm mx-auto lg:w-96">
         <div>
           <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
             Forgot Password
@@ -21,7 +21,7 @@
 
             <div
               v-if="status"
-              class="mb-4 font-medium text-sm text-green-600"
+              class="mb-4 text-sm font-medium text-green-600"
             >
               {{ status }}
             </div>
@@ -53,9 +53,9 @@
       </div>
     </div>
 
-    <div class="hidden lg:block relative w-0 flex-1">
+    <div class="relative flex-1 hidden w-0 lg:block">
       <img
-        class="absolute inset-0 h-full w-full object-cover"
+        class="absolute inset-0 object-cover w-full h-full"
         src="https://images.unsplash.com/photo-1560692830-04adc2f31119?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
         alt="Photo by Max Böttinger on Unsplash"
       />
@@ -76,7 +76,7 @@
   import Input from '@/Shared/Form/Input.vue'
   import BreezeValidationErrors from '@/Shared/Form/ValidationErrors.vue'
 
-  import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/vue3'
 
   defineProps({
     status: String,

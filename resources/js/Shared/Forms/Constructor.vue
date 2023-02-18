@@ -1,9 +1,8 @@
 <script setup>
-	import {useForm} from '@inertiajs/inertia-vue3'
+	import { useForm } from '@inertiajs/vue3'
 	import Input from '@/Shared/Form/Input.vue'
 	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 	import Button from '@/Shared/Form/Button.vue'
-
 
 	const props = defineProps([
 		'franchises',
