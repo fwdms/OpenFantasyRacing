@@ -6,7 +6,7 @@
 		label: String,
 		errors: String,
 		options: Array,
-		modelValue: Object
+		modelValue: Object|String
 	})
 
 	const emit = defineEmits(['update:modelValue'])

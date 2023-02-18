@@ -1,6 +1,7 @@
 <script setup>
 	import {ref} from 'vue'
 	import axios from 'axios'
+	import { Inertia } from '@inertiajs/inertia'
 	import PageHeader from '@/Shared/PageHeadings/PageHeader.vue'
 	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 	import Table from '@/Shared/Tables/Table.vue'
@@ -27,7 +28,15 @@
 		'Country',
 		'',
 	]
-
+	
+	function deleteEvent(event) {
+		Inertia.delete(
+			route('admin.events.delete', { event: event }), {
+				preserveState: false
+			}
+		)	
+	}
+	
 	function franchiseSelected() {
 		axios
 			.get(
@@ -84,7 +93,10 @@
 						<Link :href="route('admin.events.create')">
 							<button
 								type="button"
-								class="inline-flex items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto"
+								class="inline-flex items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium text-white shadow-sm 
+									hover:bg-gray-700 
+									focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto
+								"
 							>
 								Add an Event
 							</button>
@@ -112,7 +124,9 @@
 					<Button>edit</Button>
 				</Link>
 
-				<Button>x</Button>
+				<Button @click="deleteEvent(event.id)">
+					x
+				</Button>
 			</TableColumn>
 		</tr>
   </Table>

@@ -89,11 +89,11 @@
 
     const constructors = ref({})
 
-    onMounted: {
+    onMounted(() => {
         if (props.driver?.constructor.franchise !== undefined) {
             getConstructors()
         }
-    }
+    })
 
     function getConstructors() {
         axios.get(

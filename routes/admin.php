@@ -43,7 +43,10 @@ Route::controller('ResultsController')->prefix('/results')->group(function () {
 Route::controller('EventController')->prefix('event')->group(function () {
     Route::get('/', 'adminIndex')->name('admin.events.index');
     Route::get('/create', 'create')->name('admin.events.create');
+    Route::post('/', 'store')->name('admin.events.store');
     Route::get('/{event}/edit', 'edit')->name('admin.events.edit');
+    Route::put('/{event}', 'update')->name('admin.events.update');
+    Route::delete('/{event}', 'destroy')->name('admin.events.delete');
 });
 
 Route::controller('Auth\RegisteredUserController')->group(function () {

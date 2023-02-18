@@ -30,17 +30,17 @@ class DashboardController extends Controller
         $constructors = Constructor::all()->count();
 
         return Inertia::render('Admin/Dashboard')
-      ->with(compact(
-          'users', 
-          'franchises', 
-          'constructors', 
-          'drivers', 
-          'events', 
-          'results', 
-          'fantasyTeams', 
-          'tracks', 
-          'leagues'
-      ));
+          ->with(compact(
+              'users', 
+              'franchises', 
+              'constructors', 
+              'drivers', 
+              'events', 
+              'results', 
+              'fantasyTeams', 
+              'tracks', 
+              'leagues'
+          ));
     }
 
     public function index(): Response

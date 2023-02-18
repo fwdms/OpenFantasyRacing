@@ -252,7 +252,7 @@ Inertia.on('navigate', event => {
       current: route().current('admin.franchise.*'),
     },
     {
-      name: 'Constructors / Teams',
+      name: 'Teams',
       href: route('admin.constructor.index'),
       icon: UserGroupIcon,
       current: route().current('admin.constructor.*'),
@@ -270,7 +270,7 @@ Inertia.on('navigate', event => {
       current: route().current('admin.tracks.*'),
     },
     {
-      name: 'Races / Events',
+      name: 'Events',
       href: route('admin.events.index'),
       icon: TicketIcon,
       current: route().current('admin.events.*'),
@@ -281,8 +281,6 @@ Inertia.on('navigate', event => {
       icon: BookOpenIcon,
       current: route().current('admin.results.*'),
     },
-
-
     {
       name: 'Users',
       href: route('admin.users.index'),

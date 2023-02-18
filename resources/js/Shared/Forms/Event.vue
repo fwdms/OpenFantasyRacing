@@ -1,10 +1,12 @@
 <script setup>
 	import { onMounted } from 'vue'
 	import { useForm } from '@inertiajs/inertia-vue3'
+	import dayjs from 'dayjs'
 	import Input from '@/Shared/Form/Input.vue'
 	import SelectMenu from '@/Shared/Form/SelectMenu.vue'
 	import Button from '@/Shared/Form/Button.vue'
 	import Combobox from '@/Shared/Form/Combobox.vue'
+	import DatePicker from '@/Shared/Form/DatePicker.vue'
 
 	const props = defineProps([
 		'franchises',
@@ -31,6 +33,7 @@
 	const form = useForm({
 		franchise: props.event?.franchise_id ?? {},
 		name: props.event?.name ?? '',
+		date: props.event?.date ?? '',
 		short_name: props.event?.short_name ?? '',
 		slug: props.event?.slug ?? '',
 		round_number: props.event?.round_number ?? '',
@@ -40,11 +43,11 @@
 
 	function submit() {
 		if (props.event !== undefined) {
-			form.put(route('admin.event.update', { 
-				team: props.team.id 
+			form.put(route('admin.events.update', {
+				event: props.event.id
 			}))
 		} else {
-			form.post(route('admin.event.store'))
+			form.post(route('admin.events.store'))
 		}
 	}
 </script>
@@ -68,7 +71,14 @@
 					{{ option.name }}
 				</template>
 			</SelectMenu>
-
+			
+			<DatePicker
+				label="Event Date"
+				:min="dayjs()"
+				v-model="form.date"
+				required
+			/>
+			
 			<Input
 				label="Event Name"
 				required
@@ -92,6 +102,7 @@
 				]"
 				:options="props.tracks"
 				v-model="form.track"
+				:errors="form.errors.track"
 			>
 				<template #option="{ option }">
 					{{ option.name }}
@@ -118,5 +129,5 @@
 				Submit
 			</Button>
 		</div>
-  </form>
+  	</form>
 </template>

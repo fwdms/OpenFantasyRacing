@@ -6,25 +6,27 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class EventRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function prepareForValidation()
     {
-        return false;
+        $this->merge([
+            'franchise_id' => $this->franchise['id'],
+            'track_id' => $this->track['id']
+        ]);
+    }
+    
+    public function authorize(): bool
+    {
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'franchise_id' => 'required',
+            'track_id' => 'required',
+            'date' => 'required',
+            'name' => 'required',
+            'round_number' => 'nullable'
         ];
     }
 }

@@ -16,6 +16,8 @@ class Event extends Model
     use HasFactory;
 
     protected $table = 'races';
+    
+    protected $guarded = ['id'];
 
     public function track()
     {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventRequest;
+use App\Models\Event;
 use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
@@ -14,7 +16,7 @@ class EventController extends Controller
 {
     public function adminIndex()
     {
-        $franchises = Franchise::get();
+        $franchises = Franchise::all();
 
         return Inertia::render(
             'Admin/Events/Index',
@@ -36,30 +38,33 @@ class EventController extends Controller
     
     public function create(Franchise $franchise): Response
     {
-        $franchises = Franchise::get();
-        $tracks = Track::get();
+        $franchises = Franchise::all();
+        $tracks = Track::all();
         
         return Inertia::render('Admin/Events/Create')
             ->with(compact('franchises', 'tracks'));
     }
     
-    public function store(Franchise $franchise): RedirectResponse
+    public function store(Franchise $franchise, EventRequest $request): RedirectResponse
     {
-        // Do logic to save the event.
+        Event::create(
+            $request->validated()
+        );
+        
         return redirect(route('admin.events.index'));
     }
     
-    public function show(Franchise $franchise, Race $race): Response
+    public function show(Franchise $franchise, Event $event): Response
     {
-        $event = $race->load('track');
-
+        $event->load('track');
+        
         $results = Result::query()
             ->where('race_id', $event->id)
             ->with('driver')
             ->orderBy('finish_pos', 'ASC')
             ->orderBy('starting_pos', 'ASC')
             ->get();
-
+            
         return Inertia::render('Events/Show')
             ->with(compact(
                 'franchise', 
@@ -68,16 +73,30 @@ class EventController extends Controller
             ));
     }
     
-    public function edit(Race $event): Response 
+    public function edit(Event $event): Response 
     {
         $franchises = Franchise::get();
         $tracks = Track::get();
-
+        
         return Inertia::render('Admin/Events/Edit')
             ->with(compact(
                 'franchises',
                 'tracks', 
                 'event'
             ));
+    }
+    
+    public function update(Event $event, EventRequest $request)
+    {
+        $event->update($request->validated());
+        
+        return redirect(route('admin.events.index'));
+    }
+    
+    public function destroy(Event $event) 
+    {
+        $event->delete();
+        
+        return redirect(route('admin.events.index'));
     }
 }

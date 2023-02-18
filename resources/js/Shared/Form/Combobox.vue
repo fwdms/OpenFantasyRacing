@@ -15,7 +15,8 @@
 		'options', 
 		'label',
 		'inputDisplay', 
-		'keys'
+		'keys',
+		'errors'
 	])
 
 	const query = ref('')

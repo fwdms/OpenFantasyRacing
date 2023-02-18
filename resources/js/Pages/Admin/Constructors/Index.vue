@@ -55,9 +55,9 @@
 </script>
 
 <template>
-	<Header title="Admin | Constructors"/>
+	<Header title="Admin | Teams"/>
 
-	<PageHeader title="Constructors / Teams"/>
+	<PageHeader title="Teams"/>
 
 	<div class="mx-auto w-1/5">
 		<SelectMenu
@@ -80,10 +80,10 @@
 				<div class="sm:flex sm:items-center">
 					<div class="sm:flex-auto px-2">
 						<h1 class="text-xl font-semibold text-gray-900">
-							Constructors / Teams
+							Teams
 						</h1>
 						<p class="mt-2 text-sm text-gray-700">
-							A list of all the constructors from a given franchise.
+							A list of all the teams from a given franchise.
 						</p>
 					</div>
 					<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
@@ -93,7 +93,7 @@
 								font-medium text-white shadow-sm 
 								hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:w-auto
 							">
-								Add a Constructor / Team
+								Add a Team
 							</Button>
 						</Link>
 					</div>
