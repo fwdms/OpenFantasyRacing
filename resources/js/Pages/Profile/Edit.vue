@@ -1,7 +1,7 @@
 <template>
   <Header title="My Profile" />
 
-  <div class="my-8 mx-8">
+  <div class="mx-8 my-8">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
         <div class="px-4 sm:px-0">
@@ -16,7 +16,7 @@
 
       <div class="mt-5 md:mt-0 md:col-span-2">
         <form @submit.prevent="submit">
-          <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="overflow-hidden shadow sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
@@ -31,7 +31,7 @@
                     name="first-name"
                     id="first-name"
                     autocomplete="given-name"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -47,7 +47,7 @@
                     name="last-name"
                     id="last-name"
                     autocomplete="family-name"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -63,7 +63,7 @@
                     name="email-address"
                     id="email-address"
                     autocomplete="email"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -78,7 +78,7 @@
                     id="country"
                     name="country"
                     autocomplete="country-name"
-                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   >
                     <option>United States</option>
                     <option>Canada</option>
@@ -98,7 +98,7 @@
                     name="street-address"
                     id="street-address"
                     autocomplete="street-address"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -114,7 +114,7 @@
                     name="city"
                     id="city"
                     autocomplete="address-level2"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -130,7 +130,7 @@
                     name="region"
                     id="region"
                     autocomplete="address-level1"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
 
@@ -146,15 +146,15 @@
                     name="postal-code"
                     id="postal-code"
                     autocomplete="postal-code"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
               <button
                 type="submit"
-                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
               </button>
@@ -186,18 +186,18 @@
       <div class="mt-5 md:mt-0 md:col-span-2">
         <form @submit.prevent="submit">
           <div class="shadow sm:rounded-md sm:overflow-hidden">
-            <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700">
                   Photo
                 </label>
-                <div class="mt-1 flex items-center">
+                <div class="flex items-center mt-1">
                   <span
                     v-if="props.auth.user.profile_image === null"
-                    class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100"
+                    class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full"
                   >
                     <svg
-                      class="h-full w-full text-gray-300"
+                      class="w-full h-full text-gray-300"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -209,11 +209,11 @@
 
                   <span
                     v-if="props.auth.user.profile_image !== null"
-                    class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100"
+                    class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full"
                   >
                     <img
                       :src="props.auth.user.profile_image"
-                      class="h-full w-full text-gray-300"
+                      class="w-full h-full text-gray-300"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     />
@@ -221,7 +221,7 @@
 
                   <div>
                     <label
-                      class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       for="file-upload"
                       >Upload File</label
                     >
@@ -251,7 +251,7 @@
                     id="about"
                     name="about"
                     rows="3"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                    class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -268,9 +268,9 @@
                   >
                     Website
                   </label>
-                  <div class="mt-1 flex rounded-md shadow-sm">
+                  <div class="flex mt-1 rounded-md shadow-sm">
                     <span
-                      class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                      class="inline-flex items-center px-3 text-sm text-gray-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50"
                     >
                       https://
                     </span>
@@ -279,17 +279,17 @@
                       type="text"
                       name="company-website"
                       id="company-website"
-                      class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                      class="flex-1 block w-full border-gray-300 rounded-none focus:ring-indigo-500 focus:border-indigo-500 rounded-r-md sm:text-sm"
                       placeholder="www.example.com"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
               <button
                 type="submit"
-                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
               </button>
@@ -302,7 +302,7 @@
 </template>
 
 <script setup>
-  import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/vue3'
 
   const props = defineProps(['auth'])
 

@@ -9,17 +9,23 @@
         :options="props.franchises"
         v-model="franchise"
         @change="franchiseSelected()"
-    />
+    >
+      <template #option="{ option }">
+        {{ option.name }}
+      </template>
+    </SelectMenu>
   </div>
 
   <Table
       :headers="headers"
   >
     <template v-slot:top>
-      <div class="mx-auto my-4 mx-6">
+      <div class="my-4 mx-6">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto px-2">
-            <h1 class="text-xl font-semibold text-gray-900">Drivers</h1>
+            <h1 class="text-xl font-semibold text-gray-900">
+              Drivers
+            </h1>
             <p class="mt-2 text-sm text-gray-700">
               A list of all the drivers from a given franchise.
             </p>

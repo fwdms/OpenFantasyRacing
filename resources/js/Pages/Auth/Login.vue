@@ -1,11 +1,11 @@
 <template>
   <Header title="Log in" />
 
-  <div class="h-screen flex">
+  <div class="flex h-screen">
     <div
-      class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
+      class="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
     >
-      <div class="mx-auto w-full max-w-sm lg:w-96">
+      <div class="w-full max-w-sm mx-auto lg:w-96">
         <div>
           <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
             Log in to your account
@@ -32,7 +32,7 @@
                     type="email"
                     autocomplete="email"
                     required=""
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+                    class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -52,7 +52,7 @@
                     type="password"
                     autocomplete="current-password"
                     required=""
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+                    class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -64,11 +64,11 @@
                     id="remember"
                     name="remember"
                     type="checkbox"
-                    class="h-4 w-4 text-orange-600 focus:ring-orange-500 border-orange-300 rounded"
+                    class="w-4 h-4 text-orange-600 border-orange-300 rounded focus:ring-orange-500"
                   />
                   <label
                     for="remember"
-                    class="ml-2 block text-sm text-gray-900"
+                    class="block ml-2 text-sm text-gray-900"
                   >
                     Remember me
                   </label>
@@ -92,7 +92,7 @@
               <div>
                 <button
                   type="submit"
-                  class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign in
                 </button>
@@ -102,9 +102,9 @@
         </div>
       </div>
     </div>
-    <div class="hidden lg:block relative w-0 flex-1">
+    <div class="relative flex-1 hidden w-0 lg:block">
       <img
-        class="absolute inset-0 h-full w-full object-cover"
+        class="absolute inset-0 object-cover w-full h-full"
         src="https://images.unsplash.com/photo-1547025603-ef800f02690e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3600&q=80"
         alt="Photo by toine G on Unsplash"
       />
@@ -121,7 +121,7 @@
 </script>
 
 <script setup>
-  import { useForm } from '@inertiajs/inertia-vue3'
+  import { useForm } from '@inertiajs/vue3'
   import Alert from '@/Shared/Feedback/Alert.vue'
 
   defineProps({
