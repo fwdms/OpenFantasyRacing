@@ -88,7 +88,7 @@
     import Button from '@/Shared/Form/Button.vue'
     import SelectMenu from '@/Shared/Form/SelectMenu.vue'
     import Toggle from '@/Shared/Form/Toggle.vue'
-import FileUpload from "@/Shared/Form/FileUpload.vue"
+    import FileUpload from "@/Shared/Form/FileUpload.vue"
 
     const props = defineProps(['franchises', 'driver'])
 
@@ -101,17 +101,7 @@ import FileUpload from "@/Shared/Form/FileUpload.vue"
         constructor: props.driver?.constructor ?? {},
         is_rookie: props.driver?.is_rookie ?? false,
     })
-const form = useForm({
-  id: props.driver?.id ?? '',
-  number: props.driver?.number ?? '',
-  franchise: props.driver?.constructor.franchise ?? {},
-  first_name: props.driver?.first_name ?? '',
-  last_name: props.driver?.last_name ?? '',
-  profile_image: props.driver?.profile_image ?? '',
-  constructor: props.driver?.constructor ?? {},
-  is_rookie: props.driver?.is_rookie ?? false,
-})
-
+    
     const constructors = ref({})
 
     onMounted(() => {
@@ -119,7 +109,6 @@ const form = useForm({
             getConstructors()
         }
     })
-
     function getConstructors() {
         axios.get(
             route('constructors.index.collection', {
@@ -129,13 +118,11 @@ const form = useForm({
             constructors.value = res.data.data
         })
     }
-
     function saveDriver() {
         form.post(route('admin.driver.store'), {
             onSuccess: () => form.reset(),
         })
     }
-
     function updateDriver() {
         form.put(route('admin.driver.update', {driver: form.id}))
     }
