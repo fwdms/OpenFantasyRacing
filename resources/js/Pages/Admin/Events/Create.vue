@@ -17,9 +17,12 @@
 </script>
 
 <template>
-    <Header title="Admin | Events"/>
+  <Header :title="title"/>
 
-    <PageHeader title="Races / Events"/>
-    
-    <Event :franchises="franchises" :tracks="tracks" /> 
+  <PageHeader :title="title"/>
+
+  <Event
+      :franchises="franchises"
+      :tracks="tracks"
+  />
 </template>

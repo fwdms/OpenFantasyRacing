@@ -74,7 +74,7 @@
 	<PageHeader title="UI Test Area"/>
 
 	<div class="mt-8 mb-4">
-		<p class="text-center my-4">
+		<p class="my-4 text-center">
 			If you are here, you are probably a developer working on some front end
 			components! Thank you, and congratulations! <br/>
 			I've been working very hard to make the font end components very easy to
@@ -176,7 +176,7 @@
 		VueDevTools.
 	</p>
 
-	<div class="flex flex-wrap gap-x-4 justify-center mx-4 mt-4">
+	<div class="flex flex-wrap justify-center mx-4 mt-4 gap-x-4">
 		<p class="my-4">
 			<span class="text-red-600">Input :</span> {{ input }} (
 			{{ typeof input }} )

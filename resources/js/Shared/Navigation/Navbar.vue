@@ -91,6 +91,11 @@
           </Menu>
           <button type='button' class='p-1 ml-4 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
           >
+            <span class='sr-only'>
+              View notifications
+            </span>
+            
+            <BellAlertIcon class='w-6 h-6' aria-hidden='true' />
             <span class='sr-only'>View notifications</span>
             <BellAlertIcon class='w-6 h-6' aria-hidden='true' />
           </button>
@@ -101,6 +106,7 @@
                 class='px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white'>
             Log in
           </Link>
+
           <Link :href="route('register')"
                 class='px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white'>
             Register

@@ -50,6 +50,20 @@
   </div>
 
   <div class="flex flex-wrap items-center justify-center">
+    <FileUpload
+        label="Profile Image"
+        v-model="form.profile_image"
+    />
+  </div>
+
+    <div class="flex flex-wrap items-center justify-center">
+    <FileUpload
+        label="Profile Image"
+        v-model="form.profile_image"
+    />
+  </div>
+
+  <div class="flex flex-wrap items-center justify-center">
     <Button
         v-if="props.driver"
         @click="updateDriver()"
@@ -74,6 +88,7 @@
     import Button from '@/Shared/Form/Button.vue'
     import SelectMenu from '@/Shared/Form/SelectMenu.vue'
     import Toggle from '@/Shared/Form/Toggle.vue'
+    import FileUpload from "@/Shared/Form/FileUpload.vue"
 
     const props = defineProps(['franchises', 'driver'])
 
@@ -86,7 +101,7 @@
         constructor: props.driver?.constructor ?? {},
         is_rookie: props.driver?.is_rookie ?? false,
     })
-
+    
     const constructors = ref({})
 
     onMounted(() => {
@@ -94,7 +109,6 @@
             getConstructors()
         }
     })
-
     function getConstructors() {
         axios.get(
             route('constructors.index.collection', {
@@ -104,13 +118,11 @@
             constructors.value = res.data.data
         })
     }
-
     function saveDriver() {
         form.post(route('admin.driver.store'), {
             onSuccess: () => form.reset(),
         })
     }
-
     function updateDriver() {
         form.put(route('admin.driver.update', {driver: form.id}))
     }

@@ -32,6 +32,7 @@
     "mockery/mockery": "^1.4.2",
     "nunomaduro/collision": "^6.1",
     "nunomaduro/larastan": "^2.0",
+    "overtrue/phplint": "^5.3",
     "pestphp/pest": "^1.20",
     "pestphp/pest-plugin-parallel": "^1.0",
     "phpunit/phpunit": "^9.3.3"
