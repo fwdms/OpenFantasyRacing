@@ -23,7 +23,7 @@
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "tailwindcss": "^3.0.24",
-    "vite": "^2.9.14",
+    "vite": "^2.9.16",
     "vue": "^3.2.33",
     "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.6.14"
