@@ -16,7 +16,7 @@
     "axios": "^0.27",
     "laravel-vite-plugin": "^0.3.0",
     "lodash": "^4.17.21",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.31",
     "postcss-import": "^14.1.0",
     "prettier": "^2.7.1",
     "resolve-url-loader": "^5.0.0",
