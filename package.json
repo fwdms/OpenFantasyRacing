@@ -13,7 +13,7 @@
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "^3.2.33",
     "autoprefixer": "10.4.5",
-    "axios": "^0.27",
+    "axios": "^1.6.2",
     "laravel-vite-plugin": "^0.3.0",
     "lodash": "^4.17.21",
     "postcss": "^8.4.13",
@@ -29,12 +29,14 @@
     "vue-template-compiler": "^2.6.14"
   },
   "dependencies": {
+    "@ably/laravel-echo": "^1.0.3",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@headlessui/vue": "^1.6.1",
     "@heroicons/vue": "^2.0.0",
-    "@inertiajs/vue3": "^1.0.2",
+    "@inertiajs/vue3": "^1.0.14",
+    "ably": "^1.2.48",
     "dayjs": "^1.11.7",
     "font-awesome": "^4.7.0"
   }

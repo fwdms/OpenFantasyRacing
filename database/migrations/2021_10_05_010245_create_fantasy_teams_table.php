@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFantasyTeamsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('fantasy_teams', function (Blueprint $table) {
@@ -30,11 +25,6 @@ class CreateFantasyTeamsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('fantasy_teams');

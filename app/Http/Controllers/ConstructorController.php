@@ -14,14 +14,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ConstructorController extends Controller
 {
-    public function adminIndex(): Response
-    {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Constructors/Index')
-            ->with(compact('franchises'));
-    }
-
     public function index(Franchise $franchise): Response
     {
         $teams = Constructor::query()
@@ -115,5 +107,13 @@ class ConstructorController extends Controller
         $team->delete();
 
         return redirect()->route('admin.constructor.index');
+    }
+
+    public function adminIndex(): Response
+    {
+        $franchises = Franchise::all();
+
+        return Inertia::render('Admin/Constructors/Index')
+            ->with(compact('franchises'));
     }
 }

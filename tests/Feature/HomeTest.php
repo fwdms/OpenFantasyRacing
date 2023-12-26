@@ -14,7 +14,7 @@ class HomeTest extends TestCase
 
         $response->assertInertia(
             fn (AssertableInertia $page) => $page
-            ->component('Home')
+                ->component('Home')
         );
     }
 }

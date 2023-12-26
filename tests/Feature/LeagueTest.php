@@ -10,8 +10,10 @@ class LeagueTest extends TestCase
      * A basic test example.
      *
      * @return void
+     *
+     * @test
      */
-    public function test_example()
+    public function example()
     {
         $this->assertTrue(true);
     }

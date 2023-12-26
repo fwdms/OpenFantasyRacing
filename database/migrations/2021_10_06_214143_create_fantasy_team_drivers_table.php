@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFantasyTeamDriversTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('fantasy_team_drivers', function (Blueprint $table) {
@@ -27,11 +22,6 @@ class CreateFantasyTeamDriversTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('fantasy_team_drivers');

@@ -1,0 +1,9 @@
+{
+    "plugins": ["@prettier/plugin-php", "prettier-plugin-tailwindcss"],
+    "phpVersion": "8.2",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "vueIndentScriptAndStyle": true,
+    "spaceBeforeFunctionParen": true
+}

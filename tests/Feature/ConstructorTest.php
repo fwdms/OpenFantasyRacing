@@ -28,8 +28,8 @@ class ConstructorTest extends TestCase
         $this->get(route('admin.constructor.index'))
             ->assertInertia(
                 fn (Assert $page) => $page
-                ->component('Admin/Constructors')
-                ->has('franchises')
+                    ->component('Admin/Constructors')
+                    ->has('franchises')
             );
     }
 
@@ -39,9 +39,9 @@ class ConstructorTest extends TestCase
         $this->get(route('constructor.index', 'f1'))
             ->assertInertia(
                 fn (Assert $page) => $page
-                ->component('Constructors/Index')
-                ->has('franchise')
-                ->has('teams')
+                    ->component('Constructors/Index')
+                    ->has('franchise')
+                    ->has('teams')
             );
     }
 }

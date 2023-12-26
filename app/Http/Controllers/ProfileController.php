@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -21,7 +20,7 @@ class ProfileController extends Controller
     public function update(ProfileRequest $request): RedirectResponse
     {
         $user = User::query()
-            ->where('id', Auth::id())
+            ->where('id', auth()->id())
             ->firstOrFail();
 
         $profileImage = Storage::put('/public/profile_images', $request->profile_image, 'public');

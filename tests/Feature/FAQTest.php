@@ -14,7 +14,7 @@ class FAQTest extends TestCase
 
         $response->assertInertia(
             fn (AssertableInertia $page) => $page
-            ->component()
+                ->component()
         );
     }
 }

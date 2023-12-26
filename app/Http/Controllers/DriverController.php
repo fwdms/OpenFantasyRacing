@@ -13,14 +13,6 @@ use Inertia\Response;
 
 class DriverController extends Controller
 {
-    public function adminIndex(): Response
-    {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Drivers/Index')
-            ->with(compact('franchises'));
-    }
-
     public function index(Franchise $franchise): Response
     {
         $constructors = Constructor::query()
@@ -108,5 +100,13 @@ class DriverController extends Controller
         $driver->delete();
 
         return Redirect(route('admin.driver.index'));
+    }
+
+    public function adminIndex(): Response
+    {
+        $franchises = Franchise::all();
+
+        return Inertia::render('Admin/Drivers/Index')
+            ->with(compact('franchises'));
     }
 }

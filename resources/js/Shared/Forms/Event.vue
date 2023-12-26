@@ -132,7 +132,7 @@
   	</form>
 </template>
 <template>
-  <div class="flex flex-wrap justify-center items-start mt-4">
+  <div class="flex flex-wrap items-start justify-center mt-4">
     <Input
         label="Name"
         v-model="form.first_name"
@@ -174,7 +174,7 @@
     />
   </div>
 
-  <div class="flex flex-wrap justify-center items-center">
+  <div class="flex flex-wrap items-center justify-center">
     <Button
         v-if="props.driver"
         @click="updateDriver()"
@@ -190,36 +190,3 @@
     </Button>
   </div>
 </template>
-
-<script setup>
-import {useForm} from '@inertiajs/inertia-vue3'
-import Input from '@/Shared/Form/Input.vue'
-import Button from '@/Shared/Form/Button.vue'
-import SelectMenu from '@/Shared/Form/SelectMenu.vue'
-import Combobox from "@/Shared/Form/Combobox.vue";
-
-const props = defineProps([
-  'franchises',
-  'tracks'
-])
-
-const form = useForm({
-  id: props.driver?.id ?? '',
-  franchise: props.driver?.constructor.franchise ?? {},
-  track: {}
-})
-
-const options = [
-  {name: 'Standard'},
-  {name: 'Sprint'},
-  {name: 'Qualifying'}
-]
-
-function submit() {
-  form.post(route('admin.driver.store'), {
-    onSuccess: () => form.reset(),
-  })
-
-  form.put(route('admin.driver.update', {driver: form.id}))
-}
-</script>

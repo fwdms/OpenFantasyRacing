@@ -7,7 +7,6 @@ use App\Models\FantasyTeam;
 use App\Models\Franchise;
 use App\Models\League;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -24,17 +23,17 @@ class LeagueController extends Controller
 
     public function store(LeagueRequest $request): RedirectResponse
     {
-        $league = (new League())->create([
+        $league = (new League)->create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
             'about_text' => $request->about_text,
-            'league_owner_id' => Auth::id(),
+            'league_owner_id' => auth()->id(),
         ]);
 
-        (new FantasyTeam())->create([
+        (new FantasyTeam)->create([
             'team_name' => $request->fantasyTeamName,
             'league_id' => $league->id,
-            'user_id' => Auth::id(),
+            'user_id' => auth()->id(),
         ]);
 
         return Redirect::route('dashboard.index');

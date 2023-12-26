@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRulesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('rules', function (Blueprint $table) {
@@ -27,11 +22,6 @@ class CreateRulesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('rules');

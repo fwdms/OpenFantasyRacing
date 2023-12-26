@@ -134,7 +134,7 @@
   import { BellAlertIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
   import { usePage } from '@inertiajs/vue3'
   
-  const appName = computed(() => usePage().props.value.appName)
+  const appName = computed(() => usePage().props.appName)
   
   const currrentTab = computed(() => usePage().url.value)
   

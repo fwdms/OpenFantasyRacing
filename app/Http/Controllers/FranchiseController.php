@@ -10,14 +10,6 @@ use Inertia\Response;
 
 class FranchiseController extends Controller
 {
-    public function adminIndex(): Response
-    {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Franchises/Index')
-            ->with(compact('franchises'));
-    }
-
     public function create()
     {
         return Inertia::render('Admin/Franchises/Create');
@@ -52,5 +44,13 @@ class FranchiseController extends Controller
         $franchise->delete();
 
         return redirect()->route('admin.franchise.index');
+    }
+
+    public function adminIndex(): Response
+    {
+        $franchises = Franchise::all();
+
+        return Inertia::render('Admin/Franchises/Index')
+            ->with(compact('franchises'));
     }
 }

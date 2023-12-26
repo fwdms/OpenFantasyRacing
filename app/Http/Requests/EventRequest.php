@@ -10,10 +10,10 @@ class EventRequest extends FormRequest
     {
         $this->merge([
             'franchise_id' => $this->franchise['id'],
-            'track_id' => $this->track['id']
+            'track_id' => $this->track['id'],
         ]);
     }
-    
+
     public function authorize(): bool
     {
         return true;
@@ -26,7 +26,7 @@ class EventRequest extends FormRequest
             'track_id' => 'required',
             'date' => 'required',
             'name' => 'required',
-            'round_number' => 'nullable'
+            'round_number' => 'nullable',
         ];
     }
 }

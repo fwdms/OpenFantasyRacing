@@ -6,8 +6,7 @@ import '../css/app.css'
 
 import AppLayout from './Layouts/App.vue'
 
-const appName =
-  window.document.getElementsByTagName('title')[0]?.innerText
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 createInertiaApp({
   progress: { 

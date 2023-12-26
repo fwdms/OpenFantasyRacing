@@ -21,9 +21,9 @@ class ResultsController extends Controller
 
     public function store(ResultRequest $request): Model
     {
-        $pointsEarned = (new Result())->calculatePoints($request);
+        $pointsEarned = (new Result)->calculatePoints($request);
 
-        return (new Result())->create([
+        return (new Result)->create([
             'race_id' => $request->event_id,
             'driver_id' => $request->driver_id,
             'starting_pos' => $request->starting_pos,
