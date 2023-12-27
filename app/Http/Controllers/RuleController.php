@@ -45,16 +45,14 @@ class RuleController extends Controller
             ->orderBy('id')
             ->get();
 
-        return Inertia::render('Rules')->with(
-            compact(
-                'qualifyingPoints',
-                'qualifyingBonusPoints',
-                'racePoints',
-                'raceBonusPoints',
-                'streaks',
-                'sprint',
-                'sprintBonus'
-            )
-        );
+        return Inertia::render('Rules', [
+            'qualifyingPoints' => $qualifyingPoints,
+            'qualifyingBonusPoints' => $qualifyingBonusPoints,
+            'racePoints' => $racePoints,
+            'raceBonusPoints' => $raceBonusPoints,
+            'streaks' => $streaks,
+            'sprint' => $sprint,
+            'sprintBonus' => $sprintBonus,
+        ]);
     }
 }

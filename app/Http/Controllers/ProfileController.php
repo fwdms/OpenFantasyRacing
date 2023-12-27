@@ -25,7 +25,6 @@ class ProfileController extends Controller
 
         $profileImage = Storage::put('/public/profile_images', $request->profile_image, 'public');
 
-        /** @var string $profileImage */
         $user->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

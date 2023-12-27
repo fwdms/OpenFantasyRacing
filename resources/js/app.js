@@ -1,8 +1,8 @@
+import '../css/app.css'
 import { createApp, h } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
-import { Ziggy } from './ziggy'
-import '../css/app.css'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 
 import AppLayout from './Layouts/App.vue'
 
@@ -28,7 +28,7 @@ createInertiaApp({
         .use(plugin)
         .component('Link', Link)
         .component('Header', Head)
-        .use(Ziggy)
+        .use(ZiggyVue, Ziggy)
         .mixin({ methods: { route } })
         .mount(el)
   }

@@ -10,10 +10,9 @@ class FaqController extends Controller
 {
     public function index(): Response
     {
-        $faqs = DB::table('faq')
-            ->get();
-
-        return Inertia::render('Faq')
-            ->with(compact('faqs'));
+        return Inertia::render('Faq', [
+            'faqs' => DB::table('faq')
+                ->get()
+        ]);
     }
 }

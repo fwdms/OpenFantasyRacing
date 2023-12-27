@@ -15,27 +15,11 @@ use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
-    public function index(): Response
-    {
-        $users = User::all();
-
-        return Inertia::render('Admin/Users/Index')
-            ->with(compact('users'));
-    }
-
-    /**
-     * Display the registration view.
-     */
     public function create(): Response
     {
         return Inertia::render('Auth/Register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([

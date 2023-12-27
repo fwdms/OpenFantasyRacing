@@ -68,16 +68,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/', 'update')->name('profile.update');
         });
 
-    Route::controller('ResultsController')
-        ->group(function () {
-            Route::post('results', 'store')->name('result.store');
-        });
-
-    Route::get('admin', function () {
-        return redirect(route('admin.dashboard.index'));
-    });
-
-    // We should move these into actual controllers
     Route::controller('CollectionController')
         ->group(function () {
             Route::get('results-collection/{race}', 'results')->name('results.index.collection');

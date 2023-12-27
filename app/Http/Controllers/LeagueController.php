@@ -15,22 +15,21 @@ class LeagueController extends Controller
 {
     public function create(): Response
     {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Leagues/Create')
-            ->with(compact('franchises'));
+        return Inertia::render('Leagues/Create', [
+            'franchises' => Franchise::all()
+        ]);
     }
 
     public function store(LeagueRequest $request): RedirectResponse
     {
-        $league = (new League)->create([
+        $league = League::create([
             'name' => $request->name,
             'franchise_id' => $request->franchise_id,
             'about_text' => $request->about_text,
             'league_owner_id' => auth()->id(),
         ]);
 
-        (new FantasyTeam)->create([
+        FantasyTeam::create([
             'team_name' => $request->fantasyTeamName,
             'league_id' => $league->id,
             'user_id' => auth()->id(),

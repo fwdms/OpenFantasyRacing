@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ConstructorRequest;
 use App\Models\Constructor;
 use App\Models\Driver;
 use App\Models\Franchise;
@@ -10,7 +9,6 @@ use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ConstructorController extends Controller
 {
@@ -24,25 +22,10 @@ class ConstructorController extends Controller
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
-        return Inertia::render('Constructors/Index')
-            ->with(compact('franchise', 'teams'));
-    }
-
-    public function create(): Response
-    {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Constructors/Create')
-            ->with(compact('franchises'));
-    }
-
-    public function store(ConstructorRequest $request): RedirectResponse
-    {
-        Constructor::create(
-            $request->validated()
-        );
-
-        return redirect()->route('admin.constructor.index');
+        return Inertia::render('Constructors/Index', [
+            'franchise' => $franchise,
+            'teams' => $teams,
+        ]);
     }
 
     public function show(Franchise $franchise, string $slug): Response
@@ -74,46 +57,11 @@ class ConstructorController extends Controller
             ->orderBy('id', 'ASC')
             ->get();
 
-        return Inertia::render('Constructors/Show')
-            ->with(compact(
-                'team',
-                'drivers',
-                'franchise',
-                'results'
-            ));
-    }
-
-    public function edit(Constructor $team): Response
-    {
-        $team->load('franchise');
-
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Constructors/Edit')
-            ->with(compact('franchises', 'team'));
-    }
-
-    public function update(Constructor $team, ConstructorRequest $request): RedirectResponse
-    {
-        $team->update(
-            $request->validated()
-        );
-
-        return redirect()->route('admin.constructor.index');
-    }
-
-    public function destroy(Constructor $team)
-    {
-        $team->delete();
-
-        return redirect()->route('admin.constructor.index');
-    }
-
-    public function adminIndex(): Response
-    {
-        $franchises = Franchise::all();
-
-        return Inertia::render('Admin/Constructors/Index')
-            ->with(compact('franchises'));
+        return Inertia::render('Constructors/Show', [
+            'franchise' => $franchise,
+            'team' => $team,
+            'drivers' => $drivers,
+            'results' => $results,
+        ]);
     }
 }
