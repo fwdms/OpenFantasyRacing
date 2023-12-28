@@ -16,7 +16,7 @@ class LeagueController extends Controller
     public function create(): Response
     {
         return Inertia::render('Leagues/Create', [
-            'franchises' => Franchise::all()
+            'franchises' => Franchise::all(),
         ]);
     }
 
@@ -47,7 +47,9 @@ class LeagueController extends Controller
             ->with(['drivers', 'user'])
             ->get();
 
-        return Inertia::render('Leagues/Show')
-            ->with(compact('league', 'fantasyTeams'));
+        return Inertia::render('Leagues/Show', [
+            'league' => $league,
+            'fantasyTeams' => $fantasyTeams,
+        ]);
     }
 }

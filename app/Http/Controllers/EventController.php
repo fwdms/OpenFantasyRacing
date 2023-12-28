@@ -6,7 +6,6 @@ use App\Models\Event;
 use App\Models\Franchise;
 use App\Models\Race;
 use App\Models\Result;
-use App\Models\Track;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -20,8 +19,10 @@ class EventController extends Controller
             ->orderBy('date', 'ASC')
             ->get();
 
-        return Inertia::render('Events/Index')
-            ->with(compact('franchise', 'events'));
+        return Inertia::render('Events/Index', [
+            'franchise' => $franchise,
+            'events' => $events,
+        ]);
     }
 
     public function show(Franchise $franchise, Event $event): Response
@@ -35,11 +36,10 @@ class EventController extends Controller
             ->orderBy('starting_pos', 'ASC')
             ->get();
 
-        return Inertia::render('Events/Show')
-            ->with(compact(
-                'franchise',
-                'event',
-                'results'
-            ));
+        return Inertia::render('Events/Show', [
+            'franchise' => $franchise,
+            'event' => $event,
+            'results' => $results,
+        ]);
     }
 }

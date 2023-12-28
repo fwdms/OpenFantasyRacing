@@ -12,7 +12,7 @@ class FaqController extends Controller
     {
         return Inertia::render('Faq', [
             'faqs' => DB::table('faq')
-                ->get()
+                ->get(),
         ]);
     }
 }

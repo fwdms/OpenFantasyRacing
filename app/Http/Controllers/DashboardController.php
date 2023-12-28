@@ -21,7 +21,7 @@ class DashboardController extends Controller
                     'franchises.name as franchise_name',
                     'franchises.slug as franchise_slug'
                 )
-                ->get()
+                ->get(),
         ]);
     }
 }

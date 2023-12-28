@@ -29,7 +29,10 @@ class FantasyTeamController extends Controller
             ->orderBy('results_sum_points_for_race', 'DESC')
             ->get();
 
-        return Inertia::render('FantasyTeams/Show')
-            ->with(compact('league', 'team', 'drivers'));
+        return Inertia::render('FantasyTeams/Show', [
+            'league' => $league,
+            'team' => $team,
+            'drivers' => $drivers,
+        ]);
     }
 }

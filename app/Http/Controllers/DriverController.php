@@ -58,7 +58,11 @@ class DriverController extends Controller
             )
             ->get();
 
-        return Inertia::render('Drivers/Show')
-            ->with(compact('driver', 'points', 'franchise', 'results'));
+        return Inertia::render('Drivers/Show', [
+            'driver' => $driver,
+            'franchise' => $franchise,
+            'points' => $points,
+            'results' => $results,
+        ]);
     }
 }
